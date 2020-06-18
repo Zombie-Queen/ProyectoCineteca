@@ -1,0 +1,170 @@
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="Inicio.aspx.cs" Inherits="Vistas.Inicio" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link href="css/inicio.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
+    <div class="ddls">
+        <asp:DropDownList CssClass="ddlsc mr-5" ID="ddlSuc" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSuc_SelectedIndexChanged">
+        </asp:DropDownList>
+        <asp:DropDownList CssClass="ddlsc" ID="ddlFunc" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFunc_SelectedIndexChanged">
+        </asp:DropDownList>
+
+    </div>
+    <div class="peliculas">
+        <h2>TODAS LAS PELÍCULAS</h2>
+        <div class="owl-carousel owl-theme">
+            <asp:ListView ID="lvPeliculas" runat="server" DataKeyNames="ID_Pelicula" DataSourceID="sqldsPelis" GroupItemCount="20">
+                <GroupTemplate>
+                    <tr id="itemPlaceholderContainer" runat="server">
+                        <td id="itemPlaceholder" runat="server"></td>
+                    </tr>
+                </GroupTemplate>
+                <ItemTemplate>
+                    <td>
+                        <asp:ImageButton CssClass="imgpelis" ID="imgpeli" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+
+                    </td>
+                </ItemTemplate>
+                <LayoutTemplate>
+                    <asp:PlaceHolder ID="groupPlaceholder" runat="server"></asp:PlaceHolder>
+                </LayoutTemplate>
+            </asp:ListView>
+            <asp:SqlDataSource ID="sqldsPelis" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SELECT * FROM [Peliculas]"></asp:SqlDataSource>
+        </div>
+        <h2>PELICULAS 2D</h2>
+        <asp:ListView ID="Lvpelis2d" runat="server" DataSourceID="sqldspelis2d" GroupItemCount="6">
+            <GroupTemplate>
+                <tr runat="server" id="itemPlaceholderContainer">
+                    <td runat="server" id="itemPlaceholder"></td>
+                </tr>
+            </GroupTemplate>
+
+            <ItemTemplate>
+                <td runat="server">
+                    <div class="cont-peli">
+                        <asp:ImageButton CssClass="imgpelis_" ID="imgPortada" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+
+                    </div>
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table runat="server" id="groupPlaceholderContainer" border="0">
+                                <tr runat="server" id="groupPlaceholder"></tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server">
+                        <td runat="server"></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+
+        <asp:SqlDataSource runat="server" ID="sqldspelis2d" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="url_2d" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <h2>PELICULAS 3D</h2>
+        <asp:ListView ID="Lvpelis3d" runat="server" DataSourceID="sqldspelis3d" GroupItemCount="6">
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <ItemTemplate>
+                <td runat="server">
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis3d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                <tr id="groupPlaceholder" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server">
+                        <td runat="server" style=""></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+        <asp:SqlDataSource ID="sqldspelis3d" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="url_3d" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <h2>PELICULAS 4D</h2>
+        <asp:ListView ID="Lvpelis4d" runat="server" DataSourceID="sqldspelis4d" GroupItemCount="3">
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <ItemTemplate>
+                <td runat="server">
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis4d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="groupPlaceholderContainer" runat="server" border="0" style="">
+                                <tr id="groupPlaceholder" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server">
+                        <td runat="server" style=""></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+        <asp:SqlDataSource ID="sqldspelis4d" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="url_4d" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+        <h2>PELICULAS PREMIUM</h2>
+        <asp:ListView ID="Lvpelispremium" runat="server" DataSourceID="sqldspelispremium" GroupItemCount="3">
+            <GroupTemplate>
+                <tr id="itemPlaceholderContainer" runat="server">
+                    <td id="itemPlaceholder" runat="server"></td>
+                </tr>
+            </GroupTemplate>
+            <ItemTemplate>
+                <td runat="server">
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelispremium" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                </td>
+            </ItemTemplate>
+            <LayoutTemplate>
+                <table runat="server">
+                    <tr runat="server">
+                        <td runat="server">
+                            <table id="groupPlaceholderContainer" runat="server" border="0">
+                                <tr id="groupPlaceholder" runat="server">
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr runat="server">
+                        <td runat="server" style=""></td>
+                    </tr>
+                </table>
+            </LayoutTemplate>
+        </asp:ListView>
+        <asp:SqlDataSource ID="sqldspelispremium" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="url_premium" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+    </div>
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            items: 6,
+            loop: true,
+            margin: 2,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true
+        });
+    </script>
+</asp:Content>
