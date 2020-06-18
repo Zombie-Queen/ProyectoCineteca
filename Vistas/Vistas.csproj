@@ -67,13 +67,72 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\administrador.css" />
+    <Content Include="css\admin_inicio.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\diseñosucursales.css" />
+    <Content Include="css\inicio.css" />
+    <Content Include="css\normalize.css" />
+    <Content Include="css\principal.css" />
+    <Content Include="css\Promociones.css" />
+    <Content Include="css\sucursales.css" />
+    <Content Include="css\Ventas.css" />
+    <Content Include="imagenes\articulos\agua.jpg" />
+    <Content Include="imagenes\articulos\bebida1.png" />
+    <Content Include="imagenes\articulos\bebida2.png" />
+    <Content Include="imagenes\articulos\bebida3.png" />
+    <Content Include="imagenes\articulos\chipa.jpg" />
+    <Content Include="imagenes\articulos\kitkat.jpg" />
+    <Content Include="imagenes\articulos\m&amp;m.jpg" />
+    <Content Include="imagenes\articulos\nachos.jpg" />
+    <Content Include="imagenes\articulos\pancho.jpg" />
+    <Content Include="imagenes\articulos\pochoclos.jpg" />
+    <Content Include="imagenes\asientos.jpg" />
+    <Content Include="imagenes\logo.png" />
+    <Content Include="imagenes\peliculas\correromorir.jpg" />
+    <Content Include="imagenes\peliculas\elcisnenegro.jpg" />
+    <Content Include="imagenes\peliculas\elhombrearaña.jpg" />
+    <Content Include="imagenes\peliculas\elhombreinvisible.jpg" />
+    <Content Include="imagenes\peliculas\elsecretodesusojos.jpg" />
+    <Content Include="imagenes\peliculas\guason.jpg" />
+    <Content Include="imagenes\peliculas\guerramundialz.jpg" />
+    <Content Include="imagenes\peliculas\karatekid.jpg" />
+    <Content Include="imagenes\peliculas\laeradehielo.jpg" />
+    <Content Include="imagenes\peliculas\larazondeestarcontigo.jpg" />
+    <Content Include="imagenes\peliculas\laredsocial.jpg" />
+    <Content Include="imagenes\peliculas\misterioabordo.jpg" />
+    <Content Include="imagenes\peliculas\rapidosyfuriosos.jpg" />
+    <Content Include="imagenes\peliculas\relatossalvajes.jpg" />
+    <Content Include="imagenes\peliculas\rescateimposible.jpg" />
+    <Content Include="imagenes\peliculas\shrek2.jpg" />
+    <Content Include="imagenes\peliculas\sonic.jpg" />
+    <Content Include="imagenes\peliculas\thor.jpg" />
+    <Content Include="imagenes\peliculas\toystory4.jpg" />
+    <Content Include="imagenes\peliculas\unidos.jpg" />
+    <Content Include="imagenes\promos\aexpress.jpeg" />
+    <Content Include="imagenes\promos\cencosud.jpg" />
+    <Content Include="imagenes\promos\clarin.jpg" />
+    <Content Include="imagenes\promos\claro.jpg" />
+    <Content Include="imagenes\sucursales\abasto.jpg" />
+    <Content Include="imagenes\sucursales\apalermo.jpg" />
+    <Content Include="imagenes\sucursales\dot.jpg" />
+    <Content Include="imagenes\sucursales\tom.jpg" />
+    <Content Include="imagenes\sucursales\unicenter.jpg" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Principal.Master.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Principal.Master.designer.cs">
+      <DependentUpon>Principal.Master</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <Content Include="Principal.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -91,6 +150,7 @@
       <Name>Negocios</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
