@@ -118,7 +118,6 @@
     <Content Include="imagenes\sucursales\dot.jpg" />
     <Content Include="imagenes\sucursales\tom.jpg" />
     <Content Include="imagenes\sucursales\unicenter.jpg" />
-<<<<<<< HEAD
     <Content Include="Inicio_Admin.aspx" />
     <Content Include="ventas_listado.aspx" />
     <Content Include="Web.config" />
@@ -137,17 +136,17 @@
     </Compile>
     <Compile Include="Inicio_Admin.aspx.designer.cs">
       <DependentUpon>Inicio_Admin.aspx</DependentUpon>
-=======
-    <Content Include="Inicio.aspx" />
-    <Content Include="Inicio_Admin.aspx" />
-    <Content Include="Promociones.aspx" />
-    <Content Include="Sucursalabasto.aspx" />
-    <Content Include="Sucursalaltopalermo.aspx" />
-    <Content Include="Sucursaldot.aspx" />
-    <Content Include="Sucursales.aspx" />
-    <Content Include="Sucursaltom.aspx" />
-    <Content Include="Sucursalunicenter.aspx" />
-    <Content Include="Web.config" />
+      <Content Include="Inicio.aspx" />
+      <Content Include="Inicio_Admin.aspx" />
+      <Content Include="Promociones.aspx" />
+      <Content Include="Sucursalabasto.aspx" />
+      <Content Include="Sucursalaltopalermo.aspx" />
+      <Content Include="Sucursaldot.aspx" />
+      <Content Include="Sucursales.aspx" />
+      <Content Include="Sucursaltom.aspx" />
+      <Content Include="Sucursalunicenter.aspx" />
+      <Content Include="Web.config" />
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Administrador.Master.cs">
@@ -163,7 +162,6 @@
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
->>>>>>> 3111b0303d7d1d171e73119eaf55f8cb752c0da5
     </Compile>
     <Compile Include="Inicio_Admin.aspx.cs">
       <DependentUpon>Inicio_Admin.aspx</DependentUpon>
@@ -187,14 +185,13 @@
       <DependentUpon>Promociones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-<<<<<<< HEAD
     <Compile Include="ventas_listado.aspx.cs">
       <DependentUpon>ventas_listado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ventas_listado.aspx.designer.cs">
       <DependentUpon>ventas_listado.aspx</DependentUpon>
-=======
+    </Compile>
     <Compile Include="Sucursalabasto.aspx.cs">
       <DependentUpon>Sucursalabasto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -236,7 +233,6 @@
     </Compile>
     <Compile Include="Sucursalunicenter.aspx.designer.cs">
       <DependentUpon>Sucursalunicenter.aspx</DependentUpon>
->>>>>>> 3111b0303d7d1d171e73119eaf55f8cb752c0da5
     </Compile>
   </ItemGroup>
   <ItemGroup>
