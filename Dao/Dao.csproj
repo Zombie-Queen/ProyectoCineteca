@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
+    <Compile Include="DaoArticulos.cs" />
     <Compile Include="DaoCliente.cs" />
     <Compile Include="DaoDetalleDeVenta.cs" />
     <Compile Include="DaoFuncionxSala.cs" />
