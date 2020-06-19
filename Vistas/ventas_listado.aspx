@@ -8,7 +8,7 @@
     <form id="form1" runat="server">
          
         <section class="filtros">
-             <h4>Buscar ventas</h4>
+             
              <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox></div>           
              <div class="item"><asp:TextBox runat="server" placeholder="Número de venta" class="input" ID="txt_venta"></asp:TextBox></div> 
             <div class="item"><asp:TextBox  runat="server" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>

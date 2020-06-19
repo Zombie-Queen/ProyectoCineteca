@@ -160,7 +160,6 @@
     </Compile>
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
-
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

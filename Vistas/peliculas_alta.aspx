@@ -18,6 +18,14 @@
             <asp:TextBox Class="controles" runat="server" name="url" placeholder="imagenes/peliculas/titulo.jpg" ID="txt_url_peli"></asp:TextBox>
             <asp:Button  ID="btnAgregar" runat="server" Text="Agregar" Class="botons" />
         </section>
+        <div class="listaPelis">
+                <asp:GridView ID="grdPelis" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdPelis_PageIndexChanging" PageSize="5">
+                    <AlternatingRowStyle CssClass="alt" />
+                    <Columns>
+                        <asp:HyperLinkField DataNavigateUrlFields="ID_Pelicula"/>
+                    </Columns>          
+        </asp:GridView>
+            </div>
         
 
 
