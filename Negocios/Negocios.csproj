@@ -41,7 +41,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <Compile Include="NegociosVentas.cs" />
+=======
+    <Compile Include="NegocioCliente.cs" />
+>>>>>>> 3111b0303d7d1d171e73119eaf55f8cb752c0da5
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

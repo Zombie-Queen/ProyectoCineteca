@@ -142,8 +142,7 @@ namespace Dao
         public DataTable ObtenerTabla(String nombre, String sql) // recibe la consulta (string sql) , y el nombre de la tabla (nombre) 
         {
             DataSet ds = new DataSet();
-            AccesoDatos datos = new AccesoDatos();
-            SqlDataAdapter adp = datos.ObtenerAdaptador(sql);
+            SqlDataAdapter adp = ObtenerAdaptador(sql);
             adp.Fill(ds, nombre);
             return ds.Tables[nombre];
         }
