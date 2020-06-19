@@ -41,12 +41,6 @@ namespace Dao
             return acc.sp_Ejecutar(comando, "spAgregarCliente");
         }
 
-        public DataTable RegistroCliente(String correo, String contraseña)
-        {
-            return acc.ObtenerTabla("RegistroUsuario", "SELECT * FROM Clientes WHERE Correo = '" + correo + "' AND " +
-                "Contraseña = '" + contraseña + "'");
-        }
-
         public bool existeCliente(String dni)
         {
             consulta = "SELECT * FROM Clientes WHERE DNI_Cliente = '" + dni + "'";

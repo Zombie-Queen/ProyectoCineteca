@@ -119,6 +119,7 @@
     <Content Include="imagenes\sucursales\tom.jpg" />
     <Content Include="imagenes\sucursales\unicenter.jpg" />
     <Content Include="Inicio.aspx" />
+    <Content Include="Inicio_Admin.aspx" />
     <Content Include="Promociones.aspx" />
     <Content Include="Sucursalabasto.aspx" />
     <Content Include="Sucursalaltopalermo.aspx" />
@@ -129,12 +130,26 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Administrador.Master.cs">
+      <DependentUpon>Administrador.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Administrador.Master.designer.cs">
+      <DependentUpon>Administrador.Master</DependentUpon>
+    </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Inicio.aspx.designer.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Inicio_Admin.aspx.cs">
+      <DependentUpon>Inicio_Admin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Inicio_Admin.aspx.designer.cs">
+      <DependentUpon>Inicio_Admin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
@@ -195,6 +210,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Administrador.Master" />
     <None Include="packages.config" />
     <Content Include="Principal.Master" />
     <None Include="Web.Debug.config">

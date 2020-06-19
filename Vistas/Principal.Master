@@ -106,15 +106,13 @@
                 </div>
             </div>
             <script>
-                $('#User').on("click", function () {
+                $('#User').on("mouseover", function () {
                     $('#ddm').toggle()
                     $('#logueado').toggle()
                 });
-                $('#sucursal').on("mouseover", function () {
-                    $('#msuc').show()
-                });
-                $('#msuc').on("mouseleave", function () {
-                    $('#msuc').hide()
+
+                $('#ddm').on("mouseleave", function () {
+                    $('#ddm').toggle()
                 });
             </script>
         </header>
