@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Dao;
+using Entidades;
 
 namespace Negocios
 {
@@ -60,7 +61,36 @@ namespace Negocios
             return dao.ObtenerVentasPorDni_NroVenta_Fecha(dni,idventa, fecha);
         }
 
+        public bool BorrarVenta(Ventas ven)
+        {
 
+            if (dao.BajaVenta(ven))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+
+
+
+        }
+
+        public bool existeVenta(Ventas ven)
+        {
+            if (dao.existe_venta(ven))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+
+        
 
     }
 }

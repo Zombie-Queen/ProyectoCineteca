@@ -26,16 +26,17 @@ html {
     padding: 1rem;
     /* border: solid 1px #4a4a4a; */
     border-radius: 4px;
-    background-color: #EAEAEA;
+    /*  background-color: #EAEAEA;  */
+   
 }
 
-.pelis:hover{
+/*.pelis:hover{
 
     transition:0.5s;
     transform:translateY(-15px);
     box-shadow: 0 12px 16px rgba(0,0,0,0.2);
     cursor:pointer;
-}
+}*/
 
 .MejorSucursal {
     height: 25%;
@@ -53,12 +54,12 @@ html {
     background-color: #EAEAEA;
 }
 
-.MejorSucursal:hover {
-    transition: 0.5s;
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
+    .MejorSucursal:hover {
+        transition: 0.5s;
+        transform: translateY(-15px);
+        box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+        /* cursor: pointer;   */
+    }
 
 .Recaudacion {
     height: 25%;
@@ -79,7 +80,7 @@ html {
         transition: 0.5s;
         transform: translateY(-15px);
         box-shadow: 0 12px 16px rgba(0,0,0,0.2);
-        cursor: pointer;
+        /*  cursor: pointer;  */
     }
 
 
@@ -100,12 +101,12 @@ html {
     background-color: #EAEAEA;
 }
 
-.Clientes:hover {
-    transition: 0.5s;
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0,0,0,0.2);
-    cursor: pointer;
-}
+    .Clientes:hover {
+        transition: 0.5s;
+        transform: translateY(-15px);
+        box-shadow: 0 12px 16px rgba(0,0,0,0.2);
+        /* cursor: pointer; */
+    }
 .Cli {
     
     float:left;

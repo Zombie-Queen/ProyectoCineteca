@@ -1,0 +1,65 @@
+﻿body {
+}
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html {
+    font-size: 62.5%; /*1 REM = 10 PX*/
+}
+
+
+.contenido {
+    margin: auto;
+    margin-top: 14rem;
+    padding: 1rem 0;
+    width: 90rem;
+    height: 60rem;
+    
+}
+
+.registro {
+
+    width:400px;
+    background:#24303c;
+    padding:3rem;
+    margin:auto;
+    margin-top:2rem;
+    border-radius:4px;
+    font-family:Calibri;
+    color:white;
+    box-shadow:7px 13px 37px #000;
+   
+}
+
+.registro h4{
+    font-size:2rem;
+    margin-bottom:2rem;
+    
+}
+
+.controles {
+    width: 100%;
+    background: #24303c;
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    border: 1px solid #1f53c5;
+    font-family: Calibri;
+    font-size:1.5rem;
+    color:#FFFFFF;
+}
+
+.registro .botons {
+    width: 100%;
+    background: #1f53c5;
+    border:none;
+    padding:12px;
+    color:#FFFFFF;
+    margin:16px 0;
+    font-size:1.5rem;
+
+}

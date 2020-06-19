@@ -9,7 +9,7 @@ html {
 
 .contenido {
     margin: auto;
-    margin-top: 18rem;
+    margin-top: 14rem;
     padding: 1rem 0;
     width: 90rem;
     height: 60rem;
@@ -23,7 +23,6 @@ html {
     padding: 1rem 1rem;
     width: 90%;
     height: 40rem;
-    background: #EAEAEA;
     border-radius: 5px;
 }
 
@@ -64,47 +63,53 @@ html {
 
 .filtros {
     margin: auto;
-    display: block;
-    justify-content: space-between;
-    width: 90%;
+    width: 700px;
     height: 12rem;
     overflow: hidden;
-    
-    background: #EAEAEA;
-    border-radius: 5px;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
 }
+
+    .filtros h4 {
+        margin-left:1.5rem;
+        font-size: 2rem;
+        margin-bottom: 0;
+        color: #FFFFFF;
+    }
 
 .input[type=text] {
     width: 100%;
-    border: 2px solid #aaa;
+    border: 1px solid #1f53c5;
     border-radius: 4px;
     outline: none;
     padding: 8px;
     box-sizing: border-box;
     transition: .3s;
-    background: #8E8E8E;
-    color: #000000;
+    color: #FFFFFF;
+    background: #24303c;
+    
 }
 
     .input[type=text]:focus {
-        border-color: #30F410;
-        box-shadow: 0 0 8px 0 #30F410;
+        border-color: #594E4E;
+        box-shadow: 0 0 8px 0 #594E4E;
     }
 
 input[type=date] {
     width: 100%;
-    border: 2px solid #aaa;
+    border: 1px solid #1f53c5;
     border-radius: 4px;
     outline: none;
     padding: 5.5px;
     box-sizing: border-box;
     transition: .3s;
-    background: #8E8E8E;
-    color: #000000;
+    background: #24303c;
+    color: #FFFFFF;
 }
 .input[type=date]:focus {
-    border-color: #30F410;
-    box-shadow: 0 0 8px 0 #30F410;
+    border-color: #594E4E;
+    box-shadow: 0 0 8px 0 #594E4E;
 }
 
 
@@ -112,27 +117,27 @@ input[type=date] {
     margin: 1rem;
     float: left;
     width: 22%;
-    
+    margin-bottom: 0;
 }
 .boton {
     position: relative;
     display: inline-block;
     padding: 1rem 3rem;
-    font-weight: 700;
     text-transform: uppercase;
     text-decoration: none;
-    background-color: #8E8E8E;
+    background: #1f53c5;
     transition: 0.5s, background 0.5s;
-    font-size: 1.2rem;
-    border-radius: 5px;
+    border: none;
     color: #FFFFFF;
+    margin: 0;
+    font-size: 1.2rem;
 }
 
-    .boton:hover {
+    /*  .boton:hover {
         color: #000000;
         background-color: transparent;
         border: 2px solid #aaa;
-    }
+    }*/
 
 
     .boton:active {
@@ -150,78 +155,3 @@ input[type=date] {
 
 }
 
-/*¨DETALLE DE VENTAS*/
-
-.filtro-v {
-    border: solid 1px #4a4a4a;
-    /* background-color: dodgerblue; */
-    background-color: white;
-    margin: auto;
-    display: block;
-    justify-content: space-between;
-    width: 90%;
-    height: 12rem;
-    overflow: hidden;
-}
-
-.dventas {
-    text-align: center;
-    width: 55%;
-    height: 30rem;
-    float: left;
-    margin: 1rem;
-    /* background-color: red; */
-    background-color: white;
-}
-
-.dventas-a {
-    text-align: center;
-    width: 40%;
-    height: 30rem;
-    float: left;
-    margin: 1rem;
-    /* background-color: chartreuse; */
-    background-color: white;
-}
-
-.totaldv {
-    display: inline-block;
-    margin: 1rem;
-    width: 92.7%;
-    height: 5rem;
-    text-align: center;
-    /* background-color: yellow; */
-    background-color: white;
-}
-
-.totaldv-a {
-    display: inline-block;
-    width: 92.7%;
-    height: 5rem;
-    margin: 1rem;
-    text-align: center;
-    /* background-color: purple; */
-    background-color: white;
-}
-
-.total-venta {
-    text-align: center;
-    width: 92.7%;
-    height: 5rem;
-    display: inline-block;
-    margin: 1rem;
-    /* background-color: coral; */
-    background-color: white;
-}
-
-.content-ventas {
-    margin: auto;
-    margin-top: 2rem;
-    justify-content: space-between;
-    padding: 1rem 1rem;
-    width: 95%;
-    height: 40rem;
-    border: solid 1px #4a4a4a;
-    /* background-color: blue; */
-    background-color: white;
-}

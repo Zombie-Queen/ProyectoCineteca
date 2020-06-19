@@ -1,0 +1,85 @@
+﻿body {
+}
+
+html {
+    font-size: 62.5%; /*1 REM = 10 PX*/
+}
+
+
+/*¨DETALLE DE VENTAS*/
+
+
+.contenido-dv {
+    margin: auto;
+    margin-top: 14rem;
+    padding: 1rem 0;
+    width: 90rem;
+    height: 60rem;
+    /* background-color:#4a4a4a; */
+}
+
+
+.filtro-v {
+    margin: auto;
+    justify-content: space-between;
+    width: 65%;
+    height: 10rem;
+    overflow: hidden;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
+}
+
+.dventas {
+    text-align: center;
+    width: 50%;
+    max-width: 50%;
+    height: 30rem;
+    float: right;
+    margin: 1rem;
+}
+
+.dventas-a {
+    text-align: center;
+    width: 45%;
+    height: 30rem;
+    float: left;
+    margin: 1rem;
+}
+
+.totaldv {
+    display: inline-block;
+    margin: 1rem;
+    width: 92.7%;
+    height: 5rem;
+    text-align: center;
+}
+
+.totaldv-a {
+    display: inline-block;
+    width: 92.7%;
+    height: 5rem;
+    margin: 1rem;
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.total-venta {
+    text-align: center;
+    width: 92.7%;
+    height: 5rem;
+    display: inline-block;
+    margin: 1rem;
+}
+
+.content-ventas {
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    width: 95%;
+    height: 45rem;
+    
+}
