@@ -89,6 +89,7 @@ namespace Dao
             return filasAfectada;
         }
 
+        /*Cambiar nombre a ObtenerTabla_sp*/
         public DataTable EjecutarSpConParametros(SqlCommand Comando, String sp_nombre, String nombre)
         {
             DataSet ds = new DataSet();

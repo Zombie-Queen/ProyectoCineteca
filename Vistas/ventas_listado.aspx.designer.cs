@@ -11,7 +11,7 @@ namespace Vistas
 {
 
 
-    public partial class Inicio_Admin
+    public partial class ventas_listado
     {
 
         /// <summary>
@@ -24,84 +24,57 @@ namespace Vistas
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
 
         /// <summary>
-        /// Control lblMejoresPelis.
+        /// Control txt_dni.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMejoresPelis;
+        protected global::System.Web.UI.WebControls.TextBox txt_dni;
 
         /// <summary>
-        /// Control lvTopPelis.
+        /// Control txt_venta.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvTopPelis;
+        protected global::System.Web.UI.WebControls.TextBox txt_venta;
 
         /// <summary>
-        /// Control dsTopPeli.
+        /// Control txt_fecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsTopPeli;
+        protected global::System.Web.UI.WebControls.TextBox txt_fecha;
 
         /// <summary>
-        /// Control lvSucuDelMes.
+        /// Control btnFiltrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvSucuDelMes;
+        protected global::System.Web.UI.WebControls.Button btnFiltrar;
 
         /// <summary>
-        /// Control dsMejorSucu.
+        /// Control btnQuitarFiltro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsMejorSucu;
+        protected global::System.Web.UI.WebControls.Button btnQuitarFiltro;
 
         /// <summary>
-        /// Control lvRecDiaria.
+        /// Control grdVentas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvRecDiaria;
-
-        /// <summary>
-        /// Control ds_recDiaria.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource ds_recDiaria;
-
-        /// <summary>
-        /// Control lvClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ListView lvClientes;
-
-        /// <summary>
-        /// Control dsClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsClientes;
+        protected global::System.Web.UI.WebControls.GridView grdVentas;
     }
 }
