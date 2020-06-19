@@ -48,8 +48,8 @@ namespace Vistas
             DataTable dt = nc.getRegistroCliente(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
-                logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center d-block";
-                ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center d-none";
+                logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";
+                ddm.CssClass = "d-none";
             }
             else
                 lblprueba.Text = "No Funciona";

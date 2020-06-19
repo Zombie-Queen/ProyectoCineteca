@@ -43,7 +43,11 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="DaoCliente.cs" />
+<<<<<<< HEAD
     <Compile Include="DaoDetalleDeVenta.cs" />
+=======
+    <Compile Include="DaoFuncionxSala.cs" />
+>>>>>>> d7ca57160ee9e166ea22830c9cfbcf40e5649ec3
     <Compile Include="DaoSucursal.cs" />
     <Compile Include="DaoVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

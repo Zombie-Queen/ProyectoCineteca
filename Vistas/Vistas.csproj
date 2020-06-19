@@ -73,6 +73,7 @@
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
+    <Content Include="css\funciones.css" />
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\Alta.css" />
@@ -80,6 +81,7 @@
     <Content Include="css\Promociones.css" />
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
+    <Content Include="Funciones.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
     <Content Include="imagenes\articulos\bebida1.png" />
     <Content Include="imagenes\articulos\bebida2.png" />
@@ -144,12 +146,21 @@
     <Compile Include="Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="articulos_alta.aspx.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
+=======
+    <Compile Include="Funciones.aspx.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Funciones.aspx.designer.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
+>>>>>>> d7ca57160ee9e166ea22830c9cfbcf40e5649ec3
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
