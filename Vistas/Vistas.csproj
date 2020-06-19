@@ -81,6 +81,7 @@
     <Content Include="css\Promociones.css" />
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
+    <Content Include="DetalledeCompra.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
     <Content Include="imagenes\articulos\bebida1.png" />
@@ -154,13 +155,19 @@
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DetalledeCompra.aspx.cs">
+      <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalledeCompra.aspx.designer.cs">
+      <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
-
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
