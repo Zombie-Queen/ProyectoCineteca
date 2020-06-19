@@ -153,7 +153,7 @@
     </Compile>
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
-
+    </Compile>
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
