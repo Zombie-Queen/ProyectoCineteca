@@ -77,10 +77,12 @@
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\Alta.css" />
+    <Content Include="css\perfil.css" />
     <Content Include="css\principal.css" />
     <Content Include="css\Promociones.css" />
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
+    <Content Include="DetalledeCompra.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
     <Content Include="imagenes\articulos\bebida1.png" />
@@ -153,6 +155,13 @@
     </Compile>
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalledeCompra.aspx.cs">
+      <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalledeCompra.aspx.designer.cs">
+      <DependentUpon>DetalledeCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
