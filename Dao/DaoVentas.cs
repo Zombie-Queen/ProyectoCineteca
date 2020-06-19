@@ -12,18 +12,27 @@ namespace Dao
     public class DaoVentas
     {
         AccesoDatos ds = new AccesoDatos();
-        
+        /*sp ventas*/
+        public const String sp_ventas_Fecha = "sp_ventas_Fecha";
+        public const String sp_ventas_DniNroVenta = "sp_ventas_DniNroVenta";
+        public const String sp_ventas_DniFecha = "sp_ventas_DniFecha";
+        public const String sp_ventas_NroVentaFecha = "sp_ventas_NroVentaFecha";
+
+        public const String sp_ventas_DniNroVentaFecha = "sp_ventas_DniNroVentaFecha";
+
+        /*sp detalle de venta articulos */
         public const String sp_totalDva_dni = "sp_totalDva_dni"; /*Suma total detalle de ventas de articulos por dni*/
         public const String sp_totalDva_dninv = "sp_totalDva_dninv"; /*Suma total detalle de ventas de articulos por dni y numero de venta*/
-
+        /*sp detalle de ventas*/
         public const String sp_totalDv_dni = "sp_totalDv_dni"; /*Suma total detalle de ventas por dni*/
         public const String sp_totalDv_nv = "sp_totalDv_nv"; /*Suma total detalle de ventas por nro venta*/
         public const String sp_totalDv_dninv = "sp_totalDv_dninv"; /*Suma total detalle de ventas por dni y numero de venta*/
 
-
+        /*sp total ventas*/
         public const String sp_totalventa_dni = "sp_totalventa_dni";
         public const String sp_totalventa_nv = "sp_totalventa_nv";
         public const String sp_totalventa_dninv = "sp_totalventa_dninv";
+
 
 
 
@@ -36,30 +45,139 @@ namespace Dao
 
             return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE DNI_Cliente_Venta=" + Dni + "");
         }
+
+        public DataTable ObtenerVentaPorNroVenta(String nroVenta)
+        {
+            int n_venta = Convert.ToInt32(nroVenta);
+            return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE ID_Venta=" + n_venta + "");
+        }
         public DataTable ObtenerVentasPorSucursal(String Sucursal)
         {
 
-            return ds.ObtenerTabla("Ventas", "Select * From Ventas v INNER JOIN DetalleVentas dv on dv.ID_Venta_DV = v.ID_Promocion_Venta" +
-                " INNER JOIN Sucursales s on s.ID_Sucursal = dv.ID_Sucursal_DV WHERE s.Nombre_Sucursal = " + Sucursal + "");
+            return ds.ObtenerTabla("Ventas", "Select * From Ventas v INNER JOIN DetalleVentas dv on dv.ID_Venta_DV = v.ID_Venta" +
+                " INNER JOIN Sucursales s on s.ID_Sucursal = dv.ID_Sucursal_DV WHERE s.ID_Sucursal = " + Sucursal + "");
         }
 
-        public DataTable ObtenerVentasPorPelicula(String pelicula)
+        public DataTable ObtenerVentasPorFecha(DateTime fecha)
         {
 
-            return ds.ObtenerTabla("Ventas", "Select* From Ventas v INNER JOIN DetalleVentas dv on dv.ID_Venta_DV=v.ID_Venta" +
-                " INNER JOIN Peliculas p on p.ID_Pelicula = dv.ID_Pelicula_DV WHERE p.Título_Pelicula = " + pelicula + " ");
-
+            SqlCommand Comando = new SqlCommand();
+            AccesoDatos ad = new AccesoDatos();
+            DataTable dt = new DataTable();
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@fecha", SqlDbType.Date);
+            parametros.Value = fecha;
+            dt = ad.EjecutarSpConParametros(Comando, sp_ventas_Fecha, "Ventas");
+            return dt;
         }
-
-        public DataTable ObtenerVentasPorDSP(String dni, String sucu, String peli)
+        private void parametrosVentasDniNroVenta (ref SqlCommand Comando, Ventas ven)
         {
-            return ds.ObtenerTabla("Ventas", "Select * From Ventas v INNER JOIN DetalleVentas dv on dv.ID_Venta_DV=v.ID_Venta " +
-                "INNER JOIN Peliculas p on p.ID_Pelicula = dv.ID_Pelicula_DV " +
-                "INNER JOIN Sucursales s on s.ID_Sucursal = dv.ID_Sucursal_DV " +
-                "WHERE s.Nombre_Sucursal = " + sucu + " AND p.Título_Pelicula = " + peli + " AND DNI_Cliente_Venta = " + dni + " ");
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@dni", SqlDbType.Char, 8);
+            parametros.Value = ven.dni_cliente;
+
+            parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
+            parametros.Value = ven.id_venta;
 
         }
 
+        public DataTable ObtenerVentasPor_Dni_NumVen(String dni, String numVenta)
+        {
+            
+            Ventas ven = new Ventas();
+            ven.dni_cliente = dni;
+            ven.id_venta = Convert.ToInt32(numVenta);
+            SqlCommand Comando = new SqlCommand();
+            AccesoDatos ad = new AccesoDatos();
+            DataTable dt = new DataTable();
+            parametrosVentasDniNroVenta(ref Comando, ven);
+            dt = ad.EjecutarSpConParametros(Comando, sp_ventas_DniNroVenta, "Ventas");
+            return dt;
+        }
+
+
+        private void parametrosVentasDniFecha (ref SqlCommand Comando, Ventas ven)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@dni", SqlDbType.Char, 8);
+            parametros.Value = ven.dni_cliente;
+
+            parametros = Comando.Parameters.Add("@fecha", SqlDbType.Date);
+            parametros.Value = ven.fecha;
+
+        }
+
+        public DataTable ObtenerVentasPor_Dni_Fecha(String dni, DateTime fecha)
+        {
+
+            Ventas ven = new Ventas();
+            ven.dni_cliente = dni;
+            ven.fecha = fecha;
+            SqlCommand Comando = new SqlCommand();
+            AccesoDatos ad = new AccesoDatos();
+            DataTable dt = new DataTable();
+            parametrosVentasDniFecha(ref Comando, ven);
+            dt = ad.EjecutarSpConParametros(Comando, sp_ventas_DniFecha, "Ventas");
+            return dt;
+        }
+        private void parametrosVentas_NroVenta_Fecha (ref SqlCommand Comando, Ventas ven)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
+            parametros.Value = ven.id_venta;
+
+            parametros = Comando.Parameters.Add("@fecha", SqlDbType.Date);
+            parametros.Value = ven.fecha;
+
+        }
+
+        public DataTable ObtenerVentasPor_NroVenta_Fecha (String nroVenta, DateTime fecha)
+        {
+            
+            Ventas ven = new Ventas();
+            ven.id_venta = Convert.ToInt32(nroVenta);
+            ven.fecha = fecha;
+            SqlCommand Comando = new SqlCommand();
+            AccesoDatos ad = new AccesoDatos();
+            DataTable dt = new DataTable();
+            parametrosVentas_NroVenta_Fecha(ref Comando, ven);
+            dt = ad.EjecutarSpConParametros(Comando, sp_ventas_NroVentaFecha, "Ventas");
+            return dt;
+        }
+
+        private void parametrosVentasDni_NroVenta_Fecha(ref SqlCommand Comando, Ventas ven)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@dni", SqlDbType.Char,8);
+            parametros.Value = ven.dni_cliente;
+
+            parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
+            parametros.Value = ven.id_venta; 
+
+            parametros = Comando.Parameters.Add("@fecha", SqlDbType.Date);
+            parametros.Value = ven.fecha;
+
+        }
+
+        public DataTable ObtenerVentasPorDni_NroVenta_Fecha(String dni,String nroVenta, DateTime fecha)
+        {
+
+            Ventas ven = new Ventas();
+            ven.dni_cliente = dni;
+            ven.id_venta = Convert.ToInt32(nroVenta);
+            ven.fecha = fecha;
+            SqlCommand Comando = new SqlCommand();
+            AccesoDatos ad = new AccesoDatos();
+            DataTable dt = new DataTable();
+            parametrosVentasDni_NroVenta_Fecha(ref Comando, ven);
+            dt = ad.EjecutarSpConParametros(Comando, sp_ventas_DniNroVentaFecha, "Ventas");
+            return dt;
+        }
+
+
+
+
+        
         /*Detalles de ventas por nro de venta */
         public DataTable ObtenerDetallaVenta_numVen(String nroVenta)
         {

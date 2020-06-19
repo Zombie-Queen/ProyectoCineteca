@@ -5,16 +5,69 @@
 <html>
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/administrador.css" />
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
-    <form id="form1" runat="server">
-        <div>
-            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+    
+    <header class="header">
+        <nav class="nav">
+        <ul class="menu">
+            <li><a href="Inicio_Admin.aspx">Inicio</a></li>
+            <li><a href="#">Ventas</a>
+                 <ul class="submenu">
+                 <li><a href="ventas_listado.aspx">Listado</a></li>
+                 <li><a href="DetalleDeVentas.aspx">Detalles de venta</a></li>
+                 <li><a href="#">Modificar</a>
+                                          <ul class="submenu">
+                                          <li><a href="#">Ventas</a></li>
+                                          <li><a href="#">Detalle de venta</a></li>
+                                          <li><a href="#">Detalle de venta artículos</a></li>
+                                          </ul>
+                                            </li>
+                <li><a href="#">Eliminar venta</a></li>
+                              
+                                            
+
+                
+                </ul>
+            </li>
+             
+             <li><a href="#">Películas</a>
+                 <ul class="submenu">
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Baja</a></li>
+                <li><a href="#">Modificación</a></li>
+                 </ul>
+             </li>
+            <li><a href="#">Artículos</a>
+                <ul class="submenu">
+                <li><a href="#">Listado</a></li>
+                <li><a href="#">Alta</a></li>
+                <li><a href="#">Baja</a></li>
+                <li><a href="#">Modificación</a></li>
+                 </ul>
+            </li>
+
+
+            <li><a href="#">Reportes</a>
+                <ul class="submenu">
+                <li><a href="#">Venta diaria</a></li>
+                <li><a href="#">Venta mensual</a></li>
+                <li><a href="#">Venta anual</a></li>
+                 </ul>
+            </li>
+            <li><a href="#">Salir</a></li>
+        </ul>
+            </nav>
+    </header>
+            <asp:ContentPlaceHolder ID="Contenido" runat="server">
             </asp:ContentPlaceHolder>
-        </div>
-    </form>
+        
+         <footer class="footer">
+        <div> Copyright ©Grupo 11 UTN FRGP   </div>
+    </footer>
 </body>
 </html>
