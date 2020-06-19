@@ -71,12 +71,14 @@
     <Content Include="css\admin_inicio.css" />
     <Content Include="css\bootstrap.min.css" />
     <Content Include="css\diseñosucursales.css" />
+    <Content Include="css\funciones.css" />
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\principal.css" />
     <Content Include="css\Promociones.css" />
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
+    <Content Include="Funciones.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
     <Content Include="imagenes\articulos\bebida1.png" />
     <Content Include="imagenes\articulos\bebida2.png" />
@@ -137,6 +139,13 @@
     </Compile>
     <Compile Include="Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Funciones.aspx.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Funciones.aspx.designer.cs">
+      <DependentUpon>Funciones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
