@@ -5,11 +5,11 @@ VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entidades", "Entidades\Entidades.csproj", "{09E1A873-072F-47E8-AF24-C51CC21A5927}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dao", "..\..\..\Escritorio\backup cine\Dao\Dao.csproj", "{A8734CB3-723A-41C4-9540-E7AB3C00AA95}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dao", "Dao\Dao.csproj", "{A8734CB3-723A-41C4-9540-E7AB3C00AA95}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocios", "..\..\..\Escritorio\backup cine\Negocios\Negocios.csproj", "{DD37DDEC-9D7A-4DEA-BE8C-562F25650195}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Negocios", "Negocios\Negocios.csproj", "{DD37DDEC-9D7A-4DEA-BE8C-562F25650195}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "..\..\..\Escritorio\backup cine\Vistas\Vistas.csproj", "{519FE53B-AF21-4700-B79A-D1992961FD79}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\Vistas.csproj", "{519FE53B-AF21-4700-B79A-D1992961FD79}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
