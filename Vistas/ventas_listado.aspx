@@ -19,8 +19,7 @@
                 
             
         </section>
-
-            <div class="listado">
+        <div class="listado">
                 <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5">
                     <AlternatingRowStyle CssClass="alt" />
                     <Columns>
@@ -28,7 +27,7 @@
                     </Columns>          
         </asp:GridView>
             </div>
-            
+   
         
     </form>
     </div>
