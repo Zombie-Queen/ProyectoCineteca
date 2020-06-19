@@ -36,13 +36,6 @@ h2 {
         font-weight: 200;
     }
 
-.btnddls {
-    font-family: 'Kanit', sans-serif;
-    margin-left: 3rem;
-    font-size: 1.5rem;
-    padding: 1rem;
-}
-
 .imgpelis {
     width: 20rem;
     height: 30rem;
@@ -59,7 +52,7 @@ h2 {
 }
 
 .cont-peli {
-    max-width: 23rem;
+    max-width:23rem;
     font-family: 'Kanit', sans-serif;
     font-size: 1.8rem;
 }
