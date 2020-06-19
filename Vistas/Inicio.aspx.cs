@@ -20,6 +20,7 @@ namespace Vistas
             {
                 cargar_ddl_suc();
                 cargar_ddl_func();
+                
             }
         }
 
@@ -35,46 +36,16 @@ namespace Vistas
 
         protected void cargar_ddl_func()
         {
-            ddlFunc.DataSource = nfxs.getFuncion();
-            ddlFunc.DataTextField = "Título_Pelicula";
-            ddlFunc.DataValueField = "ID_Pelicula";
-            ddlFunc.DataBind();
             ddlFunc.Items.Insert(0, new ListItem("--Seleccione Película--", "0000"));
             ddlFunc.SelectedValue = "0000";
         }
-
         protected void ddlSuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-            if (ddlFunc.SelectedItem.Value == "0000")
-            {
-                ddlSuc.SelectedValue = ddlSuc.SelectedItem.Value;
-                ddlFunc.DataSource = nfxs.getFuncion_Sucursal(ddlSuc.SelectedItem.Value);
-                ddlFunc.DataTextField = "Título_Pelicula";
-                ddlFunc.DataValueField = "ID_Pelicula";
-                ddlFunc.DataBind();
-                ddlSuc.DataSource = ns.getSucursalFuncion(ddlFunc.SelectedItem.Value);
-                ddlSuc.DataTextField = "Nombre_Sucursal";
-                ddlSuc.DataValueField = "Id_Sucursal";
-                ddlSuc.DataBind();
-            }
-
-        }
-
-        protected void ddlFunc_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (ddlSuc.SelectedItem.Value == "0000")
-            {
-                ddlFunc.SelectedValue = ddlFunc.SelectedItem.Value;
-                ddlSuc.DataSource = ns.getSucursalFuncion(ddlFunc.SelectedItem.Value);
-                ddlSuc.DataTextField = "Nombre_Sucursal";
-                ddlSuc.DataValueField = "Id_Sucursal";
-                ddlSuc.DataBind();
-                ddlFunc.DataSource = nfxs.getFuncion_Sucursal(ddlSuc.SelectedItem.Value);
-                ddlFunc.DataTextField = "Título_Pelicula";
-                ddlFunc.DataValueField = "ID_Pelicula";
-                ddlFunc.DataBind();
-            }
+            ddlFunc.DataSource = nfxs.getFuncion_Sucursal(ddlSuc.SelectedValue);
+            ddlFunc.DataTextField = "Título_Pelicula";
+            ddlFunc.DataValueField = "ID_Pelicula";
+            ddlFunc.DataBind();
+            
         }
 
         protected void btnddls_Click(object sender, EventArgs e)

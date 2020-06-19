@@ -10,7 +10,7 @@
     <div class="ddls">
         <asp:DropDownList CssClass="ddlsc mr-5" ID="ddlSuc" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSuc_SelectedIndexChanged">
         </asp:DropDownList>
-        <asp:DropDownList CssClass="ddlsc" ID="ddlFunc" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlFunc_SelectedIndexChanged">
+        <asp:DropDownList CssClass="ddlsc" ID="ddlFunc" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         <asp:Button ID="btnddls" runat="server" CssClass="btn purple-gradient btnddls" Text="Ver Funciones" OnClick="btnddls_Click" />
 

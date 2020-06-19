@@ -45,6 +45,7 @@
     <Compile Include="DaoCliente.cs" />
     <Compile Include="DaoDetalleDeVenta.cs" />
     <Compile Include="DaoFuncionxSala.cs" />
+    <Compile Include="DaoPeliculas.cs" />
     <Compile Include="DaoSucursal.cs" />
     <Compile Include="DaoVentas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
