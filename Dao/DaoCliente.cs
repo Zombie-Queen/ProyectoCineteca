@@ -46,12 +46,5 @@ namespace Dao
             consulta = "SELECT * FROM Clientes WHERE DNI_Cliente = '" + dni + "'";
             return acc.existe(consulta);
         }
-
-        public DataTable getCliente(String correo, String contraseña)
-        {
-            consulta = "SELECT * FROM Clientes WHERE Correo = '" + correo + "' AND " +
-            "Contraseña = '" + contraseña + "'";
-            return (acc.ObtenerTabla("Registro", consulta));
-        }
     }
 }
