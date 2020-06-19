@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class DvArticulo
+    public class DetalleVentasArticulo
     {
         private int ID_dvArticulos;
         private int ID_Venta_dva;
@@ -16,9 +16,9 @@ namespace Entidades
         private decimal Precio;
 
 
-        public DvArticulo() { }
+        public DetalleVentasArticulo() { }
 
-        public DvArticulo(int _ID_dvArticulos, int _ID_Venta_dva, String _ID_Articulo_dva, String _Estado, int _Cantidad, decimal _Precio)
+        public DetalleVentasArticulo(int _ID_dvArticulos, int _ID_Venta_dva, String _ID_Articulo_dva, String _Estado, int _Cantidad, decimal _Precio)
         {
 
             this.ID_dvArticulos = _ID_dvArticulos;

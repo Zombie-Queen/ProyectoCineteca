@@ -67,13 +67,16 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="articulos_alta.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
     <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
     <Content Include="css\funciones.css" />
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
+    <Content Include="css\Alta.css" />
     <Content Include="css\principal.css" />
     <Content Include="css\Promociones.css" />
     <Content Include="css\sucursales.css" />
@@ -122,6 +125,7 @@
     <Content Include="imagenes\sucursales\unicenter.jpg" />
     <Content Include="Inicio.aspx" />
     <Content Include="Inicio_Admin.aspx" />
+    <Content Include="peliculas_alta.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Promociones.aspx" />
     <Content Include="Sucursalabasto.aspx" />
@@ -130,7 +134,9 @@
     <Content Include="Sucursales.aspx" />
     <Content Include="Sucursaltom.aspx" />
     <Content Include="Sucursalunicenter.aspx" />
+    <Content Include="ventas_DetalleDeVenta.aspx" />
     <Content Include="ventas_listado.aspx" />
+    <Content Include="ventas_BajaVentas.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -141,12 +147,20 @@
     <Compile Include="Administrador.Master.designer.cs">
       <DependentUpon>Administrador.Master</DependentUpon>
     </Compile>
+    <Compile Include="articulos_alta.aspx.cs">
+      <DependentUpon>articulos_alta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="articulos_alta.aspx.designer.cs">
+      <DependentUpon>articulos_alta.aspx</DependentUpon>
+
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
+
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>
@@ -168,6 +182,13 @@
     </Compile>
     <Compile Include="Perfil.aspx.designer.cs">
       <DependentUpon>Perfil.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="peliculas_alta.aspx.cs">
+      <DependentUpon>peliculas_alta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="peliculas_alta.aspx.designer.cs">
+      <DependentUpon>peliculas_alta.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>
@@ -226,12 +247,26 @@
     <Compile Include="Sucursalunicenter.aspx.designer.cs">
       <DependentUpon>Sucursalunicenter.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ventas_DetalleDeVenta.aspx.cs">
+      <DependentUpon>ventas_DetalleDeVenta.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ventas_DetalleDeVenta.aspx.designer.cs">
+      <DependentUpon>ventas_DetalleDeVenta.aspx</DependentUpon>
+    </Compile>
     <Compile Include="ventas_listado.aspx.cs">
       <DependentUpon>ventas_listado.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ventas_listado.aspx.designer.cs">
       <DependentUpon>ventas_listado.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ventas_BajaVentas.aspx.cs">
+      <DependentUpon>ventas_BajaVentas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ventas_BajaVentas.aspx.designer.cs">
+      <DependentUpon>ventas_BajaVentas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
