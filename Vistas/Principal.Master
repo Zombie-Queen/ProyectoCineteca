@@ -52,7 +52,7 @@
                     <i id="User" class="fas fa-user fa-2x white-text dropdown-toggle"></i>
                 </a>
                 <!-- ---FORM USUARIO--- !-->
-                <asp:Panel runat="server" ID="ddm" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center visible">
+                <asp:Panel runat="server" ID="ddm" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center">
                     <div class="form-group">
                         <label for="correo">Email</label>
                         <asp:TextBox runat="server" CssClass="form-control auto" ID="correo" placeholder="Email@example.com" TextMode="Email"></asp:TextBox>
@@ -68,7 +68,7 @@
                     <a class="dropdown-item" href="#">Usuario Administrador</a>
                 </asp:Panel>
                 
-                <asp:Panel runat="server" ID="logueado" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center d-none">
+                <asp:Panel runat="server" ID="logueado" CssClass="d-none">
                     <a class="dropdown-item" href="#">Action</a>
                     <a class="dropdown-item" href="#">Another action</a>
                     <a class="dropdown-item" href="#">Something else here</a>

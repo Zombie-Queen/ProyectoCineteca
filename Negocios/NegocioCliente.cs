@@ -41,10 +41,7 @@ namespace Negocios
 
         public DataTable getRegistroCliente(String correo, String contraseña)
         {
-            DataTable dt = new DataTable();
-            consulta = "SELECT * FROM Clientes WHERE Correo = '" + correo + "' AND " +
-                "Contraseña = '" + contraseña + "'";
-            return (acc.ObtenerTabla("Registro", consulta));
+            return dao.getCliente(correo, contraseña);
         }
     }
 }
