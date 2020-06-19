@@ -16,13 +16,15 @@ html {
     margin: auto;
     margin-top: 14rem;
     padding: 1rem 0;
-    width: 90rem;
+    width: 120rem;
     height: 60rem;
+    background:#4a4a4a;
     
 }
 
 .registro {
 
+    float:left;
     width:400px;
     background:#24303c;
     padding:3rem;
@@ -62,4 +64,13 @@ html {
     margin:16px 0;
     font-size:1.5rem;
 
+}
+
+.listaPelis {
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    width: 90%;
+    height: 40rem;
+    border-radius: 5px;
 }

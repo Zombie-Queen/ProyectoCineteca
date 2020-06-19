@@ -23,39 +23,31 @@
                  <li><a href="#">Cancelar</a>
                                           <ul class="submenu">
                                           <li><a href="ventas_BajaVentas.aspx">Ventas</a></li>
-                                          <li><a href="#">Detalle de venta</a></li>
-                                          <li><a href="#">Detalle de venta artículos</a></li>
+                                          <!--<li><a href="#">Detalle de venta</a></li>
+                                          <li><a href="#">Detalle de venta artículos</a></li>-->
                                           </ul>
                                             </li>
                             
                 </ul>
             </li>
              
-             <li><a href="#">Películas</a>
-                 <ul class="submenu">
+             <li><a href="peliculas_alta.aspx">Películas</a></li>
+                <!-- <ul class="submenu">
                 <li><a href="#">Alta</a></li>
                 <li><a href="#">Baja</a></li>
                 <li><a href="#">Modificación</a></li>
-                 </ul>
-             </li>
-            <li><a href="#">Artículos</a>
-                <ul class="submenu">
+                 </ul>-->
+             
+            <li><a href="articulos_alta.aspx">Artículos</a>
+               <!-- <ul class="submenu">
                 <li><a href="#">Listado</a></li>
                 <li><a href="#">Alta</a></li>
                 <li><a href="#">Baja</a></li>
                 <li><a href="#">Modificación</a></li>
-                 </ul>
+                 </ul>-->
             </li>
 
-
-            <li><a href="#">Reportes</a>
-                <ul class="submenu">
-                <li><a href="#">Venta diaria</a></li>
-                <li><a href="#">Venta mensual</a></li>
-                <li><a href="#">Venta anual</a></li>
-                 </ul>
-            </li>
-            <li><a href="#">Salir</a></li>
+            <li><a href="Inicio.aspx">Salir</a></li>
         </ul>
             </nav>
     </header>
