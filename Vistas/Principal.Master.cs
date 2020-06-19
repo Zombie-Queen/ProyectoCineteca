@@ -48,6 +48,8 @@ namespace Vistas
             DataTable dt = nc.getRegistroCliente(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
+                Session["Correo"] = correo.Text;
+                Session["Contraseña"] = contraseña.Text;
                 logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";
                 ddm.CssClass = "d-none";
             }
@@ -55,9 +57,18 @@ namespace Vistas
                 lblprueba.Text = "No Funciona";
         }
 
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session["Correo"] = "";
+            Session["Contraseña"] = "";
+            ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";
+            logueado.CssClass = "d-none";
+            lblprueba.Text = "";
+        }
 
-
-
-
+        protected void btnPerfil_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Perfil.aspx");
+        }
     }
 }
