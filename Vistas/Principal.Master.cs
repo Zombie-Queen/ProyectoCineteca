@@ -48,10 +48,7 @@ namespace Vistas
             DataTable dt = nc.getRegistroCliente(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
-                Session["Correo"] = correo.Text;
-                Session["Contraseña"] = contraseña.Text;
-                logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";                
-                ddm.CssClass = "d-none";
+                lblprueba.Text = "Funciona";
 
             }
             else
