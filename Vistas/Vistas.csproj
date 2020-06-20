@@ -82,6 +82,7 @@
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
     <Content Include="DetalledeCompra.aspx" />
+    <Content Include="FinalizarCompra.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
     <Content Include="imagenes\articulos\bebida1.png" />
@@ -161,6 +162,13 @@
     </Compile>
     <Compile Include="DetalledeCompra.aspx.designer.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FinalizarCompra.aspx.designer.cs">
+      <DependentUpon>FinalizarCompra.aspx</DependentUpon>
     </Compile>
     <Compile Include="Funciones.aspx.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>

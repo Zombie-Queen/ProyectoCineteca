@@ -153,9 +153,9 @@
                     <asp:Image ID="imgPromocion" runat="server" Height="150px" ImageUrl='<%# Eval("Url_imagen") %>' Width="150px" />
                     <br />
                     <br />
-                    <asp:TextBox ID="txtPromocion" runat="server" CssClass="auto-style14"></asp:TextBox>
+                    <asp:TextBox ID="txtPromocion" runat="server" CssClass="auto-style14" Width="150px"></asp:TextBox>
                     <br />
-                    <asp:Button ID="btnValidar" runat="server" Text="Validar" CssClass="auto-style14" Font-Size="9pt" />
+                    <asp:Button ID="btnValidar" runat="server" Text="Validar" CssClass="auto-style14" Font-Size="9pt" Width="70px" />
                     <br /></td>
             </ItemTemplate>
             <LayoutTemplate>
