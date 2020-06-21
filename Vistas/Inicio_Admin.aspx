@@ -142,7 +142,7 @@
             <h1 class="titulo">Recaudación mensual</h1>
             <asp:ListView ID="lvRecMensual" runat="server" DataSourceID="ds_recMensual">               
                 <ItemTemplate>                  
-                    <div class="labels" id="divRecM"><asp:Label ID="recMensual" runat="server" Text='<%# Eval("[Total]") %>' /> </div>                  
+                    <div class="labels" id="divRecM"><asp:Label ID="recMensual" runat="server" Text='<%# Eval("[Recaudación mensual]") %>' /> </div>                  
                 </ItemTemplate>
                 <LayoutTemplate>
                     <div id="itemPlaceholderContainer" runat="server" class="item-temp">
@@ -159,7 +159,7 @@
             <h1 class="titulo">Recaudación anual</h1>
             <asp:ListView ID="lvRecAnual" runat="server" DataSourceID="ds_recAnual">               
                 <ItemTemplate>                  
-                    <div class="labels" id="divRecA"><asp:Label ID="recAnual" runat="server" Text='<%# Eval("[Total]") %>' /> </div>                  
+                    <div class="labels" id="divRecA"><asp:Label ID="recAnual" runat="server" Text='<%# Eval("[Recaudación anual]") %>' /> </div>                  
                 </ItemTemplate>
                 <LayoutTemplate>
                     <div id="itemPlaceholderContainer" runat="server" class="item-temp">
