@@ -70,7 +70,6 @@
     <Content Include="articulos_alta.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
-    <Content Include="css\bootstrap.min.css" />
     <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
     <Content Include="css\funciones.css" />

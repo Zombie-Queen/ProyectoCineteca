@@ -69,8 +69,7 @@
                 
                 <asp:Panel runat="server" ID="logueado" CssClass="d-none">
                     <asp:Button runat="server" ID="btnPerfil" CssClass="dropdown-item" Text="Mi Perfil" OnClick="btnPerfil_Click" />                    
-                    <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
-                    
+                    <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />                    
                 </asp:Panel>
             </div>
             <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
