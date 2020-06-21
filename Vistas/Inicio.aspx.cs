@@ -20,7 +20,7 @@ namespace Vistas
             {
                 cargar_ddl_suc();
                 cargar_ddl_func();
-                
+                                
             }
         }
 

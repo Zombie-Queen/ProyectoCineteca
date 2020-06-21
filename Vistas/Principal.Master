@@ -51,7 +51,7 @@
                 <a href="#">
                     <i id="User" class="fas fa-user fa-2x white-text dropdown-toggle"></i>
                 </a>
-                <!-- ---FORM USUARIO--- !-->
+                <!-- ---FORM USUARIO--- !-->                
                 <asp:Panel runat="server" ID="ddm" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center">
                     <div class="form-group">
                         <label for="correo">Email</label>

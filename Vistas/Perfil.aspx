@@ -5,6 +5,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <div class="cont-perfil">
+        <asp:Label ID="lbluser" runat="server"></asp:Label>
+        <asp:Label ID="lblpass" runat="server"></asp:Label>
         <h2>TUS DATOS</h2>
         <asp:ListView ID="lvDatosCliente" runat="server" DataSourceID="sqldsDatosCliente" DataKeyNames="DNI_Cliente" GroupItemCount="1">
             <GroupTemplate>
@@ -41,7 +43,9 @@
         <asp:SqlDataSource runat="server" ID="sqldsDatosCliente" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="spVerificarUsuario" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:SessionParameter SessionField="Correo" DefaultValue="" Name="Correo" Type="String"></asp:SessionParameter>
-                <asp:SessionParameter SessionField="Contraseña" Name="Contraseña" Type="String"></asp:SessionParameter>
+                <asp:SessionParameter SessionField="Contrase&#241;a" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
+
+
             </SelectParameters>
         </asp:SqlDataSource>
         <asp:Button runat="server" ID="btnCambiarCorreo" Text="Cambiar Correo" CssClass="btn purple-gradient mt-5" />

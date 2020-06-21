@@ -14,7 +14,7 @@ namespace Negocios
         private DaoCliente dao = new DaoCliente();
         private AccesoDatos acc = new AccesoDatos();
         private Cliente cli1;
-        private String consulta;
+        
         
 
         public bool AgregarCliente(Cliente cli)
