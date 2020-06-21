@@ -53,20 +53,16 @@
                  </ul>-->
                     </li>
                     <li>
-                        <a href="#">
-                            Perfil
+                        <a href="#">Perfil
                         </a>
                     </li>
                     <li>
                         <a href="#" class="user">
                             <i id="User" class="fas fa-user fa-2x dropdown-toggle"></i>
-                        </a></li>
+                        </a>
+                    </li>
                 </ul>
             </nav>
-            <asp:Panel runat="server" ID="logueado" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center">
-                <asp:Button runat="server" ID="btnPerfil" CssClass="dropdown-item" Text="Mi Perfil" />
-                <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" />
-            </asp:Panel>
         </header>
         <asp:ContentPlaceHolder ID="Contenido" runat="server">
         </asp:ContentPlaceHolder>

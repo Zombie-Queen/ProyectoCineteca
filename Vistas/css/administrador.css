@@ -95,7 +95,11 @@ html {
 }
 
 .user{
-    margin-left:48rem;
+    margin-left:39rem;
+}
+
+#logueado{
+    margin-top:-60rem;
 }
 
 /*Footer*/

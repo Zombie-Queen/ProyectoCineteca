@@ -103,8 +103,6 @@
                             </div>
 
                         </div>
-
-
                     </ItemTemplate>
                     <LayoutTemplate>
                         <div id="itemPlaceholderContainer" runat="server" class="item-temp">
