@@ -110,16 +110,7 @@
                     <asp:Button ID="CancelButton" runat="server" CommandName="Cancel" Text="Cancelar" />
                     <br /></td>
             </EditItemTemplate>
-            <EmptyDataTemplate>
-                <table runat="server" style="background-color: #FFFFFF;border-collapse: collapse;border-color: #999999;border-style:none;border-width:1px;">
-                    <tr>
-                        <td>No se han devuelto datos.</td>
-                    </tr>
-                </table>
-            </EmptyDataTemplate>
-            <EmptyItemTemplate>
-<td runat="server" />
-            </EmptyItemTemplate>
+          
             <GroupTemplate>
                 <tr id="itemPlaceholderContainer" runat="server">
                     <td id="itemPlaceholder" runat="server"></td>

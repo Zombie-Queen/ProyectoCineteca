@@ -61,10 +61,19 @@ namespace Vistas
             DataTable dt = nc.getRegistroCliente(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
-                //lblprueba.Text = "Funciona";
-                Session["Correo"] = correo.Text;
-                Session["Contraseña"] = contraseña.Text;
-                Response.Redirect("Inicio.aspx");
+                if (Convert.ToInt32(dt.Rows[0][7]) == 1)
+                {
+                    //lblprueba.Text = "Funciona";
+                    Session["Correo"] = correo.Text;
+                    Session["Contraseña"] = contraseña.Text;
+                    Response.Redirect("Inicio.aspx");
+                }
+                else
+                {
+                    Session["Correo"] = correo.Text;
+                    Session["Contraseña"] = contraseña.Text;
+                    Response.Redirect("Inicio_admin.aspx");
+                }
             }
             else
                 lblprueba.Text = "No Funciona";

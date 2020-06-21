@@ -64,8 +64,7 @@
                     <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" OnClick="btnIniciar_Click" />
                     <asp:Label ID="lblprueba" runat="server"></asp:Label>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" data-toggle="modal" href="" data-target="#modalRegisterForm">Registrarse</a>
-                    <a class="dropdown-item" href="#">Usuario Administrador</a>
+                    <a class="dropdown-item" data-toggle="modal" href="" data-target="#modalRegisterForm">Registrarse</a>                    
                 </asp:Panel>
                 
                 <asp:Panel runat="server" ID="logueado" CssClass="d-none">
