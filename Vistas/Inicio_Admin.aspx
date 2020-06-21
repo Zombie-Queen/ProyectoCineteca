@@ -154,7 +154,7 @@
             </div>
         </a>
         <a href="#" class="c-pelis">
-            <div class="Recaudacion">
+            <div class="Recaudacion" id="recM">
                 <h1 class="titulo">Recaudación mensual</h1>
                 <asp:ListView ID="lvRecMensual" runat="server" DataSourceID="ds_recMensual">
                     <ItemTemplate>
@@ -173,7 +173,7 @@
             </div>
         </a>
         <a href="#" class="c-pelis">
-            <div class="Recaudacion">
+            <div class="Recaudacion" id="recA">
                 <h1 class="titulo">Recaudación anual</h1>
                 <asp:ListView ID="lvRecAnual" runat="server" DataSourceID="ds_recAnual">
                     <ItemTemplate>

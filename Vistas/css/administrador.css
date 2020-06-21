@@ -44,7 +44,11 @@ html {
         
     }
 
-.menu li a:hover {
+.menu li div a{
+    color: #000000;
+}
+
+.menu li a:hover, .menu li div a:hover {
     color: #30F410;
     transition: all 0.3s;
 }
@@ -94,12 +98,17 @@ html {
    
 }
 
-.user{
+#User{
+    margin-top:2rem;
+}
+
+._user{
     margin-left:39rem;
 }
 
 #logueado{
     margin-top:-60rem;
+    display:block;
 }
 
 /*Footer*/
