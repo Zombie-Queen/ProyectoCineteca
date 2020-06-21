@@ -61,8 +61,8 @@
                             <a href="#" class="user">
                                 <i id="User" class="fas fa-user fa-2x dropdown-toggle"></i>
                             </a>
-                            <asp:Panel runat="server" ID="logueado" CssClass="dropdown-menu dropdown-menu-lg-right pl-2 pr-2 text-md-center">
-                                <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" />
+                            <asp:Panel runat="server" ID="logueado" CssClass="dropdown-menu dropdown-menu-right pl-2 pr-2 text-md-center">
+                                <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
                             </asp:Panel>
                         </div>
                     </li>

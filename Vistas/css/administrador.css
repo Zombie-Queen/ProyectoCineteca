@@ -5,8 +5,8 @@
     -moz-box-sizing: border-box;
     box-sizing: border-box;
 }
+
 body {
-    
 }
 
 html {
@@ -20,38 +20,40 @@ html {
     left: 0;
     top: 0;
     right: 0;
-    z-index:1;
+    z-index: 1;
 }
+
 .nav {
     width: 1000px;
     margin: 30px auto;
     background: #FFFFFF;
 }
-.nav ul{
 
-    list-style:none;
+    .nav ul {
+        list-style: none;
+    }
+
+.menu > li {
+    display: inline-block;
 }
 
-.menu > li { display:inline-block;}
     .menu > li > a {
         display: block;
         padding: 1.5rem 2rem;
         color: #353535;
-        font-family:'Lucida Console';
-        text-decoration:none;
+        font-family: 'Lucida Console';
+        text-decoration: none;
         font-size: 1.4rem;
-        
-        
     }
 
-.menu li div a{
+.menu li div a {
     color: #000000;
 }
 
-.menu li a:hover, .menu li div a:hover {
-    color: #30F410;
-    transition: all 0.3s;
-}
+    .menu li a:hover, .menu li div a:hover {
+        color: #30F410;
+        transition: all 0.3s;
+    }
 
 
 
@@ -59,75 +61,64 @@ html {
 /*submenu*/
 
 .submenu {
-
-    display:none;
-    position:absolute;
+    display: none;
+    position: absolute;
     background: #4a4a4a;
-    opacity:1;
-    transition:opacity 1.5s;
-
-    } 
-
-
-
-.submenu li a {
-
-    display: block;
-    padding: 15px;
-    color: #FFFFFF;
-    font-family:'Lucida Console';
-    text-decoration: none;
-    font-size:1.4rem;
-    border:solid 1px #FFFFFF;
-   
+    opacity: 1;
+    transition: opacity 1.5s;
 }
 
 
 
+    .submenu li a {
+        display: block;
+        padding: 15px;
+        color: #FFFFFF;
+        font-family: 'Lucida Console';
+        text-decoration: none;
+        font-size: 1.4rem;
+        border: solid 1px #FFFFFF;
+    }
+
+
+
 .nav li ul li ul {
-    
-    
-    width:100%;
+    width: 100%;
     left: 100%;
-    top:67%;
+    top: 67%;
 }
 
 .menu li:hover > ul {
     display: block;
     opacity: 1;
-   
 }
 
-#User{
-    margin-top:2rem;
+#User {
+    margin-top: 2rem;
 }
 
-._user{
-    margin-left:39rem;
+._user {
+    margin-left: 39rem;
 }
 
-#logueado{
-    margin-top:-60rem;
-    display:block;
+#logueado {
+    margin-top: -7rem;
+    margin-right: 22rem;
+    font-family: 'Lucida Console';
 }
 
 /*Footer*/
 
 .footer {
-
     background: #f2f2f2;
     padding: 5rem 0;
     text-align: center;
     margin-top: 10rem;
-    font-family:Verdana;
-    font-size:1.2rem;
-    
+    font-family: Verdana;
+    font-size: 1.2rem;
 }
 
 /*Main*/
 .main {
-
-    padding-top:100%;
+    padding-top: 100%;
 }
-
-
