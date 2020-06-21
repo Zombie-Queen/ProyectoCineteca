@@ -151,7 +151,7 @@
                 </LayoutTemplate>
                 
             </asp:ListView>  
-            <asp:SqlDataSource ID="ds_recMensual" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_VentaMensual" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ds_recMensual" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_TotalVentaMensual" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
         </div>
                 </a>
             <a href="#" class="c-pelis">
@@ -168,7 +168,7 @@
                 </LayoutTemplate>
                 
             </asp:ListView>  
-            <asp:SqlDataSource ID="ds_recAnual" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_VentaAnual" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="ds_recAnual" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_TotalVentaAnual" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
         </div>
                 </a>
             </form>
