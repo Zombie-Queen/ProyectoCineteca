@@ -8,7 +8,7 @@
         <asp:Label ID="lbluser" runat="server"></asp:Label>
         <asp:Label ID="lblpass" runat="server"></asp:Label>
         <h2>TUS DATOS</h2>
-        <asp:ListView ID="lvDatosCliente" runat="server" DataSourceID="sqldsDatosCliente" DataKeyNames="DNI_Cliente" GroupItemCount="1">
+        <asp:ListView ID="lvDatosUsuario" runat="server" DataSourceID="sqldsDatosCliente" DataKeyNames="DNI_Usuario" GroupItemCount="1">
             <GroupTemplate>
                 <tr runat="server" id="itemPlaceholderContainer">
                     <td runat="server" id="itemPlaceholder"></td>
