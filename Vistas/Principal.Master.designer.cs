@@ -51,15 +51,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox correo;
 
         /// <summary>
-        /// Control rfCorreo.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfCorreo;
-
-        /// <summary>
         /// Control reCorreo.
         /// </summary>
         /// <remarks>
@@ -96,13 +87,13 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btnIniciar;
 
         /// <summary>
-        /// Control lblprueba.
+        /// Control lblerror.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblprueba;
+        protected global::System.Web.UI.WebControls.Label lblerror;
 
         /// <summary>
         /// Control logueado.

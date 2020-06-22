@@ -11,13 +11,12 @@ namespace Dao
 {
     public class DaoUsuario
     {
-        private AccesoDatos acc = new AccesoDatos();
-        private Usuario cli = new Usuario();
+        private AccesoDatos acc = new AccesoDatos();        
         private String consulta;
         SqlCommand comando;
 
 
-        private void armarParametrosAgregarCliente(ref SqlCommand Comando, Usuario cli)
+        private void armarParametrosAgregarCliente(SqlCommand Comando, Usuario cli)
         {
             SqlParameter parametros = new SqlParameter();
             parametros = Comando.Parameters.Add("@Nombre", SqlDbType.VarChar, 30);
@@ -37,8 +36,8 @@ namespace Dao
         public int AgregarCliente(Usuario cli)
         {
             comando = new SqlCommand();
-            armarParametrosAgregarCliente(ref comando, cli);
-            return acc.sp_Ejecutar(comando, "spAgregarCliente");
+            armarParametrosAgregarCliente(comando, cli);
+            return acc.sp_Ejecutar(comando, "spAgregarUsuario");
         }
 
         public bool existeUsuario(String dni)

@@ -13,7 +13,6 @@
         <asp:DropDownList CssClass="ddlsc" ID="ddlFunc" runat="server" AutoPostBack="True">
         </asp:DropDownList>
         <asp:Button ID="btnddls" runat="server" CssClass="btn purple-gradient btnddls" Text="Ver Funciones" OnClick="btnddls_Click" />
-
     </div>
     <div class="peliculas">
         <h2>TODAS LAS PELÍCULAS</h2>
