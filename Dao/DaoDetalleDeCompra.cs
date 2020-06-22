@@ -23,7 +23,7 @@ namespace Dao
         public int QuitarAsientoSeleccionado(FuncionesxSalasxAsiento fsa)
         {
             SqlCommand comando = new SqlCommand();
-            ArmarParametrosAsientosQuitar (ref comando, fsa);
+            ArmarParametrosAsientosQuitar(ref comando, fsa);
             return ds.sp_Ejecutar(comando, "SP_QuitarAsientoSeleccionado");
         }
 
@@ -98,4 +98,4 @@ namespace Dao
             SqlParametros.Value = dva.id_articulo_dva;
         }
     }
-    }
+}
