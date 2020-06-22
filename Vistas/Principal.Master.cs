@@ -71,6 +71,10 @@ namespace Vistas
                 {
                     Response.Redirect("Inicio_admin.aspx");
                 }
+            }
+            else
+            {
+                lblerror.Text = "Correo o contraseña inválido";
             }               
         }
 

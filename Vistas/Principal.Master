@@ -55,17 +55,15 @@
                 <asp:Panel runat="server" ID="ddm" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center">
                     <div class="form-group">
                         <label for="correo">Email</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="correo" placeholder="Email@example.com"></asp:TextBox>
-                            <asp:RequiredFieldValidator runat="server" ID="rfCorreo" CssClass="red-text" ValidationGroup="login" Text="Ingrese un correo válido" ControlToValidate="correo"></asp:RequiredFieldValidator> <br />
+                        <asp:TextBox runat="server" CssClass="form-control" ID="correo" placeholder="Email@example.com"></asp:TextBox>                            
                             <asp:RegularExpressionValidator runat="server" ID="reCorreo" ControlToValidate="correo" CssClass="red-text" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" ValidationGroup="login">Ingrese un correo válido</asp:RegularExpressionValidator>
                     </div>
                     <div class="form-group">
                         <label for="contra">Contraseña</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="contraseña" placeholder="Contraseña" TextMode="Password"></asp:TextBox>
-                        <asp:RequiredFieldValidator runat="server" ID="rfContraseña" CssClass="red-text" ValidationGroup="login" Text="Ingrese una contraseña válida" ControlToValidate="contraseña"></asp:RequiredFieldValidator>
+                        <asp:TextBox runat="server" CssClass="form-control" ID="contraseña" placeholder="Contraseña" TextMode="Password"></asp:TextBox>                        
                     </div>
-                    <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" ValidationGroup="login" OnClick="btnIniciar_Click" />
-                    <asp:Label ID="lblprueba" runat="server"></asp:Label>
+                    <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" ValidationGroup="login" OnClick="btnIniciar_Click" /><br />
+                    <asp:Label ID="lblerror" CssClass="red-text" runat="server"></asp:Label>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" data-toggle="modal" href="" data-target="#modalRegisterForm">Registrarse</a>
                 </asp:Panel>
