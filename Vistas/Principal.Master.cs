@@ -58,9 +58,10 @@ namespace Vistas
         protected void btnIniciar_Click(object sender, EventArgs e)
         {
             NegocioUsuario nc = new NegocioUsuario();
-            DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);
+            DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);            
             if (dt.Rows.Count > 0)
             {
+                lblerror.Text = "";
                 Session["Correo"] = correo.Text;
                 Session["Contraseña"] = contraseña.Text;
                 if (Convert.ToInt32(dt.Rows[0][7]) == 1)
@@ -73,9 +74,9 @@ namespace Vistas
                 }
             }
             else
-            {
+            {                
                 lblerror.Text = "Correo o contraseña inválido";
-            }               
+            }   
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
