@@ -32,7 +32,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool quitarAsientoSeleccionado (String asiento, String estado)
+        public bool quitarAsientoSeleccionado(String asiento, String estado)
         {
             FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
             fsa.ID_Asiento_FSA1 = asiento;
@@ -68,7 +68,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool quitarArticuloSeleccionado (int id_venta, int id_dva, String id_articulo)
+        public bool quitarArticuloSeleccionado(int id_venta, int id_dva, String id_articulo)
         {
             DetalleVentasArticulo dva = new DetalleVentasArticulo();
             dva.id_venta_dva = id_venta;
