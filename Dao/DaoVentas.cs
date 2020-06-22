@@ -187,7 +187,7 @@ namespace Dao
 
         public Boolean existe_venta(Ventas ven)
         {
-            return ds.existe("Select * From Ventas WHERE ID_Venta="+ven.id_venta+"");
+            return ds.existe("Select * From Ventas WHERE ID_Venta='"+ven.id_venta+"'");
             
         }
 

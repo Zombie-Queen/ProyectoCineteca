@@ -17,8 +17,9 @@ html {
     margin: auto;
     margin-top: 14rem;
     padding: 1rem 0;
-    width: 120rem;
+    width: 125rem;
     height: 60rem;
+    
 }
 
 .registro {
@@ -76,21 +77,21 @@ html {
     border-radius: 5px;
     float: left;
     margin-bottom: 1.5rem;
-    margin-top: 10rem;
+    margin-top: 2rem;
     padding: 1rem;
     
 }
 .filtro-p {
     position: relative;
     margin: auto;
-    width: 72rem;
+    width: 60%;
     height: 10rem;
     overflow: hidden;
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
     float: left;
-    margin-left:1rem;
+    margin-left: 1rem;
     margin-top: 2rem;
 }
 
@@ -102,7 +103,7 @@ html {
     font-size: 1.2rem;
     border-collapse: collapse;
     width: 100%;
-    bottom: 0px;
+    top:.5rem;
     padding:1rem;
 }
 
@@ -147,6 +148,7 @@ html {
     transition: .3s;
     color: #FFFFFF;
     background: #24303c;
+    font-size: 1.5rem;
 }
 
     .input[type=text]:focus {

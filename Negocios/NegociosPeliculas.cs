@@ -18,5 +18,28 @@ namespace Negocios
         {
             return dao.ObtenerTodasLasPeliculas();
         }
+
+        public bool agregarPelicula (Peliculas peli)
+        {
+            int filas = 0;
+            filas = dao.agregarPeliculas(peli);
+            
+            if (filas == 1) return true;
+            else return false;
+            
+        }
+
+        public bool existePelicula (Peliculas pel)
+        {      
+            if (dao.existe_pelicula(pel) == true) return true;
+            else return false;
+
+        }
+
+        public bool eliminarPelicula (Peliculas pel)
+        {
+            if (dao.eliminar_pelicula(pel)) return true;
+            else return false;
+        }
     }
 }

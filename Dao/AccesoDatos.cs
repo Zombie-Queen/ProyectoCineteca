@@ -64,7 +64,7 @@ namespace Dao
             }
         }
 
-        /* Ejecuta un procedimiento de almacenado*/
+        /* insertar, eliminar , modificar */ // Sirve para cuando un usuario ingresa datos // // recibe una store procedure
         public int sp_Ejecutar(SqlCommand Comando, String sp_nombre)
         {
             int filas;
@@ -79,7 +79,7 @@ namespace Dao
             return filas;
         }
 
-        /* Ejecuta proceso de: insertar, eliminar , modificar */ // Sirve para cuando un usuario ingresa datos // 
+        /* insertar, eliminar , modificar */ // Sirve para cuando un usuario ingresa datos // // recibe una consulta
         public int EjecutarProceso(string consulta)
         {
             SqlConnection conexion = new SqlConnection(rutaBDCineteca);
