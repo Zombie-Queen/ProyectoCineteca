@@ -1,9 +1,9 @@
 ﻿body {
 }
 
-*{
-    margin:0;
-    padding:0;
+* {
+    margin: 0;
+    padding: 0;
     box-sizing:border-box;
 }
 
@@ -13,13 +13,12 @@ html {
 
 
 .contenido {
+    position: relative;
     margin: auto;
     margin-top: 14rem;
     padding: 1rem 0;
     width: 120rem;
     height: 60rem;
-    background:#4a4a4a;
-    
 }
 
 .registro {
@@ -34,6 +33,8 @@ html {
     font-family:Calibri;
     color:white;
     box-shadow:7px 13px 37px #000;
+    
+
    
 }
 
@@ -55,6 +56,8 @@ html {
     color:#FFFFFF;
 }
 
+
+
 .registro .botons {
     width: 100%;
     background: #1f53c5;
@@ -67,10 +70,125 @@ html {
 }
 
 .listaPelis {
-    margin: auto;
-    margin-top: 1rem;
-    padding: 1rem 1rem;
-    width: 90%;
-    height: 40rem;
+    position: relative;
+    width: 60%;
+    height: 30rem;
     border-radius: 5px;
+    float: left;
+    margin-bottom: 1.5rem;
+    margin-top: 10rem;
+    padding: 1rem;
+    
+}
+.filtro-p {
+    position: relative;
+    margin: auto;
+    width: 72rem;
+    height: 10rem;
+    overflow: hidden;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
+    float: left;
+    margin-left:1rem;
+    margin-top: 2rem;
+}
+
+.grid {
+    position: absolute;
+    text-decoration: none;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.2rem;
+    border-collapse: collapse;
+    width: 100%;
+    bottom: 0px;
+    padding:1rem;
+}
+
+    .grid td {
+        padding: .8rem;
+        border: 1px solid #c1c1c1;
+        color: #444;
+        font-size: 1.2rem;
+    }
+
+    .grid th {
+        padding: 4px 2px;
+        color: #FFFFFF;
+        background: linear-gradient(#02026C,#868BC5);
+        border: 1px solid #c1c1c1;
+        font-size: 1em;
+        text-align: center;
+    }
+
+        .grid th a {
+            color: white;
+            text-decoration: none;
+        }
+
+            .grid th a:hover {
+                color: #444;
+                text-decoration: none;
+            }
+
+    .grid .alt {
+        background: linear-gradient(#fff,#e6e6e6);
+    }
+
+
+.input[type=text] {
+    width: 100%;
+    border: 1px solid #1f53c5;
+    border-radius: 4px;
+    outline: none;
+    padding: 8px;
+    box-sizing: border-box;
+    transition: .3s;
+    color: #FFFFFF;
+    background: #24303c;
+}
+
+    .input[type=text]:focus {
+        border-color: #594E4E;
+        box-shadow: 0 0 8px 0 #594E4E;
+    }
+
+.item {
+    margin: 1rem;
+    float: left;
+    width: 22%;
+    margin-bottom: 0;
+}
+
+.boton {
+    position: relative;
+    display: inline-block;
+    padding: 1rem 3rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #1f53c5;
+    transition: 0.5s, background 0.5s;
+    border: none;
+    color: #FFFFFF;
+    margin: 0;
+    font-size: 1.2rem;
+}
+
+    /*  .boton:hover {
+        color: #000000;
+        background-color: transparent;
+        border: 2px solid #aaa;
+    }*/
+
+
+    .boton:active {
+        box-shadow: inset 0 0 20px #FFFFFF;
+    }
+
+.btn-item {
+    display: inline-block;
+    position: relative;
+    margin: 1rem;
+    float: left;
 }

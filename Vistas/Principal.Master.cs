@@ -16,6 +16,19 @@ namespace Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+                if (Session["Correo"] != null && Session["Contraseña"] != null)
+                {
+                    ddm.CssClass = "d-none";
+                    logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
+                }
+                else
+                {
+                    logueado.CssClass = "d-none";
+                    ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
+                }
+            }
 
         }
 
@@ -50,25 +63,30 @@ namespace Vistas
             {
                 Session["Correo"] = correo.Text;
                 Session["Contraseña"] = contraseña.Text;
-                logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";
-                ddm.CssClass = "d-none";
-            }
-            else
-                lblprueba.Text = "No Funciona";
+                if (Convert.ToInt32(dt.Rows[0][7]) == 1)
+                {
+                    Response.Redirect("Inicio.aspx");
+                }
+                else
+                {
+                    Response.Redirect("Inicio_admin.aspx");
+                }
+            }               
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
-            Session["Correo"] = "";
-            Session["Contraseña"] = "";
-            ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center hide";
-            logueado.CssClass = "d-none";
-            lblprueba.Text = "";
+            Session["Correo"] = null;
+            Session["Contraseña"] = null;
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void btnPerfil_Click(object sender, EventArgs e)
         {
             Response.Redirect("Perfil.aspx");
         }
+
     }
 }
+
+

@@ -10,13 +10,12 @@ using Entidades;
 
 namespace Negocios
 {
-    
-    public class NegociosPeliculas
+    public class NegociosArticulos
     {
-        DaoPeliculas dao = new DaoPeliculas();
+        DaoArticulos dao = new DaoArticulos();
         public DataTable getTabla()
         {
-            return dao.ObtenerTodasLasPeliculas();
+            return dao.ObtenerTodasLosArticulos();
         }
     }
 }

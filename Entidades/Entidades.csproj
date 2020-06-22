@@ -46,6 +46,7 @@
     <Compile Include="DetalleVentas.cs" />
     <Compile Include="DetalleVentasArticulo.cs" />
     <Compile Include="FuncionesxSalasxAsiento.cs" />
+    <Compile Include="Peliculas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Ventas.cs" />
   </ItemGroup>

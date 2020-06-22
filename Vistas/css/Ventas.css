@@ -9,12 +9,12 @@ html {
 
 .contenido {
     margin: auto;
-    margin-top: 14rem;
+    margin-top: 20rem;
     padding: 1rem 0;
     width: 90rem;
     height: 60rem;
-    /* background-color:#4a4a4a; */
-    background-color: white;
+    background-color:#4a4a4a;
+    
 }
 
 .listado {
@@ -152,6 +152,5 @@ input[type=date] {
     margin: 1rem;
     float:left;
    
-
 }
 

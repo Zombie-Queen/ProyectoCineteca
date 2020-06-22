@@ -1,51 +1,89 @@
 ﻿body {
-    background-color: #000000;
-    display:block;
-    margin: 0 auto;
 }
 
-div {
-    display:block;
-    margin: 0 auto;	
+html {
+    font-size: 62.5%; /*1 REM = 10 PX*/
 }
 
-h2 {
-    font-family: 'Kanit', sans-serif;
-    color: #FFFFFF;
-    margin: 2rem 0;
+
+/*¨DETALLE DE VENTAS*/
+
+
+.contenido-dv {
+    margin: auto;
+    margin-top: 20rem;
+    padding: 1rem 0;
+    width: 120rem;
+    height: 60rem;
+    /* background-color:#4a4a4a;   */
 }
 
-.subt {
-    font-family: 'Kanit', sans-serif;
-    color: #FFFFFF;
-    margin: 2rem 0;
-    font-size: 3rem;
+
+.filtro-v {
+    margin: auto;
+    justify-content: space-between;
+    width: 65%;
+    height: 10rem;
+    overflow: hidden;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
 }
 
-.ddl {
-    margin-top: 5rem;
-    display: flex;
-    margin-left: 5rem;
+.dventas {
+    text-align: center;
+    width: 40%;
+    max-width: 50%;
+    height: 30rem;
+    float: left;
+    margin: 1rem;
+    /* background:red; */
 }
 
-.ddla {
-    padding: 1rem 2rem;
-    background-color: #000000;
-    color: white;
-    font-family: 'Kanit', sans-serif;
-    font-weight: 200;
-    font-size: 1.5rem;
-    border-bottom: solid 1px #FFFFFF;
+.dventas-a {
+    text-align: center;
+    width: 35%;
+    height: 30rem;
+    float: left;
+    margin: 1rem;
+    /* background: blue;  */
 }
 
-    .ddlsc option {
-        font-family: 'Kanit', sans-serif;
-        font-weight: 200;
-    }
+.totaldv {
+    display: inline-block;
+    margin: 1rem;
+    width: 92.7%;
+    height: 5rem;
+    text-align: center;
+}
 
-.btnddls {
-    font-family: 'Kanit', sans-serif;
-    margin-left: 3rem;
-    font-size: 1.5rem;
-    padding: 1rem;
+.totaldv-a {
+    display: inline-block;
+    width: 92.7%;
+    height: 5rem;
+    margin: 1rem;
+    text-align: center;
+    
+}
+
+.total-venta {
+    float:left;
+    text-align: center;
+    width: 20%;
+    height: 5rem;
+    float:right;
+    margin-top:1rem;
+    margin-right:1rem;
+}
+
+.content-ventas {
+    margin: auto;
+    border-radius: 5px;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+    width: 95%;
+    height: 45rem;
+    
 }

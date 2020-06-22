@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
     <div class="contenido">
-    <form id="form1" runat="server">
+    
          
                 <div class="filtro-v">
                <div class="item"><asp:TextBox  runat="server" placeholder="Número de venta" Class="input" ID="txt_num_venta"></asp:TextBox></div>                              
@@ -25,7 +25,7 @@
             </div>
             
         
-    </form>
+   
     </div>
 
 </asp:Content>

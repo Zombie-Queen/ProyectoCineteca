@@ -13,5 +13,12 @@ namespace Vistas
         {
 
         }
+
+        protected void btnCerrar_Click(object sender, EventArgs e)
+        {
+            Session["Correo"] = null;
+            Session["Contraseña"] = null;
+            Response.Redirect("Inicio.aspx");
+        }
     }
 }

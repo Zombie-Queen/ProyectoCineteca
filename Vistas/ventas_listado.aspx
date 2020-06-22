@@ -5,10 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
 
     <div class="contenido">
-    <form id="form1" runat="server">
-         
-        <section class="filtros">
-             
+       <section class="filtros">
              <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox></div>           
              <div class="item"><asp:TextBox runat="server" placeholder="Número de venta" class="input" ID="txt_venta"></asp:TextBox></div> 
             <div class="item"><asp:TextBox  runat="server" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>
@@ -19,8 +16,7 @@
                 
             
         </section>
-
-            <div class="listado">
+        <div class="listado">
                 <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5">
                     <AlternatingRowStyle CssClass="alt" />
                     <Columns>
@@ -28,9 +24,9 @@
                     </Columns>          
         </asp:GridView>
             </div>
-            
+   
         
-    </form>
+    
     </div>
 
 </asp:Content>
