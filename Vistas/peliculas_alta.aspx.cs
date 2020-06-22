@@ -57,7 +57,8 @@ namespace Vistas
 
         protected void Volver_Click(object sender, EventArgs e)
         {
-
+            grdPelis.PageIndex = 0;
+            CargarGrid();
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
@@ -65,7 +66,7 @@ namespace Vistas
             pelicula.id_pelicula = txt_id_peli.Text;
             pelicula.estado = txt_estado_peli.Text;
             pelicula.titulo = txt_titulo_peli.Text;
-            pelicula.duracion = txt_duracion_peli.Text;
+            pelicula.duracion = Convert.ToInt32(txt_duracion_peli.Text);
             pelicula.clasificacion = txt_clasif_peli.Text;
             pelicula.url_imagen = txt_url_peli.Text;
             if (np.existePelicula(pelicula))
@@ -89,29 +90,30 @@ namespace Vistas
 
         }
 
-        /*protected void grdPelis_RowUpdating(object sender, GridViewUpdateEventArgs e)
+        protected void grdPelis_RowUpdating(object sender, GridViewUpdateEventArgs e)
          {
+            
              //Buscar los datos del edititemplate
              String s_id_pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_peicula")).Text;
              String s_estado = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_estado_peli")).Text;
-             String s_titulo = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_et_cantPorUnidad")).Text;
-             String s_duracion = ((TextBox)grdProductos.Rows[e.RowIndex].FindControl("txt_et_precioUnidad")).Text;
-             String s_clasif = ((TextBox)grdProductos.Rows[e.RowIndex].FindControl("txt_et_precioUnidad")).Text;
-             String s_url = ((TextBox)grdProductos.Rows[e.RowIndex].FindControl("txt_et_precioUnidad")).Text;
+             String s_titulo = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_titulo")).Text;
+             String s_duracion = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_duracion")).Text;
+             String s_clasif = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_clasificacion")).Text;
+             String s_url = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
 
-            Productos prod = new Productos();
-             prod.id_Producto = Convert.ToInt32(s_idProductos);
-             prod.nombre_Producto = s_nombreProducto;
-             prod.cantidad_Unidad = s_cantPorUnidad;
-             prod.precio_Unidad = Convert.ToDecimal(s_precioUnidad);
+            pelicula.id_pelicula = s_id_pelicula;
+            pelicula.estado = s_estado;
+            pelicula.titulo = s_titulo;
+             pelicula.duracion = Convert.ToInt32(s_duracion);
+            pelicula.clasificacion = s_clasif;
+            pelicula.url_imagen = s_url;
 
 
-             gestionProductos gProductos = new gestionProductos();
-             gProductos.actualizarProductos(prod);// se envia el objeto con los nuevos valores y se actualiza en la BD
+            np.modificarPelicula(pelicula);// se envia el objeto con los nuevos valores y se actualiza en la BD
 
-             grdProductos.EditIndex = -1;
+             grdPelis.EditIndex = -1;
              CargarGrid(); // se vuelve a cargar la grilla actualizada 
-         }*/
+        }
 
         protected void grdPelis_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {

@@ -194,3 +194,22 @@ html {
     margin: 1rem;
     float: left;
 }
+.editarMed {
+    text-align: center;
+    width: 12rem;
+}
+.editarMe {
+    text-align: center;
+    width: 9rem;
+}
+
+.editarPeq {
+    text-align:center;
+    width: 3.5rem;
+}
+
+.editarGrande {
+    text-align: center;
+    width: 22rem;
+}
+

@@ -28,53 +28,57 @@
                 <AlternatingRowStyle CssClass="alt" />
                 <Columns>
                         <asp:TemplateField HeaderText="ID Pelicula">
-                            <EditItemTemplate>
-                                <asp:Label ID="lbl_id_peicula" runat="server" Text='<%# Bind("[Pelicula]") %>'></asp:Label>
-                            </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lbl_id_peicula" runat="server" Text='<%# Bind("[Pelicula]") %>'></asp:Label>
                             </ItemTemplate>
-
+                            <EditItemTemplate>
+                                <asp:Label ID="lbl_id_peicula" runat="server" Text='<%# Bind("[Pelicula]") %>'></asp:Label>
+                            </EditItemTemplate>
+                            
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">
                             <EditItemTemplate>
-                                <asp:TextBox ID="txt_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:TextBox>
+                                <asp:TextBox class="editarMe" ID="txt_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:TextBox>
                             </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:TextBox ID="txt_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:TextBox>
+                                <asp:Label ID="lbl_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:Label>
                             </ItemTemplate>
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Título">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_titulo" runat="server" Text='<%# Bind("[Título]") %>'></asp:TextBox>
-                            </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:TextBox ID="txt_titulo" runat="server" Text='<%# Bind("[Título]") %>'></asp:TextBox>
+                                <asp:Label ID="lbl_titulo" runat="server" Text='<%# Bind("[Título]") %>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox class="editarMed" ID="txt_titulo" runat="server" Text='<%# Bind("[Título]") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Duración">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_duracion" runat="server" Text='<%# Bind("[Duración]") %>'></asp:TextBox>
-                            </EditItemTemplate>
                             <ItemTemplate>
-                                <asp:TextBox ID="txt_duracion" runat="server" Text='<%# Bind("[Duración]") %>'></asp:TextBox>
+                                <asp:Label ID="lbl_duracion" runat="server" Text='<%# Bind("[Duración]") %>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox class="editarPeq" ID="txt_duracion" runat="server" Text='<%# Bind("[Duración]") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            
                         </asp:TemplateField>
                     <asp:TemplateField HeaderText="Clasificación">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_clasificacion" runat="server" Text='<%# Bind("[Clasificación]") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:TextBox ID="txt_clasificacion" runat="server" Text='<%# Bind("[Clasificación]") %>'></asp:TextBox>
+                        <ItemTemplate>
+                                <asp:Label ID="lbl_clasificacion" runat="server" Text='<%# Bind("[Clasificación]") %>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox class="editarPeq" ID="txt_clasificacion" runat="server" Text='<%# Bind("[Clasificación]") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            
                         </asp:TemplateField>
                     <asp:TemplateField HeaderText="Url imagen">
-                            <EditItemTemplate>
-                                <asp:TextBox ID="txt_imagen" runat="server" Text='<%# Bind("[Url imagen]") %>'></asp:TextBox>
-                            </EditItemTemplate>
-                            <ItemTemplate>
-                                <asp:TextBox ID="txt_imagen" runat="server" Text='<%# Bind("[Url imagen]") %>'></asp:TextBox>
+                        <ItemTemplate>
+                                <asp:Label ID="lbl_imagen" runat="server" Text='<%# Bind("[Url imagen]") %>'></asp:Label>
                             </ItemTemplate>
+                            <EditItemTemplate>
+                                <asp:TextBox class="editarGrande" ID="txt_imagen" runat="server" Text='<%# Bind("[Url imagen]") %>'></asp:TextBox>
+                            </EditItemTemplate>
+                            
                         </asp:TemplateField>
                     </Columns>
             </asp:GridView>

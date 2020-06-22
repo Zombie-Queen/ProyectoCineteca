@@ -11,13 +11,13 @@ namespace Entidades
         String ID_Pelicula;
         String Estado;
         String Titulo;
-        String Duracion; /*Convert to int 32*/
+        int Duracion; /*Convert to int 32*/
         String Clasificacion;
         String Url_Imagen;
 
         public Peliculas () { }
 
-        public Peliculas(string iD_Pelicula, string estado, string titulo, string duracion, string clasificacion, string url_Imagen)
+        public Peliculas(string iD_Pelicula, string estado, string titulo, int duracion, string clasificacion, string url_Imagen)
         {
             ID_Pelicula = iD_Pelicula;
             Estado = estado;
@@ -42,7 +42,7 @@ namespace Entidades
             get { return Titulo; }
             set {Titulo = value; }
         }
-        public String duracion
+        public int duracion
         {
             get { return Duracion; }
             set { Duracion = value; }

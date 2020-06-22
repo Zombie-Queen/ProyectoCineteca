@@ -25,6 +25,7 @@ namespace Vistas
 
         protected void Reset_Click(object sender, EventArgs e)
         {
+            grdVentas.PageIndex = 0;
             CargarGrid();
             txt_dni.Text = "";
             txt_fecha.Text = "dd/mm/aaaa";

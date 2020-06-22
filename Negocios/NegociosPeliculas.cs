@@ -41,5 +41,10 @@ namespace Negocios
             if (dao.eliminar_pelicula(pel)) return true;
             else return false;
         }
+        public bool modificarPelicula(Peliculas pel)
+        {
+            if (dao.actualizarPelicula(pel)) return true;
+            else return false;
+        }
     }
 }
