@@ -9,25 +9,23 @@ using System.Data;
 
 namespace Negocios
 {
-    public class NegocioCliente
+    public class NegocioUsuario
     {
-        private DaoCliente dao = new DaoCliente();
-        private AccesoDatos acc = new AccesoDatos();
-        private Cliente cli1;
-        private String consulta;
+        private DaoUsuario dao = new DaoUsuario();        
+        private Usuario cli1;        
         
 
-        public bool AgregarCliente(Cliente cli)
+        public bool AgregarCliente(Usuario cli)
         {
             int cantFilas = 0;
-            cli1 = new Cliente();
+            cli1 = new Usuario();
             cli1.nombre = cli.nombre;
             cli1.apellido = cli.apellido;
             cli1.dni = cli.dni;
             cli1.contraseña = cli.contraseña;
             cli1.mail = cli.mail;
             cli1.fecha = cli.fecha;            
-            if (dao.existeCliente(cli1.dni) == false)
+            if (dao.existeUsuario(cli1.dni) == false)
             {
                 dao.AgregarCliente(cli1);
             }
@@ -39,9 +37,9 @@ namespace Negocios
                 return false;
         }
 
-        public DataTable getRegistroCliente(String correo, String contraseña)
+        public DataTable getRegistroUsuario(String correo, String contraseña)
         {
-            return dao.getCliente(correo, contraseña);
+            return dao.getUsuario(correo, contraseña);
         }
     }
 }

@@ -34,8 +34,8 @@ namespace Vistas
 
         protected void btnregistro_Click(object sender, EventArgs e)
         {
-            Cliente cli = new Cliente();
-            NegocioCliente nc = new NegocioCliente();
+            Usuario cli = new Usuario();
+            NegocioUsuario nc = new NegocioUsuario();
             Boolean estado = false;
             cli.nombre = ((TextBox)nombre.FindControl("nombre")).Text;
             cli.apellido = ((TextBox)ape.FindControl("ape")).Text;
@@ -57,8 +57,8 @@ namespace Vistas
 
         protected void btnIniciar_Click(object sender, EventArgs e)
         {
-            NegocioCliente nc = new NegocioCliente();
-            DataTable dt = nc.getRegistroCliente(correo.Text, contraseña.Text);
+            NegocioUsuario nc = new NegocioUsuario();
+            DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
                 Session["Correo"] = correo.Text;

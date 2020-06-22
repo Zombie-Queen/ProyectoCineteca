@@ -9,15 +9,15 @@ using Entidades;
 
 namespace Dao
 {
-    public class DaoCliente
+    public class DaoUsuario
     {
         private AccesoDatos acc = new AccesoDatos();
-        private Cliente cli = new Cliente();
+        private Usuario cli = new Usuario();
         private String consulta;
         SqlCommand comando;
 
 
-        private void armarParametrosAgregarCliente(ref SqlCommand Comando, Cliente cli)
+        private void armarParametrosAgregarCliente(ref SqlCommand Comando, Usuario cli)
         {
             SqlParameter parametros = new SqlParameter();
             parametros = Comando.Parameters.Add("@Nombre", SqlDbType.VarChar, 30);
@@ -34,22 +34,22 @@ namespace Dao
             parametros.Value = cli.fecha;
         }
 
-        public int AgregarCliente(Cliente cli)
+        public int AgregarCliente(Usuario cli)
         {
             comando = new SqlCommand();
             armarParametrosAgregarCliente(ref comando, cli);
             return acc.sp_Ejecutar(comando, "spAgregarCliente");
         }
 
-        public bool existeCliente(String dni)
+        public bool existeUsuario(String dni)
         {
-            consulta = "SELECT * FROM Clientes WHERE DNI_Cliente = '" + dni + "'";
+            consulta = "SELECT * FROM Usuarios WHERE DNI_Usuario = '" + dni + "'";
             return acc.existe(consulta);
         }
 
-        public DataTable getCliente(String correo, String contraseña)
+        public DataTable getUsuario(String correo, String contraseña)
         {
-            consulta = "SELECT * FROM Clientes WHERE Correo = '" + correo + "' AND " +
+            consulta = "SELECT * FROM Usuarios WHERE Correo = '" + correo + "' AND " +
             "Contraseña = '" + contraseña + "'";
             return (acc.ObtenerTabla("Registro", consulta));
         }

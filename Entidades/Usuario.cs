@@ -6,28 +6,28 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public class Cliente
+    public class Usuario
     {
         private String Dni;
-        private String Estado_Cliente;
+        private String Estado_Usuario;
         private String Nombre;
         private String Apellido;
         private String Contraseña;
         private DateTime FechaNac;
         private String Mail;
 
-        public Cliente() { }
+        public Usuario() { }
 
-        public Cliente(String _Nombre, String _Apellido, String _Dni, String _Contraseña, DateTime _fecha, String _Mail)
+        public Usuario(String _Nombre, String _Apellido, String _Dni, String _Estado_Usuario, String _Contraseña, DateTime _fecha, String _Mail)
         {
             FechaNac.ToShortDateString();
-            this.Dni = _Dni;
-            this.Estado_Cliente = "Activo";
-            this.Nombre = _Nombre;
-            this.Apellido = _Apellido;
-            this.Contraseña = _Contraseña;
-            this.FechaNac = _fecha;
-            this.Mail = _Mail;
+            Dni = _Dni;
+            Estado_Usuario = _Estado_Usuario;
+            Nombre = _Nombre;
+            Apellido = _Apellido;
+            Contraseña = _Contraseña;
+            FechaNac = _fecha;
+            Mail = _Mail;
 
         }
 
@@ -37,10 +37,10 @@ namespace Entidades
             set { Dni = value; }
         }
 
-        public String estado_cliente
+        public String estado_usuario
         {
-            get { return Estado_Cliente; }
-            set { Estado_Cliente = value; }
+            get { return Estado_Usuario; }
+            set { Estado_Usuario = value; }
         }
         public String nombre
         {

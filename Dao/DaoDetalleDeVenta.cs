@@ -122,7 +122,7 @@ namespace Dao
         }
 
         /* suma detalle de venta articulos por nro de venta y dni */
-        private void parametrosSumarDetalleVentasArts(ref SqlCommand Comando, Cliente cli, Ventas ven)
+        private void parametrosSumarDetalleVentasArts(ref SqlCommand Comando, Usuario cli, Ventas ven)
         {
             SqlParameter parametros = new SqlParameter();
             parametros = Comando.Parameters.Add("@dni", SqlDbType.Char, 8);
@@ -135,7 +135,7 @@ namespace Dao
 
         public DataTable SumaDetalleVentasArts_Dni_NumVen(String dni, String numVenta)
         {
-            Cliente cli = new Cliente();
+            Usuario cli = new Usuario();
             Ventas ven = new Ventas();
             cli.dni = dni;
             ven.id_venta = Convert.ToInt32(numVenta);
