@@ -76,8 +76,7 @@
                     <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
                 </asp:Panel>
             </div>
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
-                aria-hidden="true">
+            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" data-backdrop="static">
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <div class="modal-header text-center">
@@ -122,7 +121,9 @@
                             <asp:ValidationSummary runat="server" ID="vsReg" HeaderText="Complete los campos requeridos (*)" CssClass="red-text" ValidationGroup="reg" />
                         </div>
                         <div class="modal-footer d-flex justify-content-center">
-                            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
+                            <asp:CustomValidator runat="server" ID="CVreg" ValidationGroup="reg" ControlToValidate="dni" OnServerValidate="CVreg_ServerValidate" Text="Usuario registrado anteriormente."></asp:CustomValidator>
+                            <asp:Button runat="server"  ID="btnregistro" class="btn purple-gradient" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
+                            
                         </div>
                     </div>
                 </div>

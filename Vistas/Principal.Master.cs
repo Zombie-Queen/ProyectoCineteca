@@ -51,6 +51,11 @@ namespace Vistas
             else
             {
                 //ERROR 
+                nombre.Text = "";
+                ape.Text = "";
+                dni.Text = "";
+                email.Text = "";
+                fecha.Text = "";
             }
 
         }
@@ -58,7 +63,7 @@ namespace Vistas
         protected void btnIniciar_Click(object sender, EventArgs e)
         {
             NegocioUsuario nc = new NegocioUsuario();
-            DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);            
+            DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
                 lblerror.Text = "";
@@ -74,9 +79,9 @@ namespace Vistas
                 }
             }
             else
-            {                
+            {
                 lblerror.Text = "Correo o contraseña inválido";
-            }   
+            }
         }
 
         protected void btnCerrar_Click(object sender, EventArgs e)
@@ -91,6 +96,15 @@ namespace Vistas
             Response.Redirect("Perfil.aspx");
         }
 
+        protected void CVreg_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            NegocioUsuario nc = new NegocioUsuario();
+            if (nc.existeUsuario(args.Value.ToString()))
+
+                args.IsValid = false;
+            else
+                args.IsValid = true;
+        }
     }
 }
 

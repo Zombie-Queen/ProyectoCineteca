@@ -12,7 +12,15 @@ namespace Negocios
     public class NegocioUsuario
     {
         private DaoUsuario dao = new DaoUsuario();        
-        private Usuario cli1;        
+        private Usuario cli1;     
+        
+        public bool existeUsuario(String dni)
+        {
+            if (dao.existeUsuario(dni))
+                return true;
+            else
+                return false;
+        }
         
 
         public bool AgregarCliente(Usuario cli)
@@ -27,7 +35,7 @@ namespace Negocios
             cli1.fecha = cli.fecha;            
             if (dao.existeUsuario(cli1.dni) == false)
             {
-                dao.AgregarCliente(cli1);
+                cantFilas = dao.AgregarCliente(cli1);
             }
             if (cantFilas == 1)
             {
