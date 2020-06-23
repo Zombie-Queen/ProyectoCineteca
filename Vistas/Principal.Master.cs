@@ -70,7 +70,7 @@ namespace Vistas
                 }
                 else
                 {
-                    Response.Redirect("Inicio_admin.aspx");
+                    Server.Transfer("Inicio_admin.aspx");
                 }
             }
             else
@@ -83,7 +83,7 @@ namespace Vistas
         {
             Session["Correo"] = null;
             Session["Contraseña"] = null;
-            Response.Redirect("Inicio.aspx");
+            Server.Transfer("Inicio.aspx");
         }
 
         protected void btnPerfil_Click(object sender, EventArgs e)

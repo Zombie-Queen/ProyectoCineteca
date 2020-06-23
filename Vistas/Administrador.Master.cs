@@ -18,7 +18,7 @@ namespace Vistas
         {
             Session["Correo"] = null;
             Session["Contraseña"] = null;
-            Response.Redirect("Inicio.aspx");
+            Server.Transfer("Inicio.aspx");
         }
     }
 }

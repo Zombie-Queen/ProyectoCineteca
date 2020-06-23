@@ -95,6 +95,10 @@ body {
 #menu ul li:hover > ul {
     display: block;
 }
+
+.msgerror{
+    font-size:2rem;
+}
 /*FOOTER*/
 .footer {
     margin-top: 10rem;

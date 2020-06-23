@@ -55,15 +55,15 @@
                 <asp:Panel runat="server" ID="ddm" CssClass="dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center">
                     <div class="form-group">
                         <label for="correo">Email</label>
-                        <asp:TextBox runat="server" CssClass="form-control" ID="correo" placeholder="Email@example.com"></asp:TextBox>                            
-                        <!-- VALIDA SI ES UN CORREO -->                        
-                        <asp:RegularExpressionValidator runat="server" ID="reCorreo" ValidationGroup="login" ControlToValidate="correo" CssClass="red-text" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*" Text="Ingrese un correo válido"></asp:RegularExpressionValidator>
+                        <asp:TextBox runat="server" CssClass="form-control" ID="correo" placeholder="Email@example.com"></asp:TextBox>
+                        <!-- VALIDA SI ES UN CORREO -->
+                        <asp:RegularExpressionValidator runat="server" ID="reCorreo" ControlToValidate="correo" ValidationGroup="login" CssClass="red-text" Text="Ingrese un correo válido" ValidationExpression="^[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&amp;'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$"></asp:RegularExpressionValidator>
                     </div>
                     <div class="form-group">
-                        <label for="contra">Contraseña</label>
+                        <label for="contraseña">Contraseña</label>
                         <asp:TextBox runat="server" CssClass="form-control" ID="contraseña" placeholder="Contraseña" TextMode="Password"></asp:TextBox>
                         <!-- VALIDA SI INGRESA ALGO -->
-                        <asp:RequiredFieldValidator runat="server" ID="rfContraseña" CssClass="red-text" ValidationGroup="login" Text="Ingrese contraseña" ControlToValidate="contraseña"></asp:RequiredFieldValidator>
+                        <asp:RequiredFieldValidator runat="server" ID="rfContraseña" CssClass="red-text" ControlToValidate="contraseña" ValidationGroup="login" Text="Ingrese contraseña"></asp:RequiredFieldValidator>
                     </div>
                     <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" ValidationGroup="login" OnClick="btnIniciar_Click" /><br />
                     <asp:Label ID="lblerror" CssClass="red-text" runat="server"></asp:Label>
@@ -87,22 +87,42 @@
                             </button>
                         </div>
                         <div class="modal-body mx-3">
-                            <div class="form-row mb-4">
-                                <div class="col">
-                                    <asp:TextBox runat="server" ID="nombre" placeholder="Nombre" CssClass="form-control"></asp:TextBox>
+                            <div class="form-row mb-3">
+                                <div class="col d-flex">
+                                    <asp:TextBox runat="server" ID="nombre" placeholder="Nombre" CssClass="form-control mr-2"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" CssClass="red-text msgerror" ID="rfNombre" ControlToValidate="nombre" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
                                 </div>
-                                <div class="col">
-                                    <asp:TextBox runat="server" CssClass="form-control" placeholder="Apellido" ID="ape"></asp:TextBox>
+                                <div class="col d-flex">
+                                    <asp:TextBox runat="server" CssClass="form-control mr-2" placeholder="Apellido" ID="ape"></asp:TextBox>
+                                    <asp:RequiredFieldValidator runat="server" ID="rfApe" ControlToValidate="ape" CssClass="red-text msgerror" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
                                 </div>
                             </div>
-                            <asp:TextBox placeholder="DNI" runat="server" CssClass="form-control mb-4" ID="dni"></asp:TextBox>
-                            <asp:TextBox placeholder="Contraseña" runat="server" ID="contra" TextMode="Password" CssClass="form-control mb-4"></asp:TextBox>
-                            <asp:TextBox placeholder="Correo Electrónico" runat="server" ID="email" CssClass="form-control mb-4" TextMode="Email"></asp:TextBox>
-                            <asp:TextBox placeholder="Fecha de Nacimiento" runat="server" ID="fecha" CssClass="form-control mb-4" TextMode="Date"></asp:TextBox>
-
+                            <div class="d-flex mb-3">
+                                <asp:TextBox placeholder="DNI" runat="server" CssClass="form-control mr-2" ID="dni"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ID="rfdni" CssClass="red-text msgerror" Text="*" ValidationGroup="reg" ControlToValidate="dni"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="d-flex mb-3">
+                                <asp:TextBox placeholder="Contraseña" runat="server" ID="contra" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ID="rfContraseñareg" ControlToValidate="contra" ValidationGroup="reg" CssClass="red-text msgerror" Text="*"></asp:RequiredFieldValidator>
+                            </div>
+                            <div class="d-flex">
+                                <asp:TextBox placeholder="Repita Contraseña" runat="server" ID="contrarepeat" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ID="rfcontrasiguales" CssClass="red-text msgerror" ControlToValidate="contrarepeat" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
+                            </div>
+                            <asp:CompareValidator runat="server" ID="contrasiguales" CssClass="red-text" ValidationGroup="reg" Text="Las contraseñas deben coincidir." ControlToCompare="contra" ControlToValidate="contrarepeat"></asp:CompareValidator>
+                            <div class="d-flex">
+                                <asp:TextBox placeholder="Correo Electrónico" runat="server" ID="email" CssClass="form-control mr-2"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ID="rfcorreoReg" ControlToValidate="email" CssClass="red-text msgerror" ValidationGroup="reg" Text="*"></asp:RequiredFieldValidator>
+                            </div>
+                            <asp:RegularExpressionValidator runat="server" CssClass="red-text" ID="recorreoReg" ValidationGroup="reg" ControlToValidate="email" Text="Ingrese un correo válido." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                            <div class="d-flex mb-3">
+                                <asp:TextBox placeholder="Fecha de Nacimiento" runat="server" ID="fecha" CssClass="form-control mr-2" TextMode="Date"></asp:TextBox>
+                                <asp:RequiredFieldValidator runat="server" ID="rfFecha" CssClass="red-text msgerror" ValidationGroup="reg" ControlToValidate="fecha" Text="*"></asp:RequiredFieldValidator>
+                            </div>
+                            <asp:ValidationSummary runat="server" ID="vsReg" HeaderText="Complete los campos requeridos (*)" CssClass="red-text" ValidationGroup="reg" />
                         </div>
                         <div class="modal-footer d-flex justify-content-center">
-                            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" Text="Registrarse" OnClick="btnregistro_Click" />
+                            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
                         </div>
                     </div>
                 </div>
