@@ -9,30 +9,39 @@ html {
 
 .contenido {
     margin: auto;
-    margin-top: 20rem;
+    margin-top: 15rem;
     padding: 1rem 0;
     width: 90rem;
     height: 60rem;
     
-    
 }
 
 .listado {
+    /*position:absolute;*/ /* para ponerlo necesito hacer otro para detalle de ventas*/
+    position: relative;
     margin: auto;
     margin-top: 1rem;
     padding: 1rem 1rem;
     width: 90%;
-    height: 40rem;
+    height: 31rem;
     border-radius: 5px;
+    background: #FFFFFF;
+    margin-bottom: 1.5rem;
 }
 
 .grid {
+    
     text-decoration: none;
     text-align: center;
     font-family: Verdana;
     font-size: 1.2rem;
     border-collapse: collapse;
-    width:100%;
+    width: 95%;
+    top: 1rem;
+    margin-bottom:1rem;
+    margin-left:1rem;
+    margin-right:1rem;
+    
 }
     .grid td {
         padding: 1rem;
@@ -62,6 +71,7 @@ html {
     .grid .alt{background:linear-gradient(#fff,#e6e6e6);}
 
 .filtros {
+
     margin: auto;
     width: 700px;
     height: 12rem;
@@ -88,6 +98,7 @@ html {
     transition: .3s;
     color: #FFFFFF;
     background: #24303c;
+    font-size:1.5rem;
     
 }
 
@@ -105,7 +116,9 @@ input[type=date] {
     box-sizing: border-box;
     transition: .3s;
     background: #24303c;
+    
     color: #FFFFFF;
+    font-size: 1.5rem;
 }
 .input[type=date]:focus {
     border-color: #594E4E;
@@ -114,14 +127,15 @@ input[type=date] {
 
 
 .item {
+    
     margin: 1rem;
     float: left;
     width: 22%;
     margin-bottom: 0;
 }
 .boton {
+    
     position: relative;
-    display: inline-block;
     padding: 1rem 3rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -147,8 +161,7 @@ input[type=date] {
 
 .btn-item {
     
-    display:inline-block;
-    position:relative;
+    
     margin: 1rem;
     float:left;
    

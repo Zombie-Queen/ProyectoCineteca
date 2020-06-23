@@ -95,6 +95,12 @@
     <Content Include="imagenes\articulos\pancho.jpg" />
     <Content Include="imagenes\articulos\pochoclos.jpg" />
     <Content Include="imagenes\asientos.jpg" />
+    <Content Include="imagenes\fondo\fondo.jpg" />
+    <Content Include="imagenes\fondo\fondo1.jpg" />
+    <Content Include="imagenes\fondo\fondo3.jpg" />
+    <Content Include="imagenes\fondo\fondo4.jpg" />
+    <Content Include="imagenes\fondo\fondo5.jpg" />
+    <Content Include="imagenes\fondo\fondo6.jpg" />
     <Content Include="imagenes\logo.png" />
     <Content Include="imagenes\peliculas\correromorir.jpg" />
     <Content Include="imagenes\peliculas\elcisnenegro.jpg" />

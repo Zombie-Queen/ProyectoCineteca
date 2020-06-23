@@ -15,9 +15,9 @@ html {
 .contenido {
     position: relative;
     margin: auto;
-    margin-top: 14rem;
+    margin-top: 15rem;
     padding: 1rem 0;
-    width: 125rem;
+    width: 130rem;
     height: 60rem;
     
 }
@@ -72,19 +72,21 @@ html {
 
 .listaPelis {
     position: relative;
-    width: 60%;
-    height: 30rem;
+    width: 67%;
+    height: 40rem;
     border-radius: 5px;
     float: left;
     margin-bottom: 1.5rem;
     margin-top: 2rem;
+    margin-left: 1rem;
     padding: 1rem;
-    
+
+    background: #FFFFFF;
 }
 .filtro-p {
     position: relative;
     margin: auto;
-    width: 60%;
+    width: 67%;
     height: 10rem;
     overflow: hidden;
     background: #24303c;
@@ -102,9 +104,11 @@ html {
     font-family: Verdana;
     font-size: 1.2rem;
     border-collapse: collapse;
-    width: 100%;
-    top:.5rem;
-    padding:1rem;
+    width: 97%;
+    margin-left:.5rem;
+    margin-right:.5rem;
+    margin-top:.5rem;
+    
 }
 
     .grid td {

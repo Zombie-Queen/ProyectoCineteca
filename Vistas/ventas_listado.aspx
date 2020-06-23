@@ -8,11 +8,13 @@
        <section class="filtros">
              <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox></div>           
              <div class="item"><asp:TextBox runat="server" placeholder="Número de venta" class="input" ID="txt_venta"></asp:TextBox></div> 
-            <div class="item"><asp:TextBox  runat="server" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>
+           <div class="item"><asp:TextBox  runat="server" placeholder="dd/mm/aaaa" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>
+            
              <div class="btn-item">
                  <asp:Button ID="btnFiltrar" runat="server" OnClick="Filtrar_Click" Text="Filtrar" Class="boton" />
                  <asp:Button ID="btnQuitarFiltro" runat="server" OnClick="Reset_Click" Text="Mostrar todas" Class="boton" />
             </div> 
+           
                 
             
         </section>

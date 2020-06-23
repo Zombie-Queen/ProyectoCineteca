@@ -8,39 +8,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
 
     <div class="principal">
-        <a href="#" class="c-pelis">
-            <div class="pelis">
-                <!-- <asp:Label ID="lblMejoresPelis" runat="server">"!"</asp:Label> -->
-                <h1 class="titulo">Top películas vendidas</h1>
-                <asp:ListView ID="lvTopPelis" runat="server" DataSourceID="dsTopPeli">
-                    <ItemTemplate>
-
-                        <div class="labelSimple">
-                            <asp:Label ID="Título_PeliculaLabel" runat="server" Text='<%# Eval("Título_Pelicula") %>' />
-                        </div>
-                        <div class="labelSimple">
-                           
-                            <asp:Label class="label-pelis" ID="Recaudacion_PeliculaLabel" runat="server" Text='<%# Eval("[Recaudación]") %>' /> </div>
-                            
-                        <td>
-                            <asp:Image ID="peli_imagen" class="imagen-top" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
-
-                        </td>
-
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <div id="itemPlaceholderContainer" runat="server" class="item-temp">
-                            <span runat="server" id="itemPlaceholder" />
-                        </div>
-
-                    </LayoutTemplate>
-
-                </asp:ListView>
-                <!-- <div class="detallesLink"><a href="#">Ver detalles</a></div> -->
-
-                <asp:SqlDataSource ID="dsTopPeli" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_top3" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-            </div>
-        </a>
+        
         <a href="#" class="c-pelis">
             <div class="MejorSucursal">
                 <h1 class="titulo">Sucursal del mes: Junio</h1>
@@ -142,9 +110,12 @@
                 <h1 class="titulo">Recaudación diaria</h1>
                 <asp:ListView ID="lvRecDiaria" runat="server" DataSourceID="ds_recDiaria">
                     <ItemTemplate>
-                        <div class="labels" id="divRec">
+                        
+                            <div class="labels">
                             <asp:Label ID="recDiaria" runat="server" Text='<%# Eval("[Recaudación diaria]") %>' />
                         </div>
+                        
+                        
                     </ItemTemplate>
                     <LayoutTemplate>
                         <div id="itemPlaceholderContainer" runat="server" class="item-temp">
@@ -192,6 +163,62 @@
 
                 </asp:ListView>
                 <asp:SqlDataSource ID="ds_recAnual" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_TotalVentaAnual" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+        </a>
+
+        <a href="#" class="c-pelis">
+            <div class="pelis">
+                <!-- <asp:Label ID="lblMejoresPelis" runat="server">"!"</asp:Label> -->
+                <h1 class="titulo">Top recaudación</h1>
+                <asp:ListView ID="lvTopPelis" runat="server" DataSourceID="dsTopPeli">
+                    
+                    <ItemTemplate>
+                        <div class="pel">
+                            <div class="labelsCeleste"><asp:Label ID="Título_PeliculaLabel" runat="server" Text='<%# Eval("Título_Pelicula") %>' /> </div>
+                          
+                             <div class="labelsCeleste"><asp:Label ID="RecaudaciónLabel" runat="server" Text='<%# Eval("Recaudación") %>' /></div>
+                        </div>
+                            
+
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <table runat="server" border="0" style="">
+                            <tr id="itemPlaceholderContainer" runat="server">
+                                <td id="itemPlaceholder" runat="server"></td>
+                            </tr>
+                        </table>
+                        <div style="">
+                        </div>
+
+                    </LayoutTemplate>
+
+
+                </asp:ListView>
+                <!-- <div class="detallesLink"><a href="#">Ver detalles</a></div> -->
+
+                <asp:SqlDataSource ID="dsTopPeli" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_top3" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+            </div>
+        </a>
+        <a href="#" class="c-pelis">
+            <div class="MejorSucursal">
+                <h1 class="titulo">Cliente del mes</h1>
+                <asp:ListView ID="lvClieDelMes" runat="server" DataSourceID="dsClienteMes">
+                    <ItemTemplate>
+                        <div class="labelsNar">
+                            <asp:Label ID="cliDelMes" runat="server" Text='<%# Eval("[Cliente]") %>' />
+                        </div>
+                        <div class="labelsNar">
+                            <asp:Label ID="cliRec" runat="server" Text='<%# Eval("Correo") %>' />
+                        </div>
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <div id="itemPlaceholderContainer" runat="server" class="item-temp">
+                            <span runat="server" id="itemPlaceholder" />
+                        </div>
+                    </LayoutTemplate>
+
+                </asp:ListView>
+                <asp:SqlDataSource ID="dsClienteMes" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_clienteDelMes" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
         </a>
 

@@ -7,6 +7,10 @@
 }
 
 body {
+    background: url(../imagenes/fondo/fondo4.jpg) #CCC no-repeat;
+    background-size: cover;
+    background-position: center center;
+    background-attachment: fixed;
 }
 
 html {
@@ -14,9 +18,10 @@ html {
 }
 
 .header {
-    background: #000000;
+    /* background: #000000; */
+    background: transparent;
     padding: 1rem 0;
-    position: fixed;
+    position: absolute;
     left: 0;
     top: 0;
     right: 0;
@@ -111,7 +116,7 @@ html {
 
 .footer {
     background: #f2f2f2;
-    padding: 5rem 0;
+    padding: 3rem 0;
     text-align: center;
     margin-top: 10rem;
     font-family: Verdana;
