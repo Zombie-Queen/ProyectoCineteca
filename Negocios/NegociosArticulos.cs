@@ -17,5 +17,33 @@ namespace Negocios
         {
             return dao.ObtenerTodasLosArticulos();
         }
+
+        public bool agregarArticulo(Articulos art)
+        {
+            int filas = 0;
+            filas = dao.agregarArticulo(art);
+
+            if (filas == 1) return true;
+            else return false;
+
+        }
+
+        public bool existeArticulo(Articulos art)
+        {
+            if (dao.existe_articulo(art)) return true;
+            else return false;
+
+        }
+
+        public bool eliminarArticulo(Articulos art)
+        {
+            if (dao.eliminar_articulo(art)) return true;
+            else return false;
+        }
+        public bool modificarArticulo(Articulos art)
+        {
+            if (dao.actualizarArticulo(art)) return true;
+            else return false;
+        }
     }
 }

@@ -24,41 +24,34 @@ namespace Dao
         public const String sp_deletePelicula = "sp_deletePelicula";
         public const String sp_actualizarPelicula = "sp_actualizarPelicula";
 
+        private void armarParametrosPeliculas(ref SqlCommand Comando, Peliculas peli)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id_pelicula", SqlDbType.Char, 4);
+            parametros.Value = peli.id_pelicula;
+            parametros = Comando.Parameters.Add("@estado", SqlDbType.VarChar, 20);
+            parametros.Value = peli.estado;
+            parametros = Comando.Parameters.Add("@titulo", SqlDbType.VarChar, 50);
+            parametros.Value = peli.titulo;
+            parametros = Comando.Parameters.Add("@duracion", SqlDbType.Int);
+            parametros.Value = peli.duracion;
+            parametros = Comando.Parameters.Add("@clasif", SqlDbType.VarChar, 50);
+            parametros.Value = peli.clasificacion;
+            parametros = Comando.Parameters.Add("@url", SqlDbType.VarChar, 50);
+            parametros.Value = peli.url_imagen;
+
+        }
+
 
         public DataTable ObtenerTodasLasPeliculas()
         {
             return ds.ObtenerTabla("Peliculas", "Select ID_Pelicula[Pelicula],ID_Estado_Pelicula[Estado],Título_Pelicula[Título],Duración_Pelicula[Duración],Clasificación_Pelicula[Clasificación],URL_Portada[Url imagen] From Peliculas");
         }
 
-       
-        private void ParametrosAgregarPelicula(ref SqlCommand Comando, Peliculas pel)
-        {
-
-            SqlParameter parametros = new SqlParameter();
-            parametros = Comando.Parameters.Add("@id_pelicula", SqlDbType.Char, 4);
-            parametros.Value = pel.id_pelicula;
-
-            parametros = Comando.Parameters.Add("@estado", SqlDbType.VarChar,20);
-            parametros.Value = pel.estado;
-
-            parametros = Comando.Parameters.Add("@titulo", SqlDbType.VarChar,50);
-            parametros.Value = pel.titulo;
-
-            parametros = Comando.Parameters.Add("@duracion", SqlDbType.Int);
-            parametros.Value = pel.duracion;
-
-            parametros = Comando.Parameters.Add("@clasif", SqlDbType.VarChar, 50);
-            parametros.Value = pel.clasificacion;
-
-            parametros = Comando.Parameters.Add("@url", SqlDbType.VarChar, 50);
-            parametros.Value = pel.url_imagen;
-
-        }
-
         public int agregarPeliculas(Peliculas peli)
         {
             SqlCommand Comando = new SqlCommand();
-            ParametrosAgregarPelicula(ref Comando, peli);
+            armarParametrosPeliculas(ref Comando, peli);
             return ds.sp_Ejecutar(Comando, sp_AgregarPelicula);
 
         }
@@ -88,23 +81,7 @@ namespace Dao
                 return false;
         }
 
-        private void armarParametrosPeliculas(ref SqlCommand Comando, Peliculas peli)
-        {
-            SqlParameter parametros = new SqlParameter();
-            parametros = Comando.Parameters.Add("@id_pelicula", SqlDbType.Char,4);
-            parametros.Value = peli.id_pelicula;
-            parametros = Comando.Parameters.Add("@estado", SqlDbType.VarChar, 20);
-            parametros.Value = peli.estado;
-            parametros = Comando.Parameters.Add("@titulo", SqlDbType.VarChar, 50);
-            parametros.Value = peli.titulo;
-            parametros = Comando.Parameters.Add("@duracion", SqlDbType.Int);
-            parametros.Value = peli.duracion;
-            parametros = Comando.Parameters.Add("@clasif", SqlDbType.VarChar, 50);
-            parametros.Value = peli.clasificacion;
-            parametros = Comando.Parameters.Add("@url", SqlDbType.VarChar, 50);
-            parametros.Value = peli.url_imagen;
-
-        }
+        
 
         // actualiza los Productos , se le envia un objeto del tipo Producto 
         public bool actualizarPelicula(Peliculas peli)

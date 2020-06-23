@@ -9,9 +9,10 @@ html {
 
 .principal {
     margin: auto;
-    margin-top: 15rem;
+    margin-top: 20rem;
     width: 120rem;
     height: 60rem;
+    background:#4a4a4a;
 }
 
 .pelis {
@@ -38,7 +39,7 @@ html {
 }*/
 
 .MejorSucursal {
-    height: 25%;
+    height: 18%;
     width: 25%;
     border-radius: 1px;
     float: left;
@@ -61,8 +62,8 @@ html {
     }
 
 .Recaudacion {
+    height: 18%;
     width: 25%;
-    height: 70%;
     border-radius: 1px;
     float: left;
     margin: 1rem;
@@ -92,8 +93,8 @@ html {
 }
 
 .promo {
-    width: 25%;
-    height: 9.7rem;
+    height: 18%;
+   width:25%;
     border-radius: 1px;
     float: left;
     margin: 1rem;
@@ -116,15 +117,15 @@ html {
 
 
 .Clientes {
+    height: 18%;
     width: 25%;
-    height: 25%;
     border-radius: 1px;
     float: left;
     margin: 1rem;
     font-size: 4rem;
     text-decoration: none;
     text-align: center;
-    font-family: Verdana;
+    
     padding: 1rem;
     /* border: solid 1px #4a4a4a;  */
     border-radius: 4px;
@@ -170,6 +171,7 @@ html {
     /* border: solid 1px #4a4a4a; */
     border-radius: 4px;
     background: #2FE30F;
+    
 }
 
 .labelsRojo {

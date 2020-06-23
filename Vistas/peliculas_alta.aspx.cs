@@ -94,7 +94,7 @@ namespace Vistas
          {
             
              //Buscar los datos del edititemplate
-             String s_id_pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_peicula")).Text;
+             String s_id_pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;
              String s_estado = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_estado_peli")).Text;
              String s_titulo = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_titulo")).Text;
              String s_duracion = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_duracion")).Text;
@@ -117,7 +117,7 @@ namespace Vistas
 
         protected void grdPelis_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String Id_Pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_peicula")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
+            String Id_Pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
             pelicula.id_pelicula = Id_Pelicula;
             /*preguntar si seguro que quiere eliminar*/
             if (np.eliminarPelicula(pelicula))

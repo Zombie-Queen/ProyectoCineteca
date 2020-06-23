@@ -210,6 +210,19 @@ html {
 
 .editarGrande {
     text-align: center;
-    width: 22rem;
+    width: 24rem;
 }
 
+.editarPrecio {
+    text-align: center;
+    width: 5rem;
+}
+
+.editarEstado {
+    text-align: center;
+    width: 7rem;
+}
+.editarUrlArt {
+    text-align: center;
+    width: 20rem;
+}

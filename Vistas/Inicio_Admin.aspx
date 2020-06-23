@@ -18,7 +18,10 @@
                         <div class="labelSimple">
                             <asp:Label ID="Título_PeliculaLabel" runat="server" Text='<%# Eval("Título_Pelicula") %>' />
                         </div>
-                        <!-- <div><asp:Label class="label-pelis" ID="Duración_PeliculaLabel" runat="server" Text='<%# Eval("Duración_Pelicula") %>' /> </div> -->
+                        <div class="labelSimple">
+                           
+                            <asp:Label class="label-pelis" ID="Recaudacion_PeliculaLabel" runat="server" Text='<%# Eval("[Recaudación]") %>' /> </div>
+                            
                         <td>
                             <asp:Image ID="peli_imagen" class="imagen-top" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
 
@@ -154,7 +157,7 @@
             </div>
         </a>
         <a href="#" class="c-pelis">
-            <div class="Recaudacion" id="recM">
+            <div class="Recaudacion">
                 <h1 class="titulo">Recaudación mensual</h1>
                 <asp:ListView ID="lvRecMensual" runat="server" DataSourceID="ds_recMensual">
                     <ItemTemplate>
@@ -173,7 +176,7 @@
             </div>
         </a>
         <a href="#" class="c-pelis">
-            <div class="Recaudacion" id="recA">
+            <div class="Recaudacion">
                 <h1 class="titulo">Recaudación anual</h1>
                 <asp:ListView ID="lvRecAnual" runat="server" DataSourceID="ds_recAnual">
                     <ItemTemplate>
