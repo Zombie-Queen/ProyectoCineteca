@@ -1,16 +1,21 @@
 body {
     background-color: #000000;
+    color: #F8F8FF;
 }
 
 div {
     display: block;
     margin: 0 auto;
+    font-family: 'Kanit', sans-serif;
+    color: #F8F8FF;
+    font-size: 14pt;
+    text-align:left;
 }
 
 h1 {
     font-family: 'Kanit', sans-serif;
     font-weight: bold
-    color: #FFFFFF;
+    color: #F8F8FF;
     font-size: 20pt;
     text-align:left;
 }
@@ -18,14 +23,14 @@ h1 {
 h4 {
     font-family: 'Kanit', sans-serif;
     font-weight: bold
-    color: #FFFFFF;
+    color: #F8F8FF;
     font-size: 14pt;
     text-align:left;
 }
 
 h2 {
     font-family: 'Kanit', sans-serif;
-    color: #FFFFFF;
+    color: #F8F8FF;
     text-align:center;
 }
 
@@ -89,13 +94,19 @@ td {
     padding: 1rem;
 }
 
-.grid {
+.gridpr {
       margin: auto;
       width: 50%;
       padding: 10px;
 }
 
-.header-gv, .item-gv, .grid td a {
+.gridas {
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+}
+
+.header-gv, .item-gv, .gridpr td a, .gridas td a {
         width: 20rem;
         height: 4rem;
         font-size: 1.5rem;
@@ -103,14 +114,23 @@ td {
         text-align: center;
         font-family: 'Kanit', sans-serif;
     }
-    .grid td a {
+    .gridpr td a {
         color: #59656A;
         font-weight: 300;
     }
     
-    .grid td a:hover{
+    .gridpr td a:hover{
         color: #FFFFFF;
     }
+    .gridas td a {
+        color: #59656A;
+        font-weight: 300;
+    }
+    
+    .gridas td a:hover{
+        color: #FFFFFF;
+    }
+
 
 .imgasientos {
     width: 370px;
@@ -157,22 +177,37 @@ td {
     font-family: 'Kanit', sans-serif;
     font-size: 9pt;
     padding: 1rem;
-
+    background-color: #DCDCDC;
+    color: #000000;    
 }
 
 .btnlvpr {
     font-family: 'Kanit', sans-serif;
     font-size: 9pt;
     padding: 1rem;
+    background-color: #DCDCDC;
+    color: #000000; 
 }
 
 .btnlvart {
     font-family: 'Kanit', sans-serif;
     font-size: 9pt;
     padding: 1rem;
+    background-color: #DCDCDC;
+    color: #000000; 
 }
 
 .txtpr {
     
     padding: 1rem;
+}
+
+.table, th, td {
+}
+th, td {
+      width: 26%;
+    font-family: 'Kanit', sans-serif;
+    color: #F8F8FF;
+    font-size: 14pt;
+    text-align:left;
 }
