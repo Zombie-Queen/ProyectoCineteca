@@ -8,6 +8,8 @@ using Negocios;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.Windows.Forms;
+using System.Configuration;
 
 namespace Vistas
 {
@@ -103,12 +105,12 @@ namespace Vistas
         {
 
             //Buscar los datos del edititemplate
-            String s_id_articulo = ((Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;
-            String s_estado = ((TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_estado_art")).Text;
-            String s_nombre = ((TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_nombre")).Text;
-            String s_descripcion = ((TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_descripcion")).Text;
-            String s_precio = ((TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_precio")).Text;
-            String s_url = ((TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
+            String s_id_articulo = ((System.Web.UI.WebControls.Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;
+            String s_estado = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_estado_art")).Text;
+            String s_nombre = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_nombre")).Text;
+            String s_descripcion = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_descripcion")).Text;
+            String s_precio = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_precio")).Text;
+            String s_url = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
 
             art.id_articulo = s_id_articulo;
             art.estado_articulo = s_estado;
@@ -126,17 +128,35 @@ namespace Vistas
 
         protected void grdArticulos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String idArticulo = ((Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
+            String idArticulo = ((System.Web.UI.WebControls.Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
             art.id_articulo = idArticulo;
-            /*preguntar si seguro que quiere eliminar*/
-            /*String script = @"<script type=text'text/javascript'> var seleccion = confirm('Seguro que desea eliminar el artículo?');
-                 if(seleccion==true){  } </script>";*/
-            if (na.eliminarArticulo(art))
+            try 
             {
-                /*se elimino con exito*/
-                grdArticulos.PageIndex = 0; /* va a la pagina 1 */
-                CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
+                if(MessageBox.Show("Seguro que desea eliminar el artículo "+idArticulo+"?", "Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)            
+                {
+                    if (na.eliminarArticulo(art))
+                    {
+                        /*se elimino con exito*/
+                        grdArticulos.PageIndex = 0; /* va a la pagina 1 */
+                        CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
+                    }
+
+                }
+                else
+                {   
+                    grdArticulos.PageIndex = 0; /* va a la pagina 1 */
+                    CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
+                }
+                
             }
+            catch(Exception exc)
+            {
+                
+                MessageBox.Show("No se pueden eliminar datos relacionados con otras tablas.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+               
+                
+            }
+            
 
         }
 
