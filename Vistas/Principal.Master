@@ -68,66 +68,14 @@
                     <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" ValidationGroup="login" OnClick="btnIniciar_Click" /><br />
                     <asp:Label ID="lblerror" CssClass="red-text" runat="server"></asp:Label>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" data-toggle="modal" href="" data-target="#modalRegisterForm">Registrarse</a>
+                    <a class="dropdown-item" data-toggle="modal" href="Registro.aspx">Registrarse</a>
                 </asp:Panel>
 
                 <asp:Panel runat="server" ID="logueado" CssClass="d-none">
                     <asp:Button runat="server" ID="btnPerfil" CssClass="dropdown-item" Text="Mi Perfil" OnClick="btnPerfil_Click" />
                     <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
                 </asp:Panel>
-            </div>
-            <div class="modal fade" id="modalRegisterForm" tabindex="-1" role="dialog" data-backdrop="static">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header text-center">
-                            <h4 class="modal-title w-100 font-weight-bold">Registrarse</h4>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body mx-3">
-                            <div class="form-row mb-3">
-                                <div class="col d-flex">
-                                    <asp:TextBox runat="server" ID="nombre" placeholder="Nombre" CssClass="form-control mr-2"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" CssClass="red-text msgerror" ID="rfNombre" ControlToValidate="nombre" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
-                                </div>
-                                <div class="col d-flex">
-                                    <asp:TextBox runat="server" CssClass="form-control mr-2" placeholder="Apellido" ID="ape"></asp:TextBox>
-                                    <asp:RequiredFieldValidator runat="server" ID="rfApe" ControlToValidate="ape" CssClass="red-text msgerror" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
-                                </div>
-                            </div>
-                            <div class="d-flex mb-3">
-                                <asp:TextBox placeholder="DNI" runat="server" CssClass="form-control mr-2" ID="dni"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ID="rfdni" CssClass="red-text msgerror" Text="*" ValidationGroup="reg" ControlToValidate="dni"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="d-flex mb-3">
-                                <asp:TextBox placeholder="Contraseña" runat="server" ID="contra" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ID="rfContraseñareg" ControlToValidate="contra" ValidationGroup="reg" CssClass="red-text msgerror" Text="*"></asp:RequiredFieldValidator>
-                            </div>
-                            <div class="d-flex">
-                                <asp:TextBox placeholder="Repita Contraseña" runat="server" ID="contrarepeat" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ID="rfcontrasiguales" CssClass="red-text msgerror" ControlToValidate="contrarepeat" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>
-                            </div>
-                            <asp:CompareValidator runat="server" ID="contrasiguales" CssClass="red-text" ValidationGroup="reg" Text="Las contraseñas deben coincidir." ControlToCompare="contra" ControlToValidate="contrarepeat"></asp:CompareValidator>
-                            <div class="d-flex">
-                                <asp:TextBox placeholder="Correo Electrónico" runat="server" ID="email" CssClass="form-control mr-2"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ID="rfcorreoReg" ControlToValidate="email" CssClass="red-text msgerror" ValidationGroup="reg" Text="*"></asp:RequiredFieldValidator>
-                            </div>
-                            <asp:RegularExpressionValidator runat="server" CssClass="red-text" ID="recorreoReg" ValidationGroup="reg" ControlToValidate="email" Text="Ingrese un correo válido." ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
-                            <div class="d-flex mb-3">
-                                <asp:TextBox placeholder="Fecha de Nacimiento" runat="server" ID="fecha" CssClass="form-control mr-2" TextMode="Date"></asp:TextBox>
-                                <asp:RequiredFieldValidator runat="server" ID="rfFecha" CssClass="red-text msgerror" ValidationGroup="reg" ControlToValidate="fecha" Text="*"></asp:RequiredFieldValidator>
-                            </div>
-                            <asp:ValidationSummary runat="server" ID="vsReg" HeaderText="Complete los campos requeridos (*)" CssClass="red-text" ValidationGroup="reg" />
-                        </div>
-                        <div class="modal-footer d-flex justify-content-center">
-                            <asp:CustomValidator runat="server" ID="CVreg" ValidationGroup="reg" ControlToValidate="dni" OnServerValidate="CVreg_ServerValidate" Text="Usuario registrado anteriormente."></asp:CustomValidator>
-                            <asp:Button runat="server"  ID="btnregistro" class="btn purple-gradient" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
-                            
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>           
             <script>
                 $('#User').on("click", function () {
                     $('#ddm').toggle()

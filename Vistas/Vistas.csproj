@@ -79,6 +79,7 @@
     <Content Include="css\perfil.css" />
     <Content Include="css\principal.css" />
     <Content Include="css\Promociones.css" />
+    <Content Include="css\registro.css" />
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
     <Content Include="DetalledeCompra.aspx" />
@@ -136,6 +137,7 @@
     <Content Include="peliculas_alta.aspx" />
     <Content Include="Perfil.aspx" />
     <Content Include="Promociones.aspx" />
+    <Content Include="Registro.aspx" />
     <Content Include="Sucursalabasto.aspx" />
     <Content Include="Sucursalaltopalermo.aspx" />
     <Content Include="Sucursaldot.aspx" />
@@ -226,6 +228,13 @@
       <DependentUpon>Promociones.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Registro.aspx.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Registro.aspx.designer.cs">
+      <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Sucursalabasto.aspx.cs">
       <DependentUpon>Sucursalabasto.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
