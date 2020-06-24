@@ -6,14 +6,22 @@
 
     <div class="contenido">
        <section class="filtros">
-             <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox></div>           
-             <div class="item"><asp:TextBox runat="server" placeholder="Número de venta" class="input" ID="txt_venta"></asp:TextBox></div> 
-           <div class="item"><asp:TextBox  runat="server" placeholder="dd/mm/aaaa" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>
+             <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox>
+                 <asp:RegularExpressionValidator ID="regExpNumero" runat="server" ValidationGroup="busqueda"  ControlToValidate="txt_dni" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
+                 
+             </div>           
+             <div class="item"><asp:TextBox runat="server" placeholder="Número de venta" class="input" ID="txt_venta"></asp:TextBox>
+                 <asp:RegularExpressionValidator ID="RegVenta" runat="server" ValidationGroup="busqueda" ControlToValidate="txt_venta" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
+
+             </div> 
+           <div class="item"><asp:TextBox  runat="server" placeholder="dd/mm/aa" type="date" class="input" ID="txt_fecha">    </asp:TextBox></div>
             
              <div class="btn-item">
-                 <asp:Button ID="btnFiltrar" runat="server" OnClick="Filtrar_Click" Text="Filtrar" Class="boton" />
+                 <asp:Button ID="btnFiltrar" runat="server" ValidationGroup="busqueda" OnClick="Filtrar_Click" Text="Filtrar" Class="boton" />
                  <asp:Button ID="btnQuitarFiltro" runat="server" OnClick="Reset_Click" Text="Mostrar todas" Class="boton" />
-            </div> 
+            </div>
+
+           <div class="campoVacio"><asp:Label ID="lbl_campoObligatorio" runat="server" Text="*Es obligatorio llenar un campo para la busqueda." /></div>
            
                 
             

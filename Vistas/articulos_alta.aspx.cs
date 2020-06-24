@@ -130,9 +130,11 @@ namespace Vistas
         {
             String idArticulo = ((System.Web.UI.WebControls.Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
             art.id_articulo = idArticulo;
+            String nombreArt = ((System.Web.UI.WebControls.Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_nombre")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
+            
             try 
             {
-                if(MessageBox.Show("Seguro que desea eliminar el artículo "+idArticulo+"?", "Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)            
+                if(MessageBox.Show("Seguro que desea eliminar el artículo "+nombreArt+"?", "Eliminar",MessageBoxButtons.YesNo,MessageBoxIcon.Question) == DialogResult.Yes)            
                 {
                     if (na.eliminarArticulo(art))
                     {

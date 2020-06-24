@@ -22,8 +22,8 @@ html {
 .filtro-v {
     margin: auto;
     justify-content: space-between;
-    width: 70%;
-    height: 10rem;
+    width: 600px;
+    height: 12rem;
     overflow: hidden;
     background: #24303c;
     border-radius: 4px;

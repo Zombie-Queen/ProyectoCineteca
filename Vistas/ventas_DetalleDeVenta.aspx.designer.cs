@@ -24,6 +24,24 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txt_num_venta;
 
         /// <summary>
+        /// Control RegVenta.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RegularExpressionValidator RegVenta;
+
+        /// <summary>
+        /// Control regCampos.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator regCampos;
+
+        /// <summary>
         /// Control btnBuscar.
         /// </summary>
         /// <remarks>
