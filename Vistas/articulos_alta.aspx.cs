@@ -61,29 +61,42 @@ namespace Vistas
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            art.id_articulo = txt_id_articulo.Text;
-            art.estado_articulo = txt_estado_articulo.Text;
-            art.nombre_articulo = txt_nombre_articulo.Text;
-            art.descripcion_articulo = txt_descripcion_art.Text;
-            art.precio = Convert.ToDecimal(txt_precio_art.Text);
-            art.imagen_articulo = txt_url_articulo.Text;
-            if (na.existeArticulo(art))
+            try 
             {
-                /*el articulo ya existe*/
-            }
-            else
-            {
-                if (na.agregarArticulo(art))
+                art.id_articulo = txt_id_articulo.Text;
+                art.estado_articulo = txt_estado_articulo.Text;
+                art.nombre_articulo = txt_nombre_articulo.Text;
+                art.descripcion_articulo = txt_descripcion_art.Text;
+                art.precio = Convert.ToDecimal(txt_precio_art.Text);
+                art.imagen_articulo = txt_url_articulo.Text;
+                if (na.existeArticulo(art))
                 {
-                    /*se agrego con exito*/
-
+                    /*el articulo ya existe*/
                 }
                 else
                 {
-                    /*no se agrego ni papas */
+                    if (na.agregarArticulo(art))
+                    {
+                        /*se agrego con exito*/
+
+                    }
+                    else
+                    {
+                        /*no se agrego ni papas */
+                    }
+
                 }
 
+
+
+
             }
+            catch(Exception exc) 
+            {
+                /*mensaje de error por excepcion grave*/
+            }
+
+            
 
         }
         protected void grdArticulos_RowUpdating(object sender, GridViewUpdateEventArgs e)
@@ -116,6 +129,8 @@ namespace Vistas
             String idArticulo = ((Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
             art.id_articulo = idArticulo;
             /*preguntar si seguro que quiere eliminar*/
+            /*String script = @"<script type=text'text/javascript'> var seleccion = confirm('Seguro que desea eliminar el artículo?');
+                 if(seleccion==true){  } </script>";*/
             if (na.eliminarArticulo(art))
             {
                 /*se elimino con exito*/

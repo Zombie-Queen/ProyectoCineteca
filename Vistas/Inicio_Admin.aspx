@@ -33,13 +33,14 @@
             </div>
         </a>
 
-        <a href="#" class="c-pelis">
+        
             <div class="Clientes">
                 <h1 class="titulo">Clientes</h1>
-                <asp:ListView ID="lvClientesActivos" runat="server" DataSourceID="dsClientes">
+                <div class="Cli">   
 
+                    <asp:ListView ID="lvClientesActivos" runat="server" DataSourceID="dsClientes">
                     <ItemTemplate>
-                        <div class="Cli">
+                        
 
                             <div class="labels">
                                 <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>' />
@@ -48,9 +49,35 @@
                                 <asp:Label ID="TotalLabel" runat="server" Text='<%# Eval("Total") %>' />
                             </div>
 
+                        
+
+                    </ItemTemplate>
+                    <LayoutTemplate>
+                        <div id="itemPlaceholderContainer" runat="server" class="item-temp">
+                            <span runat="server" id="itemPlaceholder" />
                         </div>
+                    </LayoutTemplate>
+
+                </asp:ListView>
 
 
+                </div>
+                
+                
+                <div class="Cli"> 
+
+                    <asp:ListView ID="lvClientesInsctivos" runat="server" DataSourceID="dsInactivos">
+                    <ItemTemplate>
+                        
+
+                            <div class="labelsRojo">
+                                <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>' />
+                            </div>
+                            <div class="labelsRojo">
+                                <asp:Label ID="TotalLabel" runat="server" Text='<%# Eval("Total") %>' />
+                            </div>
+
+                  
                     </ItemTemplate>
                     <LayoutTemplate>
                         <div id="itemPlaceholderContainer" runat="server" class="item-temp">
@@ -60,32 +87,15 @@
 
 
                 </asp:ListView>
-                <asp:SqlDataSource ID="dsClientes" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_ClientesActivos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
-                <asp:ListView ID="lvClientesInsctivos" runat="server" DataSourceID="dsInactivos">
-
-                    <ItemTemplate>
-                        <div class="Cli">
-
-                            <div class="labelsRojo">
-                                <asp:Label ID="EstadoLabel" runat="server" Text='<%# Eval("Estado") %>' />
-                            </div>
-                            <div class="labelsRojo">
-                                <asp:Label ID="TotalLabel" runat="server" Text='<%# Eval("Total") %>' />
-                            </div>
-
-                        </div>
-                    </ItemTemplate>
-                    <LayoutTemplate>
-                        <div id="itemPlaceholderContainer" runat="server" class="item-temp">
-                            <span runat="server" id="itemPlaceholder" />
-                        </div>
-                    </LayoutTemplate>
 
 
-                </asp:ListView>
+                </div>
+                
                 <asp:SqlDataSource ID="dsInactivos" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_ClientesInactivos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+                <asp:SqlDataSource ID="dsClientes" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_ClientesActivos" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
             </div>
-        </a>
+        
+        
         <a href="#" class="c-pelis">
             <div class="promo">
                 <h1 class="titulo">Promoción del mes</h1>

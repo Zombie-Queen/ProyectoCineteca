@@ -42,15 +42,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.ListView lvClientesActivos;
 
         /// <summary>
-        /// Control dsClientes.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource dsClientes;
-
-        /// <summary>
         /// Control lvClientesInsctivos.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.SqlDataSource dsInactivos;
+
+        /// <summary>
+        /// Control dsClientes.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource dsClientes;
 
         /// <summary>
         /// Control lvPromo.

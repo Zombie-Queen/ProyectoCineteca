@@ -124,6 +124,7 @@ html {
 
 
 .Clientes {
+    
     height: 18%;
     width: 25%;
     border-radius: 1px;
@@ -134,9 +135,9 @@ html {
     text-align: center;
     padding: 1rem;
     border-radius: 4px;
-    /* background-color: #EAEAEA; */
     background: rgba(255,255,255,.2);
     box-shadow: 0 5px 15px rgba(0,0,0,.5);
+    
 }
 
     .Clientes:hover {
@@ -147,13 +148,13 @@ html {
     }
 
 .Cli {
-    float: left;
-    display: block;
-    justify-content: center;
+
+    float:left;
     text-align: center;
-    margin: auto;
     width: 50%;
+     
 }
+
 
 .pel {
     float: left;
@@ -188,9 +189,8 @@ html {
     margin: 0.5rem;
     color: #000000;
     /* border: solid 1px #4a4a4a; */
-    border-radius: 4px;
+    border-radius: 2.5px;
     background: #2FE30F;
-    
 }
 
 .labelsRojo {
@@ -200,7 +200,7 @@ html {
     margin: 0.5rem;
     color: #000000;
     /* border: solid 1px #4a4a4a;  */
-    border-radius: 4px;
+    border-radius: 2.5px;
     background: #FF2E27;
 }
 .labelsCeleste {
@@ -210,8 +210,8 @@ html {
     margin: 0.5rem;
     color: #000000;
     /* border: solid 1px #4a4a4a;  */
-    border-radius: 4px;
-    background:#1e90ff;
+    border-radius: 2.5px;
+    background: #1e90ff;
 }
 .labelsNar {
     font-size: 1.5rem;
@@ -220,7 +220,7 @@ html {
     margin: 0.5rem;
     color: #000000;
     /* border: solid 1px #4a4a4a;  */
-    border-radius: 4px;
+    border-radius: 2.5px;
     background: #FF9312;
 }
 
@@ -235,7 +235,7 @@ html {
     color: #FFFFFF;
     font-size: 2rem;
     border: solid 1px #4a4a4a;
-    border-radius: 4px;
+    border-radius: 2.5px;
     background: #0A1D5D;
 }
 
