@@ -11,6 +11,7 @@ namespace Vistas
 {
     public partial class Registro : System.Web.UI.Page
     {
+        Boolean estado = false;
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -20,7 +21,6 @@ namespace Vistas
         {
             Usuario cli = new Usuario();
             NegocioUsuario nc = new NegocioUsuario();
-            Boolean estado = false;
             cli.nombre = ((TextBox)nombre.FindControl("nombre")).Text;
             cli.apellido = ((TextBox)ape.FindControl("ape")).Text;
             cli.dni = ((TextBox)dni.FindControl("dni")).Text;
@@ -30,13 +30,15 @@ namespace Vistas
             estado = nc.AgregarCliente(cli);
             if (estado)
             {
-                lblReg.CssClass = "green-text msglbl";
-                lblReg.Text = "Usuario registrado.";
+                //lblReg.CssClass = "green-text msglbl";
+                //lblReg.Text = "Usuario registrado.";
+                panel1.Visible = true;
             }
             else
             {
-                lblReg.CssClass = "red-text msglbl";
-                lblReg.Text = "Este usuario ya está registrado.";
+                //lblReg.CssClass = "red-text msglbl";
+                //lblReg.Text = "Este usuario ya está registrado.";        
+                panel2.Visible = true;
                 nombre.Text = "";
                 ape.Text = "";
                 dni.Text = "";

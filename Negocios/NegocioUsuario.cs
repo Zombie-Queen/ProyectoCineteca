@@ -22,6 +22,25 @@ namespace Negocios
                 return false;
         }
         
+        public bool ModificarCorreo(String correoInicial, String correoFinal, String contraseña)
+        {
+            int cantfilas = 0;
+            cantfilas = dao.ModificarCorreo(correoInicial, correoFinal, contraseña);
+            if(cantfilas == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool ModificarContra(String contraInicial, String contraFinal, String correo)
+        {
+            int cantfilas = 0;
+            cantfilas = dao.ModificarContra(contraInicial, contraFinal, correo);
+            if (cantfilas == 1)
+                return true;
+            else
+                return false;
+        }
 
         public bool AgregarCliente(Usuario cli)
         {

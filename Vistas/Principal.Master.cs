@@ -73,16 +73,6 @@ namespace Vistas
         {
             Response.Redirect("Perfil.aspx");
         }
-
-        protected void CVreg_ServerValidate(object source, ServerValidateEventArgs args)
-        {
-            NegocioUsuario nc = new NegocioUsuario();
-            if (nc.existeUsuario(args.Value.ToString()))
-
-                args.IsValid = false;
-            else
-                args.IsValid = true;
-        }
     }
 }
 

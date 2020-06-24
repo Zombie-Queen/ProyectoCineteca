@@ -32,6 +32,18 @@ namespace Dao
             parametros = Comando.Parameters.Add("@Fecha", SqlDbType.Date);
             parametros.Value = cli.fecha;
         }
+        
+        public int ModificarCorreo(String correoInicial, String correoFinal, String contraseña)
+        {
+            consulta = "UPDATE USUARIOS SET CORREO = '" + correoFinal + "' WHERE CORREO = '" + correoInicial + "' AND CONTRASEÑA = ' " + contraseña + "'"; 
+            return acc.EjecutarProceso(consulta);
+        }
+
+        public int ModificarContra(String contraInicial, String contraFinal, String correo)
+        {
+            consulta = "UPDATE USUARIOS SET CONTRASEÑA = '" + contraFinal + "' WHERE CORREO = '" + correo + "' AND CONTRASEÑA = '" + contraInicial + "'";
+            return acc.EjecutarProceso(consulta);
+        }
 
         public int AgregarCliente(Usuario cli)
         {

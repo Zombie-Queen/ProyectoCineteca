@@ -48,7 +48,7 @@
 
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Button runat="server" ID="btnCambiarCorreo" Text="Cambiar Correo" CssClass="btn purple-gradient mt-5" />
-        <asp:Button runat="server" ID="btnCambiarContraseña" Text="Cambiar Contraseña" CssClass="btn purple-gradient mt-5" />
+        <asp:Button runat="server" ID="btnCambiarCorreo" Text="Cambiar Correo" CssClass="btn purple-gradient mt-5" OnClick="btnCambiarCorreo_Click" />
+        <asp:Button runat="server" ID="btnCambiarContraseña" Text="Cambiar Contraseña" CssClass="btn purple-gradient mt-5" OnClick="btnCambiarContraseña_Click" />
     </div>
 </asp:Content>

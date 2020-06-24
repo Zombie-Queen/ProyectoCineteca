@@ -40,8 +40,75 @@
         </div>
         <asp:ValidationSummary runat="server" ID="vsReg" HeaderText="Complete los campos requeridos (*)" CssClass="red-text" ValidationGroup="reg" />
         <div class="d-flex justify-content-center align-items-center">
-            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
-            <asp:Label runat="server" ID="lblReg"></asp:Label>
+            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" data-toggle="modal" data-target="#centralModalSuccess, #centralModalDanger" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
+            <!--<asp:Label runat="server" ID="lblReg"></asp:Label>-->
         </div>
     </div>
+    <asp:Panel runat="server" ID="panel1" Visible="False">
+        <div class="modal fade" id="centralModalSuccess" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-success" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Modal Success</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                            <p>
+                                Usuario registrado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <a type="button" class="btn btn-success">Aceptar</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="panel2">
+        <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-danger" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Modal Danger</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                            <p>
+                                Este usuario ya está registrado.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <a type="button" class="btn btn-danger">Aceptar</a>
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </asp:Panel>
 </asp:Content>
