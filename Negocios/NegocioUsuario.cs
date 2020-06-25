@@ -42,7 +42,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool AgregarCliente(Usuario cli)
+        public int AgregarCliente(Usuario cli)
         {
             int cantFilas = 0;
             cli1 = new Usuario();
@@ -58,10 +58,10 @@ namespace Negocios
             }
             if (cantFilas == 1)
             {
-                return true;
+                return 1;
             }
             else
-                return false;
+                return 0;
         }
 
         public DataTable getRegistroUsuario(String correo, String contraseña)

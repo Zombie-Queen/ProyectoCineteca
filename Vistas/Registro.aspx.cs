@@ -11,10 +11,12 @@ namespace Vistas
 {
     public partial class Registro : System.Web.UI.Page
     {
-        Boolean estado = false;
+        int estado;
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+            }
         }
 
         protected void btnregistro_Click(object sender, EventArgs e)
@@ -27,23 +29,39 @@ namespace Vistas
             cli.contraseña = ((TextBox)contra.FindControl("contra")).Text;
             cli.fecha = Convert.ToDateTime(fecha.Text);
             cli.mail = ((TextBox)email.FindControl("email")).Text;
-            estado = nc.AgregarCliente(cli);
-            if (estado)
+            if (cli.dni == "")
             {
-                //lblReg.CssClass = "green-text msglbl";
-                //lblReg.Text = "Usuario registrado.";
-                panel1.Visible = true;
+                estado = 2;
             }
             else
             {
-                //lblReg.CssClass = "red-text msglbl";
-                //lblReg.Text = "Este usuario ya está registrado.";        
-                panel2.Visible = true;
+                estado = nc.AgregarCliente(cli);
+            }
+            if (estado == 1)
+            {
+                //lblReg.CssClass = "green-text msglbl";
+                //lblReg.Text = "Usuario registrado.";
                 nombre.Text = "";
                 ape.Text = "";
                 dni.Text = "";
                 email.Text = "";
                 fecha.Text = "";
+                panel1.Visible = true;
+            }
+            else if (estado == 0)
+            {
+                //lblReg.CssClass = "red-text msglbl";
+                //lblReg.Text = "Este usuario ya está registrado.";        
+                nombre.Text = "";
+                ape.Text = "";
+                dni.Text = "";
+                email.Text = "";
+                fecha.Text = "";
+                panel2.Visible = true;
+            }
+            else if (estado == 2)
+            {
+                panel3.Visible = true;
             }
         }
     }

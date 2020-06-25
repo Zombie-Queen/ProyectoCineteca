@@ -40,7 +40,7 @@
         </div>
         <asp:ValidationSummary runat="server" ID="vsReg" HeaderText="Complete los campos requeridos (*)" CssClass="red-text" ValidationGroup="reg" />
         <div class="d-flex justify-content-center align-items-center">
-            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" data-toggle="modal" data-target="#centralModalSuccess, #centralModalDanger" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
+            <asp:Button runat="server" ID="btnregistro" class="btn purple-gradient" data-toggle="modal" data-target="#centralModalSuccess, #centralModalDanger, #centralModalWarning" Text="Registrarse" ValidationGroup="reg" OnClick="btnregistro_Click" />
             <!--<asp:Label runat="server" ID="lblReg"></asp:Label>-->
         </div>
     </div>
@@ -51,7 +51,7 @@
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <p class="heading lead">Modal Success</p>
+                        <p class="heading lead">Éxito</p>
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="white-text">&times;</span>
@@ -70,14 +70,14 @@
 
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <a type="button" class="btn btn-success">Aceptar</a>
+                        <asp:Button CssClass="btn btn-success" ID="btnAceptarsuc" runat="server" />
                     </div>
                 </div>
                 <!--/.Content-->
             </div>
         </div>
     </asp:Panel>
-    <asp:Panel runat="server" ID="panel2">
+    <asp:Panel runat="server" ID="panel2" Visible="false">
         <div class="modal fade" id="centralModalDanger" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
             aria-hidden="true">
             <div class="modal-dialog modal-notify modal-danger" role="document">
@@ -85,7 +85,7 @@
                 <div class="modal-content">
                     <!--Header-->
                     <div class="modal-header">
-                        <p class="heading lead">Modal Danger</p>
+                        <p class="heading lead">Error</p>
 
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true" class="white-text">&times;</span>
@@ -95,7 +95,7 @@
                     <!--Body-->
                     <div class="modal-body">
                         <div class="text-center">
-                            <i class="fas fa-check fa-4x mb-3 animated rotateIn"></i>
+                            <i class="fas fa-ban fa-4x mb-3 animated flip"></i>
                             <p>
                                 Este usuario ya está registrado.
                             </p>
@@ -104,7 +104,41 @@
 
                     <!--Footer-->
                     <div class="modal-footer justify-content-center">
-                        <a type="button" class="btn btn-danger">Aceptar</a>
+                        <asp:Button CssClass="btn btn-danger" ID="btnAceptarDan" runat="server" Text="Aceptar" />
+                    </div>
+                </div>
+                <!--/.Content-->
+            </div>
+        </div>
+    </asp:Panel>
+    <asp:Panel runat="server" ID="panel3" Visible="false">
+        <div class="modal fade" id="centralModalWarning" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-notify modal-warning" role="document">
+                <!--Content-->
+                <div class="modal-content">
+                    <!--Header-->
+                    <div class="modal-header">
+                        <p class="heading lead">Error</p>
+
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true" class="white-text">&times;</span>
+                        </button>
+                    </div>
+
+                    <!--Body-->
+                    <div class="modal-body">
+                        <div class="text-center">
+                            <i class="fas fa-exclamation fa-4x mb-3 animated bounceIn"></i>
+                            <p>
+                                No ha ingresado datos.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!--Footer-->
+                    <div class="modal-footer justify-content-center">
+                        <asp:Button CssClass="btn btn-warning" ID="btnWarning" runat="server" Text="Aceptar" />
                     </div>
                 </div>
                 <!--/.Content-->
