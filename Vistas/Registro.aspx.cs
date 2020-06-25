@@ -16,6 +16,32 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
+                if (estado == 1)
+                {
+                    //lblReg.CssClass = "green-text msglbl";
+                    //lblReg.Text = "Usuario registrado.";
+                    nombre.Text = "";
+                    ape.Text = "";
+                    dni.Text = "";
+                    email.Text = "";
+                    fecha.Text = "";
+                    panel1.Visible = true;
+                }
+                else if (estado == 0)
+                {
+                    //lblReg.CssClass = "red-text msglbl";
+                    //lblReg.Text = "Este usuario ya está registrado.";        
+                    nombre.Text = "";
+                    ape.Text = "";
+                    dni.Text = "";
+                    email.Text = "";
+                    fecha.Text = "";
+                    panel2.Visible = true;
+                }
+                else if (estado == 2)
+                {
+                    panel3.Visible = true;
+                }
             }
         }
 
@@ -37,32 +63,7 @@ namespace Vistas
             {
                 estado = nc.AgregarCliente(cli);
             }
-            if (estado == 1)
-            {
-                //lblReg.CssClass = "green-text msglbl";
-                //lblReg.Text = "Usuario registrado.";
-                nombre.Text = "";
-                ape.Text = "";
-                dni.Text = "";
-                email.Text = "";
-                fecha.Text = "";
-                panel1.Visible = true;
-            }
-            else if (estado == 0)
-            {
-                //lblReg.CssClass = "red-text msglbl";
-                //lblReg.Text = "Este usuario ya está registrado.";        
-                nombre.Text = "";
-                ape.Text = "";
-                dni.Text = "";
-                email.Text = "";
-                fecha.Text = "";
-                panel2.Visible = true;
-            }
-            else if (estado == 2)
-            {
-                panel3.Visible = true;
-            }
+            
         }
     }
 }
