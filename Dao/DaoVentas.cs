@@ -29,19 +29,19 @@ namespace Dao
         public DataTable ObtenerVentaPorDni(String Dni)
         {
 
-            return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE DNI_Cliente_Venta=" + Dni + "");
+            return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE DNI_Cliente_Venta='" + Dni + "'");
         }
 
         public DataTable ObtenerVentaPorNroVenta(String nroVenta)
         {
             int n_venta = Convert.ToInt32(nroVenta);
-            return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE ID_Venta=" + n_venta + "");
+            return ds.ObtenerTabla("Ventas", "Select * from Ventas WHERE ID_Venta='" + n_venta + "'");
         }
         public DataTable ObtenerVentasPorSucursal(String Sucursal)
         {
 
             return ds.ObtenerTabla("Ventas", "Select * From Ventas v INNER JOIN DetalleVentas dv on dv.ID_Venta_DV = v.ID_Venta" +
-                " INNER JOIN Sucursales s on s.ID_Sucursal = dv.ID_Sucursal_DV WHERE s.ID_Sucursal = " + Sucursal + "");
+                " INNER JOIN Sucursales s on s.ID_Sucursal = dv.ID_Sucursal_DV WHERE s.ID_Sucursal = '" + Sucursal + "'");
         }
 
         public DataTable ObtenerVentasPorFecha(DateTime fecha)

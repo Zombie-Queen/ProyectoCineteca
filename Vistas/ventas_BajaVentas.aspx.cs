@@ -28,10 +28,19 @@ namespace Vistas
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
+            
             String nro_venta = txt_num_venta.Text;
-            DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
-            grdVentas.DataSource = tabla_de_ventas;
-            grdVentas.DataBind();
+            if (nro_venta != "") 
+            {
+                DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
+                grdVentas.DataSource = tabla_de_ventas;
+                grdVentas.DataBind();
+            }
+            else 
+            {
+                /*no ingreso nada */
+            }
+                
 
         }
 
@@ -56,33 +65,41 @@ namespace Vistas
 
         protected void Borrar_Click(object sender, EventArgs e)
         {
-            int nro_venta = Convert.ToInt32(txt_num_venta.Text);
-            ven.id_venta = nro_venta;
-            dev.id_venta_dv = nro_venta;
-            devArt.id_venta_dva = nro_venta;
-            if (nv.existeVenta(ven))
+            if (txt_num_venta.Text != "")   
             {
 
-                if (nv.BorrarVenta(ven))
+                int nro_venta = Convert.ToInt32(txt_num_venta.Text);
+                ven.id_venta = nro_venta;
+                dev.id_venta_dv = nro_venta;
+                devArt.id_venta_dva = nro_venta;
+
+                if (nv.existeVenta(ven))
                 {
-                    /*se borro con exito*/
-                    ndev.BorrarDetalleVenta(dev);
-                    ndev.BorrarDetalleVentaArticulos(devArt);
-                    CargarGrid();
+
+                    if (nv.BorrarVenta(ven))
+                    {
+                        /*se borro con exito*/
+                        ndev.BorrarDetalleVenta(dev);
+                        ndev.BorrarDetalleVentaArticulos(devArt);
+                        CargarGrid();
+
+                    }
+                    else
+                    {
+                        CargarGrid();
+                        /*no se borro con exito*/
+                    }
 
                 }
                 else
                 {
+                    /*la venta no existe*/
                     CargarGrid();
-                    /*no se borro con exito*/
                 }
 
+
             }
-            else 
-            {
-                /*la venta no existe*/
-                CargarGrid();
-            }
+            
               
             
             

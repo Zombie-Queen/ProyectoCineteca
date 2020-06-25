@@ -19,6 +19,7 @@ namespace Vistas
            if(!IsPostBack)
             {
                 CargarGrid();
+                lbl_campoObligatorio.Visible = false;
 
             }
         }
@@ -30,6 +31,7 @@ namespace Vistas
             txt_dni.Text = "";
             txt_fecha.Text = "dd/mm/aaaa";
             txt_venta.Text = "";
+            lbl_campoObligatorio.Visible = false;
 
         }
 
@@ -38,7 +40,8 @@ namespace Vistas
             String dni = txt_dni.Text;
             String nro_venta = txt_venta.Text;
             String Fecha = txt_fecha.Text;
-            
+            lbl_campoObligatorio.Visible = false;
+
             /*ingresan solo dni*/
             if (dni != "" && nro_venta == "" && Fecha == "")
             {
@@ -101,6 +104,11 @@ namespace Vistas
                 grdVentas.DataBind();
 
             }
+            /*no ingresa nada*/
+            if(dni == "" && Fecha == "" && nro_venta == "")
+            {
+                lbl_campoObligatorio.Visible = true;
+            }
 
 
 
@@ -115,7 +123,8 @@ namespace Vistas
             String dni = txt_dni.Text;
             String nro_venta = txt_venta.Text;          
             String Fecha = txt_fecha.Text;
-            
+            lbl_campoObligatorio.Visible = false;
+
             /*Cambio de pagina cuando no hay nada cargado*/
             if  (nro_venta == "" && dni == "" && Fecha == "")
             {
@@ -202,6 +211,7 @@ namespace Vistas
             DataTable tablaVentas = nv.getTabla();
             grdVentas.DataSource = tablaVentas;
             grdVentas.DataBind();
+            
 
         }
     }
