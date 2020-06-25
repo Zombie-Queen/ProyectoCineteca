@@ -18,8 +18,11 @@
 
 .msgerror {
     font-size: 2rem;
+    font-family: 'Kanit', sans-serif;
+    
 }
 
-.msglbl{
+.msglbl {
     font-size: 1.2rem;
+    font-family: 'Kanit', sans-serif;    
 }

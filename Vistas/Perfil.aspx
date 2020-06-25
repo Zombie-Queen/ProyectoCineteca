@@ -20,9 +20,10 @@
                     Apellido:
                 <asp:Label Text='<%# Eval("Apellido") %>' runat="server" ID="ApellidoLabel" /><br />
                     Fecha Nacimiento:
-                <asp:Label Text='<%# Eval("Fecha_Nac","{0:d}") %>' runat="server" ID="Fecha_NacLabel"/><br />
+                <asp:Label Text='<%# Eval("Fecha_Nac","{0:d}") %>' runat="server" ID="Fecha_NacLabel" /><br />
                     Correo:
                 <asp:Label Text='<%# Eval("Correo") %>' runat="server" ID="CorreoLabel" /><br />
+
                 </td>
             </ItemTemplate>
             <LayoutTemplate>
@@ -44,11 +45,66 @@
             <SelectParameters>
                 <asp:SessionParameter SessionField="Correo" DefaultValue="" Name="Correo" Type="String"></asp:SessionParameter>
                 <asp:SessionParameter SessionField="Contrase&#241;a" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
-
-
             </SelectParameters>
         </asp:SqlDataSource>
-        <asp:Button runat="server" ID="btnCambiarCorreo" Text="Cambiar Correo" CssClass="btn purple-gradient mt-5" OnClick="btnCambiarCorreo_Click" />
-        <asp:Button runat="server" ID="btnCambiarContraseña" Text="Cambiar Contraseña" CssClass="btn purple-gradient mt-5" OnClick="btnCambiarContraseña_Click" />
+        <div class="d-flex align-items-center h3">
+            <button type="button" class="btn btn-lg w-25 purple-gradient msglbl" data-toggle="modal" data-target="#modalCorreo">Cambiar Correo</button>
+            <asp:Label runat="server" ID="lblCorreo"></asp:Label>
+        </div>
+        <div class="d-flex align-items-center h3">
+            <button type="button" class="btn btn-lg w-25 purple-gradient h3 msglbl" data-toggle="modal" data-target="#modalContra">Cambiar Contraseña</button>
+            <asp:Label runat="server" ID="lblContra"></asp:Label>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCorreo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Cambiar Correo Electrónico</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <asp:TextBox runat="server" ID="txtCorreo" CssClass="form-control p-4"></asp:TextBox>
+                        <asp:RegularExpressionValidator runat="server" ID="reCorreo" ControlToValidate="txtCorreo" ValidationGroup="correo" Text="Ingrese un correo válido." CssClass="red-text msgerror" ValidationExpression="\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*"></asp:RegularExpressionValidator>
+                        <asp:RequiredFieldValidator runat="server" ID="rfCorreo" ControlToValidate="txtCorreo" ValidationGroup="correo" Text="El campo no puede estar vacío." CssClass="red-text msgerror"></asp:RequiredFieldValidator>
+                        <label for="txtCorreo">Nuevo Correo Electrónico</label>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <asp:Button runat="server" ID="btnCambiarCorreo" ValidationGroup="correo" Text="Confirmar" CssClass="btn purple-gradient" OnClick="btnCambiarCorreo_Click" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalContra" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header text-center">
+                    <h4 class="modal-title w-100 font-weight-bold">Cambiar Contraseña</h4>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body mx-3">
+                    <div class="md-form mb-5">
+                        <asp:TextBox runat="server" ID="txtContra" CssClass="form-control p-4" TextMode="Password"></asp:TextBox>
+                        <label for="txtContra">Nueva Contraseña</label>
+                    </div>
+                    <div class="md-form mb-5">
+                        <asp:TextBox runat="server" ID="txtContrarepeat" CssClass="form-control p-4" TextMode="Password"></asp:TextBox>
+                        <label for="txtContrarepeat">Repita Contraseña</label>
+                        <asp:CompareValidator runat="server" ID="cvContra" ControlToValidate="txtContra" ControlToCompare="txtContrarepeat" CssClass="red-text msgerror" Text="Las contraseñas deben coincidir."></asp:CompareValidator>
+                    </div>
+                </div>
+                <div class="modal-footer d-flex justify-content-center">
+                    <asp:Button runat="server" ID="btnCambiarContraseña" Text="Confirmar" CssClass="btn purple-gradient" OnClick="btnCambiarContraseña_Click" />
+                </div>
+            </div>
+        </div>
     </div>
 </asp:Content>

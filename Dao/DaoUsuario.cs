@@ -35,7 +35,7 @@ namespace Dao
         
         public int ModificarCorreo(String correoInicial, String correoFinal, String contraseña)
         {
-            consulta = "UPDATE USUARIOS SET CORREO = '" + correoFinal + "' WHERE CORREO = '" + correoInicial + "' AND CONTRASEÑA = ' " + contraseña + "'"; 
+            consulta = "UPDATE USUARIOS SET CORREO = '" + correoFinal + "' WHERE CORREO = '" + correoInicial + "' AND CONTRASEÑA = '" + contraseña + "'"; 
             return acc.EjecutarProceso(consulta);
         }
 

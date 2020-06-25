@@ -20,11 +20,39 @@ namespace Vistas
 
         protected void btnCambiarCorreo_Click(object sender, EventArgs e)
         {
+            lblContra.Text = "";
+            bool estado = false;
+            estado = nu.ModificarCorreo(Session["Correo"].ToString(), txtCorreo.Text, Session["Contraseña"].ToString());
+            if (estado)
+            {
+                Session["Correo"] = txtCorreo.Text;                
+                lblCorreo.CssClass = "green-text msglbl";
+                lblCorreo.Text = "Correo modificado.";
+            }
+            else
+            {
+                lblCorreo.CssClass = "red-text msglbl";
+                lblCorreo.Text = "El correo no pudo ser modificado.";
+            }
+
         }
 
         protected void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
-
+            lblCorreo.Text = "";
+            bool estado = false;
+            estado = nu.ModificarContra(Session["Contraseña"].ToString(), txtContra.Text, Session["Correo"].ToString());
+            if (estado)
+            {
+                Session["Contraseña"] = txtContra.Text;
+                lblContra.CssClass = "green-text msglbl";
+                lblContra.Text = "Contraseña modificada.";
+            }
+            else
+            {
+                lblContra.CssClass = "red-text msglbl";
+                lblContra.Text = "La contraseña no pudo ser modificada.";
+            }
         }
     }
 }
