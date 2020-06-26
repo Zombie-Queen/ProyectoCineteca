@@ -30,6 +30,16 @@ namespace Dao
         public const String sp_BajaLogicaDetalleVentaArt = "sp_BajaLogicaDetalleVentaArt";
         public const String sp_BajaLogicaDetalleVenta = "sp_BajaLogicaDetalleVenta";
 
+        public DataTable ObtenerTodosLosDetallesDeVenta()
+        {
+            return ds.ObtenerTabla("DetalleVentas", "Select * from DetalleVentas");
+        }
+
+        public DataTable ObtenerTodosLosDetallesDeVentaArts()
+        {
+            return ds.ObtenerTabla("DetalleVentaArticulos", "Select * from DetalleVentaArticulos");
+        }
+
         /*Detalles de ventas por nro de venta */
         public DataTable ObtenerDetallaVenta_numVen(String nroVenta)
         {

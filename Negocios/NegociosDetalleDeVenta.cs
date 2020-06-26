@@ -15,6 +15,15 @@ namespace Negocios
         DaoDetalleDeVenta dao = new DaoDetalleDeVenta();
 
         /*Negocios Det venta*/
+        public DataTable getTablaDetalleDeVenta ()
+        {
+            return dao.ObtenerTodosLosDetallesDeVenta();
+        }
+        public DataTable getTablaDetalleDeVentaArticulos()
+        {
+            return dao.ObtenerTodosLosDetallesDeVentaArts();
+        }
+
         public DataTable getTablaDetalleVenta_NroVenta(String nroVenta)
         {
             return dao.ObtenerDetallaVenta_numVen(nroVenta);
