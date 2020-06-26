@@ -78,6 +78,7 @@
     <Content Include="css\normalize.css" />
     <Content Include="css\Alta.css" />
     <Content Include="css\perfil.css" />
+    <Content Include="css\precios.css" />
     <Content Include="css\principal.css" />
     <Content Include="css\Promociones.css" />
     <Content Include="css\registro.css" />
