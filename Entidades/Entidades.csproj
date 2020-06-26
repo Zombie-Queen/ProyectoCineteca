@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Articulos.cs" />
+    <Compile Include="FuncionesxSala.cs" />
     <Compile Include="Usuario.cs" />
     <Compile Include="DetalleVentas.cs" />
     <Compile Include="DetalleVentasArticulo.cs" />

@@ -30,7 +30,7 @@
                 <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5">
                     <AlternatingRowStyle CssClass="alt" />
                     <Columns>
-                        <asp:HyperLinkField DataNavigateUrlFields="ID_Venta" DataNavigateUrlFormatString="#" Text="Ver detalle"/>
+                        <asp:HyperLinkField DataNavigateUrlFields="ID_Venta" DataNavigateUrlFormatString="ventas_DetalleDeVenta.aspx" Text="Ver detalle"/>
                     </Columns>          
         </asp:GridView>
             </div>

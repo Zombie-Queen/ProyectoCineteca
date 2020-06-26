@@ -22,7 +22,12 @@ namespace Vistas
         {
             if(!IsPostBack)
             {
+                Session["numeroVenta"] = null;
                 CargarGrid();
+                ddlVentas.Items.Add("Ventas");
+                ddlVentas.Items.Add("Detalles de venta");
+                ddlVentas.Items.Add("Detalles de venta artículos");
+                ddlVentas.DataBind();
             }
         }
 

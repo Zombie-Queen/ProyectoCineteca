@@ -17,11 +17,25 @@ namespace Vistas
         NegociosDetalleDeVenta nv = new NegociosDetalleDeVenta();
         protected void Page_Load(object sender, EventArgs e)
         {
-            CargarGrid_dv_vacio();
-            CargarGrid_dva_vacio();
-            CargarGrid_TotalDva_vacio();
-            CargarGrid_TotalDv_vacio();
-            CargarGrid_TotalVenta_vacio();
+            if (!IsPostBack)
+            {
+                
+                if (Session["numeroVenta"] != null) 
+                {
+                    String numVenta = Convert.ToString(Session["numeroVenta"]);
+                    CargarTablaVentas(numVenta);
+                }
+                else 
+                {
+                    CargarGrid_dv_vacio();
+                    CargarGrid_dva_vacio();
+                    CargarGrid_TotalDva_vacio();
+                    CargarGrid_TotalDv_vacio();
+                    CargarGrid_TotalVenta_vacio();
+                }
+                
+            }
+           
 
         }
         /* GRID VACIAS */
@@ -99,13 +113,21 @@ namespace Vistas
 
         public void agregarFila_dv(DataTable tabla)
         {
-            DataRow dr = tabla.NewRow();
-            dr[Columnas_dv.PELICULA.ToString()] = "-";
-            dr[Columnas_dv.SUCURSAL.ToString()] = "-";
-            dr[Columnas_dv.SALA.ToString()] = "-";
-            dr[Columnas_dv.ASIENTO.ToString()] = "-";
-            dr[Columnas_dv.PRECIO.ToString()] = "$0";
-            tabla.Rows.Add(dr);
+            
+            for (int i = 0; i < 3; i++)
+            {
+                DataRow dr = tabla.NewRow();
+                dr[Columnas_dv.PELICULA.ToString()] = "-";
+                dr[Columnas_dv.SUCURSAL.ToString()] = "-";
+                dr[Columnas_dv.SALA.ToString()] = "-";
+                dr[Columnas_dv.ASIENTO.ToString()] = "-";
+                dr[Columnas_dv.PRECIO.ToString()] = "$0";
+                tabla.Rows.Add(dr);
+
+            }
+            
+
+
         }
 
 
@@ -131,13 +153,17 @@ namespace Vistas
 
         public void agregarFila_dva(DataTable tabla)
         {
-            DataRow dr = tabla.NewRow();
-            dr[Columnas_dva.ID_DVA.ToString()] = "-";
-            dr[Columnas_dva.ARTICULO.ToString()] = "-";
-            dr[Columnas_dva.CANTIDAD.ToString()] = "0";
-            dr[Columnas_dva.PRECIO.ToString()] = "$0";
+            for (int i = 0; i < 3; i++) 
+            {
+                DataRow dr = tabla.NewRow();
+                dr[Columnas_dva.ID_DVA.ToString()] = "-";
+                dr[Columnas_dva.ARTICULO.ToString()] = "-";
+                dr[Columnas_dva.CANTIDAD.ToString()] = "0";
+                dr[Columnas_dva.PRECIO.ToString()] = "$0";
+                tabla.Rows.Add(dr);
 
-            tabla.Rows.Add(dr);
+            }
+                
         }
 
         /* tablas de total */
@@ -201,28 +227,15 @@ namespace Vistas
             
             if (nro_venta !="")
             {
-                /*CARGA LAS TABLAS DETALLE DE VENTA Y DETALLE DE VENTA ARTICULOS*/
-                
-                grdDetalleVentas.DataSource = nv.getTablaDetalleVenta_NroVenta(nro_venta);
-                grdDetalleVentas.DataBind();
-                grdDetalleVentas_a.DataSource = nv.getTablaDetalleVentaArts_NroVenta(nro_venta);
-                grdDetalleVentas_a.DataBind();
-
-                /*suma de la tabla total detalle venta */
-                grdTotalDv.DataSource = nv.getTablaTotalDetalleVenta_NroVenta(nro_venta);
-                grdTotalDv.DataBind();
-                /*suma de la tabla total detalle venta articulos*/
-                grdTotalDva.DataSource = nv.getTablaTotalDetalleVentaArt_NroVenta(nro_venta);
-                grdTotalDva.DataBind();
-                /*TOTAL DE LA VENTA*/
-                grdTotalVenta.DataSource = nv.getTablaTotalVenta_NroVenta(nro_venta);
-                grdTotalVenta.DataBind();
+                Session["numeroVenta"] = null;
+                CargarTablaVentas(nro_venta);        
 
             }
             
             /*no selecciono ninguno error*/
             if (nro_venta == "")
             {
+                Session["numeroVenta"] = null;
                 CargarGrid_dv_vacio();
                 CargarGrid_dva_vacio();
                 CargarGrid_TotalDva_vacio();
@@ -234,8 +247,54 @@ namespace Vistas
 
         }
 
+        public void CargarTablaVentas(String nro_venta) 
+        {
+           
+            
+            /*CARGA LAS TABLAS DETALLE DE VENTA Y DETALLE DE VENTA ARTICULOS*/
+
+            grdDetalleVentas.DataSource = nv.getTablaDetalleVenta_NroVenta(nro_venta);
+            grdDetalleVentas.DataBind();
+            if(grdDetalleVentas.Rows.Count == 0)
+            {
+                CargarGrid_dv_vacio();
+            }
+            grdDetalleVentas_a.DataSource = nv.getTablaDetalleVentaArts_NroVenta(nro_venta);
+            grdDetalleVentas_a.DataBind();
+            if (grdDetalleVentas_a.Rows.Count == 0)
+            {
+                CargarGrid_dva_vacio();
+            }
+            /*suma de la tabla total detalle venta */
+            grdTotalDv.DataSource = nv.getTablaTotalDetalleVenta_NroVenta(nro_venta);
+            grdTotalDv.DataBind();
+            if (grdTotalDv.Rows.Count == 0)
+            {
+                
+                CargarGrid_TotalDv_vacio();
+                
+            }
+            /*suma de la tabla total detalle venta articulos*/
+            grdTotalDva.DataSource = nv.getTablaTotalDetalleVentaArt_NroVenta(nro_venta);
+            grdTotalDva.DataBind();
+            if (grdTotalDva.Rows.Count == 0)
+            {
+                CargarGrid_TotalDva_vacio();
+            }
+            /*TOTAL DE LA VENTA*/
+            grdTotalVenta.DataSource = nv.getTablaTotalVenta_NroVenta(nro_venta);
+            grdTotalVenta.DataBind();
+            if(grdTotalVenta.Rows.Count == 0)
+            {
+                CargarGrid_TotalVenta_vacio();
+            }
+
+
+        }
+        
         protected void Volver_Click(object sender, EventArgs e)
         {
+            Session["numeroVenta"] = null;
             CargarGrid_dv_vacio();
             CargarGrid_dva_vacio();
             CargarGrid_TotalDva_vacio();

@@ -26,7 +26,7 @@
                         <ul class="submenu">
                             <li><a href="ventas_listado.aspx">Listado</a></li>
                             <li><a href="ventas_DetalleDeVenta.aspx">Detalles de venta</a></li>
-                            <li><a href="#">Cancelar</a>
+                            <li><a href="ventas_BajaVentas.aspx">Cancelar</a>
                                 <ul class="submenu">
                                     <!--<li><a href="ventas_BajaVentas.aspx">Ventas</a></li>
                                     <li><a href="#">Detalle de venta</a></li>
