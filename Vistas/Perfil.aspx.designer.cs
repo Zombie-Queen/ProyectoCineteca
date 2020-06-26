@@ -114,6 +114,24 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.TextBox txtContra;
 
         /// <summary>
+        /// Control rfContra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator rfContra;
+
+        /// <summary>
+        /// Control CuvContra.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CustomValidator CuvContra;
+
+        /// <summary>
         /// Control txtContrarepeat.
         /// </summary>
         /// <remarks>

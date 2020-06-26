@@ -43,6 +43,14 @@ h2 {
     padding: 1rem;
 }
 
+.lblerror {
+    font-weight: 300;
+    font-size: 1.6rem;
+    font-family: 'Kanit', sans-serif;
+    color: #E72323;
+    margin-left: 5rem;
+}
+
 .imgpelis {
     width: 20rem;
     height: 30rem;

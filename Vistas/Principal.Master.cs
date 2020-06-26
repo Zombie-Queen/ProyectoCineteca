@@ -22,6 +22,8 @@ namespace Vistas
                 {
                     ddm.CssClass = "d-none";
                     logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
+                    lbluser.Text = Session["Nombre"].ToString();
+                    lbluser.CssClass = "nombreuser";
                 }
                 else
                 {
@@ -29,12 +31,6 @@ namespace Vistas
                     ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
                 }
             }
-
-        }
-
-        protected void btnregistro_Click(object sender, EventArgs e)
-        {
-            
 
         }
 
@@ -47,9 +43,10 @@ namespace Vistas
                 lblerror.Text = "";
                 Session["Correo"] = correo.Text;
                 Session["Contraseña"] = contraseña.Text;
+                Session["Nombre"] = "Bienvenido/a " + Convert.ToString(dt.Rows[0][2]) + "!";
                 if (Convert.ToInt32(dt.Rows[0][7]) == 1)
                 {
-                    Response.Redirect("Inicio.aspx");
+                    Response.Redirect("Inicio.aspx");   
                 }
                 else
                 {

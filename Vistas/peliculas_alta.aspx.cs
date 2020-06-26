@@ -19,6 +19,7 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
+                Session["numeroVenta"] = null;
                 CargarGrid();
             }
         }

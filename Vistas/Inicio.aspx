@@ -9,15 +9,18 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <div class="ddls">
         <asp:DropDownList CssClass="ddlsc mr-5" ID="ddlSuc" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSuc_SelectedIndexChanged">
-        </asp:DropDownList>
+        </asp:DropDownList><br />
         <asp:DropDownList CssClass="ddlsc" ID="ddlFunc" runat="server" AutoPostBack="True">
         </asp:DropDownList>
-        <asp:Button ID="btnddls" runat="server" CssClass="btn purple-gradient btnddls" Text="Ver Funciones" OnClick="btnddls_Click" />
+        <asp:Button ID="btnddls" runat="server" CssClass="btn purple-gradient btnddls" Text="Ver Funciones" ValidationGroup="ddl" OnClick="btnddls_Click" />
+    </div>
+    <div class="lblerror">
+        <asp:Label runat="server" ID="lblddl"></asp:Label>
     </div>
     <div class="peliculas">
         <h2>TODAS LAS PELÍCULAS</h2>
         <div class="owl-carousel owl-theme">
-            <asp:ListView ID="lvPeliculas" runat="server" DataKeyNames="ID_Pelicula" DataSourceID="sqldsPelis" GroupItemCount="20">
+            <asp:ListView ID="lvPeliculas" runat="server" DataSourceID="sqldsPelis" GroupItemCount="20">
                 <GroupTemplate>
                     <tr id="itemPlaceholderContainer" runat="server">
                         <td id="itemPlaceholder" runat="server"></td>
@@ -26,14 +29,13 @@
                 <ItemTemplate>
                     <td>
                         <asp:ImageButton CssClass="imgpelis" ID="imgpeli" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
-
                     </td>
                 </ItemTemplate>
                 <LayoutTemplate>
                     <asp:PlaceHolder ID="groupPlaceholder" runat="server"></asp:PlaceHolder>
                 </LayoutTemplate>
             </asp:ListView>
-            <asp:SqlDataSource ID="sqldsPelis" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SELECT * FROM [Peliculas]"></asp:SqlDataSource>
+            <asp:SqlDataSource ID="sqldsPelis" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_pelis" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
         </div>
         <h2>PELICULAS 2D</h2>
         <asp:ListView ID="Lvpelis2d" runat="server" DataSourceID="sqldspelis2d" GroupItemCount="6">
