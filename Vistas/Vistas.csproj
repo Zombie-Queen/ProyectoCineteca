@@ -137,6 +137,7 @@
     <Content Include="Inicio_Admin.aspx" />
     <Content Include="peliculas_alta.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="Precios.aspx" />
     <Content Include="Promociones.aspx" />
     <Content Include="Registro.aspx" />
     <Content Include="Sucursalabasto.aspx" />
@@ -213,6 +214,13 @@
     </Compile>
     <Compile Include="peliculas_alta.aspx.designer.cs">
       <DependentUpon>peliculas_alta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Precios.aspx.cs">
+      <DependentUpon>Precios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Precios.aspx.designer.cs">
+      <DependentUpon>Precios.aspx</DependentUpon>
     </Compile>
     <Compile Include="Principal.Master.cs">
       <DependentUpon>Principal.Master</DependentUpon>

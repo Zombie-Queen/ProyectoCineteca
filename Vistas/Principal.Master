@@ -46,6 +46,7 @@
                     </ul>
                 </nav>
             </div>
+            <asp:Label runat="server" ID="lbluser"></asp:Label>
             <!-- ---USUARIO--- !-->
             <div class="user">
                 <a href="#">

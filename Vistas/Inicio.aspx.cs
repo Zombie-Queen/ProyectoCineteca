@@ -20,7 +20,7 @@ namespace Vistas
             {
                 cargar_ddl_suc();
                 cargar_ddl_func();
-                                
+
             }
         }
 
@@ -45,7 +45,7 @@ namespace Vistas
             ddlFunc.DataTextField = "Título_Pelicula";
             ddlFunc.DataValueField = "ID_Pelicula";
             ddlFunc.DataBind();
-            
+
         }
 
         protected void btnddls_Click(object sender, EventArgs e)
@@ -55,6 +55,10 @@ namespace Vistas
                 Session["ID_Pelicula"] = ddlFunc.SelectedItem.Value;
                 Session["ID_Sucursal"] = ddlSuc.SelectedItem.Value;
                 Response.Redirect("Funciones.aspx");
+            }
+            else
+            {
+                lblddl.Text = "Seleccione una Sucursal.";
             }
         }
     }

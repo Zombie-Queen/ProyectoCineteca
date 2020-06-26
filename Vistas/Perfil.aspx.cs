@@ -25,7 +25,7 @@ namespace Vistas
             estado = nu.ModificarCorreo(Session["Correo"].ToString(), txtCorreo.Text, Session["Contraseña"].ToString());
             if (estado)
             {
-                Session["Correo"] = txtCorreo.Text;                
+                Session["Correo"] = txtCorreo.Text;
                 lblCorreo.CssClass = "green-text msglbl";
                 lblCorreo.Text = "Correo modificado.";
             }
@@ -52,6 +52,18 @@ namespace Vistas
             {
                 lblContra.CssClass = "red-text msglbl";
                 lblContra.Text = "La contraseña no pudo ser modificada.";
+            }
+        }
+
+        protected void CuvContra_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length < 8 || args.Value.Length > 20)
+            {
+                args.IsValid = false;
+            }
+            else
+            {
+                args.IsValid = true;
             }
         }
     }

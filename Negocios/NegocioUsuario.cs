@@ -56,12 +56,7 @@ namespace Negocios
             {
                 cantFilas = dao.AgregarCliente(cli1);
             }
-            if (cantFilas == 1)
-            {
-                return 1;
-            }
-            else
-                return 0;
+            return cantFilas;
         }
 
         public DataTable getRegistroUsuario(String correo, String contraseña)
