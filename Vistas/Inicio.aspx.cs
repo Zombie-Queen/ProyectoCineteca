@@ -54,6 +54,7 @@ namespace Vistas
             {
                 Session["ID_Pelicula"] = ddlFunc.SelectedItem.Value;
                 Session["ID_Sucursal"] = ddlSuc.SelectedItem.Value;
+
                 Response.Redirect("Funciones.aspx");
             }
         }

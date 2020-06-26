@@ -1,6 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="DetalledeCompra.aspx.cs" Inherits="Vistas.DetalledeCompra" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-	<link href="css/DetalleDeCompra.css" rel="stylesheet" type="text/css" />
+    <link href="css/DetalleDeCompra.css" rel="stylesheet" type="text/css" />
     <style type="text/css">
         .auto-style1 {
             width: 17%;
@@ -8,7 +8,7 @@
     </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
-	<h1>Asientos</h1>
+    <h1>Asientos</h1>
 	<h3> 
 			<asp:Image CssClass="imgasientos" ID="imgAsientos" runat="server"  ImageUrl="~/imagenes/asientos.jpg" ViewStateMode="Disabled"/>
 	</h3>
@@ -18,9 +18,10 @@
 				<tr>
 					<td style="font-family: 'Kanit', sans-serif; font-size: 14pt; text-align: left" class="auto-style1" >Seleccione su/s asiento/s: </td>
 					<td><asp:DropDownList ID="ddlAsiento" runat="server" CssClass="ddla" DataSourceID="SqlDataSourceAsientosDisponibles" DataTextField="ID_Asiento" DataValueField="ID_Asiento">
+                        <asp:ListItem>--Seleccione un asiento</asp:ListItem>
 			</asp:DropDownList>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-			<asp:Button ID="btnSeleccionar" runat="server" CssClass="btnddls" Text="Seleccionar" />
+			<asp:Button ID="btnSeleccionar" runat="server" CssClass="btnddls" Text="Seleccionar" OnClick="btnSeleccionar_Click" />
 			
 					</td>
 				</tr>
@@ -281,19 +282,24 @@
 		<br />
 	<asp:SqlDataSource ID="SqlDataSourceAsientosDisponibles" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_AsientosDisponible" SelectCommandType="StoredProcedure">
 		<SelectParameters>
-			<asp:Parameter DefaultValue="0001" Name="Sala" Type="String" />
-			<asp:Parameter DefaultValue="0001" Name="Sucursal" Type="String" />
-			<asp:Parameter DefaultValue="m1thor" Name="Funcion" Type="String" />
-			<asp:Parameter DbType="Date" DefaultValue="2020-06-10" Name="Fecha" />
+            <asp:SessionParameter DefaultValue="" Name="Funcion" SessionField="ID_Funcion" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="Sucursal" SessionField="ID_Sucursal" Type="String" />
+			<asp:SessionParameter DefaultValue="" Name="Sala" SessionField="ID_Sala" Type="String" />
+<asp:SessionParameter SessionField="Horario" Name="Horario" Type="String"></asp:SessionParameter>
+            <asp:SessionParameter DbType="Date" DefaultValue="" Name="Fecha" SessionField="Fecha" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 	<asp:SqlDataSource ID="SqlDataSourceAsientosReservados" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_AsientosReservado" SelectCommandType="StoredProcedure">
 		<SelectParameters>
-			<asp:Parameter DefaultValue="Reservado" Name="Estado" Type="String" />
+            <asp:SessionParameter DefaultValue="" Name="Funcion" SessionField="ID_Funcion" Type="String" />
+            <asp:SessionParameter Name="Sucursal" SessionField="ID_Sucursal" Type="String" />
+			<asp:SessionParameter Name="Sala" SessionField="ID_Sala" Type="String" />
+<asp:SessionParameter SessionField="Horario" Name="Horario" Type="String" DefaultValue=""></asp:SessionParameter>
+            <asp:SessionParameter DefaultValue="" Name="Fecha" SessionField="Fecha" Type="String" />
 		</SelectParameters>
 	</asp:SqlDataSource>
 	<asp:SqlDataSource ID="SqlDataSourceArticulos" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SELECT * FROM [Articulos]"></asp:SqlDataSource>
-	<asp:SqlDataSource ID="SqlDataSourceArticulosSeleccionados" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_ArticulosSeleccionados" SelectCommandType="StoredProcedure"></asp:SqlDataSource>
+	<asp:SqlDataSource ID="SqlDataSourceArticulosSeleccionados" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SELECT * FROM [DetalleVentaArticulos]"></asp:SqlDataSource>
 	<asp:SqlDataSource ID="SqlDataSourcePromociones" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SELECT * FROM [Promociones]"></asp:SqlDataSource>
 	<br />
 </asp:Content>

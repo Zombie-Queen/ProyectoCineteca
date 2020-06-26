@@ -6,16 +6,16 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    class FuncionesxSala
+    public class FuncionesxSala
     {
         private string ID_Funcion;
         private string ID_Pelicula;
         private string ID_Sucursal;
         private string ID_Sala;
         private string Estado;
-        private DateTime Hora_Inicio;
-        private DateTime Hora_Fin;
-        private DateTime Fecha;
+        private string Hora_Inicio;
+        private string Hora_Fin;
+        private string Fecha;
         private Decimal Precio;
 
         public FuncionesxSala()
@@ -28,9 +28,9 @@ namespace Entidades
         public string ID_Sucursal1 { get => ID_Sucursal; set => ID_Sucursal = value; }
         public string ID_Sala1 { get => ID_Sala; set => ID_Sala = value; }
         public string Estado1 { get => Estado; set => Estado = value; }
-        public DateTime Hora_Inicio1 { get => Hora_Inicio; set => Hora_Inicio = value; }
-        public DateTime Hora_Fin1 { get => Hora_Fin; set => Hora_Fin = value; }
-        public DateTime Fecha1 { get => Fecha; set => Fecha = value; }
+        public string Hora_Inicio1 { get => Hora_Inicio; set => Hora_Inicio = value; }
+        public string Hora_Fin1 { get => Hora_Fin; set => Hora_Fin = value; }
+        public string Fecha1 { get => Fecha; set => Fecha = value; }
         public decimal Precio1 { get => Precio; set => Precio = value; }
     }
 }

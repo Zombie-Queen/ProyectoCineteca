@@ -10,7 +10,7 @@ namespace Negocios
 {
     public class NegocioDetalleDeCompra
     {
-        public bool seleccionarAsiento(String funcion, String pelicula, String sucursal, String sala, String asiento, String estado, DateTime fecha)
+        public bool seleccionarAsiento(string funcion, string pelicula, string sucursal, string sala, string asiento, string fecha)
         {
             int cantFilas = 0;
 
@@ -20,7 +20,6 @@ namespace Negocios
             fsa.ID_Sucursal_FSA1 = sucursal;
             fsa.ID_Sala_FSA1 = sala;
             fsa.ID_Asiento_FSA1 = asiento;
-            fsa.Estado_FSA1 = estado;
             fsa.Fecha_FuncionxSalaAsiento1 = fecha;
 
             DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
@@ -32,7 +31,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool quitarAsientoSeleccionado(String asiento, String estado)
+        public bool quitarAsientoSeleccionado(string asiento, string estado)
         {
             FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
             fsa.ID_Asiento_FSA1 = asiento;
@@ -47,7 +46,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool seleccionarArticulo(int id_venta, int id_dva, String id_articulo, String estado, int cantidad, decimal precio)
+        public bool seleccionarArticulo(int id_venta, int id_dva, string id_articulo, string estado, int cantidad, decimal precio)
         {
             int cantFilas = 0;
 
@@ -68,7 +67,7 @@ namespace Negocios
                 return false;
         }
 
-        public bool quitarArticuloSeleccionado(int id_venta, int id_dva, String id_articulo)
+        public bool quitarArticuloSeleccionado(int id_venta, int id_dva, string id_articulo)
         {
             DetalleVentasArticulo dva = new DetalleVentasArticulo();
             dva.id_venta_dva = id_venta;

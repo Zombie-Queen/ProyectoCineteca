@@ -14,7 +14,7 @@ namespace Entidades
         private string ID_Sala_FSA;
         private string ID_Asiento_FSA;
         private string Estado_FSA;
-        private DateTime Fecha_FuncionxSalaAsiento;
+        private string Fecha_FuncionxSalaAsiento;
 
         public FuncionesxSalasxAsiento ()
         {
@@ -27,6 +27,6 @@ namespace Entidades
         public string ID_Sala_FSA1 { get => ID_Sala_FSA; set => ID_Sala_FSA = value; }
         public string ID_Asiento_FSA1 { get => ID_Asiento_FSA; set => ID_Asiento_FSA = value; }
         public string Estado_FSA1 { get => Estado_FSA; set => Estado_FSA = value; }
-        public DateTime Fecha_FuncionxSalaAsiento1 { get => Fecha_FuncionxSalaAsiento; set => Fecha_FuncionxSalaAsiento = value; }
+        public string Fecha_FuncionxSalaAsiento1 { get => Fecha_FuncionxSalaAsiento; set => Fecha_FuncionxSalaAsiento = value; }
     }
 }
