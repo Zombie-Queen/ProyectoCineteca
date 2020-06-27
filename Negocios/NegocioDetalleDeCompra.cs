@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Entidades;
 using Dao;
+using System.Data;
 
 namespace Negocios
 {
@@ -44,6 +45,18 @@ namespace Negocios
                 return true;
             else
                 return false;
+        }
+
+        public DataTable obtenerAsientosDisponibles(FuncionesxSala fs)
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            return dao.ObtenerAsientosDisponibles(fs);
+        }
+
+        public DataTable obtenerAsientosReservados()
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            return dao.ObtenerAsientosReservados();
         }
 
         public bool seleccionarArticulo(int id_venta, int id_dva, string id_articulo, string estado, int cantidad, decimal precio)

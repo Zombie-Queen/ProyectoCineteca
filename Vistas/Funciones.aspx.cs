@@ -5,12 +5,14 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Entidades;
+using Negocios;
 
 namespace Vistas
 {
     public partial class Funciones : System.Web.UI.Page
     {
         FuncionesxSala fs = new FuncionesxSala();
+        NegocioFuncionxSala nfs = new NegocioFuncionxSala();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -44,6 +46,7 @@ namespace Vistas
             Session["Horario"] = fs.Hora_Inicio1;
             Session["Precio"] = fs.Precio1;
 
+            nfs.vaciarReservasAnteriores();
             Response.Redirect("DetalledeCompra.aspx");
         }
     }

@@ -23,5 +23,14 @@ namespace Negocios
             return dao.cargar_funcion_sucursal(valor);
         }
 
+        public bool vaciarReservasAnteriores()
+        {
+            int op= dao.vaciar_reservas_anteriores();
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
+
     }
 }

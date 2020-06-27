@@ -33,5 +33,11 @@ namespace Dao
             dr = cmd.ExecuteReader();
             return dr;
         }
+
+        public int vaciar_reservas_anteriores()
+        {
+            SqlCommand comando = new SqlCommand();
+            return acc.sp_Ejecutar(comando, "SP_VaciarReservas");
+        }
     }
 }

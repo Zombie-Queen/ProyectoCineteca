@@ -13,6 +13,7 @@ namespace Vistas
     {
         NegocioDetalleDeCompra ndc = new NegocioDetalleDeCompra();
         FuncionesxSala fs = new FuncionesxSala();
+        FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
         protected void Page_Load(object sender, EventArgs e)
         {
             string Funcion= Session["ID_Funcion"].ToString();
@@ -30,12 +31,41 @@ namespace Vistas
             fs.ID_Pelicula1 = Pelicula;
             fs.ID_Sala1 = Sala;
             fs.ID_Sucursal1 = Sucursal;
+
+            if (!IsPostBack)
+            {
+                cargarddlAsiento();
+            }
+        }
+
+        protected void cargarddlAsiento()
+        {
+            ddlAsiento.Items.Clear();
+            ddlAsiento.DataSource = ndc.obtenerAsientosDisponibles(fs);
+            ddlAsiento.DataValueField = "ID_Asiento";
+            ddlAsiento.DataTextField = "ID_Asiento";
+            ddlAsiento.DataBind();
         }
 
         protected void btnSeleccionar_Click(object sender, EventArgs e)
         {
-            string asiento= ddlAsiento.SelectedValue.ToString();
-            ndc.seleccionarAsiento(fs.ID_Funcion1, fs.ID_Pelicula1, fs.ID_Sucursal1, fs.ID_Sala1, asiento, fs.Fecha1);
+            
+            ndc.seleccionarAsiento(fs.ID_Funcion1, fs.ID_Pelicula1, fs.ID_Sucursal1, fs.ID_Sala1, ddlAsiento.SelectedValue.ToString(), fs.Fecha1);
+
+            lblAsientosSeleccionados.Visible = true;
+            gvAsientos.Visible = true;
+
+            cargarddlAsiento();
+            cargargvAsientos();
+
         }
+
+        protected void cargargvAsientos()
+        {
+            gvAsientos.DataSource = ndc.obtenerAsientosReservados();
+            gvAsientos.DataBind();
+        }
+
+
     }
 }

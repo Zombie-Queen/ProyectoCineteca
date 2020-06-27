@@ -17,11 +17,11 @@ namespace Entidades
         private String ID_Sucursal;
         private String ID_Sala;
         private String ID_Asiento;
-        private DateTime Fecha;
+        private String Fecha;
         private Decimal Precio;
         private String Estado;
 
-        public DetalleVentas(int _ID_Venta_dv, int _ID_DetalleDeVenta, String _ID_Funcion, String _ID_Pelicula, String _ID_Sucursal, String _ID_Sala, String _ID_Asiento, DateTime _Fecha , decimal _Precio, String _Estado)
+        public DetalleVentas(int _ID_Venta_dv, int _ID_DetalleDeVenta, String _ID_Funcion, String _ID_Pelicula, String _ID_Sucursal, String _ID_Sala, String _ID_Asiento, String _Fecha , decimal _Precio, String _Estado)
         {
 
             this.ID_Venta_dv = _ID_Venta_dv;
@@ -77,7 +77,7 @@ namespace Entidades
             set { ID_Asiento = value; }
         }
 
-        public DateTime fecha
+        public String fecha
         {
             get { return Fecha; }
             set { Fecha = value; }

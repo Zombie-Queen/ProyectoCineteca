@@ -27,6 +27,23 @@ namespace Dao
             return ds.sp_Ejecutar(comando, "SP_QuitarAsientoSeleccionado");
         }
 
+        public DataTable ObtenerAsientosDisponibles(FuncionesxSala fs)
+        {
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosAsientosSeleccionados(ref comando, fs);
+            dt = ds.EjecutarSpConParametros(comando, "SP_AsientosDisponible", "AsientosDisponibles");
+            return dt;
+        }
+
+        public DataTable ObtenerAsientosReservados()
+        {
+            DataTable dt = new DataTable();
+            SqlCommand comando = new SqlCommand();
+            dt = ds.EjecutarSpConParametros(comando, "SP_AsientosReservado", "AsientosReservados");
+            return dt;
+        }
+
         public int SeleccionarArticulo(DetalleVentasArticulo dva)
         {
             SqlCommand comando = new SqlCommand();
@@ -58,6 +75,23 @@ namespace Dao
             SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
             SqlParametros.Value = fsa.Fecha_FuncionxSalaAsiento1;
         }
+
+        private void ArmarParametrosAsientosSeleccionados(ref SqlCommand comando, FuncionesxSala fs)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = comando.Parameters.Add("@ID_Funcion", SqlDbType.Char);
+            SqlParametros.Value = fs.ID_Funcion1;
+            SqlParametros = comando.Parameters.Add("@ID_Sucursal", SqlDbType.Char);
+            SqlParametros.Value = fs.ID_Sucursal1;
+            SqlParametros = comando.Parameters.Add("@ID_Sala", SqlDbType.Char);
+            SqlParametros.Value = fs.ID_Sala1;
+            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.VarChar);
+            SqlParametros.Value = fs.Hora_Inicio1;
+            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
+            SqlParametros.Value = fs.Fecha1;
+        }
+
+
 
         private void ArmarParametrosAsientosQuitar(ref SqlCommand comando, FuncionesxSalasxAsiento fsa)
         {
