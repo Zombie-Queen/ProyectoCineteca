@@ -28,7 +28,11 @@ namespace Vistas
                 ddlVentas.Items.Add("Detalles de venta");
                 ddlVentas.Items.Add("Detalles de venta artículos");
                 ddlVentas.DataBind();
+                
             }
+            if (ddlVentas.SelectedValue == "Ventas") CargarGrid();
+            if (ddlVentas.SelectedValue == "Detalles de venta") CargarGridDetalleDeVenta();
+            if (ddlVentas.SelectedValue == "Detalles de venta artículos") CargarGridDetalleDeVentaArts();
         }
 
         protected void Buscar_Click(object sender, EventArgs e)
@@ -51,6 +55,7 @@ namespace Vistas
 
         protected void Volver_Click(object sender, EventArgs e)
         {
+            grdVentas.PageIndex = 0;
             CargarGrid();
             txt_num_venta.Text = "";
         }
@@ -62,6 +67,18 @@ namespace Vistas
             grdVentas.DataBind();
 
         }
+        public void CargarGridDetalleDeVenta() 
+        {
+            DataTable tablaVentas = ndev.getTablaDetalleDeVenta();
+            grdVentas.DataSource = tablaVentas;
+            grdVentas.DataBind();
+        }
+        public void CargarGridDetalleDeVentaArts()
+        {
+            DataTable tablaVentas = ndev.getTablaDetalleDeVentaArticulos();
+            grdVentas.DataSource = tablaVentas;
+            grdVentas.DataBind();
+        }
         protected void grdVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdVentas.PageIndex = e.NewPageIndex;
@@ -70,40 +87,51 @@ namespace Vistas
 
         protected void Borrar_Click(object sender, EventArgs e)
         {
-            if (txt_num_venta.Text != "")   
+            /*si selecciono la tabla ventas*/
+            if (ddlVentas.SelectedValue=="Ventas") 
             {
-
-                int nro_venta = Convert.ToInt32(txt_num_venta.Text);
-                ven.id_venta = nro_venta;
-                dev.id_venta_dv = nro_venta;
-                devArt.id_venta_dva = nro_venta;
-
-                if (nv.existeVenta(ven))
+                if (txt_num_venta.Text != "")
                 {
 
-                    if (nv.BorrarVenta(ven))
+                    int nro_venta = Convert.ToInt32(txt_num_venta.Text);
+                    ven.id_venta = nro_venta;
+                    dev.id_venta_dv = nro_venta;
+                    devArt.id_venta_dva = nro_venta;
+
+                    if (nv.existeVenta(ven))
                     {
-                        /*se borro con exito*/
-                        ndev.BorrarDetalleVenta(dev);
-                        ndev.BorrarDetalleVentaArticulos(devArt);
-                        CargarGrid();
+
+                        if (nv.BorrarVenta(ven))
+                        {
+                            /*se borro con exito*/
+                            ndev.BorrarDetalleVenta(dev);
+                            ndev.BorrarDetalleVentaArticulos(devArt);
+                            CargarGrid();
+
+                        }
+                        else
+                        {
+                            CargarGrid();
+                            /*no se borro con exito*/
+                        }
 
                     }
                     else
                     {
+                        /*la venta no existe*/
                         CargarGrid();
-                        /*no se borro con exito*/
                     }
 
-                }
-                else
-                {
-                    /*la venta no existe*/
-                    CargarGrid();
-                }
 
+                }
 
             }
+
+            /*si selecciono la tabla detalle de ventas*/
+            if (ddlVentas.SelectedValue=="Detalles de venta") { }
+            /*si selecciono la tabla detalle de ventas artículos*/
+            if (ddlVentas.SelectedValue == "Detalles de venta artículos") { }
+            
             
               
             
