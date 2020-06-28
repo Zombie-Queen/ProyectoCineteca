@@ -21,7 +21,7 @@
             
            </div> 
             <div class="listado">
-                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5">
+                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True">
                     <AlternatingRowStyle CssClass="alt" />
                               
         </asp:GridView>

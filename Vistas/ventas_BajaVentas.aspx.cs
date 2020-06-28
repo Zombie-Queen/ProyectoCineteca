@@ -30,24 +30,63 @@ namespace Vistas
                 ddlVentas.DataBind();
                 
             }
-            if (ddlVentas.SelectedValue == "Ventas") CargarGrid();
-            if (ddlVentas.SelectedValue == "Detalles de venta") CargarGridDetalleDeVenta();
-            if (ddlVentas.SelectedValue == "Detalles de venta artículos") CargarGridDetalleDeVentaArts();
+            if (ddlVentas.SelectedValue == "Ventas")
+            {  
+                CargarGrid();
+                /*grdVentas.HeaderRow.Cells(#_columna).Visible = False;
+                grdVentas.Rows.Count - 1;
+                GridView1.Rows(x).Cells(#_columna).Visible = False;*/
+            }
+            if (ddlVentas.SelectedValue == "Detalles de venta") {  CargarGridDetalleDeVenta(); }
+            if (ddlVentas.SelectedValue == "Detalles de venta artículos") {  CargarGridDetalleDeVentaArts();}
         }
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
             
             String nro_venta = txt_num_venta.Text;
-            if (nro_venta != "") 
+            if (ddlVentas.SelectedValue == "Ventas") 
             {
-                DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
-                grdVentas.DataSource = tabla_de_ventas;
-                grdVentas.DataBind();
+                if (nro_venta != "")
+                {
+                    DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
+                    grdVentas.DataSource = tabla_de_ventas;
+                    grdVentas.DataBind();
+                }
+                else
+                {
+                    /*no ingreso nada */
+                }
             }
-            else 
+            if(ddlVentas.SelectedValue == "Detalles de venta") 
             {
-                /*no ingreso nada */
+                if (nro_venta != "")
+                {
+                    
+                    dev.id_venta_dv = Convert.ToInt32(nro_venta);
+                    DataTable tabla_de_ventas = ndev.getDetalleVenta_porNroVenta(dev);
+                    grdVentas.DataSource = tabla_de_ventas;
+                    grdVentas.DataBind();
+                }
+                else
+                {
+                    /*no ingreso nada */
+                }
+
+            }
+            if (ddlVentas.SelectedValue == "Detalles de venta artículos") 
+            {
+                if (nro_venta != "")
+                {
+                    devArt.id_venta_dva = Convert.ToInt32(nro_venta);
+                    DataTable tabla_de_ventas = ndev.getDetalleArt_porNroVenta(devArt);
+                    grdVentas.DataSource = tabla_de_ventas;
+                    grdVentas.DataBind();
+                }
+                else
+                {
+                    /*no ingreso nada */
+                }
             }
                 
 

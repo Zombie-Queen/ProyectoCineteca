@@ -23,6 +23,14 @@ namespace Negocios
         {
             return dao.ObtenerTodosLosDetallesDeVentaArts();
         }
+        public DataTable getDetalleArt_porNroVenta(DetalleVentasArticulo detalle_art)
+        {
+            return dao.ObtenerDVAPorNroVenta(detalle_art);
+        }
+        public DataTable getDetalleVenta_porNroVenta(DetalleVentas detalle_venta)
+        {
+            return dao.ObtenerDVPorNroVenta(detalle_venta);
+        }
 
         public DataTable getTablaDetalleVenta_NroVenta(String nroVenta)
         {
