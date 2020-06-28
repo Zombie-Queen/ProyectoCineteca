@@ -10,7 +10,7 @@
             <asp:TemplateField HeaderText="" >
                 <ItemStyle CssClass="item-gv" />
                     <ItemTemplate>
-                        <asp:Button Id="btnFunciones" runat="server" Text="Seleccionar" CssClass="btnfun" CommandName="Select" CommandArgument="<% ((GriViewRow)Container).RowIndex %>"/>
+                        <asp:Button Id="btnFunciones" runat="server" Text="Seleccionar" CssClass="btn btnfun" CommandName="Select" CommandArgument="<% ((GriViewRow)Container).RowIndex %>"/>
                     </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" DataField="Fecha_FuncionxSala" HeaderText="Fecha" SortExpression="Fecha_FuncionxSala" DataFormatString="{0:d}">

@@ -20,7 +20,7 @@
     <div class="peliculas">
         <h2>TODAS LAS PELÍCULAS</h2>
         <div class="owl-carousel owl-theme">
-            <asp:ListView ID="lvPeliculas" runat="server" DataSourceID="sqldsPelis" GroupItemCount="20">
+            <asp:ListView ID="lvPeliculas" runat="server" DataSourceID="sqldsPelis" GroupItemCount="20" OnSelectedIndexChanged="lvPeliculas_SelectedIndexChanged">
                 <GroupTemplate>
                     <tr id="itemPlaceholderContainer" runat="server">
                         <td id="itemPlaceholder" runat="server"></td>

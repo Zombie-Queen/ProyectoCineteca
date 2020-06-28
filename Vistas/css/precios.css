@@ -26,7 +26,14 @@
     font-size: 2rem;
     border: solid 1px #FFFFFF;
 }
-.img{
-    width:45rem;
-    height:30rem;
+
+.items-art{
+    text-align:center;
+    font-size:2rem;
+    margin-top:3rem;
+}
+
+.img {
+    width: 45rem;
+    height: 30rem;
 }
