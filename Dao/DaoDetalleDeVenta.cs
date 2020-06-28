@@ -32,12 +32,12 @@ namespace Dao
 
         public DataTable ObtenerTodosLosDetallesDeVenta()
         {
-            return ds.ObtenerTabla("DetalleVentas", "Select * from DetalleVentas");
+            return ds.ObtenerTabla("DetalleVentas", "Select ID_Venta_DV[ID Venta],ID_DetalleVenta[ID Detalle],ID_Funcion_DV[Función],ID_Pelicula_DV[Película],ID_Sala_DV[Sala],ID_Asiento_DV[Asiento],Fecha_DV[Fecha],Precio from DetalleVentas WHERE Estado_DV='Realizado'");
         }
 
         public DataTable ObtenerTodosLosDetallesDeVentaArts()
         {
-            return ds.ObtenerTabla("DetalleVentaArticulos", "Select * from DetalleVentaArticulos");
+            return ds.ObtenerTabla("DetalleVentaArticulos", "Select ID_Venta_DVA[ID Venta],ID_DVA[ID Detalle],ID_Articulo_DVA[ID artículo],Cantidad,Precio from DetalleVentaArticulos WHERE Estado_DVA='Realizado'");
         }
 
         /*Detalles de ventas por nro de venta */
