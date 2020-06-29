@@ -87,10 +87,9 @@
     <Content Include="DetalledeCompra.aspx" />
     <Content Include="FinalizarCompra.aspx" />
     <Content Include="Funciones.aspx" />
+    <Content Include="FuncionesPelicula.aspx" />
     <Content Include="imagenes\articulos\agua.jpg" />
-    <Content Include="imagenes\articulos\bebida1.png" />
-    <Content Include="imagenes\articulos\bebida2.png" />
-    <Content Include="imagenes\articulos\bebida3.png" />
+    <Content Include="imagenes\articulos\bebida1.jpg" />
     <Content Include="imagenes\articulos\chipa.jpg" />
     <Content Include="imagenes\articulos\kitkat.jpg" />
     <Content Include="imagenes\articulos\m&amp;m.jpg" />
@@ -187,6 +186,13 @@
     </Compile>
     <Compile Include="Funciones.aspx.designer.cs">
       <DependentUpon>Funciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FuncionesPelicula.aspx.cs">
+      <DependentUpon>FuncionesPelicula.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FuncionesPelicula.aspx.designer.cs">
+      <DependentUpon>FuncionesPelicula.aspx</DependentUpon>
     </Compile>
     <Compile Include="Inicio.aspx.cs">
       <DependentUpon>Inicio.aspx</DependentUpon>

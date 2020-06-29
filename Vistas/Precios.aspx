@@ -7,7 +7,8 @@
     <div class="contenedor">
         <h2>PRECIOS DE SALAS</h2>
         <p>
-            Encontrá aquí los precios de las entradas para tu película de boletería y venta web (Promo Click On Line), por tipo de sala 2D, 3D, PREMIUM o 4D. <br />
+            Encontrá aquí los precios de las entradas para tu película de boletería y venta web por tipo de sala 2D, 3D, PREMIUM o 4D.
+            <br />
             Importante: No está permitido el ingreso a las salas con alimentos y bebidas adquiridos fuera de local.
         </p>
         <asp:ListView runat="server" ID="lvSalas" DataSourceID="sqldssalas" GroupItemCount="2">
@@ -51,10 +52,12 @@
             </GroupTemplate>
             <ItemTemplate>
                 <td runat="server" style="">
-                    <asp:Label Text='<%# Eval("Nombre_Articulo") %>' runat="server" ID="Nombre_ArticuloLabel" /><br />
-                    <asp:ImageButton CssClass="img" runat="server" ID="ibArt" ImageUrl='<%# Eval("URL_Articulo") %>' />
-                    <asp:Label Text='<%# Eval("Descripción_Articulo") %>' runat="server" ID="Descripción_ArticuloLabel" /><br />
-                    <asp:Label Text='<%# Eval("Precio") %>' runat="server" ID="PrecioLabel" /><br />
+                    <div class="items-art">
+                        <asp:Label Text='<%# Eval("Nombre_Articulo") %>' runat="server" ID="Nombre_ArticuloLabel" /><br />
+                        <asp:ImageButton CssClass="img" runat="server" ID="ibArt" ImageUrl='<%# Eval("URL_Articulo") %>' />
+                        <asp:Label Text='<%# Eval("Descripción_Articulo") %>' runat="server" ID="Descripción_ArticuloLabel" /><br />
+                        <asp:Label Text='<%# Eval("Precio") %>' runat="server" ID="PrecioLabel" /><br />
+                    </div>
                 </td>
             </ItemTemplate>
             <LayoutTemplate>

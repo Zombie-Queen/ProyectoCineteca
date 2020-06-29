@@ -62,5 +62,10 @@ namespace Vistas
                 lblddl.Text = "Seleccione una Sucursal.";
             }
         }
+
+        protected void lvPeliculas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ID_Funcion"] = lvPeliculas.SelectedValue;
+        }
     }
 }
