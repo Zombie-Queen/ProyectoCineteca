@@ -94,42 +94,74 @@ td {
     padding: 1rem;
 }
 
+
+.gridas {
+      margin: auto;
+      width: 20%;
+      padding: 10px;
+      color: #F8F8FF;
+      text-align: center;
+      font-family: 'Kanit', sans-serif;
+
+}
+
+      .header-gv, .item-gv, .gridas td a{
+            width: 20rem;
+            height: 4rem;
+            font-size: 1.5rem;	
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+      }
+      .gridas td {
+            width: 20rem;
+            height: 4rem;
+            font-size: 1.5rem;	
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+      }
+      .gridas th {
+	    width: 20rem;
+            height: 4rem;
+            font-size: 1.5rem;
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif; 
+      }
+
+      .gridas td a {
+            color: #59656A;
+            font-size: 1.5rem;
+      }
+    
+      .gridas td a:hover{
+            color: #FFFFFF;
+      }
+
 .gridpr {
       margin: auto;
       width: 50%;
       padding: 10px;
 }
 
-.gridas {
-      margin: auto;
-      width: 20%;
-      padding: 10px;
-}
+      .header-gv, .item-gv, .gridpr td a{
+            width: 20rem;
+            height: 4rem;
+            font-weight: 300;	
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+      }
 
-.header-gv, .item-gv, .gridpr td a, .gridas td a {
-        width: 20rem;
-        height: 4rem;
-        font-size: 1.5rem;
-        color: #F8F8FF;
-        text-align: center;
-        font-family: 'Kanit', sans-serif;
-    }
-    .gridpr td a {
-        color: #59656A;
-        font-weight: 300;
-    }
+      .gridpr td a {
+            color: #59656A;
+            font-weight: 300;
+      }
     
-    .gridpr td a:hover{
-        color: #FFFFFF;
-    }
-    .gridas td a {
-        color: #59656A;
-        font-weight: 300;
-    }
-    
-    .gridas td a:hover{
-        color: #FFFFFF;
-    }
+      .gridpr td a:hover{
+            color: #FFFFFF;
+      }
 
 
 .imgasientos {
@@ -162,7 +194,7 @@ td {
         color: #FFFFFF;
         text-align: center;
         font-family: 'Kanit', sans-serif;
-	font-size: 10pt;
+	font-weight: 300;
 	Font-Bold="True";
 }
 
@@ -170,7 +202,7 @@ td {
         color: #FFFFFF;
         text-align: center;
         font-family: 'Kanit', sans-serif;
-	font-size: 8pt;
+	font-weight: 300;
 }
 
 .btn {

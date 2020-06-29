@@ -13,10 +13,10 @@ namespace Dao
     {
         AccesoDatos ds = new AccesoDatos();
 
-        public int SeleccionarAsiento(FuncionesxSalasxAsiento fsa)
+        public int SeleccionarAsiento(FuncionesxSala fs, FuncionesxSalasxAsiento fsa)
         {
             SqlCommand comando = new SqlCommand();
-            ArmarParametrosAsientosSeleccionar(ref comando, fsa);
+            ArmarParametrosAsientosSeleccionar(ref comando, fs, fsa);
             return ds.sp_Ejecutar(comando, "SP_SeleccionarAsiento");
         }
 
@@ -59,19 +59,17 @@ namespace Dao
         }
 
 
-        private void ArmarParametrosAsientosSeleccionar(ref SqlCommand comando, FuncionesxSalasxAsiento fsa)
+        private void ArmarParametrosAsientosSeleccionar(ref SqlCommand comando, FuncionesxSala fs, FuncionesxSalasxAsiento fsa)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = comando.Parameters.Add("@ID_Funcion", SqlDbType.Char);
-            SqlParametros.Value = fsa.ID_Funcion_FSA1;
             SqlParametros = comando.Parameters.Add("@ID_Pelicula", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Pelicula_FSA1;
             SqlParametros = comando.Parameters.Add("@ID_Sucursal", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Sucursal_FSA1;
-            SqlParametros = comando.Parameters.Add("@ID_Sala", SqlDbType.Char);
-            SqlParametros.Value = fsa.ID_Sala_FSA1;
             SqlParametros = comando.Parameters.Add("@ID_Asiento", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Asiento_FSA1;
+            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.VarChar);
+            SqlParametros.Value = fs.Hora_Inicio1;
             SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
             SqlParametros.Value = fsa.Fecha_FuncionxSalaAsiento1;
         }
@@ -79,12 +77,10 @@ namespace Dao
         private void ArmarParametrosAsientosSeleccionados(ref SqlCommand comando, FuncionesxSala fs)
         {
             SqlParameter SqlParametros = new SqlParameter();
-            SqlParametros = comando.Parameters.Add("@ID_Funcion", SqlDbType.Char);
-            SqlParametros.Value = fs.ID_Funcion1;
+            SqlParametros = comando.Parameters.Add("@ID_Pelicula", SqlDbType.Char);
+            SqlParametros.Value = fs.ID_Pelicula1;
             SqlParametros = comando.Parameters.Add("@ID_Sucursal", SqlDbType.Char);
             SqlParametros.Value = fs.ID_Sucursal1;
-            SqlParametros = comando.Parameters.Add("@ID_Sala", SqlDbType.Char);
-            SqlParametros.Value = fs.ID_Sala1;
             SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.VarChar);
             SqlParametros.Value = fs.Hora_Inicio1;
             SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
@@ -98,8 +94,6 @@ namespace Dao
             SqlParameter SqlParametros = new SqlParameter();
             SqlParametros = comando.Parameters.Add("@ID_Asiento", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Asiento_FSA1;
-            SqlParametros = comando.Parameters.Add("@Estado", SqlDbType.VarChar);
-            SqlParametros.Value = fsa.Estado_FSA1;
         }
 
         private void ArmarParametrosArticulosSeleccionar(ref SqlCommand comando, DetalleVentasArticulo dva)

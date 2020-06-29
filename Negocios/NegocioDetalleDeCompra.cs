@@ -11,20 +11,18 @@ namespace Negocios
 {
     public class NegocioDetalleDeCompra
     {
-        public bool seleccionarAsiento(string funcion, string pelicula, string sucursal, string sala, string asiento, string fecha)
+        public bool seleccionarAsiento(FuncionesxSala fs, string asiento)
         {
             int cantFilas = 0;
 
             FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
-            fsa.ID_Funcion_FSA1 = funcion;
-            fsa.ID_Pelicula_FSA1 = pelicula;
-            fsa.ID_Sucursal_FSA1 = sucursal;
-            fsa.ID_Sala_FSA1 = sala;
+            fsa.ID_Pelicula_FSA1 = fs.ID_Pelicula1;
+            fsa.ID_Sucursal_FSA1 = fs.ID_Sucursal1;
             fsa.ID_Asiento_FSA1 = asiento;
-            fsa.Fecha_FuncionxSalaAsiento1 = fecha;
+            fsa.Fecha_FuncionxSalaAsiento1 = fs.Fecha1;
 
             DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
-            cantFilas = dao.SeleccionarAsiento(fsa);
+            cantFilas = dao.SeleccionarAsiento(fs, fsa);
 
             if (cantFilas == 1)
                 return true;
@@ -32,11 +30,10 @@ namespace Negocios
                 return false;
         }
 
-        public bool quitarAsientoSeleccionado(string asiento, string estado)
+        public bool quitarAsientoSeleccionado(string asiento)
         {
             FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
             fsa.ID_Asiento_FSA1 = asiento;
-            fsa.Estado_FSA1 = estado;
 
             DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
 
