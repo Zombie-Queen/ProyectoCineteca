@@ -76,6 +76,7 @@
     <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
     <Content Include="css\funciones.css" />
+    <Content Include="css\funcionespelicula.css" />
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\Alta.css" />
