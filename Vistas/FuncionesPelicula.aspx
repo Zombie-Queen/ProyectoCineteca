@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Principal.Master" AutoEventWireup="true" CodeBehind="FuncionesPelicula.aspx.cs" Inherits="Vistas.FuncionesPelicula" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <link rel="stylesheet" href="css/funciones.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <div class="ddl">
@@ -8,7 +9,7 @@
         <asp:DropDownList runat="server" ID="ddlSala" AutoPostBack="true"></asp:DropDownList>
     </div>
     <div class="gvSuc">
-        <asp:GridView runat="server" ID="gvSuc" DataSourceID="sqldsFunciones" AutoGenerateColumns="False">
+        <asp:GridView runat="server" ID="gvSuc" DataSourceID="sqldsFunciones" AutoGenerateColumns="False" AutoGenerateSelectButton="True">
             <Columns>                          
                 <asp:BoundField DataField="Hora_Inicio_FuncionxSala" HeaderText="Hora de Inicio" SortExpression="Hora_Inicio_FuncionxSala"></asp:BoundField>
                 <asp:BoundField DataField="Fecha_FuncionxSala" HeaderText="Fecha" ReadOnly="True" SortExpression="Fecha_FuncionxSala" DataFormatString="{0:d}"></asp:BoundField>
