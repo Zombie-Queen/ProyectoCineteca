@@ -48,8 +48,7 @@
             <ItemTemplate>
                 <td runat="server">
                     <div class="cont-peli">
-                        <asp:ImageButton CssClass="imgpelis_" ID="imgPortada" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
-
+                        <asp:ImageButton CssClass="imgpelis_" ID="imgpelis2d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' CommandName="eventoLvPelis2d" CommandArgument='<%# Eval("ID_Pelicula_FuncionxSala") %>' OnCommand="imgpeli2d_Command" />
                     </div>
                 </td>
             </ItemTemplate>
@@ -79,7 +78,7 @@
             </GroupTemplate>
             <ItemTemplate>
                 <td runat="server">
-                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis3d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis3d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' CommandName="eventoLvPelis3d" CommandArgument='<%# Eval("ID_Pelicula_FuncionxSala") %>' OnCommand="imgpeli3d_Command" />
                 </td>
             </ItemTemplate>
             <LayoutTemplate>
@@ -108,7 +107,7 @@
             </GroupTemplate>
             <ItemTemplate>
                 <td runat="server">
-                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis4d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelis4d" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' CommandName="eventoLvPelis4d" CommandArgument='<%# Eval("ID_Pelicula_FuncionxSala") %>' OnCommand="imgpeli4d_Command" />
                 </td>
             </ItemTemplate>
             <LayoutTemplate>
@@ -137,7 +136,7 @@
             </GroupTemplate>
             <ItemTemplate>
                 <td runat="server">
-                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelispremium" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                    <asp:ImageButton CssClass="imgpelis_" ID="imgpelispremium" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' CommandName="eventoLvPelisPr" CommandArgument='<%# Eval("ID_Pelicula_FuncionxSala") %>' OnCommand="imgpeliPr_Command" />
                 </td>
             </ItemTemplate>
             <LayoutTemplate>

@@ -68,7 +68,40 @@ namespace Vistas
         {
             if (e.CommandName == "eventoLvPelis")
             {
-                Session["ID_Funcion"] = e.CommandArgument;
+                Session["ID_Pelicula"] = e.CommandArgument;
+                Response.Redirect("FuncionesPelicula.aspx");
+            }
+        }
+
+        protected void imgpeli2d_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoLvPelis2d")
+            {
+                Session["ID_Pelicula"] = e.CommandArgument;
+                Response.Redirect("FuncionesPelicula.aspx");
+            }
+        }
+        protected void imgpeli3d_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoLvPelis3d")
+            {
+                Session["ID_Pelicula"] = e.CommandArgument;
+                Response.Redirect("FuncionesPelicula.aspx");
+            }
+        }
+        protected void imgpeli4d_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoLvPelis4d")
+            {
+                Session["ID_Pelicula"] = e.CommandArgument;
+                Response.Redirect("FuncionesPelicula.aspx");
+            }
+        }
+        protected void imgpeliPr_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoLvPelisPr")
+            {
+                Session["ID_Pelicula"] = e.CommandArgument;
                 Response.Redirect("FuncionesPelicula.aspx");
             }
         }
