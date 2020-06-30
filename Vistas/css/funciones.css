@@ -14,28 +14,21 @@ h2 {
     max-width: 50rem;
 }
 
-    .header-gv, .item-gv, .grid td a {
-        width: 20rem;
-        height: 4rem;
-        font-size: 1.5rem;
-        color: #FFFFFF;
-        text-align: center;
-        font-family: 'Kanit', sans-serif;
-    }
-
-    .grid td a {
-        color: #59656A;
-        font-weight: 300;
-    }
-    
-    .grid td a:hover{
-        color: #FFFFFF;
-    }
-
-.btnfun {
+.header-gv, .item-gv {
+    width: 20rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    color: #FFFFFF;
+    text-align: center;
     font-family: 'Kanit', sans-serif;
-    font-size: 9pt;
-    padding: 1rem;
-    background-color: #DCDCDC;
-    color: #000000; 
 }
+
+.grid a {
+    color: #59656A;
+    font-weight: 300;
+    font-size: 1.5rem;
+}
+
+    .grid a:hover {
+        color: #FFFFFF;
+    }
