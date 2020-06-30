@@ -24,7 +24,7 @@ namespace Vistas
             }
             else
             {
-                Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('No hay detalles seleccionados')</script>");
+              /*no hay ventas seleccionadas*/  
             }
 
         }
@@ -55,7 +55,7 @@ namespace Vistas
         protected void Cancelar_Click(object sender, EventArgs e)
         {
             Session["detalles_seleccionados"] = null;
-            
+            CargarGridSeleccion();
 
 
         }

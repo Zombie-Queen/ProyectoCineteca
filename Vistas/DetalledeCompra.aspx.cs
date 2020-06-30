@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Negocios;
 using Entidades;
+using System.Data;
 
 namespace Vistas
 {
@@ -14,6 +15,7 @@ namespace Vistas
         NegocioDetalleDeCompra ndc = new NegocioDetalleDeCompra();
         FuncionesxSala fs = new FuncionesxSala();
         FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
+        private String numero;
         protected void Page_Load(object sender, EventArgs e)
         {
             string Pelicula = Session["ID_Pelicula"].ToString();
@@ -66,6 +68,20 @@ namespace Vistas
             ndc.quitarAsientoSeleccionado(gvAsientos.DataKeys[e.RowIndex].Value.ToString());
             cargarddlAsiento();
             cargargvAsientos();
+
+        }
+
+        protected void gvArticulos_ItemDataBound(object sender, ListViewItemEventArgs e)
+        {
+            DropDownList ddl = (DropDownList)e.Item.FindControl("ddlStock");
+            String valor_hf = ((HiddenField)e.Item.FindControl("hfStock")).Value;
+            numero = valor_hf;
+            ddl.DataBind();
+        }
+
+        protected void ODS_ddlStock_Selecting(object sender, ObjectDataSourceSelectingEventArgs e)
+        {
+            e.InputParameters["Stock"] = numero;
 
         }
     }

@@ -3,13 +3,9 @@ body {
     color: #F8F8FF;
 }
 
-div {
-    display: block;
+.center {
+    display:block;
     margin: 0 auto;
-    font-family: 'Kanit', sans-serif;
-    color: #F8F8FF;
-    font-size: 14pt;
-    text-align:left;
 }
 
 h1 {

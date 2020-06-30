@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.CodeDom;
 
 namespace Dao
 {
@@ -29,6 +30,8 @@ namespace Dao
         /*sp baja logica de detalla de ventas*/
         public const String sp_BajaLogicaDetalleVentaArt = "sp_BajaLogicaDetalleVentaArt";
         public const String sp_BajaLogicaDetalleVenta = "sp_BajaLogicaDetalleVenta";
+
+        public const String sp_bajaDetalleVentasArts = "sp_bajaDetalleVentasArts";
 
         public DataTable ObtenerTodosLosDetallesDeVenta()
         {
@@ -330,6 +333,23 @@ namespace Dao
             AccesoDatos ad = new AccesoDatos();
             int filas = ad.sp_Ejecutar(Comando, sp_BajaLogicaDetalleVentaArt);
             if (filas >= 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool CencelarDetArts(int nro_venta, int id_det_venta)
+        {
+
+            SqlCommand Comando = new SqlCommand();
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
+            parametros.Value = nro_venta;
+            parametros = Comando.Parameters.Add("@id_dva", SqlDbType.Int);
+            parametros.Value = nro_venta;
+            AccesoDatos ad = new AccesoDatos();
+            int filas = ad.sp_Ejecutar(Comando, sp_bajaDetalleVentasArts);
+            if (filas == 1)
                 return true;
             else
                 return false;

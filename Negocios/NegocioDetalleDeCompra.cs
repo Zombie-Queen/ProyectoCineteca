@@ -56,6 +56,26 @@ namespace Negocios
             return dao.ObtenerAsientosReservados();
         }
 
+        public DataTable cargarddlStock(String Stock)
+        {
+            if (Stock=="") { Stock = "0"; }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Stock_ddl");
+            int max = Convert.ToInt32(Stock);
+
+            for (int i = 0; i <= max; i++)
+            {
+                if (i <= 10)
+                {
+                    var dr = dt.NewRow();
+
+                    dr["Stock_ddl"] = i;
+
+                    dt.Rows.Add(dr);
+                }
+            }
+            return dt;
+        }
         public bool seleccionarArticulo(int id_venta, int id_dva, string id_articulo, string estado, int cantidad, decimal precio)
         {
             int cantFilas = 0;
