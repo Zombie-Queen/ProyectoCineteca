@@ -22,5 +22,10 @@ namespace Negocios
         {
             return dao.cargar_sucursal_funcion(valor);
         }
+
+        public SqlDataReader getSucursalPelicula(String valor)
+        {
+            return dao.cargar_sucursal_pelicula(valor);
+        }
     }
 }

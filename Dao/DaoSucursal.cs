@@ -17,7 +17,16 @@ namespace Dao
 
         public SqlDataReader cargar_sucursal()
         {
-            consulta = "SELECT [ID_Sucursal], [Nombre_Sucursal], [Estado_Sucursal] FROM [Sucursales]";
+            consulta = "SELECT [ID_Sucursal], [Nombre_Sucursal] FROM [Sucursales] WHERE Estado_Sucursal = 'Activa'";
+            cmd = new SqlCommand(consulta, acc.Traer_conexion());
+            dr = cmd.ExecuteReader();
+            return dr;
+        }
+
+        public SqlDataReader cargar_sucursal_pelicula(String valor)
+        {
+            consulta = "SELECT DISTINCT [ID_Sucursal], [Nombre_Sucursal] FROM [Sucursales]" +
+                "INNER JOIN FuncionesxSala ON ID_Sucursal_FuncionxSala = ID_Sucursal WHERE ID_Pelicula_FuncionxSala = '" + valor + "' AND Estado_Sucursal = 'Activa'";
             cmd = new SqlCommand(consulta, acc.Traer_conexion());
             dr = cmd.ExecuteReader();
             return dr;
@@ -27,7 +36,7 @@ namespace Dao
         {
             consulta = "SELECT DISTINCT ID_Sucursal, Nombre_Sucursal, Estado_Sucursal FROM Sucursales " +
                 "INNER JOIN FuncionesxSala ON ID_Sucursal_FuncionxSala = ID_Sucursal " +
-                "WHERE ID_Pelicula_FuncionxSala = '" + valor + "'";
+                "WHERE ID_Pelicula_FuncionxSala = '" + valor + "' AND Estado_Sucursal = 'Activa'";
             cmd = new SqlCommand(consulta, acc.Traer_conexion());
             dr = cmd.ExecuteReader();
             return dr;

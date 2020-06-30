@@ -26,14 +26,6 @@ namespace Dao
             return dr;
         }
 
-        public SqlDataReader cargar_funcion()
-        {
-            consulta = "SELECT ID_Pelicula, Título_Pelicula FROM Peliculas";
-            cmd = new SqlCommand(consulta, acc.Traer_conexion());
-            dr = cmd.ExecuteReader();
-            return dr;
-        }
-
         public int vaciar_reservas_anteriores()
         {
             SqlCommand comando = new SqlCommand();
