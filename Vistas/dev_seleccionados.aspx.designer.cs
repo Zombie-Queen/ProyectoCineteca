@@ -11,52 +11,34 @@ namespace Vistas
 {
 
 
-    public partial class FuncionesPelicula
+    public partial class dev_seleccionados
     {
 
         /// <summary>
-        /// Control ddlSucs.
+        /// Control btbVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSucs;
+        protected global::System.Web.UI.WebControls.Button btbVolver;
 
         /// <summary>
-        /// Control ddlSala.
+        /// Control btnBorrar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSala;
+        protected global::System.Web.UI.WebControls.Button btnBorrar;
 
         /// <summary>
-        /// Control gvSuc.
+        /// Control grdDetallesSelect.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSuc;
-
-        /// <summary>
-        /// Control sqldsFunciones.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqldsFunciones;
-
-        /// <summary>
-        /// Control lbl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
+        protected global::System.Web.UI.WebControls.GridView grdDetallesSelect;
     }
 }

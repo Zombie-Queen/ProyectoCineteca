@@ -11,52 +11,43 @@ namespace Vistas
 {
 
 
-    public partial class FuncionesPelicula
+    public partial class devarts_seleccionados
     {
 
         /// <summary>
-        /// Control ddlSucs.
+        /// Control btbVolver.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSucs;
+        protected global::System.Web.UI.WebControls.Button btbVolver;
 
         /// <summary>
-        /// Control ddlSala.
+        /// Control btnCancelarSeleccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlSala;
+        protected global::System.Web.UI.WebControls.Button btnCancelarSeleccion;
 
         /// <summary>
-        /// Control gvSuc.
+        /// Control btnCancelarVentas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gvSuc;
+        protected global::System.Web.UI.WebControls.Button btnCancelarVentas;
 
         /// <summary>
-        /// Control sqldsFunciones.
+        /// Control grdDetallesSelect.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource sqldsFunciones;
-
-        /// <summary>
-        /// Control lbl.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lbl;
+        protected global::System.Web.UI.WebControls.GridView grdDetallesSelect;
     }
 }

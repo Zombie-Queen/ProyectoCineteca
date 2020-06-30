@@ -13,11 +13,6 @@ namespace Negocios
     {
         DaoFuncionxSala dao = new DaoFuncionxSala();
 
-        public SqlDataReader getFuncion()
-        {
-            return dao.cargar_funcion();
-        }
-
         public SqlDataReader getFuncion_Sucursal(String valor)
         {
             return dao.cargar_funcion_sucursal(valor);

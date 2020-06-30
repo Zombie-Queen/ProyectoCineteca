@@ -24,7 +24,7 @@ namespace Dao
 
         public DataTable ObtenerTodasLasVentas()
         {
-            return ds.ObtenerTabla("Ventas", "Select ID_Venta[ID],DNI_Cliente_Venta[Dni cliente],ID_Promocion_Venta[Promoción],Fecha,Total from Ventas WHERE Estado_Venta='Realizada'");
+            return ds.ObtenerTabla("Ventas", "Select ID_Venta[ID_Venta],DNI_Cliente_Venta[Dni cliente],ID_Promocion_Venta[Promoción],Fecha,Total from Ventas WHERE Estado_Venta='Realizada'");
         }
         public DataTable ObtenerVentaPorDni(String Dni)
         {

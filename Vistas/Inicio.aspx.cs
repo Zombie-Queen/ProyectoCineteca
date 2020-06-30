@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -39,13 +40,13 @@ namespace Vistas
             ddlFunc.Items.Insert(0, new ListItem("--Seleccione Película--", "0000"));
             ddlFunc.SelectedValue = "0000";
         }
+
         protected void ddlSuc_SelectedIndexChanged(object sender, EventArgs e)
         {
             ddlFunc.DataSource = nfxs.getFuncion_Sucursal(ddlSuc.SelectedValue);
             ddlFunc.DataTextField = "Título_Pelicula";
             ddlFunc.DataValueField = "ID_Pelicula";
             ddlFunc.DataBind();
-
         }
 
         protected void btnddls_Click(object sender, EventArgs e)
@@ -63,9 +64,13 @@ namespace Vistas
             }
         }
 
-        protected void lvPeliculas_SelectedIndexChanged(object sender, EventArgs e)
+        protected void imgpeli_Command(object sender, CommandEventArgs e)
         {
-            Session["ID_Funcion"] = lvPeliculas.SelectedValue;
+            if (e.CommandName == "eventoLvPelis")
+            {
+                Session["ID_Funcion"] = e.CommandArgument;
+                Response.Redirect("FuncionesPelicula.aspx");
+            }
         }
     }
 }

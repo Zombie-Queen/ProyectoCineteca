@@ -19,7 +19,7 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                
+                Session["detalles_seleccionados"] = null;
                 if (Session["numeroVenta"] != null) 
                 {
                     String numVenta = Convert.ToString(Session["numeroVenta"]);
@@ -34,6 +34,8 @@ namespace Vistas
                     CargarGrid_TotalVenta_vacio();
                 }
                 
+
+
             }
            
 

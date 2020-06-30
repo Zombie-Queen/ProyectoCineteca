@@ -20,7 +20,7 @@
     <div class="peliculas">
         <h2>TODAS LAS PELÍCULAS</h2>
         <div class="owl-carousel owl-theme">
-            <asp:ListView ID="lvPeliculas" runat="server" DataSourceID="sqldsPelis" GroupItemCount="20" OnSelectedIndexChanged="lvPeliculas_SelectedIndexChanged">
+            <asp:ListView ID="lvPeliculas" runat="server" DataSourceID="sqldsPelis" GroupItemCount="20">
                 <GroupTemplate>
                     <tr id="itemPlaceholderContainer" runat="server">
                         <td id="itemPlaceholder" runat="server"></td>
@@ -28,7 +28,7 @@
                 </GroupTemplate>
                 <ItemTemplate>
                     <td>
-                        <asp:ImageButton CssClass="imgpelis" ID="imgpeli" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' />
+                        <asp:ImageButton CssClass="imgpelis" ID="imgpeli" runat="server" ImageUrl='<%# Eval("URL_Portada") %>' CommandName="eventoLvPelis" CommandArgument='<%# Eval("ID_Pelicula_FuncionxSala") %>' OnCommand="imgpeli_Command" />
                     </td>
                 </ItemTemplate>
                 <LayoutTemplate>

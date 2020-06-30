@@ -69,11 +69,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="articulos_alta.aspx" />
+    <Content Include="baja_detalle_ventas.aspx" />
+    <Content Include="baja_detalle_ventasArts.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
     <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
     <Content Include="css\funciones.css" />
+    <Content Include="css\funcionespelicula.css" />
     <Content Include="css\inicio.css" />
     <Content Include="css\normalize.css" />
     <Content Include="css\Alta.css" />
@@ -85,6 +88,8 @@
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
     <Content Include="DetalledeCompra.aspx" />
+    <Content Include="devarts_seleccionados.aspx" />
+    <Content Include="dev_seleccionados.aspx" />
     <Content Include="FinalizarCompra.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="FuncionesPelicula.aspx" />
@@ -166,12 +171,40 @@
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
     </Compile>
+    <Compile Include="baja_detalle_ventas.aspx.cs">
+      <DependentUpon>baja_detalle_ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="baja_detalle_ventas.aspx.designer.cs">
+      <DependentUpon>baja_detalle_ventas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="baja_detalle_ventasArts.aspx.cs">
+      <DependentUpon>baja_detalle_ventasArts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="baja_detalle_ventasArts.aspx.designer.cs">
+      <DependentUpon>baja_detalle_ventasArts.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DetalledeCompra.aspx.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="DetalledeCompra.aspx.designer.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="devarts_seleccionados.aspx.cs">
+      <DependentUpon>devarts_seleccionados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="devarts_seleccionados.aspx.designer.cs">
+      <DependentUpon>devarts_seleccionados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dev_seleccionados.aspx.cs">
+      <DependentUpon>dev_seleccionados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dev_seleccionados.aspx.designer.cs">
+      <DependentUpon>dev_seleccionados.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinalizarCompra.aspx.cs">
       <DependentUpon>FinalizarCompra.aspx</DependentUpon>

@@ -11,17 +11,19 @@
                <div class="item"><asp:TextBox  runat="server" placeholder="Número de venta" Class="input" ID="txt_num_venta"></asp:TextBox>
                    <asp:RegularExpressionValidator ID="RegVenta" runat="server" ValidationGroup="busqueda" ControlToValidate="txt_num_venta" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
                    <asp:RequiredFieldValidator ID="regCampos" runat="server" text="*Campo obligatorio para la busqueda." ControlToValidate="txt_num_venta" ValidationGroup="busqueda" Class="validator-rojo"></asp:RequiredFieldValidator>
-               </div>                              
+               </div>
+                    
+                    
              <div class="btn-item">
                  <asp:Button ID="btnBuscar" runat="server" ValidationGroup="busqueda" OnClick="Buscar_Click" Text="Buscar" Class="boton" /> 
                  <asp:Button ID="btbVolver" runat="server" OnClick="Volver_Click" Text="Volver" Class="boton" />
                  <asp:Button ID="btnBorrar" runat="server" ValidationGroup="busqueda" OnClick="Borrar_Click" Text="Cancelar venta" Class="boton" />   
              </div>
-                   <div class="ddl-venta"><asp:DropDownList ID="ddlVentas" runat="server" Class="ddl-estilo" AutoPostBack="True"></asp:DropDownList></div> 
+                 
             
            </div> 
             <div class="listado">
-                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True">
+                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5" >
                     <AlternatingRowStyle CssClass="alt" />
                               
         </asp:GridView>

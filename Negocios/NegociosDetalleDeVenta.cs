@@ -87,5 +87,10 @@ namespace Negocios
 
         }
 
+        public bool cancelarDetallesArts(int nro_venta, int id_det_venta)
+        {
+            return dao.CencelarDetArts(nro_venta, id_det_venta);
+        }
+
     }
 }
