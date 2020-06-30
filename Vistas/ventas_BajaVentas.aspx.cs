@@ -8,7 +8,7 @@ using Negocios;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
-using System.Windows.Forms;
+
 
 namespace Vistas
 {
@@ -25,15 +25,15 @@ namespace Vistas
             {
                 Session["numeroVenta"] = null;
                 CargarGrid();
-                ddlVentas.Items.Add("Ventas");
+                /*ddlVentas.Items.Add("Ventas");
                 ddlVentas.Items.Add("Detalles de venta");
                 ddlVentas.Items.Add("Detalles de venta artículos");
-                ddlVentas.DataBind();
+                ddlVentas.DataBind();*/
                 
             }
-            if (ddlVentas.SelectedValue == "Ventas"){CargarGrid();}
+            /*if (ddlVentas.SelectedValue == "Ventas"){CargarGrid();}
             if (ddlVentas.SelectedValue == "Detalles de venta") {  CargarGridDetalleDeVenta(); }
-            if (ddlVentas.SelectedValue == "Detalles de venta artículos") {  CargarGridDetalleDeVentaArts();}
+            if (ddlVentas.SelectedValue == "Detalles de venta artículos") {  CargarGridDetalleDeVentaArts();}*/
             
         }
 
@@ -41,8 +41,7 @@ namespace Vistas
         {
             
             String nro_venta = txt_num_venta.Text;
-            if (ddlVentas.SelectedValue == "Ventas") 
-            {
+            
                 if (nro_venta != "")
                 {
                     
@@ -56,40 +55,7 @@ namespace Vistas
                 {
                     /*no ingreso nada */
                 }
-            }
-
-
-            if(ddlVentas.SelectedValue == "Detalles de venta") 
-            {
-                if (nro_venta != "")
-                {
-                    
-                    dev.id_venta_dv = Convert.ToInt32(nro_venta);
-                    DataTable tabla_de_ventas = ndev.getDetalleVenta_porNroVenta(dev);
-                    grdVentas.DataSource = tabla_de_ventas;
-                    grdVentas.DataBind();
-                }
-                else
-                {
-                    /*no ingreso nada */
-                }
-
-            }
-            if (ddlVentas.SelectedValue == "Detalles de venta artículos") 
-            {
-                if (nro_venta != "")
-                {
-                    devArt.id_venta_dva = Convert.ToInt32(nro_venta);
-                    DataTable tabla_de_ventas = ndev.getDetalleArt_porNroVenta(devArt);
-                    grdVentas.DataSource = tabla_de_ventas;
-                    grdVentas.DataBind();
-                }
-                else
-                {
-                    /*no ingreso nada */
-                }
-            }
-                
+        
 
         }
 
@@ -113,12 +79,7 @@ namespace Vistas
             grdVentas.DataSource = tablaVentas;
             grdVentas.DataBind();
         }
-        public void CargarGridDetalleDeVentaArts()
-        {
-            DataTable tablaVentas = ndev.getTablaDetalleDeVentaArticulos();
-            grdVentas.DataSource = tablaVentas;
-            grdVentas.DataBind();
-        }
+        
         protected void grdVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             grdVentas.PageIndex = e.NewPageIndex;
@@ -127,9 +88,8 @@ namespace Vistas
 
         protected void Borrar_Click(object sender, EventArgs e)
         {
-            /*si selecciono la tabla ventas*/
-            if (ddlVentas.SelectedValue=="Ventas") 
-            {
+            
+            
                 if (txt_num_venta.Text != "")
                 {
 
@@ -164,18 +124,7 @@ namespace Vistas
 
 
                 }
-
-            }
-
-            /*si selecciono la tabla detalle de ventas*/
-            if (ddlVentas.SelectedValue=="Detalles de venta") { }
-            /*si selecciono la tabla detalle de ventas artículos*/
-            if (ddlVentas.SelectedValue == "Detalles de venta artículos") { }
-            
-            
-              
-            
-            
+    
         }
 
             

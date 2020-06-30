@@ -19,11 +19,11 @@
                  <asp:Button ID="btbVolver" runat="server" OnClick="Volver_Click" Text="Volver" Class="boton" />
                  <asp:Button ID="btnBorrar" runat="server" ValidationGroup="busqueda" OnClick="Borrar_Click" Text="Cancelar venta" Class="boton" />   
              </div>
-                   <div class="ddl-venta"><asp:DropDownList ID="ddlVentas" runat="server" Class="ddl-estilo" AutoPostBack="True"></asp:DropDownList></div> 
+                 
             
            </div> 
             <div class="listado">
-                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5">
+                <asp:GridView ID="grdVentas" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdVentas_PageIndexChanging" PageSize="5" >
                     <AlternatingRowStyle CssClass="alt" />
                               
         </asp:GridView>

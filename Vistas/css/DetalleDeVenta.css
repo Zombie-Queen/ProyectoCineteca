@@ -23,13 +23,25 @@ html {
 .filtro-v {
     margin:auto;
     justify-content: space-between;
-    width: 1000px;
+    width: 600px;
     height: 12rem;
     overflow: hidden;
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
 }
+.filtro-cv {
+
+    margin: auto;
+    justify-content: space-between;
+    width: 750px;
+    height: 12rem;
+    overflow: hidden;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
+}
+
 
 .dventas {
     padding: .5rem;

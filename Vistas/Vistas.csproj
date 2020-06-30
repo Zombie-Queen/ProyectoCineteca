@@ -69,6 +69,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="articulos_alta.aspx" />
+    <Content Include="baja_detalle_ventas.aspx" />
+    <Content Include="baja_detalle_ventasArts.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
     <Content Include="css\DetalleDeVenta.css" />
@@ -165,6 +167,20 @@
     </Compile>
     <Compile Include="articulos_alta.aspx.designer.cs">
       <DependentUpon>articulos_alta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="baja_detalle_ventas.aspx.cs">
+      <DependentUpon>baja_detalle_ventas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="baja_detalle_ventas.aspx.designer.cs">
+      <DependentUpon>baja_detalle_ventas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="baja_detalle_ventasArts.aspx.cs">
+      <DependentUpon>baja_detalle_ventasArts.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="baja_detalle_ventasArts.aspx.designer.cs">
+      <DependentUpon>baja_detalle_ventasArts.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalledeCompra.aspx.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>
