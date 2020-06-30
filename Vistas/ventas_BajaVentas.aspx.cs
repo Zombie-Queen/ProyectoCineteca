@@ -24,6 +24,7 @@ namespace Vistas
             if(!IsPostBack)
             {
                 Session["numeroVenta"] = null;
+                Session["detalles_seleccionados"] = null;
                 CargarGrid();
                 /*ddlVentas.Items.Add("Ventas");
                 ddlVentas.Items.Add("Detalles de venta");

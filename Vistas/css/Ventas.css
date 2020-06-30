@@ -149,6 +149,19 @@ input[type=date] {
 
 }
 
+.boton-rojo {
+    position: relative;
+    padding: 1rem 2rem;
+    height: 40px;
+    text-decoration: none;
+    background: #FF0202;
+    transition: 0.5s, background 0.5s;
+    border: none;
+    color: #FFFFFF;
+    margin: 0;
+    font-size: 1.5rem;
+}
+
     /*  .boton:hover {
         color: #000000;
         background-color: transparent;

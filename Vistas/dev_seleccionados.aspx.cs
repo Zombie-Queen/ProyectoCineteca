@@ -4,6 +4,12 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Negocios;
+using System.Data;
+using System.Data.SqlClient;
+using Entidades;
+using System.Windows.Forms;
+
 
 namespace Vistas
 {
@@ -11,7 +17,7 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

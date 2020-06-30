@@ -11,7 +11,11 @@ namespace Vistas
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!IsPostBack) { Session["numeroVenta"] = null; }
+            if (!IsPostBack) 
+            { 
+                Session["numeroVenta"] = null;
+                Session["detalles_seleccionados"] = null;
+            }
         }
     }
 }

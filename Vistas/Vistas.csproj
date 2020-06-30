@@ -87,6 +87,8 @@
     <Content Include="css\sucursales.css" />
     <Content Include="css\Ventas.css" />
     <Content Include="DetalledeCompra.aspx" />
+    <Content Include="devarts_seleccionados.aspx" />
+    <Content Include="dev_seleccionados.aspx" />
     <Content Include="FinalizarCompra.aspx" />
     <Content Include="Funciones.aspx" />
     <Content Include="FuncionesPelicula.aspx" />
@@ -188,6 +190,20 @@
     </Compile>
     <Compile Include="DetalledeCompra.aspx.designer.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="devarts_seleccionados.aspx.cs">
+      <DependentUpon>devarts_seleccionados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="devarts_seleccionados.aspx.designer.cs">
+      <DependentUpon>devarts_seleccionados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dev_seleccionados.aspx.cs">
+      <DependentUpon>dev_seleccionados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dev_seleccionados.aspx.designer.cs">
+      <DependentUpon>dev_seleccionados.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinalizarCompra.aspx.cs">
       <DependentUpon>FinalizarCompra.aspx</DependentUpon>

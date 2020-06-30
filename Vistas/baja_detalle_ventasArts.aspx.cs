@@ -21,6 +21,7 @@ namespace Vistas
         {
             if(!IsPostBack)
             {
+                Session["numeroVenta"] = null;
                 CargarGridDetalleDeVentaArts();
             }
         }
@@ -60,6 +61,7 @@ namespace Vistas
         {
             if (MessageBox.Show("Seguro que desea dar de baja los detalles seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+
 
             }
             else
@@ -139,7 +141,7 @@ namespace Vistas
 
         protected void Seleccion_Click(object sender, EventArgs e)
         {
-            /*dirige a la pagina donde se podra ver la tabla */
+            Response.Redirect("devarts_seleccionados.aspx");
         }
     }
 }

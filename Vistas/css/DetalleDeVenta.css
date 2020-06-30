@@ -42,6 +42,17 @@ html {
     box-shadow: 7px 13px 37px #000;
 }
 
+.filtro-sv {
+    margin: auto;
+    justify-content: space-between;
+    width: 500px;
+    height: 12rem;
+    overflow: hidden;
+    background: #24303c;
+    border-radius: 4px;
+    box-shadow: 7px 13px 37px #000;
+}
+
 
 .dventas {
     padding: .5rem;

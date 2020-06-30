@@ -21,6 +21,7 @@ namespace Vistas
            if(!IsPostBack)
             {
                 Session["numeroVenta"] = null;
+                Session["detalles_seleccionados"] = null;
                 CargarGrid();
                 lbl_campoObligatorio.Visible = false;
 
