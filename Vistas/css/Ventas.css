@@ -132,20 +132,19 @@ input[type=date] {
     margin: 1rem;
     float: left;
     width: 155px;
-    
     text-align: center;
 }
 .boton {
     
     position: relative;
-    padding: 1rem 3rem;
+    padding:1rem 2rem;
     height:40px;
     text-decoration: none;
     background: #1f53c5;
     transition: 0.5s, background 0.5s;
     border: none;
     color: #FFFFFF;
-    margin: 0;
+    margin:0;
     font-size: 1.5rem;
 
 }
@@ -164,9 +163,9 @@ input[type=date] {
 
 .btn-item {
     
-    display:inline-block;
+    
     margin-top: 1rem;
-    margin-left:.5rem;
+    margin-left:1rem;
     float:left;
     
 }
@@ -198,8 +197,9 @@ input[type=date] {
     width: 20em;
     height: 3em;
     margin-top:2rem;
-    margin-right:4.5rem;
-    float: right;
+    margin-left:1rem;
+
+    float: left;
     padding: 0 0 0 .5rem;
     background: #2c3e50;
     overflow: hidden;

@@ -8,6 +8,7 @@ using Negocios;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.Windows.Forms;
 
 namespace Vistas
 {
@@ -30,15 +31,10 @@ namespace Vistas
                 ddlVentas.DataBind();
                 
             }
-            if (ddlVentas.SelectedValue == "Ventas")
-            {  
-                CargarGrid();
-                /*grdVentas.HeaderRow.Cells(#_columna).Visible = False;
-                grdVentas.Rows.Count - 1;
-                GridView1.Rows(x).Cells(#_columna).Visible = False;*/
-            }
+            if (ddlVentas.SelectedValue == "Ventas"){CargarGrid();}
             if (ddlVentas.SelectedValue == "Detalles de venta") {  CargarGridDetalleDeVenta(); }
             if (ddlVentas.SelectedValue == "Detalles de venta artículos") {  CargarGridDetalleDeVentaArts();}
+            
         }
 
         protected void Buscar_Click(object sender, EventArgs e)
@@ -49,15 +45,20 @@ namespace Vistas
             {
                 if (nro_venta != "")
                 {
-                    DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
-                    grdVentas.DataSource = tabla_de_ventas;
-                    grdVentas.DataBind();
+                    
+                    
+                        DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
+                        grdVentas.DataSource = tabla_de_ventas;
+                        grdVentas.DataBind();
+                        
                 }
                 else
                 {
                     /*no ingreso nada */
                 }
             }
+
+
             if(ddlVentas.SelectedValue == "Detalles de venta") 
             {
                 if (nro_venta != "")
@@ -176,5 +177,7 @@ namespace Vistas
             
             
         }
+
+            
     }
 }
