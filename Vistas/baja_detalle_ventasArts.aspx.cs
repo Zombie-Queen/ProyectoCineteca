@@ -93,7 +93,7 @@ namespace Vistas
                 agregarFila((DataTable)Session["detalles_seleccionados"], s_idVenta, s_IdDetalleVenta);
 
             }
-            else { Page.ClientScript.RegisterStartupScript(this.GetType(), "Scripts", "<script>alert('El detalle ya fue seleccionado')</script>"); }
+            else { MessageBox.Show("El detalle ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
 
         }
         public DataTable crearTabla()
