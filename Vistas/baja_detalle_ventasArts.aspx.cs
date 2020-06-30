@@ -61,8 +61,18 @@ namespace Vistas
         {
             if (MessageBox.Show("Seguro que desea dar de baja los detalles seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
             {
+                DataTable dt = new DataTable();
+                dt = (DataTable)Session["detalles_seleccionados"];
+                
+                /* recorre la tabla y dando de baja los detalles de ventas*/
+                foreach (DataRow row in dt.Rows)
+                {
+                    int id_venta = Convert.ToInt32(row["ID Venta"]);
+                    int id_det_venta = Convert.ToInt32(row["ID detalle venta artículo"]);
+                    ndev.cancelarDetallesArts(id_venta, id_det_venta);
+                    /*faltaria tambien restarle el dinero a las ventas*/
 
-
+                }
             }
             else
             {
