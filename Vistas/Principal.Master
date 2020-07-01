@@ -41,7 +41,7 @@
                                 <li><a href="Sucursalaltopalermo.aspx">ALTO PALERMO</a></li>
                             </ul>
                         </li>
-                        <li class="imp"><a class="link" href="#">PRECIOS</a></li>
+                        <li class="imp"><a class="link" href="Precios.aspx">PRECIOS</a></li>
                         <li class="imp"><a class="link" href="Promociones.aspx">PROMOCIONES</a></li>
                     </ul>
                 </nav>
