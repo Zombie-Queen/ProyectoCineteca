@@ -24,13 +24,22 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.Button btbVolver;
 
         /// <summary>
-        /// Control btnBorrar.
+        /// Control btnCancelarSeleccion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnBorrar;
+        protected global::System.Web.UI.WebControls.Button btnCancelarSeleccion;
+
+        /// <summary>
+        /// Control btnCancelarVentas.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnCancelarVentas;
 
         /// <summary>
         /// Control grdDetallesSelect.

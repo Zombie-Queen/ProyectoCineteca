@@ -31,8 +31,7 @@
                             <ItemTemplate>
                                 <asp:Label ID="lbl_venta" runat="server" Text='<%# Bind("[ID Venta]") %>'></asp:Label>
                             </ItemTemplate>
-                            
-                            
+
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="ID Detalle">
                             <ItemTemplate>
@@ -60,12 +59,11 @@
                                 <asp:Label ID="lbl_precio" runat="server" Text='<%# Bind("[Precio]") %>'></asp:Label>
                             </ItemTemplate>
                             
-                            
                         </asp:TemplateField>
                     
                     </Columns>
 
-                              
+              
         </asp:GridView>
             </div>
             

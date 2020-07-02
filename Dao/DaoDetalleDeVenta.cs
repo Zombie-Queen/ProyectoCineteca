@@ -39,12 +39,12 @@ namespace Dao
 
         public DataTable ObtenerTodosLosDetallesDeVenta()
         {
-            return ds.ObtenerTabla("DetalleVentas", "Select ID_Venta_DV[ID Venta],ID_DetalleVenta[ID Detalle],ID_Funcion_DV[Función],ID_Pelicula_DV[Película],ID_Sala_DV[Sala],ID_Asiento_DV[Asiento],Fecha_DV[Fecha],Precio from DetalleVentas WHERE Estado_DV='Realizado'");
+            return ds.ObtenerTabla("DetalleVentas", "Select ID_Venta_DV,ID_DetalleVenta,ID_Funcion_DV,ID_Pelicula_DV,ID_Sala_DV,ID_Asiento_DV,Fecha_DV,Precio from DetalleVentas WHERE Estado_DV='Realizado' ORDER BY ID_Venta_DV");
         }
 
         public DataTable ObtenerTodosLosDetallesDeVentaArts()
         {
-            return ds.ObtenerTabla("DetalleVentaArticulos", "Select ID_Venta_DVA[ID Venta],ID_DVA[ID Detalle],ID_Articulo_DVA[ID artículo],Cantidad,Precio from DetalleVentaArticulos WHERE Estado_DVA='Realizado'");
+            return ds.ObtenerTabla("DetalleVentaArticulos", "Select DISTINCT ID_Venta_DVA[ID Venta],ID_DVA[ID Detalle],ID_Articulo_DVA[ID artículo],Cantidad,Precio from DetalleVentaArticulos WHERE Estado_DVA='Realizado'");
         }
         public DataTable ObtenerDVPorNroVenta(DetalleVentas detalle_venta)
         {
@@ -342,7 +342,7 @@ namespace Dao
                 return false;
         }
 
-        public bool CencelarDetArts(int nro_venta, int id_det_venta)
+        public bool CancelarDetArts(int nro_venta, int id_det_venta)
         {
 
             SqlCommand Comando = new SqlCommand();
@@ -375,5 +375,38 @@ namespace Dao
             else
                 return false;
         }
+        public bool CancelarDetalleVenta(int nro_venta, int id_det_venta)
+        {
+
+            SqlCommand Comando = new SqlCommand();
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
+            parametros.Value = nro_venta;
+            parametros = Comando.Parameters.Add("@id_dv", SqlDbType.Int);
+            parametros.Value = id_det_venta;
+            AccesoDatos ad = new AccesoDatos();
+            int filas = ad.sp_Ejecutar(Comando, sp_bajaDetalleVentas);
+            if (filas == 1)
+                return true;
+            else
+                return false;
+        }
+        public bool restarMontoDetalleVenta(int nro_venta, decimal monto)
+        {
+
+            SqlCommand Comando = new SqlCommand();
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id_venta", SqlDbType.Int);
+            parametros.Value = nro_venta;
+            parametros = Comando.Parameters.Add("@monto", SqlDbType.Decimal);
+            parametros.Value = monto;
+            AccesoDatos ad = new AccesoDatos();
+            int filas = ad.sp_Ejecutar(Comando, sp_restarDetalles);
+            if (filas == 1)
+                return true;
+            else
+                return false;
+        }
+        
     }
 }

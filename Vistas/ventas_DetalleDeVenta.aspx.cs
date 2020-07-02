@@ -20,6 +20,7 @@ namespace Vistas
             if (!IsPostBack)
             {
                 Session["detalles_seleccionados"] = null;
+                Session["dev_seleccionados"] = null;
                 if (Session["numeroVenta"] != null) 
                 {
                     String numVenta = Convert.ToString(Session["numeroVenta"]);

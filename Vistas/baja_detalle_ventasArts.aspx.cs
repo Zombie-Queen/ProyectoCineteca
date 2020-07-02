@@ -22,6 +22,7 @@ namespace Vistas
         {
             if(!IsPostBack)
             {
+                Session["dev_seleccionados"] = null;
                 Session["numeroVenta"] = null;
                 CargarGridDetalleDeVentaArts();
             }
@@ -60,43 +61,53 @@ namespace Vistas
 
         protected void Borrar_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Seguro que desea dar de baja los detalles seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            if (Session["detalles_seleccionados"] != null) 
             {
 
-                try 
+                if (MessageBox.Show("Seguro que desea dar de baja los detalles seleccionados?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
 
-                    DataTable dt = new DataTable();
-                    dt = (DataTable)Session["detalles_seleccionados"];
-
-                    /* recorre la tabla y dando de baja los detalles de ventas*/
-                    foreach (DataRow row in dt.Rows)
+                    try
                     {
-                        int id_venta = Convert.ToInt32(row["ID Venta"]);
-                        int id_det_venta = Convert.ToInt32(row["ID detalle venta artículo"]);
-                        ndev.cancelarDetallesArts(id_venta, id_det_venta);
-                        /* resta el dinero a las ventas*/
-                        Decimal monto = Convert.ToDecimal(row["Total"]);
-                        /* sumar 0.02 */
-                        ndev.restarSaldoDeVenta(id_venta, monto);
 
+                        DataTable dt = new DataTable();
+                        dt = (DataTable)Session["detalles_seleccionados"];
+
+                        /* recorre la tabla y dando de baja los detalles de ventas*/
+                        foreach (DataRow row in dt.Rows)
+                        {
+                            int id_venta = Convert.ToInt32(row["ID Venta"]);
+                            int id_det_venta = Convert.ToInt32(row["ID detalle venta artículo"]);
+                            ndev.cancelarDetallesArts(id_venta, id_det_venta);
+                            /* resta el dinero a las ventas*/
+                            Double monto = Convert.ToDouble(row["Total"]) + 0.02;
+                            Decimal montoFinal = Convert.ToDecimal(monto);
+                            /* sumar 0.02 para que la cuenta cierre */
+                            ndev.restarSaldoDeVenta(id_venta, montoFinal);
+
+                        }
+                        MessageBox.Show("Detalles dados de baja con éxito", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        Session["detalles_seleccionados"] = null;
                     }
-                    MessageBox.Show("Detalles dados de baja con éxito", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                    catch (Exception exc)
+                    {
+                        MessageBox.Show("Ocurrio un error y no se pude completar la operación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
-               
-                catch (Exception exc) 
+                else
                 {
-                    MessageBox.Show("Ocurrio un error y no se pude completar la operación", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    grdDetVentaArt.PageIndex = 0;
+                    CargarGridDetalleDeVentaArts();
+                    txt_num_venta.Text = "";
+
                 }
             }
             else
             {
-                grdDetVentaArt.PageIndex = 0;
-                CargarGridDetalleDeVentaArts();
-                txt_num_venta.Text = "";
-
+                MessageBox.Show("No hay detalles de seleccionados", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            
         }
 
         protected void grdDetVentas_PageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -181,7 +192,7 @@ namespace Vistas
 
         protected void Seleccion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("devarts_seleccionados.aspx");
+            Response.Redirect("dev_seleccionados.aspx");
         }
     }
 }
