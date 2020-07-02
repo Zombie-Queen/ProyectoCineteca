@@ -71,6 +71,7 @@
     <Content Include="articulos_alta.aspx" />
     <Content Include="baja_detalle_ventas.aspx" />
     <Content Include="baja_detalle_ventasArts.aspx" />
+    <Content Include="ComprasCliente.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
     <Content Include="css\DetalleDeCompra.css" />
@@ -185,6 +186,13 @@
     </Compile>
     <Compile Include="baja_detalle_ventasArts.aspx.designer.cs">
       <DependentUpon>baja_detalle_ventasArts.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ComprasCliente.aspx.cs">
+      <DependentUpon>ComprasCliente.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ComprasCliente.aspx.designer.cs">
+      <DependentUpon>ComprasCliente.aspx</DependentUpon>
     </Compile>
     <Compile Include="DetalledeCompra.aspx.cs">
       <DependentUpon>DetalledeCompra.aspx</DependentUpon>

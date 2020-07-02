@@ -70,6 +70,11 @@ namespace Vistas
         {
             Response.Redirect("Perfil.aspx");
         }
+
+        protected void btnCompras_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ComprasCliente.aspx");
+        }
     }
 }
 
