@@ -4,8 +4,9 @@ body {
 }
 
 .center {
-    display:block;
-    margin: 0 auto;
+      display: block;
+      margin: 0 auto;
+      text-align:center;
 }
 
 h1 {
@@ -95,13 +96,9 @@ td {
       margin: auto;
       width: 20%;
       padding: 10px;
-      color: #F8F8FF;
-      text-align: center;
-      font-family: 'Kanit', sans-serif;
-
 }
 
-      .header-gv, .item-gv, .gridas td a{
+      .header-gv, .item-gv{
             width: 20rem;
             height: 4rem;
             font-size: 1.5rem;	
@@ -109,7 +106,7 @@ td {
             text-align: center;
             font-family: 'Kanit', sans-serif;
       }
-      .gridas td {
+     .gridas td {
             width: 20rem;
             height: 4rem;
             font-size: 1.5rem;	
@@ -127,7 +124,7 @@ td {
       }
 
       .gridas td a {
-            color: #59656A;
+            color: #F8F8FF;
             font-size: 1.5rem;
       }
     
@@ -135,13 +132,13 @@ td {
             color: #FFFFFF;
       }
 
-.gridpr {
+.gridart {
       margin: auto;
       width: 50%;
       padding: 10px;
 }
 
-      .header-gv, .item-gv, .gridpr td a{
+      .header-gv, .item-gv{
             width: 20rem;
             height: 4rem;
             font-weight: 300;	
@@ -149,13 +146,29 @@ td {
             text-align: center;
             font-family: 'Kanit', sans-serif;
       }
+     .gridart td {
+            width: 20rem;
+            height: 4rem;
+            font-size: 1.5rem;	
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif;
+      }
+     .gridart th {
+ 	    width: 20rem;
+            height: 4rem;
+            font-size: 1.5rem;
+            color: #F8F8FF;
+            text-align: center;
+            font-family: 'Kanit', sans-serif; 
+      }
 
-      .gridpr td a {
-            color: #59656A;
-            font-weight: 300;
+      .gridart td a {
+            color: #F8F8FF;
+            font-size: 1.5rem;
       }
     
-      .gridpr td a:hover{
+      .gridart td a:hover{
             color: #FFFFFF;
       }
 
@@ -168,22 +181,24 @@ td {
 }
 
 .imgart {
-    width: 150px;
-    height: 150px;
+    width: 160px;
+    height: 160px;
     display: block;
     margin: 0 auto;
 }
 
 .imgprom {
-    width: 150px;
-    height: 150px;
+    width: 225px;
+    height: 225px;
     display: block;
     margin: 0 auto;
+    padding: 30px;
 }
 
 .list {
-    display: block;
-    margin:0 auto;
+      margin: 0 auto;
+      width: 100%;
+      padding: 10px;
 }
 
 .lv-item1{
@@ -198,7 +213,7 @@ td {
         color: #FFFFFF;
         text-align: center;
         font-family: 'Kanit', sans-serif;
-	font-weight: 300;
+	font-weight: 300;	
 }
 
 .btn {

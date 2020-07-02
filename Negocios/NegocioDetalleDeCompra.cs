@@ -76,6 +76,7 @@ namespace Negocios
             }
             return dt;
         }
+
         public bool seleccionarArticulo(int id_venta, int id_dva, string id_articulo, string estado, int cantidad, decimal precio)
         {
             int cantFilas = 0;
