@@ -18,7 +18,7 @@
                  <asp:Button ID="btnBuscar" runat="server" ValidationGroup="busqueda" OnClick="Buscar_Click" Text="Buscar" Class="boton" /> 
                  <asp:Button ID="btbVolver" runat="server" OnClick="Volver_Click" Text="Volver" Class="boton" />
                  <asp:Button ID="BtnSeleccionados" runat="server" OnClick="Seleccion_Click" Text="Ver Selección" Class="boton" />
-                 <asp:Button ID="btnBorrar" runat="server" ValidationGroup="busqueda" OnClick="Borrar_Click" Text="Cancelar ventas" Class="boton-rojo" />
+                 <asp:Button ID="btnBorrar" runat="server" OnClick="Borrar_Click" Text="Cancelar ventas" Class="boton-rojo" />
              </div>
 
            </div> 

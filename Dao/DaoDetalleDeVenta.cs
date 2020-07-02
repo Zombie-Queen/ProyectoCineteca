@@ -32,6 +32,10 @@ namespace Dao
         public const String sp_BajaLogicaDetalleVenta = "sp_BajaLogicaDetalleVenta";
 
         public const String sp_bajaDetalleVentasArts = "sp_bajaDetalleVentasArts";
+        public const String sp_precioxcant_dva = "sp_precioxcant_dva"; /*trae el el precio por cant de un dva*/
+        public const String sp_bajaDetalleVentas = "sp_bajaDetalleVentas";
+        public const String sp_restarDetalles = "sp_restarDetalles";
+        
 
         public DataTable ObtenerTodosLosDetallesDeVenta()
         {
@@ -346,9 +350,26 @@ namespace Dao
             parametros = Comando.Parameters.Add("@id", SqlDbType.Int);
             parametros.Value = nro_venta;
             parametros = Comando.Parameters.Add("@id_dva", SqlDbType.Int);
-            parametros.Value = nro_venta;
+            parametros.Value = id_det_venta;
             AccesoDatos ad = new AccesoDatos();
             int filas = ad.sp_Ejecutar(Comando, sp_bajaDetalleVentasArts);
+            if (filas == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool restarMontoDetVentaArts(int nro_venta, decimal monto)
+        {
+
+            SqlCommand Comando = new SqlCommand();
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@id_venta", SqlDbType.Int);
+            parametros.Value = nro_venta;
+            parametros = Comando.Parameters.Add("@monto", SqlDbType.Decimal);
+            parametros.Value = monto;
+            AccesoDatos ad = new AccesoDatos();
+            int filas = ad.sp_Ejecutar(Comando, sp_restarDetalles);
             if (filas == 1)
                 return true;
             else
