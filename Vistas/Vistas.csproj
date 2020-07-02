@@ -73,6 +73,7 @@
     <Content Include="baja_detalle_ventasArts.aspx" />
     <Content Include="css\administrador.css" />
     <Content Include="css\admin_inicio.css" />
+    <Content Include="css\DetalleDeCompra.css" />
     <Content Include="css\DetalleDeVenta.css" />
     <Content Include="css\diseñosucursales.css" />
     <Content Include="css\funciones.css" />

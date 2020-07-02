@@ -92,5 +92,10 @@ namespace Negocios
             return dao.CencelarDetArts(nro_venta, id_det_venta);
         }
 
+        public bool restarSaldoDeVenta(int nro_venta,decimal monto)
+        {
+            return dao.restarMontoDetVentaArts(nro_venta,monto);
+        }
+
     }
 }

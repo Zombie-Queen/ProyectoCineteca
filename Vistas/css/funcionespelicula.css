@@ -26,3 +26,11 @@
     .grid a:hover {
         color: #FFFFFF;
     }
+
+.msglogin {
+    width: 35rem;
+    display: block;
+    margin: 3rem auto;
+    color: red;
+    font-size: 1.6rem;
+}

@@ -1,13 +1,12 @@
 ﻿body {
     background-color: #000000;
-    color: #FFFFFF;
-    font-family: 'Kanit', sans-serif;
 }
 
 .contenedor {
     width: 90rem;
     display: block;
     margin: 10rem auto;
+    color: #FFFFFF;
 }
 
     .contenedor p {
