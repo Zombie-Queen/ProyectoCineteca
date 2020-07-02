@@ -15,28 +15,38 @@ namespace Vistas
         NegocioFuncionxSala nfs = new NegocioFuncionxSala();
         protected void Page_Load(object sender, EventArgs e)
         {
+            if (!IsPostBack)
+            {
+            }
 
 
         }
 
         protected void gvFunciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = gvFunciones.SelectedRow;
+            if (Session["Correo"] != null && Session["Contraseña"] != null)
+            {
+                lbliniciosesion.CssClass = "d-none";
+                GridViewRow row = gvFunciones.SelectedRow;
+                string Fecha = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[0]);
+                string Hora = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[1]);
+                string Precio = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[2]);
 
-            string Fecha = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[0]);
-            string Hora = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[1]);
-            string Precio = Convert.ToString(gvFunciones.DataKeys[row.RowIndex].Values[2]);
+                fs.Fecha1 = Fecha;
+                fs.Hora_Inicio1 = Hora;
+                fs.Precio1 = Convert.ToDecimal(Precio);
 
-            fs.Fecha1 = Fecha;
-            fs.Hora_Inicio1 = Hora;
-            fs.Precio1 = Convert.ToDecimal(Precio);
+                Session["Fecha"] = fs.Fecha1;
+                Session["Horario"] = fs.Hora_Inicio1;
+                Session["Precio"] = fs.Precio1;
 
-            Session["Fecha"] = fs.Fecha1;
-            Session["Horario"] = fs.Hora_Inicio1;
-            Session["Precio"] = fs.Precio1;
-
-            nfs.vaciarReservasAnteriores();
-            Response.Redirect("DetalledeCompra.aspx");
+                nfs.vaciarReservasAnteriores();
+                Response.Redirect("DetalledeCompra.aspx");
+            }
+            else
+            {
+                lbliniciosesion.CssClass = "msglogin";
+            }
         }
     }
 }

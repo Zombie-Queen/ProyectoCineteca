@@ -8,6 +8,14 @@ h2 {
     color: #FFFFFF;
 }
 
+.msglogin {
+    width:35rem;
+    display:block;
+    margin: 3rem auto;
+    color:red;
+    font-size:1.6rem;
+}
+
 .grid {
     display: block;
     margin: 2rem auto;

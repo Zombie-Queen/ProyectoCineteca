@@ -9,6 +9,8 @@
         <asp:DropDownList CssClass="ddlsc mr-5" runat="server" ID="ddlSucs" AutoPostBack="true" OnSelectedIndexChanged="ddlSucs_SelectedIndexChanged"></asp:DropDownList>
         <asp:DropDownList CssClass="ddlsc" runat="server" ID="ddlSala" AutoPostBack="true"></asp:DropDownList>
     </div>
+    <asp:Label runat="server" ID="lbliniciosesion" CssClass="d-none"><i class="fas fa-exclamation animated zoomIn infinite mr-3"></i>Debe iniciar sesión para realizar la compra.</asp:Label>
+
     <h2>FUNCIONES</h2>
     <asp:GridView runat="server" ID="gvSuc" DataSourceID="sqldsFunciones" CssClass="grid" AutoGenerateColumns="False" AutoGenerateSelectButton="True" DataKeyNames="Fecha_FuncionxSala,Hora_Inicio_FuncionxSala,Precio_FuncionxSala" OnSelectedIndexChanged="gvSuc_SelectedIndexChanged">
         <Columns>

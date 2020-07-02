@@ -24,6 +24,7 @@ namespace Vistas
                 /*lbl.Text = Session["ID_Funcion"].ToString();*/
                 cargar_ddl_suc();
                 cargar_ddl_sala();
+
             }
         }
 
@@ -45,34 +46,39 @@ namespace Vistas
 
         protected void ddlSucs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ddlSala.DataSource = nts.getTSala(Session["ID_Pelicula"].ToString(), ddlSucs.SelectedItem.Value);
+            Session["ID_Sucursal"] = ddlSucs.SelectedItem.Value;
+            ddlSala.DataSource = nts.getTSala(Session["ID_Pelicula"].ToString(), Session["ID_Sucursal"].ToString());
             ddlSala.DataTextField = "Descripcion_TipoSala";
             ddlSala.DataValueField = "ID_TipoSala";
-            ddlSala.DataBind();
-            if (ddlSucs.SelectedItem.Value != "0000" && ddlSala.SelectedItem.Value != "0000")
-            {
-                Session["ID_Sucursal"] = ddlSucs.SelectedItem.Value;
-                Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
-            }
+            ddlSala.DataBind();            
+            Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
         }
 
         protected void gvSuc_SelectedIndexChanged(object sender, EventArgs e)
-        {            
-            GridViewRow row = gvSuc.SelectedRow;
-            string Fecha = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[0]);
-            string Hora = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[1]);
-            string Precio = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[2]);
+        {
+            if (Session["Correo"] != null && Session["Contraseña"] != null)
+            {
+                lbliniciosesion.CssClass = "d-none";
+                GridViewRow row = gvSuc.SelectedRow;
+                string Fecha = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[0]);
+                string Hora = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[1]);
+                string Precio = Convert.ToString(gvSuc.DataKeys[row.RowIndex].Values[2]);
 
-            fs.Fecha1 = Fecha;
-            fs.Hora_Inicio1 = Hora;
-            fs.Precio1 = Convert.ToDecimal(Precio);
+                fs.Fecha1 = Fecha;
+                fs.Hora_Inicio1 = Hora;
+                fs.Precio1 = Convert.ToDecimal(Precio);
 
-            Session["Fecha"] = fs.Fecha1;
-            Session["Horario"] = fs.Hora_Inicio1;
-            Session["Precio"] = fs.Precio1;
+                Session["Fecha"] = fs.Fecha1;
+                Session["Horario"] = fs.Hora_Inicio1;
+                Session["Precio"] = fs.Precio1;
 
-            nfs.vaciarReservasAnteriores();
-            Response.Redirect("DetalledeCompra.aspx");
+                nfs.vaciarReservasAnteriores();
+                Response.Redirect("DetalledeCompra.aspx");
+            }
+            else
+            {
+                lbliniciosesion.CssClass = "msglogin";
+            }
         }
     }
 }
