@@ -21,10 +21,8 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                /*lbl.Text = Session["ID_Funcion"].ToString();*/
                 cargar_ddl_suc();
                 cargar_ddl_sala();
-
             }
         }
 
@@ -50,7 +48,7 @@ namespace Vistas
             ddlSala.DataSource = nts.getTSala(Session["ID_Pelicula"].ToString(), Session["ID_Sucursal"].ToString());
             ddlSala.DataTextField = "Descripcion_TipoSala";
             ddlSala.DataValueField = "ID_TipoSala";
-            ddlSala.DataBind();            
+            ddlSala.DataBind();
             Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
         }
 
@@ -79,6 +77,11 @@ namespace Vistas
             {
                 lbliniciosesion.CssClass = "msglogin";
             }
+        }
+
+        protected void ddlSala_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
         }
     }
 }
