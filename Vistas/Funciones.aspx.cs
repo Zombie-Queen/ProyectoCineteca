@@ -13,13 +13,32 @@ namespace Vistas
     {
         FuncionesxSala fs = new FuncionesxSala();
         NegocioFuncionxSala nfs = new NegocioFuncionxSala();
+        NegocioTSala nts = new NegocioTSala();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                cargar_ddl_Sala();
             }
 
 
+        }
+
+        protected void cargar_ddl_Sala()
+        {
+            ddlSala.DataSource = nts.getTSala(Session["ID_Pelicula"].ToString(), Session["ID_Sucursal"].ToString());
+            ddlSala.DataTextField = "Descripcion_TipoSala";
+            ddlSala.DataValueField = "ID_TipoSala";
+            ddlSala.DataBind();
+            ddlSala.Items.Insert(0, new ListItem("--Seleccione Tipo de Sala--", "0000"));
+            ddlSala.SelectedValue = "0000";            
+        }
+
+
+        protected void ddlSala_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
         }
 
         protected void gvFunciones_SelectedIndexChanged(object sender, EventArgs e)
