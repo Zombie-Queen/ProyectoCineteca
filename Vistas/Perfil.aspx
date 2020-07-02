@@ -104,7 +104,7 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <asp:Button runat="server" ID="btnCambiarContraseña" Text="Confirmar" CssClass="btn purple-gradient"  OnClick="btnCambiarContraseña_Click" />
+                    <asp:Button runat="server" ID="btnCambiarContraseña" Text="Confirmar" CssClass="btn purple-gradient" ValidationGroup="contra"  OnClick="btnCambiarContraseña_Click" />
                 </div>
             </div>
         </div>

@@ -57,13 +57,13 @@ namespace Vistas
 
         protected void CuvContra_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (args.Value.Length < 8 || args.Value.Length > 20)
+            if (args.Value.Length >= 8 && args.Value.Length <= 20)
             {
-                args.IsValid = false;
+                args.IsValid = true;
             }
             else
             {
-                args.IsValid = true;
+                args.IsValid = false;
             }
         }
     }
