@@ -25,6 +25,7 @@ namespace Vistas
             {
                 Session["numeroVenta"] = null;
                 Session["detalles_seleccionados"] = null;
+                Session["dev_seleccionados"] = null;
                 CargarGrid();
                 /*ddlVentas.Items.Add("Ventas");
                 ddlVentas.Items.Add("Detalles de venta");

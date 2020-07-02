@@ -22,6 +22,7 @@ namespace Vistas
         {
             if(!IsPostBack)
             {
+                Session["dev_seleccionados"] = null;
                 Session["numeroVenta"] = null;
                 Session["detalles_seleccionados"] = null;
                 CargarGrid();

@@ -18,6 +18,19 @@ html {
     
     
 }
+.list-select {
+    
+    position:relative;
+    margin: auto;
+    margin-top: 1rem;
+    padding: 1rem 1rem;
+    width: 90%;
+    height: 31rem;
+    border-radius: 5px;
+    margin-bottom: 1.5rem;
+    background: transparent;
+    
+}
 
 
 .filtro-v {
@@ -61,7 +74,6 @@ html {
     max-width: 50%;
     height: 30rem;
     float: left;
-    
     background: transparent;
     border-radius: 5px;
 }
@@ -117,6 +129,37 @@ html {
     padding: 1rem 1rem;
     width: 95%;
     height: 42rem;
-    
-    
+      
 }
+
+.grid-select {
+
+    text-decoration: none;
+    text-align: center;
+    font-family: Verdana;
+    font-size: 1.2rem;
+    border-collapse: collapse;
+    width: 450px;
+    top: 1rem;
+    margin-bottom: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    background: #FFFFFF;
+    margin:auto;
+}
+
+    .grid-select td {
+        padding: 1rem;
+        border: 1px solid #c1c1c1;
+        color: #444;
+        font-size: 1.2rem;
+    }
+    .grid-select th {
+        padding: 4px 2px;
+        color: #FFFFFF;
+        background: linear-gradient(#02026C,#868BC5);
+        background: linear-gradient(red, white);
+        border: 1px solid #c1c1c1;
+        font-size: 1em;
+        text-align: center;
+    }

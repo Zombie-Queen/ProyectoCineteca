@@ -89,13 +89,25 @@ namespace Negocios
 
         public bool cancelarDetallesArts(int nro_venta, int id_det_venta)
         {
-            return dao.CencelarDetArts(nro_venta, id_det_venta);
+            return dao.CancelarDetArts(nro_venta, id_det_venta);
         }
 
         public bool restarSaldoDeVenta(int nro_venta,decimal monto)
         {
             return dao.restarMontoDetVentaArts(nro_venta,monto);
         }
+
+        public bool cancelarDetallesDeVentas(int nro_venta, int id_det_venta)
+        {
+            return dao.CancelarDetalleVenta(nro_venta, id_det_venta);
+        }
+
+        public bool restarSaldoDetalleVentas(int nro_venta, decimal monto)
+        {
+            return dao.restarMontoDetalleVenta(nro_venta, monto);
+        }
+
+
 
     }
 }
