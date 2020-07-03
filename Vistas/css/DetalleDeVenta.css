@@ -38,7 +38,7 @@ html {
     justify-content: space-between;
     width: 600px;
     height: 12rem;
-    overflow: hidden;
+    
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
@@ -49,7 +49,7 @@ html {
     justify-content: space-between;
     width: 750px;
     height: 12rem;
-    overflow: hidden;
+    
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
@@ -60,7 +60,6 @@ html {
     justify-content: space-between;
     width: 500px;
     height: 12rem;
-    overflow: hidden;
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
@@ -163,3 +162,12 @@ html {
         font-size: 1em;
         text-align: center;
     }
+
+h1 {
+    width: 50px;
+    margin-top: -14px;
+    margin-left: 1.5rem;
+    color: #FFFFFF;
+    font-family: Calibri;
+    font-size: 2rem;
+}

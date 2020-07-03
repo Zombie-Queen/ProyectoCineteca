@@ -116,28 +116,7 @@ namespace Vistas
             CargarGridDetalleDeVenta();
         }
 
-        protected void grdDetalleVentas_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-            GridViewRow row = grdDetalleVentas.SelectedRow;
-            String s = Convert.ToString(grdDetalleVentas.Rows[e.NewSelectedIndex].FindControl("ID Venta"));
-            /* probar */
-            String s_idVenta = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[0]);
-            String s_IdDetalleVenta = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[1]);
-            String s_fecha = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[7]);
-            String s_precio = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[8]);
-
-            if (Session["dev_seleccionados"] == null)
-            {
-                Session["dev_seleccionados"] = crearTabla();
-            }
-            if (!verificarSeleccion((DataTable)Session["dev_seleccionados"], s_idVenta, s_IdDetalleVenta))
-            {
-                agregarFila((DataTable)Session["devs_seleccionados"], s_idVenta, s_IdDetalleVenta, s_fecha, s_precio);
-
-            }
-            else { MessageBox.Show("El detalle ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-        }
+       
         public DataTable crearTabla()
         {
 
@@ -192,5 +171,28 @@ namespace Vistas
         {
             Response.Redirect("dev_seleccionados.aspx");
         }
+
+        protected void grdDetalleVentas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = grdDetalleVentas.SelectedRow;
+
+            String s_idVenta = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[0]);
+            String s_IdDetalleVenta = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[1]);
+            String s_fecha = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[2]);
+            String s_precio = Convert.ToString(grdDetalleVentas.DataKeys[row.RowIndex].Values[3]);
+
+            if (Session["dev_seleccionados"] == null)
+            {
+                Session["dev_seleccionados"] = crearTabla();
+            }
+            if (!verificarSeleccion((DataTable)Session["dev_seleccionados"], s_idVenta, s_IdDetalleVenta))
+            {
+                agregarFila((DataTable)Session["dev_seleccionados"], s_idVenta, s_IdDetalleVenta, s_fecha, s_precio);
+
+            }
+            else { MessageBox.Show("El detalle ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+        }
+
+        
     }
 }

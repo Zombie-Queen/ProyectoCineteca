@@ -10,6 +10,7 @@
     
          
                 <div class="filtro-cv">
+                    
                <div class="item"><asp:TextBox  runat="server" placeholder="Número de venta" Class="input" ID="txt_num_venta"></asp:TextBox>
                    <asp:RegularExpressionValidator ID="RegVenta" runat="server" ValidationGroup="busqueda" ControlToValidate="txt_num_venta" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
                    <asp:RequiredFieldValidator ID="regCampos" runat="server" text="*Campo obligatorio para la busqueda." ControlToValidate="txt_num_venta" ValidationGroup="busqueda" Class="validator-rojo"></asp:RequiredFieldValidator>
@@ -23,51 +24,25 @@
 
            </div> 
             <div class="listado">
-                <asp:GridView ID="grdDetVentaArt" runat="server" class="grid" AllowPaging="True" OnPageIndexChanging="grdDetVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True" OnSelectedIndexChanging="grdDetVentaArt_SelectedIndexChanging" >
+                <asp:GridView ID="grdDetVentaArt" runat="server" class="grid" DataKeyNames="ID Venta,ID Detalle,Cantidad,Precio" AllowPaging="True" OnPageIndexChanging="grdDetVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True" DataSourceID="dsDetalleArticulos" OnSelectedIndexChanged="grdDetVentaArt_SelectedIndexChanged" >
                     <AlternatingRowStyle CssClass="alt" />
+
                     <Columns>
+                        <asp:BoundField DataField="ID Venta" HeaderText="ID Venta" ReadOnly="True" SortExpression="ID Venta" />
+                        <asp:BoundField DataField="ID Detalle" HeaderText="ID Detalle" InsertVisible="False" ReadOnly="True" SortExpression="ID Detalle" />
+                        <asp:BoundField DataField="ID artículo" HeaderText="ID artículo" SortExpression="ID artículo" />
+                        <asp:BoundField DataField="Cantidad" HeaderText="Cantidad" SortExpression="Cantidad" />
+                        <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
                         
-                        <asp:TemplateField HeaderText="ID Venta">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_venta" runat="server" Text='<%# Bind("[ID Venta]") %>'></asp:Label>
-                            </ItemTemplate>
-
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="ID Detalle">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_detalle_venta" runat="server" Text='<%# Bind("[ID Detalle]") %>'></asp:Label>
-                            </ItemTemplate>
-
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Artículo">
-                            <ItemTemplate>
-                                <asp:Label ID="lbl_id_articulo" runat="server" Text='<%# Bind("[ID artículo]") %>'></asp:Label>
-                            </ItemTemplate>
-
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Cantidad">
-                        <ItemTemplate>
-                                <asp:Label ID="lbl_cantidad" runat="server" Text='<%# Bind("[Cantidad]") %>'></asp:Label>
-                            </ItemTemplate>
-                            
-                        </asp:TemplateField>
-
-                    <asp:TemplateField HeaderText="Precio">
-                        <ItemTemplate>
-                                <asp:Label ID="lbl_precio" runat="server" Text='<%# Bind("[Precio]") %>'></asp:Label>
-                            </ItemTemplate>
-                            
-                        </asp:TemplateField>
-                    
                     </Columns>
 
-              
         </asp:GridView>
             </div>
-            
-        
-   
+        <asp:SqlDataSource ID="dsDetalleArticulos" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="Select ID_Venta_DVA[ID Venta],ID_DVA[ID Detalle],ID_Articulo_DVA[ID artículo],Cantidad,Precio from DetalleVentaArticulos WHERE Estado_DVA='Realizado'"></asp:SqlDataSource>
+        <asp:SqlDataSource ID="dsDetallesArticulos_nv" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="sp_detalleVenArt_nv" SelectCommandType="StoredProcedure">
+            <SelectParameters>
+                <asp:ControlParameter ControlID="txt_num_venta" Name="id" PropertyName="Text" Type="Int32" />
+            </SelectParameters>
+                </asp:SqlDataSource>
     </div>
 </asp:Content>

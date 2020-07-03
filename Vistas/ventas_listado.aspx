@@ -6,6 +6,7 @@
 
     <div class="contenido">
        <section class="filtros">
+           
              <div class="item"><asp:TextBox  runat="server" placeholder="Dni" Class="input" ID="txt_dni"></asp:TextBox>
                  <asp:RegularExpressionValidator ID="regExpNumero" runat="server" ValidationGroup="busqueda"  ControlToValidate="txt_dni" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
                  

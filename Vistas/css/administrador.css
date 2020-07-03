@@ -7,7 +7,7 @@
 }
 
 body {
-    background: url(../imagenes/fondo/fondo4.jpg) #CCC no-repeat;
+    background: url(../imagenes/fondo/fondo5.jpg) #CCC no-repeat;
     background-size: cover;
     background-position: center center;
     background-attachment: fixed;
@@ -90,7 +90,7 @@ html {
 .nav li ul li ul {
     width: 100%;
     left: 100%;
-    top: 67%;
+    top: 66.4%;
 }
 
 .menu li:hover > ul {

@@ -24,13 +24,13 @@ namespace Vistas
             {
                 Session["dev_seleccionados"] = null;
                 Session["numeroVenta"] = null;
-                CargarGridDetalleDeVentaArts();
+                
             }
         }
         public void CargarGridDetalleDeVentaArts()
         {
-            DataTable tablaVentas = ndev.getTablaDetalleDeVentaArticulos();
-            grdDetVentaArt.DataSource = tablaVentas;
+            
+            grdDetVentaArt.DataSourceID = "dsDetalleArticulos";
             grdDetVentaArt.DataBind();
         }
 
@@ -40,9 +40,8 @@ namespace Vistas
 
             if (nro_venta != "")
             {
-                dva.id_venta_dva = Convert.ToInt32(nro_venta);
-                DataTable tabla_de_ventas = ndev.getDetalleArt_porNroVenta(dva);
-                grdDetVentaArt.DataSource = tabla_de_ventas;
+                
+                grdDetVentaArt.DataSourceID = "dsDetallesArticulos_nv";
                 grdDetVentaArt.DataBind();
 
             }
@@ -116,27 +115,6 @@ namespace Vistas
             CargarGridDetalleDeVentaArts();
         }
 
-        protected void grdDetVentaArt_SelectedIndexChanging(object sender, GridViewSelectEventArgs e)
-        {
-
-            String s_idVenta = ((System.Web.UI.WebControls.Label)grdDetVentaArt.Rows[e.NewSelectedIndex].FindControl("lbl_venta")).Text;
-            String s_IdDetalleVenta = ((System.Web.UI.WebControls.Label)grdDetVentaArt.Rows[e.NewSelectedIndex].FindControl("lbl_detalle_venta")).Text;
-            String s_cantidad = ((System.Web.UI.WebControls.Label)grdDetVentaArt.Rows[e.NewSelectedIndex].FindControl("lbl_cantidad")).Text;
-            String s_precio = ((System.Web.UI.WebControls.Label)grdDetVentaArt.Rows[e.NewSelectedIndex].FindControl("lbl_precio")).Text;
-            Decimal total_dva = Convert.ToInt32(s_cantidad) * Convert.ToDecimal(s_precio);
-            String s_total_dva = Convert.ToString(total_dva);
-            if (Session["detalles_seleccionados"] == null)
-            {
-                Session["detalles_seleccionados"] = crearTabla();
-            }
-            if (!verificarSeleccion((DataTable)Session["detalles_seleccionados"], s_idVenta, s_IdDetalleVenta))
-            {
-                agregarFila((DataTable)Session["detalles_seleccionados"], s_idVenta, s_IdDetalleVenta,s_cantidad,s_precio,s_total_dva);
-
-            }
-            else { MessageBox.Show("El detalle ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
-        }
         public DataTable crearTabla()
         {
 
@@ -185,14 +163,33 @@ namespace Vistas
 
 
             }
-
-
             return false;
         }
 
         protected void Seleccion_Click(object sender, EventArgs e)
         {
-            Response.Redirect("dev_seleccionados.aspx");
+            Response.Redirect("devarts_seleccionados.aspx");
+        }
+
+        protected void grdDetVentaArt_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = grdDetVentaArt.SelectedRow;
+            String s_idVenta = Convert.ToString(grdDetVentaArt.DataKeys[row.RowIndex].Values[0]);
+            String s_IdDetalleVenta = Convert.ToString(grdDetVentaArt.DataKeys[row.RowIndex].Values[1]);
+            String s_cantidad = Convert.ToString(grdDetVentaArt.DataKeys[row.RowIndex].Values[2]);
+            String s_precio = Convert.ToString(grdDetVentaArt.DataKeys[row.RowIndex].Values[3]);
+            Decimal total_dva = Convert.ToInt32(s_cantidad) * Convert.ToDecimal(s_precio);
+            String s_total_dva = Convert.ToString(total_dva);
+            if (Session["detalles_seleccionados"] == null)
+            {
+                Session["detalles_seleccionados"] = crearTabla();
+            }
+            if (!verificarSeleccion((DataTable)Session["detalles_seleccionados"], s_idVenta, s_IdDetalleVenta))
+            {
+                agregarFila((DataTable)Session["detalles_seleccionados"], s_idVenta, s_IdDetalleVenta, s_cantidad, s_precio, s_total_dva);
+
+            }
+            else { MessageBox.Show("El detalle ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
         }
     }
 }

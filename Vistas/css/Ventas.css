@@ -74,11 +74,9 @@ html {
 
 .filtros {
 
-   
     margin: auto;
-    width: 870px;
+    width: 850px;
     height: 12rem;
-    overflow: hidden;
     background: #24303c;
     border-radius: 4px;
     box-shadow: 7px 13px 37px #000;
