@@ -26,10 +26,10 @@ namespace Dao
             return dr;
         }
 
-        public int vaciar_reservas_anteriores()
+        public bool vaciar_reservas_anteriores()
         {
             SqlCommand comando = new SqlCommand();
-            return acc.sp_Ejecutar(comando, "SP_VaciarReservas");
+            return acc.chequeo_sp(comando, "SP_VaciarReservas");
         }
     }
 }

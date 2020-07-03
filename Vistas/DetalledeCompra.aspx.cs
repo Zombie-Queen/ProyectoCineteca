@@ -235,29 +235,29 @@ namespace Vistas
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
-            try
-            {
                 DataTable dt_dv = new DataTable();
                 dt_dv = ndc.obtenerDatosDetalleVentas();
                 DataTable dt_dva = new DataTable();
                 dt_dva = (DataTable)Session["Articulos_Seleccionados"];
                 string promocion = Session["Promocion"].ToString();
 
-                if (ndc.procesarVenta(usu.mail, promocion))
+            if (ndc.procesarVenta(usu.mail, promocion))
+            {
+                //Recorre la tabla procesando cada asiento al detalle de ventas
+                foreach (DataRow row in dt_dv.Rows)
                 {
-                    //Recorre la tabla procesando cada asiento al detalle de ventas
-                    foreach (DataRow row in dt_dv.Rows)
-                    {
-                        fsa.ID_Funcion_FSA1 = Convert.ToString(row["ID_Funcion_FSA"]);
-                        fsa.ID_Pelicula_FSA1 = Convert.ToString(row["ID_Pelicula_FSA"]);
-                        fsa.ID_Sucursal_FSA1= Convert.ToString(row["ID_Sucursal_FSA"]);
-                        fsa.ID_Sala_FSA1= Convert.ToString(row["ID_Sala_FSA"]);
-                        fsa.ID_Asiento_FSA1= Convert.ToString(row["ID_Asiento_FSA"]);
-                        fsa.Fecha_FuncionxSalaAsiento1= Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
+                    fsa.ID_Funcion_FSA1 = Convert.ToString(row["ID_Funcion_FSA"]);
+                    fsa.ID_Pelicula_FSA1 = Convert.ToString(row["ID_Pelicula_FSA"]);
+                    fsa.ID_Sucursal_FSA1 = Convert.ToString(row["ID_Sucursal_FSA"]);
+                    fsa.ID_Sala_FSA1 = Convert.ToString(row["ID_Sala_FSA"]);
+                    fsa.ID_Asiento_FSA1 = Convert.ToString(row["ID_Asiento_FSA"]);
+                    fsa.Fecha_FuncionxSalaAsiento1 = Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
 
-                        ndc.procesarDetalleVentas(fsa, fs.Precio1);
-                    }
+                    ndc.procesarDetalleVentas(fsa, fs.Precio1);
+                }
 
+                if (dt_dva != null)
+                {
                     //Recorre la tabla procesando cada articulo al detalle de venta de articulos
                     foreach (DataRow row in dt_dva.Rows)
                     {
@@ -267,15 +267,10 @@ namespace Vistas
                         ndc.procesarDetalleVentaArticulos(dva);
                     }
                 }
-                
+            }
                 Session["Articulos_Seleccionados"] = null;
                 Session["Promocion"] = "sinpromo";
                 Response.Redirect("FinalizarCompra.aspx");
-            }
-            catch (Exception exc)
-            {
-                MessageBox.Show("Ocurrió un error y no se pudo procesar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
     }
 }
