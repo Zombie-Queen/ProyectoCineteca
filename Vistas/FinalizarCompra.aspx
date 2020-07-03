@@ -88,9 +88,9 @@
             <table class="auto-style4">
                 <tr>
                     <td class="text-center">
-                        <asp:Button ID="btnPagar" runat="server" CssClass="auto-style5" Text="Pagar" />
+                        <asp:Button ID="btnPagar" runat="server" CssClass="auto-style5" Text="Pagar" OnClick="btnPagar_Click" />
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <asp:Button ID="btnCancelar" runat="server" CssClass="auto-style5" Text="Cancelar" />
+                        <asp:Button ID="btnCancelar" runat="server" CssClass="auto-style5" Text="Cancelar" OnClick="btnCancelar_Click" />
                     </td>
                 </tr>
             </table>

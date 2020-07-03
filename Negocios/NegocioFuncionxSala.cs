@@ -20,11 +20,7 @@ namespace Negocios
 
         public bool vaciarReservasAnteriores()
         {
-            int op= dao.vaciar_reservas_anteriores();
-            if (op == 1)
-                return true;
-            else
-                return false;
+            return dao.vaciar_reservas_anteriores();
         }
 
     }

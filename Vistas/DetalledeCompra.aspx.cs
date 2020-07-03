@@ -18,6 +18,8 @@ namespace Vistas
         FuncionesxSala fs = new FuncionesxSala();
         FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
         DetalleVentasArticulo dva = new DetalleVentasArticulo();
+        Ventas ven = new Ventas();
+        Usuario usu = new Usuario();
         private String numero;
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -26,16 +28,19 @@ namespace Vistas
             string Fecha = Session["Fecha"].ToString();
             string Hora = Session["Horario"].ToString();
             string Precio = Session["Precio"].ToString();
+            string Correo = Session["Correo"].ToString();
 
             fs.Fecha1 = Fecha;
             fs.Hora_Inicio1 = Hora;
             fs.Precio1 = Convert.ToDecimal(Precio);
             fs.ID_Pelicula1 = Pelicula;
             fs.ID_Sucursal1 = Sucursal;
+            usu.mail = Correo;
 
             if (!IsPostBack)
             {
                 Session["Articulos_Seleccionados"] = null;
+                Session["Promocion"] = "sinpromo";
                 cargarddlAsiento();
             }
         }
@@ -44,8 +49,8 @@ namespace Vistas
         {
             ddlAsiento.Items.Clear();
             ddlAsiento.DataSource = ndc.obtenerAsientosDisponibles(fs);
-            ddlAsiento.DataValueField = "ID_Asiento";
-            ddlAsiento.DataTextField = "ID_Asiento";
+            ddlAsiento.DataValueField = "ID_Asiento_FSA";
+            ddlAsiento.DataTextField = "ID_Asiento_FSA";
             ddlAsiento.DataBind();
 
 
@@ -112,23 +117,31 @@ namespace Vistas
             dva.precio = Convert.ToDecimal(lblPrecio.Text.ToString());
             System.Web.UI.WebControls.Label lblNombre = ((System.Web.UI.WebControls.Label)e.Item.FindControl("Nombre_ArticuloLabel"));
             art.nombre_articulo = lblNombre.Text.ToString();
-            System.Web.UI.WebControls.Label lblDescripcion = ((System.Web.UI.WebControls.Label)e.Item.FindControl("Descripción_ArticuloLabel"));
+            System.Web.UI.WebControls.Label lblDescripcion = ((System.Web.UI.WebControls.Label)e.Item.FindControl("Descripcion_ArticuloLabel"));
             art.descripcion_articulo = lblDescripcion.Text.ToString();
 
-            
 
-            if (Session["Articulos_Seleccionados"] == null)
+            if (dva.cantidad > 0)
             {
-                Session["Articulos_Seleccionados"] = crearTabla();
+                if (Session["Articulos_Seleccionados"] == null)
+                {
+                    Session["Articulos_Seleccionados"] = crearTabla();
+                }
+                if (!verificarSeleccion((DataTable)Session["Articulos_Seleccionados"], dva))
+                {
+                    agregarFila((DataTable)Session["Articulos_Seleccionados"], dva, art);
+
+                    cargargvArticulos((DataTable)Session["Articulos_Seleccionados"]);
+                }
+                else 
+                { 
+                    MessageBox.Show("El artículo ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); 
+                }
             }
-            if (!verificarSeleccion((DataTable) Session["Articulos_Seleccionados"], dva))
+            else
             {
-                agregarFila((DataTable) Session["Articulos_Seleccionados"], dva, art);
-
-                cargargvArticulos((DataTable)Session["Articulos_Seleccionados"]);
+                MessageBox.Show("Seleccione la cantidad de artículos por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            else { MessageBox.Show("El artículo ya fue seleccionado", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-
         }
         public DataTable crearTabla()
         {
@@ -166,5 +179,98 @@ namespace Vistas
             return false;
         }
 
+
+        protected void gvArticulos_RowDeleting(object sender, GridViewDeleteEventArgs e)
+        {
+            GridViewRow row = (GridViewRow)gvArticulos.Rows[e.RowIndex];
+            string Articulo = Convert.ToString(gvArticulos.DataKeys[row.RowIndex].Values[0]);
+
+            quitarArticuloSeleccionado(Articulo);
+            cargargvArticulos((DataTable)Session["Articulos_Seleccionados"]);
+
+        }
+
+        protected void quitarArticuloSeleccionado(string Articulo)
+        {
+            DataTable dt = (DataTable)Session["Articulos_Seleccionados"];
+
+            for (int i = dt.Rows.Count - 1; i >= 0; i--)
+            {
+                DataRow dr = dt.Rows[i];
+                if (dr["ID_Articulo"].ToString() == Articulo)
+                    dt.Rows.Remove(dr);
+            }
+            dt.AcceptChanges();
+        }
+
+        protected void btnValidar_Command(object sender, CommandEventArgs e)
+        {
+            if (e.CommandName == "eventoValidar")
+            {
+                ven.promocion = e.CommandArgument.ToString();
+            }
+        }
+
+        protected void lvPromociones_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            System.Web.UI.WebControls.TextBox txtPromocion = ((System.Web.UI.WebControls.TextBox)e.Item.FindControl("txtPromocion"));
+
+            if (txtPromocion.Text.ToString() != "")
+            {
+                if (ndc.chequearCodigoPromocional(ven.promocion, txtPromocion.Text.ToString()) == false)
+                {
+                    MessageBox.Show("Codigo inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Promoción agregada con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Session["Promocion"] = ven.promocion;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Ingrese un código por favor", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        protected void btnFinalizar_Click(object sender, EventArgs e)
+        {
+                DataTable dt_dv = new DataTable();
+                dt_dv = ndc.obtenerDatosDetalleVentas();
+                DataTable dt_dva = new DataTable();
+                dt_dva = (DataTable)Session["Articulos_Seleccionados"];
+                string promocion = Session["Promocion"].ToString();
+
+            if (ndc.procesarVenta(usu.mail, promocion))
+            {
+                //Recorre la tabla procesando cada asiento al detalle de ventas
+                foreach (DataRow row in dt_dv.Rows)
+                {
+                    fsa.ID_Funcion_FSA1 = Convert.ToString(row["ID_Funcion_FSA"]);
+                    fsa.ID_Pelicula_FSA1 = Convert.ToString(row["ID_Pelicula_FSA"]);
+                    fsa.ID_Sucursal_FSA1 = Convert.ToString(row["ID_Sucursal_FSA"]);
+                    fsa.ID_Sala_FSA1 = Convert.ToString(row["ID_Sala_FSA"]);
+                    fsa.ID_Asiento_FSA1 = Convert.ToString(row["ID_Asiento_FSA"]);
+                    fsa.Fecha_FuncionxSalaAsiento1 = Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
+
+                    ndc.procesarDetalleVentas(fsa, fs.Precio1);
+                }
+
+                if (dt_dva != null)
+                {
+                    //Recorre la tabla procesando cada articulo al detalle de venta de articulos
+                    foreach (DataRow row in dt_dva.Rows)
+                    {
+                        dva.id_articulo_dva = Convert.ToString(row["ID_Articulo"]);
+                        dva.cantidad = Convert.ToInt32(row["Cantidad"]);
+                        dva.precio = Convert.ToDecimal(row["Precio"]);
+                        ndc.procesarDetalleVentaArticulos(dva);
+                    }
+                }
+            }
+                Session["Articulos_Seleccionados"] = null;
+                Session["Promocion"] = "sinpromo";
+                Response.Redirect("FinalizarCompra.aspx");
+        }
     }
 }

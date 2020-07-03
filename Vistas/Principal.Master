@@ -73,7 +73,8 @@
                 </asp:Panel>
 
                 <asp:Panel runat="server" ID="logueado" CssClass="d-none">
-                    <asp:Button runat="server" ID="btnPerfil" CssClass="dropdown-item" Text="Mi Perfil" OnClick="btnPerfil_Click" />
+                    <asp:Button runat="server" ID="btnPerfil" CssClass="dropdown-item" Text="Perfil" OnClick="btnPerfil_Click" />
+                    <asp:Button runat="server" ID="btnCompras" CssClass="dropdown-item" Text="Compras" OnClick="btnCompras_Click" />
                     <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
                 </asp:Panel>
             </div>           

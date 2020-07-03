@@ -147,5 +147,26 @@ namespace Dao
             return ds.Tables[nombre];
         }
 
+        //Sirve para chequear si existe algo con un sp + parametros. Si devuelve 1 el sp, devuelve true. Si devuelve 0 el sp, devuelve false
+        public Boolean chequeo_sp(SqlCommand Comando, String sp_nombre) 
+        {
+            int check;
+            SqlConnection Conexion = Traer_conexion();
+            SqlCommand cmd = new SqlCommand();
+            cmd = Comando;
+            cmd.Connection = Conexion;
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.CommandText = sp_nombre;
+            check = (int) cmd.ExecuteScalar();
+            Conexion.Close();
+            if (check == 1)
+            {
+               return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
