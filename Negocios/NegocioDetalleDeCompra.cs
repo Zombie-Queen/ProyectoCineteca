@@ -56,6 +56,18 @@ namespace Negocios
             return dao.ObtenerAsientosReservados();
         }
 
+        public DataTable obtenerDatosDetalleVentas()
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            return dao.ObtenerDatosDetalleVentas();
+        }
+
+        public bool chequearCodigoPromocional(string Promocion, string Codigo)
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            return dao.ChequearCodigoPromocional(Promocion, Codigo);
+        }
+
         public DataTable cargarddlStock(String Stock)
         {
             if (Stock=="") { Stock = "0"; }
@@ -108,6 +120,36 @@ namespace Negocios
             DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
 
             int op = dao.QuitarArticuloSeleccionado(dva);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool procesarVenta(string correo, string promocion)
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            int op = dao.ProcesarVenta(correo, promocion);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool procesarDetalleVentas(FuncionesxSalasxAsiento fsa, decimal precio)
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            int op = dao.ProcesarDetalleVentas(fsa, precio);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
+
+        public bool procesarDetalleVentaArticulos(DetalleVentasArticulo dva)
+        {
+            DaoDetalleDeCompra dao = new DaoDetalleDeCompra();
+            int op = dao.ProcesarDetalleVentaArticulos(dva);
             if (op == 1)
                 return true;
             else
