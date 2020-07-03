@@ -271,11 +271,10 @@ namespace Vistas
                 Session["Articulos_Seleccionados"] = null;
                 Session["Promocion"] = "sinpromo";
                 Response.Redirect("FinalizarCompra.aspx");
-                MessageBox.Show("Bien rey", "Error", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception exc)
             {
-                MessageBox.Show("Ocurrió un error y no se pudo finalizar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Ocurrió un error y no se pudo procesar la compra", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
     }
