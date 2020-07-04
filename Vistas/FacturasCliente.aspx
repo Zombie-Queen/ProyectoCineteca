@@ -4,8 +4,8 @@
     <link rel="stylesheet" href="css/funciones.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
-    <h2>FACTURAS</h2>
-    <asp:GridView runat="server" CssClass="grid" ID="gvFacturas" AutoGenerateColumns="False" DataKeyNames="ID_Venta" DataSourceID="sqldsFacturaCliente" AutoGenerateSelectButton="True">
+    <h2>COMPRAS</h2>
+    <asp:GridView runat="server" CssClass="grid" ID="gvFacturas" AutoGenerateColumns="False" DataKeyNames="ID_Venta" DataSourceID="sqldsFacturaCliente" AutoGenerateSelectButton="True" OnSelectedIndexChanged="gvFacturas_SelectedIndexChanged">
         <Columns>
             <asp:BoundField DataField="ID_Venta" HeaderText="ID Venta" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" ReadOnly="True" InsertVisible="False" SortExpression="ID_Venta"></asp:BoundField>
             <asp:BoundField DataField="Fecha" HeaderText="Fecha" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" SortExpression="Fecha" DataFormatString="{0:d}"></asp:BoundField>

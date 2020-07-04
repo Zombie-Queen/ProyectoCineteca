@@ -13,5 +13,12 @@ namespace Vistas
         {
 
         }
+
+        protected void gvFacturas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = gvFacturas.SelectedRow;
+            Session["ID_Venta"] = gvFacturas.DataKeys[row.RowIndex].Values[0];
+            Response.Redirect("DetalleFactura.aspx");
+        }
     }
 }

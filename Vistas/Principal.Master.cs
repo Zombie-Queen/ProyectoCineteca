@@ -73,7 +73,7 @@ namespace Vistas
 
         protected void btnCompras_Click(object sender, EventArgs e)
         {
-            Response.Redirect("ComprasCliente.aspx");
+            Response.Redirect("FacturasCliente.aspx");
         }
     }
 }
