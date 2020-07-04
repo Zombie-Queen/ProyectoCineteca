@@ -7,9 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
 
     <div class="contenido">
-    
-         
-                <div class="filtro-cv">
+               <div class="filtro-cv">
                     
                <div class="item"><asp:TextBox  runat="server" placeholder="Número de venta" Class="input" ID="txt_num_venta"></asp:TextBox>
                    <asp:RegularExpressionValidator ID="RegVenta" runat="server" ValidationGroup="busqueda" ControlToValidate="txt_num_venta" ValidationExpression="^[0-9]*$" Class="validator-rojo" Text="Ingrese solo números"></asp:RegularExpressionValidator>
