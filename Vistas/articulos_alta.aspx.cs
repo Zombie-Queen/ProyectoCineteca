@@ -25,6 +25,7 @@ namespace Vistas
                 Session["dev_seleccionados"] = null;
                 Session["numeroVenta"] = null;
                 Session["detalles_seleccionados"] = null;
+                lbl_campoObligatorio.Visible = false;
                 CargarGrid();
             }
         }
@@ -55,11 +56,33 @@ namespace Vistas
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
-
+            if(txt_art.Text!="")
+            {
+                art.id_articulo = txt_art.Text;
+                if (na.existeArticulo(art))
+                {
+                    lbl_campoObligatorio.Visible = false;
+                    DataTable tablaArticulos = na.getTabla_idArticulo(art);
+                    grdArticulos.DataSource = tablaArticulos;
+                    grdArticulos.DataBind();
+                }
+                else
+                {
+                    MessageBox.Show("El artículo no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CargarGrid();
+                }
+            }
+            
+            else
+            {
+                lbl_campoObligatorio.Visible = true;
+                CargarGrid();
+            }
         }
 
         protected void Volver_Click(object sender, EventArgs e)
         {
+            lbl_campoObligatorio.Visible = false;
             grdArticulos.PageIndex = 0;
             CargarGrid();
         }
@@ -165,6 +188,44 @@ namespace Vistas
 
         }
 
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if(args.Value.Length > 4)
+            {
+                args.IsValid = false;
+            }
+        }
 
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 20)
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 30)
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void CustomValidator4_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 50)
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void CustomValidator6_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 50)
+            {
+                args.IsValid = false;
+            }
+        }
     }
 }

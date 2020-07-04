@@ -7,8 +7,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
 
     <div class="contenido">
-    
-         
+          
                 <div class="filtro-cv">
                     
                <div class="item"><asp:TextBox  runat="server" placeholder="Número de venta" Class="input" ID="txt_num_venta"></asp:TextBox>
@@ -24,7 +23,7 @@
 
            </div> 
             <div class="listado">
-                <asp:GridView ID="grdDetVentaArt" runat="server" class="grid" DataKeyNames="ID Venta,ID Detalle,Cantidad,Precio" AllowPaging="True" OnPageIndexChanging="grdDetVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True" DataSourceID="dsDetalleArticulos" OnSelectedIndexChanged="grdDetVentaArt_SelectedIndexChanged" >
+                <asp:GridView ID="grdDetVentaArt" runat="server" class="grid"  DataKeyNames="ID Venta,ID Detalle,Cantidad,Precio" AllowPaging="True" OnPageIndexChanging="grdDetVentas_PageIndexChanging" PageSize="5" AutoGenerateSelectButton="True" AutoGenerateColumns="False" DataSourceID="dsDetalleArticulos" OnSelectedIndexChanged="grdDetVentaArt_SelectedIndexChanged" >
                     <AlternatingRowStyle CssClass="alt" />
 
                     <Columns>

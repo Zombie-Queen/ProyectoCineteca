@@ -28,7 +28,7 @@ html {
     width:400px;
     height:51.2rem;
     background:#24303c;
-    padding:3rem;
+    padding:1rem;
     margin:auto;
     margin-top:2rem;
     border-radius:4px;
@@ -42,16 +42,17 @@ html {
 
 .registro h4{
     font-size:2rem;
-    margin-bottom:2rem;
+    margin-bottom:.5rem;
     
 }
 
 .controles {
     width: 100%;
     background: #24303c;
-    padding: 1rem;
+    padding:0.5rem;
     border-radius: 4px;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0rem;
+    margin-top:.7rem;
     border: 1px solid #1f53c5;
     font-family: Calibri;
     font-size:1.5rem;
@@ -64,9 +65,9 @@ html {
     width: 100%;
     background: #1f53c5;
     border:none;
-    padding:12px;
+    padding:10px;
     color:#FFFFFF;
-    margin:16px 0;
+    margin:0.5rem 0;
     font-size:1.5rem;
 
 }
@@ -155,16 +156,20 @@ html {
     font-size: 1.5rem;
 }
 
+
+
     .input[type=text]:focus {
         border-color: #594E4E;
         box-shadow: 0 0 8px 0 #594E4E;
     }
 
 .item {
-    margin: 1rem;
+    margin-top:.5rem;
+    margin-left:1rem;
     float: left;
     width: 22%;
     margin-bottom: 0;
+    
 }
 
 .boton {
@@ -176,8 +181,8 @@ html {
     background: #1f53c5;
     transition: 0.5s, background 0.5s;
     border: none;
-    color: #FFFFFF;
-    margin: 0;
+    color: #FFFFFF;   
+    margin-top: 0;
     font-size: 1.2rem;
 }
 
@@ -195,7 +200,8 @@ html {
 .btn-item {
     display: inline-block;
     position: relative;
-    margin: 1rem;
+    margin-top:.5rem;
+    margin-left:1rem;
     float: left;
 }
 .editarMed {
@@ -232,11 +238,38 @@ html {
 }
 
 h1 {
-    width: 50px;
-    margin-top: -14px;
+    width: 50px;    
     margin-left: 1.5rem;
+    margin-top:1rem;
     color: #FFFFFF;
     font-family: Calibri;
     font-size: 2rem;
    
+}
+
+.validator-rojo {
+    position:relative;
+    color: #FF0202;
+    font-size: 1.3rem;
+    float:right;
+    
+}
+
+.valid-rojo {
+    position: relative;
+    color: #FF0202;
+    font-size: 1.3rem;
+    float:left;
+}
+
+.campoVacio {
+    
+    
+    padding: .5rem;
+    margin-top: 1rem;
+    margin-left: .5rem;
+    float: left;
+    color: #FF0202;
+    font-size: 1.3rem;
+    padding: 1rem;
 }

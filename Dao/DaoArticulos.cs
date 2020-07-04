@@ -52,6 +52,11 @@ namespace Dao
         {
             return ds.ObtenerTabla("Articulos", "SELECT ID_Articulo[ID Articulo], Estado_Articulo[Estado],Nombre_Articulo[Nombre],Descripción_Articulo[Descripción],Precio[Precio],URL_Articulo[Url artículo] From Articulos");
         }
+        public DataTable ObtenerArticulo_id(Articulos art)
+        {
+            return ds.ObtenerTabla("Articulos", "SELECT ID_Articulo[ID Articulo], Estado_Articulo[Estado],Nombre_Articulo[Nombre],Descripción_Articulo[Descripción],Precio[Precio],URL_Articulo[Url artículo] From Articulos WHERE ID_Articulo='" + art.id_articulo  + "'");
+        }
+
 
         public int agregarArticulo(Articulos art)
         {

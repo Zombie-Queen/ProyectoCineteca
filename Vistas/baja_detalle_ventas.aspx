@@ -37,7 +37,6 @@
                         <asp:BoundField DataField="Precio" HeaderText="Precio" SortExpression="Precio" />
                     </Columns>
 
-              
         </asp:GridView>
 
             </div>
