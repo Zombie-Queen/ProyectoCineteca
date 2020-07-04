@@ -133,6 +133,7 @@
     <Content Include="imagenes\peliculas\toystory4.jpg" />
     <Content Include="imagenes\peliculas\unidos.jpg" />
     <Content Include="imagenes\perfil\car.jpg" />
+    <Content Include="imagenes\perfil\mauri.jpg" />
     <Content Include="imagenes\perfil\tamara.png" />
     <Content Include="imagenes\perfil\claudio.png" />
     <Content Include="imagenes\promos\aexpress.jpeg" />
