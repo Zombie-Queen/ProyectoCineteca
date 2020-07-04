@@ -132,6 +132,11 @@
     <Content Include="imagenes\peliculas\thor.jpg" />
     <Content Include="imagenes\peliculas\toystory4.jpg" />
     <Content Include="imagenes\peliculas\unidos.jpg" />
+    <Content Include="imagenes\perfil\car.jpg" />
+    <Content Include="imagenes\perfil\ivan.jpg" />
+    <Content Include="imagenes\perfil\mauri.jpg" />
+    <Content Include="imagenes\perfil\tamara.png" />
+    <Content Include="imagenes\perfil\claudio.png" />
     <Content Include="imagenes\promos\aexpress.jpeg" />
     <Content Include="imagenes\promos\cencosud.jpg" />
     <Content Include="imagenes\promos\clarin.jpg" />
@@ -145,6 +150,7 @@
     <Content Include="Inicio_Admin.aspx" />
     <Content Include="peliculas_alta.aspx" />
     <Content Include="Perfil.aspx" />
+    <Content Include="PerfilAdmin.aspx" />
     <Content Include="Precios.aspx" />
     <Content Include="Promociones.aspx" />
     <Content Include="Registro.aspx" />
@@ -271,6 +277,13 @@
     </Compile>
     <Compile Include="peliculas_alta.aspx.designer.cs">
       <DependentUpon>peliculas_alta.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="PerfilAdmin.aspx.cs">
+      <DependentUpon>PerfilAdmin.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="PerfilAdmin.aspx.designer.cs">
+      <DependentUpon>PerfilAdmin.aspx</DependentUpon>
     </Compile>
     <Compile Include="Precios.aspx.cs">
       <DependentUpon>Precios.aspx</DependentUpon>
