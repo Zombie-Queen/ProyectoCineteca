@@ -43,10 +43,11 @@
   <ItemGroup>
     <Compile Include="AccesoDatos.cs" />
     <Compile Include="DaoArticulos.cs" />
-    <Compile Include="DaoFinalizarCompra.cs" />
+    <Compile Include="DaoDetalleVentaArticulos.cs" />
+    <Compile Include="DaoFuncionesxSalasxAsiento.cs" />
+    <Compile Include="DaoPromociones.cs" />
     <Compile Include="DaoTipoSala.cs" />
     <Compile Include="DaoUsuario.cs" />
-    <Compile Include="DaoDetalleDeCompra.cs" />
     <Compile Include="DaoDetalleDeVenta.cs" />
     <Compile Include="DaoFuncionxSala.cs" />
     <Compile Include="DaoPeliculas.cs" />

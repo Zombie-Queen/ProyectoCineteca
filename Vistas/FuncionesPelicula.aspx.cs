@@ -70,7 +70,6 @@ namespace Vistas
                 Session["Horario"] = fs.Hora_Inicio1;
                 Session["Precio"] = fs.Precio1;
 
-                nfs.vaciarReservasAnteriores();
                 Response.Redirect("DetalledeCompra.aspx");
             }
             else

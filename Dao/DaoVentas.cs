@@ -191,9 +191,57 @@ namespace Dao
             
         }
 
+        //Procesa la venta, agrega la venta a la tabla Ventas y queda el estado como 'En proceso'
+        public int ProcesarVenta(string correo, string promocion)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosVentaProcesar(ref comando, correo, promocion);
+            return ds.sp_Ejecutar(comando, "SP_ProcesarVenta");
+        }
 
+        //Arma los parametros para el procedimeiento "SP_ProcesarVenta"
+        private void ArmarParametrosVentaProcesar(ref SqlCommand comando, string correo, string promocion)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = comando.Parameters.Add("@Correo_Cliente", SqlDbType.VarChar);
+            SqlParametros.Value = correo;
+            SqlParametros = comando.Parameters.Add("@ID_Promocion", SqlDbType.VarChar);
+            SqlParametros.Value = promocion;
+        }
 
+        public bool RealizarVenta()
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosRealizarVenta(ref comando);
+            return ds.chequeo_sp(comando, "SP_FinalizarVenta");
+        }
 
+        public bool CancelarVenta()
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosCancelarVenta(ref comando);
+            return ds.chequeo_sp(comando, "SP_FinalizarVenta");
+        }
+
+        public bool CancelarVentaPendiente()
+        {
+            SqlCommand comando = new SqlCommand();
+            return ds.chequeo_sp(comando, "SP_FinalizarVentaPendiente");
+        }
+
+        private void ArmarParametrosRealizarVenta(ref SqlCommand comando)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = comando.Parameters.Add("@Estado", SqlDbType.VarChar);
+            SqlParametros.Value = "Realizada";
+        }
+
+        private void ArmarParametrosCancelarVenta(ref SqlCommand comando)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = comando.Parameters.Add("@Estado", SqlDbType.VarChar);
+            SqlParametros.Value = "Cancelada";
+        }
 
     }
 }

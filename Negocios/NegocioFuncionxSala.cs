@@ -17,11 +17,5 @@ namespace Negocios
         {
             return dao.cargar_funcion_sucursal(valor);
         }
-
-        public bool vaciarReservasAnteriores()
-        {
-            return dao.vaciar_reservas_anteriores();
-        }
-
     }
 }

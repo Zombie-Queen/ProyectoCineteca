@@ -107,7 +107,14 @@ namespace Negocios
             return dao.restarMontoDetalleVenta(nro_venta, monto);
         }
 
-
-
+        public bool procesarDetalleVentas(FuncionesxSalasxAsiento fsa, decimal precio)
+        {
+            DaoDetalleDeVenta dao = new DaoDetalleDeVenta();
+            int op = dao.ProcesarDetalleVentas(fsa, precio);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }

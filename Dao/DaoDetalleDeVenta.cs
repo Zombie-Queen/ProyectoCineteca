@@ -407,6 +407,33 @@ namespace Dao
             else
                 return false;
         }
-        
+
+        //Procesa el detalle de venta, agrega el detalle a la tabla DetalleVentas y queda el estado como 'En proceso'
+        public int ProcesarDetalleVentas(FuncionesxSalasxAsiento fsa, decimal precio)
+        {
+            SqlCommand comando = new SqlCommand();
+            ArmarParametrosDetalleVentasProcesar(ref comando, fsa, precio);
+            return ds.sp_Ejecutar(comando, "SP_ProcesarDetalleVentas");
+        }
+
+        //Arma los parametros para el procedimeiento "SP_ProcesarDetalleVentas"
+        private void ArmarParametrosDetalleVentasProcesar(ref SqlCommand comando, FuncionesxSalasxAsiento fsa, decimal precio)
+        {
+            SqlParameter SqlParametros = new SqlParameter();
+            SqlParametros = comando.Parameters.Add("@ID_Funcion", SqlDbType.Char);
+            SqlParametros.Value = fsa.ID_Funcion_FSA1;
+            SqlParametros = comando.Parameters.Add("@ID_Pelicula", SqlDbType.Char);
+            SqlParametros.Value = fsa.ID_Pelicula_FSA1;
+            SqlParametros = comando.Parameters.Add("@ID_Sucursal", SqlDbType.Char);
+            SqlParametros.Value = fsa.ID_Sucursal_FSA1;
+            SqlParametros = comando.Parameters.Add("@ID_Sala", SqlDbType.Char);
+            SqlParametros.Value = fsa.ID_Sala_FSA1;
+            SqlParametros = comando.Parameters.Add("@ID_Asiento", SqlDbType.Char);
+            SqlParametros.Value = fsa.ID_Asiento_FSA1;
+            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
+            SqlParametros.Value = fsa.Fecha_FuncionxSalaAsiento1;
+            SqlParametros = comando.Parameters.Add("@Precio", SqlDbType.Decimal);
+            SqlParametros.Value = precio;
+        }
     }
 }

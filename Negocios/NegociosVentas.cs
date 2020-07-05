@@ -89,10 +89,29 @@ namespace Negocios
             }
         }
 
-        
+        public bool procesarVenta(string correo, string promocion)
+        {
+            int op = dao.ProcesarVenta(correo, promocion);
+            if (op == 1)
+                return true;
+            else
+                return false;
+        }
 
+        public bool realizarVenta()
+        {
+            return dao.RealizarVenta();
+        }
 
-        
+        public bool cancelarVenta()
+        {
+            return dao.CancelarVenta();
+        }
+
+        public bool cancelarVentaPendiente()
+        {
+            return dao.CancelarVentaPendiente();
+        }
 
     }
 }

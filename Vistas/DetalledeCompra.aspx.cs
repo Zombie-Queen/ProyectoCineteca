@@ -13,7 +13,12 @@ namespace Vistas
 {
     public partial class DetalledeCompra : System.Web.UI.Page
     {
-        NegocioDetalleDeCompra ndc = new NegocioDetalleDeCompra();
+        NegociosDetalleDeVenta ndv = new NegociosDetalleDeVenta();
+        NegociosDetalleVentaArticulos ndva = new NegociosDetalleVentaArticulos();
+        NegociosPromociones np = new NegociosPromociones();
+        NegociosFuncionesxSalasxAsiento nfsa = new NegociosFuncionesxSalasxAsiento();
+        NegociosVentas nv = new NegociosVentas();
+        
         Articulos art = new Articulos();
         FuncionesxSala fs = new FuncionesxSala();
         FuncionesxSalasxAsiento fsa = new FuncionesxSalasxAsiento();
@@ -39,6 +44,8 @@ namespace Vistas
 
             if (!IsPostBack)
             {
+                nfsa.vaciarReservasPrevias();
+
                 Session["Articulos_Seleccionados"] = null;
                 Session["Promocion"] = "sinpromo";
                 cargarddlAsiento();
@@ -48,7 +55,7 @@ namespace Vistas
         protected void cargarddlAsiento()
         {
             ddlAsiento.Items.Clear();
-            ddlAsiento.DataSource = ndc.obtenerAsientosDisponibles(fs);
+            ddlAsiento.DataSource = nfsa.obtenerAsientosDisponibles(fs);
             ddlAsiento.DataValueField = "ID_Asiento_FSA";
             ddlAsiento.DataTextField = "ID_Asiento_FSA";
             ddlAsiento.DataBind();
@@ -60,7 +67,7 @@ namespace Vistas
 
         protected void ddlAsiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ndc.seleccionarAsiento(fs, ddlAsiento.SelectedValue.ToString());
+            nfsa.seleccionarAsiento(fs, ddlAsiento.SelectedValue.ToString());
 
             cargarddlAsiento();
             cargargvAsientos();
@@ -69,17 +76,17 @@ namespace Vistas
 
         protected void cargargvAsientos()
         {
-            gvAsientos.DataSource = ndc.obtenerAsientosReservados();
+            gvAsientos.DataSource = nfsa.obtenerAsientosReservados();
             gvAsientos.DataBind();
         }
 
         protected void gvAsientos_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
             GridViewRow row = (GridViewRow)gvAsientos.Rows[e.RowIndex];
-            ndc.quitarAsientoSeleccionado(gvAsientos.DataKeys[e.RowIndex].Value.ToString());
+            nfsa.quitarAsientoSeleccionado(gvAsientos.DataKeys[e.RowIndex].Value.ToString());
             cargarddlAsiento();
             cargargvAsientos();
-            if (ndc.obtenerAsientosReservados().Rows.Count == 0)
+            if (nfsa.obtenerAsientosReservados().Rows.Count == 0)
             {
                 lblAsientosSeleccionados.Visible = false;
             }
@@ -227,7 +234,7 @@ namespace Vistas
 
             if (txtPromocion.Text.ToString() != "")
             {
-                if (ndc.chequearCodigoPromocional(ven.promocion, txtPromocion.Text.ToString()) == false)
+                if (np.chequearCodigoPromocional(ven.promocion, txtPromocion.Text.ToString()) == false)
                 {
                     MessageBox.Show("Codigo inválido", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -248,15 +255,16 @@ namespace Vistas
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
 
-            if (ndc.obtenerAsientosReservados().Rows.Count != 0 )
+            if (nfsa.obtenerAsientosReservados().Rows.Count != 0 )
             {
+                nv.cancelarVentaPendiente();
                 DataTable dt_dv = new DataTable();
-                dt_dv = ndc.obtenerDatosDetalleVentas();
+                dt_dv = nfsa.obtenerAsientosSeleccionadosParaDetalleVentas();
                 DataTable dt_dva = new DataTable();
                 dt_dva = (DataTable)Session["Articulos_Seleccionados"];
                 string promocion = Session["Promocion"].ToString();
 
-                if (ndc.procesarVenta(usu.mail, promocion))
+                if (nv.procesarVenta(usu.mail, promocion))
                 {
                     //Recorre la tabla procesando cada asiento al detalle de ventas
                     foreach (DataRow row in dt_dv.Rows)
@@ -268,7 +276,7 @@ namespace Vistas
                         fsa.ID_Asiento_FSA1 = Convert.ToString(row["ID_Asiento_FSA"]);
                         fsa.Fecha_FuncionxSalaAsiento1 = Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
 
-                        ndc.procesarDetalleVentas(fsa, fs.Precio1);
+                        ndv.procesarDetalleVentas(fsa, fs.Precio1);
                     }
 
                     if (dt_dva != null)
@@ -279,18 +287,21 @@ namespace Vistas
                             dva.id_articulo_dva = Convert.ToString(row["ID_Articulo"]);
                             dva.cantidad = Convert.ToInt32(row["Cantidad"]);
                             dva.precio = Convert.ToDecimal(row["Precio"]);
-                            ndc.procesarDetalleVentaArticulos(dva);
+                            ndva.procesarDetalleVentaArticulos(dva);
                         }
                     }
                 }
-                Session["Articulos_Seleccionados"] = null;
-                Session["Promocion"] = "sinpromo";
                 Response.Redirect("FinalizarCompra.aspx");
             }
             else
             {
                 MessageBox.Show("Seleccione al menos un asiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        protected void btnCancelar_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Inicio.aspx");
         }
     }
 }

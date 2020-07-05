@@ -102,7 +102,7 @@
                     <asp:Button ID="btnAgregar" runat="server" CssClass="btnlvpr" Text="Agregar" CommandArgument='<%# Eval("ID_Articulo") %>' CommandName="eventoAgregar" OnCommand="btnAgregar_Command" ValidationGroup="Agregar" />
                     <br />
                     <asp:HiddenField ID="hfStock" runat="server" Value='<%# Eval("Stock_Articulo") %>' />
-                    <asp:ObjectDataSource ID="ODS_ddlStock" runat="server" SelectMethod="cargarddlStock" TypeName="Negocios.NegocioDetalleDeCompra">
+                    <asp:ObjectDataSource ID="ODS_ddlStock" runat="server" SelectMethod="cargarddlStock" TypeName="Negocios.NegociosArticulos">
                         <SelectParameters>
                             <asp:ControlParameter ControlID="hfStock" Name="Stock" Type="String" PropertyName="Value" />
                         </SelectParameters>
@@ -161,7 +161,7 @@
     <h3>
         <asp:Button ID="btnFinalizar" runat="server" CssClass="btnes" Text="Finalizar Compra" OnClick="btnFinalizar_Click" ValidationGroup="Finalizar" />
         &nbsp;&nbsp;&nbsp;&nbsp;
-				<asp:Button ID="btnCancelar" runat="server" CssClass="btnes" Text="Cancelar" />
+				<asp:Button ID="btnCancelar" runat="server" CssClass="btnes" Text="Cancelar" OnClick="btnCancelar_Click"/>
     </h3>
     <br />
     <asp:SqlDataSource ID="SqlDataSourceAsientosDisponibles" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_AsientosDisponible" SelectCommandType="StoredProcedure">

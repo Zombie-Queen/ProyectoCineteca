@@ -52,5 +52,28 @@ namespace Negocios
             if (dao.actualizarArticulo(art)) return true;
             else return false;
         }
+
+        //Carga el ddlStock depende la cantidad de Articulos
+        public DataTable cargarddlStock(String Stock)
+        {
+            if (Stock == "") { Stock = "0"; }
+            DataTable dt = new DataTable();
+            dt.Columns.Add("Stock_ddl");
+            int max = Convert.ToInt32(Stock);
+
+            for (int i = 0; i <= max; i++)
+            {
+                if (i <= 10)
+                {
+                    var dr = dt.NewRow();
+
+                    dr["Stock_ddl"] = i;
+
+                    dt.Rows.Add(dr);
+                }
+            }
+            return dt;
+        }
+
     }
 }

@@ -25,11 +25,5 @@ namespace Dao
             dr = cmd.ExecuteReader();
             return dr;
         }
-
-        public bool vaciar_reservas_anteriores()
-        {
-            SqlCommand comando = new SqlCommand();
-            return acc.chequeo_sp(comando, "SP_VaciarReservas");
-        }
     }
 }

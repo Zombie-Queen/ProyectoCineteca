@@ -13,8 +13,11 @@ namespace Vistas
 {
     public partial class FinalizarCompra : System.Web.UI.Page
     {
-        NegocioFinalizarCompra nfc = new NegocioFinalizarCompra();
-        NegocioDetalleDeCompra ndc = new NegocioDetalleDeCompra();
+        NegociosDetalleDeVenta ndv = new NegociosDetalleDeVenta();
+        NegociosDetalleVentaArticulos ndva = new NegociosDetalleVentaArticulos();
+        NegociosFuncionesxSalasxAsiento nfsa = new NegociosFuncionesxSalasxAsiento();
+        NegociosVentas nv = new NegociosVentas();
+
         DetalleVentasArticulo dva = new DetalleVentasArticulo();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -23,12 +26,12 @@ namespace Vistas
 
         protected void btnPagar_Click(object sender, EventArgs e)
         {
-            if (nfc.realizarVenta())
+            if (nv.realizarVenta())
             {
-                nfc.actualizarEstadoAsientos();
+                nfsa.actualizarEstadoAsientos();
 
                 DataTable dt_art = new DataTable();
-                dt_art = nfc.obtenerDatosArticulosVendidos();
+                dt_art = ndva.obtenerArticulosProcesados();
 
                 if (dt_art.Rows != null)
                 {
@@ -38,7 +41,7 @@ namespace Vistas
                         dva.id_articulo_dva = Convert.ToString(row["ID_Articulo_DVA"]);
                         dva.cantidad = Convert.ToInt32(row["Cantidad"]);
 
-                        nfc.disminuirStock(dva);
+                        ndva.disminuirStock(dva);
                     }
                 }
             }
@@ -48,10 +51,8 @@ namespace Vistas
 
         protected void btnCancelar_Click(object sender, EventArgs e)
         {
-            if (nfc.cancelarVenta())
+            if (nv.cancelarVenta())
             {
-                nfc.cancelarVenta();
-                nfc.vaciarAsientosReservados();
                 Response.Redirect("Inicio.aspx");
             }
                 

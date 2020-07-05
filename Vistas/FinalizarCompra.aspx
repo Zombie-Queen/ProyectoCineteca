@@ -58,7 +58,7 @@
             </tr>
             <tr>
                 <td class="td">Vencimiento:</td>
-                <td class="td2">&nbsp;<asp:DropDownList ID="ddlMes" runat="server" CssClass="ddlfecha" AutoPostBack="True" ValidationGroup="Pago">
+                <td class="td2">&nbsp;<asp:DropDownList ID="ddlMes" runat="server" CssClass="ddlfecha" ValidationGroup="Pago">
                         <asp:ListItem>--Mes</asp:ListItem>
                         <asp:ListItem>01</asp:ListItem>
                         <asp:ListItem>02</asp:ListItem>
@@ -77,6 +77,7 @@
                     &nbsp;
                     <asp:DropDownList ID="ddlAnio" CssClass="ddlfecha" runat="server" ValidationGroup="Pago">
                         <asp:ListItem>--Año</asp:ListItem>
+                        <asp:ListItem>2020</asp:ListItem>
                         <asp:ListItem>2021</asp:ListItem>
                         <asp:ListItem>2022</asp:ListItem>
                         <asp:ListItem>2023</asp:ListItem>
