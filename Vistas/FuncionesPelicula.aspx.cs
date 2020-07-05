@@ -65,7 +65,6 @@ namespace Vistas
                 fs.Fecha1 = Fecha;
                 fs.Hora_Inicio1 = Hora;
                 fs.Precio1 = Convert.ToDecimal(Precio);
-
                 Session["Fecha"] = fs.Fecha1;
                 Session["Horario"] = fs.Hora_Inicio1;
                 Session["Precio"] = fs.Precio1;

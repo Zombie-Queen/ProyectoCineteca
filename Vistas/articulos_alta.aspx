@@ -29,7 +29,7 @@
             <asp:RequiredFieldValidator ID="req_stock" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_stock" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
             
             <asp:TextBox Class="controles" runat="server" name="precio" placeholder="Precio"  ID="txt_precio_art"></asp:TextBox>
-            <asp:RegularExpressionValidator ID="regExpNumero" runat="server" ControlToValidate="txt_precio_art" ValidationExpression="^[0-9]+(,[0-9]+)?$" Class="validator-rojo" Text="Ingrese un valor decimal" ValidationGroup="Agregar"></asp:RegularExpressionValidator>   
+            <asp:RegularExpressionValidator ID="regExpNumero" runat="server" ControlToValidate="txt_precio_art" ValidationExpression="^[0-9]+(.[0-9]+)?$" Class="validator-rojo" Text="Ingrese un valor decimal" ValidationGroup="Agregar"></asp:RegularExpressionValidator>   
             <asp:RequiredFieldValidator ID="req_precio" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_precio_art" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
             
             <asp:TextBox Class="controles" runat="server" name="url" placeholder="imagenes/articulos/nombre.jpg" ID="txt_url_articulo"></asp:TextBox>

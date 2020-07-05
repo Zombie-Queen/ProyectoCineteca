@@ -54,15 +54,14 @@ namespace Vistas
 
         protected void cargarddlAsiento()
         {
-            ddlAsiento.Items.Clear();
-            ddlAsiento.DataSource = nfsa.obtenerAsientosDisponibles(fs);
-            ddlAsiento.DataValueField = "ID_Asiento_FSA";
-            ddlAsiento.DataTextField = "ID_Asiento_FSA";
-            ddlAsiento.DataBind();
-            ddlAsiento.Items.Insert(0, new ListItem("--Asiento", "0000"));
-            ddlAsiento.SelectedValue = "0000";
-
-
+                    ddlAsiento.Items.Clear();
+                    ddlAsiento.DataSource = nfsa.obtenerAsientosDisponibles(fs);
+                    ddlAsiento.DataValueField = "ID_Asiento_FSA";
+                    ddlAsiento.DataTextField = "ID_Asiento_FSA";
+                    ddlAsiento.DataBind();
+                    ddlAsiento.Items.Insert(0, new ListItem("--Asiento", "0000"));
+                    ddlAsiento.SelectedValue = "0000";   
+            
         }
 
         protected void ddlAsiento_SelectedIndexChanged(object sender, EventArgs e)

@@ -8,6 +8,8 @@ using Negocios;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.Windows.Forms;
+using System.Linq.Expressions;
 
 namespace Vistas
 {
@@ -24,6 +26,7 @@ namespace Vistas
                 Session["dev_seleccionados"] = null;
                 CargarGrid();
             }
+            vaciar_campos();
         }
 
 
@@ -55,6 +58,18 @@ namespace Vistas
 
         protected void Buscar_Click(object sender, EventArgs e)
         {
+            pelicula.id_pelicula = txt_peli.Text;
+            if (np.existePelicula(pelicula)==false)
+            {
+                MessageBox.Show("La película " + txt_peli.Text + " no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                DataTable tablaPeliculas = np.getTablaPelis_id(pelicula);
+                grdPelis.DataSource = tablaPeliculas;
+                grdPelis.DataBind();
+                
+            }
 
         }
 
@@ -70,27 +85,53 @@ namespace Vistas
             pelicula.estado = txt_estado_peli.Text;
             pelicula.titulo = txt_titulo_peli.Text;
             if (txt_duracion_peli.Text != "") { pelicula.duracion = Convert.ToInt32(txt_duracion_peli.Text); }
-            
             pelicula.clasificacion = txt_clasif_peli.Text;
             pelicula.url_imagen = txt_url_peli.Text;
-            if (np.existePelicula(pelicula))
+            if(cv_id_peli.IsValid==true&& cv_estado_peli.IsValid==true&& cv_titulo.IsValid==true&& cv_clasif.IsValid==true&& cv_url.IsValid==true)
             {
-                /*la pelicula ya existe*/
-            }
-            else
-            {
-                if (np.agregarPelicula(pelicula))
+                try
                 {
-                    /*se agrego con exito*/
+                    if (np.existePelicula(pelicula))
+                    {
+                        MessageBox.Show("La película " + txt_id_peli.Text + " ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                    else
+                    {
+                        if (np.agregarPelicula(pelicula))
+                        {
+                            MessageBox.Show("Se agregó película " + txt_titulo_peli.Text + " con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            vaciar_campos();
+                            grdPelis.PageIndex = 0;
+                            CargarGrid();
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se pudo agregar " + txt_titulo_peli.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
 
+                    }
                 }
-                else
+
+                catch (Exception exc)
                 {
-                    /*no se agrego ni papas */
+                    MessageBox.Show("Error al agregar película " + txt_titulo_peli.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
             }
+            
 
+
+
+        }
+        public void vaciar_campos()
+        {
+
+            txt_id_peli.Text = "";
+            txt_estado_peli.Text = "";
+            txt_titulo_peli.Text = "";
+            txt_duracion_peli.Text = "";
+            txt_clasif_peli.Text = "";
+            txt_url_peli.Text = "";
 
         }
 
@@ -98,12 +139,12 @@ namespace Vistas
          {
             
              //Buscar los datos del edititemplate
-             String s_id_pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;
-             String s_estado = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_estado_peli")).Text;
-             String s_titulo = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_titulo")).Text;
-             String s_duracion = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_duracion")).Text;
-             String s_clasif = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_clasificacion")).Text;
-             String s_url = ((TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
+             String s_id_pelicula = ((System.Web.UI.WebControls.Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;
+             String s_estado = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_estado_peli")).Text;
+             String s_titulo = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_titulo")).Text;
+             String s_duracion = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_duracion")).Text;
+             String s_clasif = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_clasificacion")).Text;
+             String s_url = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
 
             pelicula.id_pelicula = s_id_pelicula;
             pelicula.estado = s_estado;
@@ -121,15 +162,39 @@ namespace Vistas
 
         protected void grdPelis_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            String Id_Pelicula = ((Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
+            String Id_Pelicula = ((System.Web.UI.WebControls.Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;// se toma en un string el id del producto segun la fila donde se toco el boton eliminar
             pelicula.id_pelicula = Id_Pelicula;
-            /*preguntar si seguro que quiere eliminar*/
-            if (np.eliminarPelicula(pelicula))
+            try
             {
-                /*se elimino con exito*/
-                CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
+
+                if (MessageBox.Show("Seguro que desea eliminar la película " + Id_Pelicula + "?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+                {
+                    if (np.eliminarPelicula(pelicula))
+                    {
+                        MessageBox.Show("Se elimino con éxito " + Id_Pelicula + ".", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
+                    }
+                    else
+                    {
+                        MessageBox.Show("No se pudo eliminar " + Id_Pelicula + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+                else
+                {
+                    CargarGrid();
+                }
+
             }
-             
+            
+            catch (Exception exc)
+            {
+
+                MessageBox.Show("No se pueden eliminar datos relacionados con otras tablas.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+            }
+
+
         }
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
