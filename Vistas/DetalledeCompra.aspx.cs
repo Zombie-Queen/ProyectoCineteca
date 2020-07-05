@@ -45,24 +45,26 @@ namespace Vistas
             }
         }
 
-            protected void cargarddlAsiento()
+        protected void cargarddlAsiento()
         {
             ddlAsiento.Items.Clear();
             ddlAsiento.DataSource = ndc.obtenerAsientosDisponibles(fs);
             ddlAsiento.DataValueField = "ID_Asiento_FSA";
             ddlAsiento.DataTextField = "ID_Asiento_FSA";
             ddlAsiento.DataBind();
+            ddlAsiento.Items.Insert(0, new ListItem("--Asiento", "0000"));
+            ddlAsiento.SelectedValue = "0000";
 
 
         }
 
-        protected void btnSeleccionar_Click(object sender, EventArgs e)
+        protected void ddlAsiento_SelectedIndexChanged(object sender, EventArgs e)
         {
-
             ndc.seleccionarAsiento(fs, ddlAsiento.SelectedValue.ToString());
 
             cargarddlAsiento();
             cargargvAsientos();
+            lblAsientosSeleccionados.Visible = true;
         }
 
         protected void cargargvAsientos()
@@ -77,7 +79,10 @@ namespace Vistas
             ndc.quitarAsientoSeleccionado(gvAsientos.DataKeys[e.RowIndex].Value.ToString());
             cargarddlAsiento();
             cargargvAsientos();
-
+            if (ndc.obtenerAsientosReservados().Rows.Count == 0)
+            {
+                lblAsientosSeleccionados.Visible = false;
+            }
         }
 
         protected void gvArticulos_ItemDataBound(object sender, ListViewItemEventArgs e)
@@ -132,6 +137,7 @@ namespace Vistas
                     agregarFila((DataTable)Session["Articulos_Seleccionados"], dva, art);
 
                     cargargvArticulos((DataTable)Session["Articulos_Seleccionados"]);
+                    lblArticulosSeleccionados.Visible = true;
                 }
                 else 
                 { 
@@ -201,6 +207,10 @@ namespace Vistas
                     dt.Rows.Remove(dr);
             }
             dt.AcceptChanges();
+            if (dt.Rows.Count == 0)
+            {
+                lblArticulosSeleccionados.Visible = false;
+            }
         }
 
         protected void btnValidar_Command(object sender, CommandEventArgs e)
@@ -225,6 +235,8 @@ namespace Vistas
                 {
                     MessageBox.Show("Promoción agregada con éxito", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Session["Promocion"] = ven.promocion;
+                    lvPromociones.Visible = false;
+                    lblPromo.Visible = false;
                 }
             }
             else
@@ -235,42 +247,50 @@ namespace Vistas
 
         protected void btnFinalizar_Click(object sender, EventArgs e)
         {
+
+            if (ndc.obtenerAsientosReservados().Rows.Count != 0 )
+            {
                 DataTable dt_dv = new DataTable();
                 dt_dv = ndc.obtenerDatosDetalleVentas();
                 DataTable dt_dva = new DataTable();
                 dt_dva = (DataTable)Session["Articulos_Seleccionados"];
                 string promocion = Session["Promocion"].ToString();
 
-            if (ndc.procesarVenta(usu.mail, promocion))
-            {
-                //Recorre la tabla procesando cada asiento al detalle de ventas
-                foreach (DataRow row in dt_dv.Rows)
+                if (ndc.procesarVenta(usu.mail, promocion))
                 {
-                    fsa.ID_Funcion_FSA1 = Convert.ToString(row["ID_Funcion_FSA"]);
-                    fsa.ID_Pelicula_FSA1 = Convert.ToString(row["ID_Pelicula_FSA"]);
-                    fsa.ID_Sucursal_FSA1 = Convert.ToString(row["ID_Sucursal_FSA"]);
-                    fsa.ID_Sala_FSA1 = Convert.ToString(row["ID_Sala_FSA"]);
-                    fsa.ID_Asiento_FSA1 = Convert.ToString(row["ID_Asiento_FSA"]);
-                    fsa.Fecha_FuncionxSalaAsiento1 = Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
-
-                    ndc.procesarDetalleVentas(fsa, fs.Precio1);
-                }
-
-                if (dt_dva != null)
-                {
-                    //Recorre la tabla procesando cada articulo al detalle de venta de articulos
-                    foreach (DataRow row in dt_dva.Rows)
+                    //Recorre la tabla procesando cada asiento al detalle de ventas
+                    foreach (DataRow row in dt_dv.Rows)
                     {
-                        dva.id_articulo_dva = Convert.ToString(row["ID_Articulo"]);
-                        dva.cantidad = Convert.ToInt32(row["Cantidad"]);
-                        dva.precio = Convert.ToDecimal(row["Precio"]);
-                        ndc.procesarDetalleVentaArticulos(dva);
+                        fsa.ID_Funcion_FSA1 = Convert.ToString(row["ID_Funcion_FSA"]);
+                        fsa.ID_Pelicula_FSA1 = Convert.ToString(row["ID_Pelicula_FSA"]);
+                        fsa.ID_Sucursal_FSA1 = Convert.ToString(row["ID_Sucursal_FSA"]);
+                        fsa.ID_Sala_FSA1 = Convert.ToString(row["ID_Sala_FSA"]);
+                        fsa.ID_Asiento_FSA1 = Convert.ToString(row["ID_Asiento_FSA"]);
+                        fsa.Fecha_FuncionxSalaAsiento1 = Convert.ToString(row["Fecha_FuncionxSalaAsiento"]);
+
+                        ndc.procesarDetalleVentas(fsa, fs.Precio1);
+                    }
+
+                    if (dt_dva != null)
+                    {
+                        //Recorre la tabla procesando cada articulo al detalle de venta de articulos
+                        foreach (DataRow row in dt_dva.Rows)
+                        {
+                            dva.id_articulo_dva = Convert.ToString(row["ID_Articulo"]);
+                            dva.cantidad = Convert.ToInt32(row["Cantidad"]);
+                            dva.precio = Convert.ToDecimal(row["Precio"]);
+                            ndc.procesarDetalleVentaArticulos(dva);
+                        }
                     }
                 }
-            }
                 Session["Articulos_Seleccionados"] = null;
                 Session["Promocion"] = "sinpromo";
                 Response.Redirect("FinalizarCompra.aspx");
+            }
+            else
+            {
+                MessageBox.Show("Seleccione al menos un asiento", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

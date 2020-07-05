@@ -3,6 +3,7 @@ body {
 }
 
 .center {
+    display: block;
     margin: 0 10rem;
     text-align: center;
 }
@@ -251,6 +252,23 @@ td {
     width: 26%;
     font-family: 'Kanit', sans-serif;
     color: #F8F8FF;
-    font-size: 14pt;
+    font-size: 256px;
     text-align: left;
+}
+
+.td {
+    width: 30%;
+    font-family: 'Kanit', sans-serif;
+    color: #F8F8FF;
+    font-size: 1.6rem;
+    text-align: left;
+}
+
+.tit{
+    font-family: 'Kanit', sans-serif;
+    font-weight: bold;
+    color: #F8F8FF;
+    font-size: 20pt;
+    text-align: center;
+    margin:3rem 0;
 }

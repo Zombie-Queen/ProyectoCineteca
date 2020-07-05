@@ -33,15 +33,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.DropDownList ddlAsiento;
 
         /// <summary>
-        /// Control btnSeleccionar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSeleccionar;
-
-        /// <summary>
         /// Control lblAsientosSeleccionados.
         /// </summary>
         /// <remarks>
@@ -60,6 +51,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView gvAsientos;
 
         /// <summary>
+        /// Control lblPromo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblPromo;
+
+        /// <summary>
         /// Control lvPromociones.
         /// </summary>
         /// <remarks>
@@ -76,6 +76,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.ListView lvArticulos;
+
+        /// <summary>
+        /// Control lblArticulosSeleccionados.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblArticulosSeleccionados;
 
         /// <summary>
         /// Control gvArticulos.
