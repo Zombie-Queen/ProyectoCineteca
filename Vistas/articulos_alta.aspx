@@ -9,20 +9,45 @@
     <section class="registro">
             <h4>Agregar artículo</h4>
             <asp:TextBox Class="controles" runat="server" name="id" placeholder="Código"  ID="txt_id_articulo"></asp:TextBox>
+            <asp:CustomValidator ID="cv_id_art" runat="server" Text="Máximo 4 caracteres" ControlToValidate="txt_id_articulo" Class="validator-rojo" OnServerValidate="CustomValidator1_ServerValidate" ValidationGroup="Agregar"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_id" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_id_articulo" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>
+            
             <asp:TextBox Class="controles" runat="server" name="estado" placeholder="Estado"  ID="txt_estado_articulo"></asp:TextBox>
+            <asp:CustomValidator ID="cv_estado_art" runat="server" Text="Máximo 20 caracteres" ControlToValidate="txt_estado_articulo" Class="validator-rojo" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="Agregar"></asp:CustomValidator>    
+            <asp:RequiredFieldValidator ID="req_est" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_estado_articulo" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>
+            
             <asp:TextBox Class="controles" runat="server" name="nombre" placeholder="Nombre"  ID="txt_nombre_articulo"></asp:TextBox>
+            <asp:CustomValidator ID="cv_nombre_art" runat="server" Text="Máximo 30 caracteres" ControlToValidate="txt_nombre_articulo" Class="validator-rojo" OnServerValidate="CustomValidator3_ServerValidate" ValidationGroup="Agregar"></asp:CustomValidator>    
+            <asp:RequiredFieldValidator ID="req_nom" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_nombre_articulo" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
+
             <asp:TextBox Class="controles" runat="server" name="descripcion" placeholder="Descripción"  ID="txt_descripcion_art"></asp:TextBox>
+            <asp:CustomValidator ID="cv_desc_art" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_descripcion_art" Class="validator-rojo" OnServerValidate="CustomValidator4_ServerValidate" ValidationGroup="Agregar"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_desc" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_descripcion_art" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
+            
+            <asp:TextBox Class="controles" runat="server" name="stock" placeholder="Stock"  ID="txt_stock"></asp:TextBox>
+            <asp:RangeValidator ID="rg_stock_art" runat="server" Text="Expresión invalida" ControlToValidate="txt_stock" Class="validator-rojo" ValidationGroup="Agregar" MaximumValue="500" MinimumValue="0" Type="Integer" ></asp:RangeValidator>
+            <asp:RequiredFieldValidator ID="req_stock" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_stock" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
+            
             <asp:TextBox Class="controles" runat="server" name="precio" placeholder="Precio"  ID="txt_precio_art"></asp:TextBox>
+            <asp:RegularExpressionValidator ID="regExpNumero" runat="server" ControlToValidate="txt_precio_art" ValidationExpression="^[0-9]+(,[0-9]+)?$" Class="validator-rojo" Text="Ingrese un valor decimal" ValidationGroup="Agregar"></asp:RegularExpressionValidator>   
+            <asp:RequiredFieldValidator ID="req_precio" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_precio_art" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
+            
             <asp:TextBox Class="controles" runat="server" name="url" placeholder="imagenes/articulos/nombre.jpg" ID="txt_url_articulo"></asp:TextBox>
-            <asp:Button  ID="btnAgregar" runat="server" Text="Agregar" Class="botons" OnClick="btnAgregar_Click" />
+            <asp:CustomValidator ID="cv_url_art" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_url_articulo" Class="validator-rojo" OnServerValidate="CustomValidator6_ServerValidate" ValidationGroup="Agregar"></asp:CustomValidator>    
+            <asp:RequiredFieldValidator ID="req_url" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_url_articulo" Class="valid-rojo" ValidationGroup="Agregar"></asp:RequiredFieldValidator>    
+
+        <asp:Button  ID="btnAgregar" runat="server" Text="Agregar" Class="botons" ValidationGroup="Agregar" OnClick="btnAgregar_Click" />
         </section>
         <div class="filtro-p">               
                 <h1>Buscar</h1>          
-               <div class="item"><asp:TextBox  runat="server" placeholder="Código de artículo" Class="input" ID="txt_peli"></asp:TextBox></div>                              
+               <div class="item"><asp:TextBox  runat="server" placeholder="Código de artículo" Class="input" ID="txt_art"></asp:TextBox>
+                
+               </div>                              
              <div class="btn-item">
-                 <asp:Button ID="btnBuscar" runat="server" OnClick="Buscar_Click" Text="Buscar" Class="boton" /> 
+                 <asp:Button ID="btnBuscar" runat="server" ValidationGroup="busqueda" OnClick="Buscar_Click" Text="Buscar" Class="boton" /> 
                  <asp:Button ID="Volver" runat="server" OnClick="Volver_Click" Text="Volver" Class="boton" />   
             </div> 
+            <div class="campoVacio"><asp:Label ID="lbl_campoObligatorio" runat="server" Text="*Es obligatorio llenar un campo para la busqueda." /></div>
            </div> 
         <div class="listaPelis">
                 

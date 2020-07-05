@@ -18,6 +18,13 @@ namespace Negocios
             return dao.ObtenerTodasLosArticulos();
         }
 
+        public DataTable getTabla_idArticulo(Articulos ar)
+        {
+            return dao.ObtenerArticulo_id(ar);
+        }
+
+
+
         public bool agregarArticulo(Articulos art)
         {
             int filas = 0;

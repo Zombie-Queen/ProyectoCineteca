@@ -8,6 +8,7 @@ using Negocios;
 using System.Data;
 using System.Data.SqlClient;
 using Entidades;
+using System.Windows.Forms;
 
 
 namespace Vistas
@@ -27,15 +28,10 @@ namespace Vistas
                 Session["detalles_seleccionados"] = null;
                 Session["dev_seleccionados"] = null;
                 CargarGrid();
-                /*ddlVentas.Items.Add("Ventas");
-                ddlVentas.Items.Add("Detalles de venta");
-                ddlVentas.Items.Add("Detalles de venta artículos");
-                ddlVentas.DataBind();*/
+  
                 
             }
-            /*if (ddlVentas.SelectedValue == "Ventas"){CargarGrid();}
-            if (ddlVentas.SelectedValue == "Detalles de venta") {  CargarGridDetalleDeVenta(); }
-            if (ddlVentas.SelectedValue == "Detalles de venta artículos") {  CargarGridDetalleDeVentaArts();}*/
+            
             
         }
 
@@ -46,11 +42,21 @@ namespace Vistas
             
                 if (nro_venta != "")
                 {
-                    
-                    
-                        DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
-                        grdVentas.DataSource = tabla_de_ventas;
-                        grdVentas.DataBind();
+                ven.id_venta = Convert.ToInt32(nro_venta);
+                if(nv.existeVenta(ven))
+                {
+
+                    DataTable tabla_de_ventas = nv.getTablaVentaPorNumVen(nro_venta);
+                    grdVentas.DataSource = tabla_de_ventas;
+                    grdVentas.DataBind();
+
+                }
+                else
+                {
+                    MessageBox.Show("La venta no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CargarGrid();
+                }
+                        
                         
                 }
                 else
@@ -102,26 +108,29 @@ namespace Vistas
 
                     if (nv.existeVenta(ven))
                     {
-
-                        if (nv.BorrarVenta(ven))
+                        if (MessageBox.Show("Seguro que desea dar de baja las ventas seleccionadas?", "Eliminar", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                         {
-                            /*se borro con exito*/
+                            if (nv.BorrarVenta(ven))
+                            {
+                            MessageBox.Show("Venta dada de baja con éxito", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             ndev.BorrarDetalleVenta(dev);
                             ndev.BorrarDetalleVentaArticulos(devArt);
                             CargarGrid();
 
-                        }
-                        else
-                        {
+                            }
+                            else
+                            {
                             CargarGrid();
-                            /*no se borro con exito*/
+                            MessageBox.Show("La venta no pude ser borrada", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 
                     }
+                        
+                    }
                     else
                     {
-                        /*la venta no existe*/
-                        CargarGrid();
+                    MessageBox.Show("La venta no existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    CargarGrid();
                     }
 
 

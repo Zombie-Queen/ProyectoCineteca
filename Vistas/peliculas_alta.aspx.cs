@@ -69,7 +69,8 @@ namespace Vistas
             pelicula.id_pelicula = txt_id_peli.Text;
             pelicula.estado = txt_estado_peli.Text;
             pelicula.titulo = txt_titulo_peli.Text;
-            pelicula.duracion = Convert.ToInt32(txt_duracion_peli.Text);
+            if (txt_duracion_peli.Text != "") { pelicula.duracion = Convert.ToInt32(txt_duracion_peli.Text); }
+            
             pelicula.clasificacion = txt_clasif_peli.Text;
             pelicula.url_imagen = txt_url_peli.Text;
             if (np.existePelicula(pelicula))
@@ -129,6 +130,45 @@ namespace Vistas
                 CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
             }
              
+        }
+
+        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 4)
+            {
+                args.IsValid = false;
+            }
+            
+        }
+
+        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 20)
+            {
+                args.IsValid = false;
+            }
+        }
+
+        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 50)
+            {
+                args.IsValid = false;
+            }
+        }
+        protected void CustomValidator4_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 50)
+            {
+                args.IsValid = false;
+            }
+        }
+        protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
+        {
+            if (args.Value.Length > 50)
+            {
+                args.IsValid = false;
+            }
         }
     }
 }
