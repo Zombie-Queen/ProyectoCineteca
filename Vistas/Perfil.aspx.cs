@@ -22,10 +22,10 @@ namespace Vistas
         {
             lblContra.Text = "";
             bool estado = false;
-            estado = nu.ModificarCorreo(Session["Correo"].ToString(), txtCorreo.Text, Session["Contraseña"].ToString());
+            estado = nu.ModificarCorreo(Session["Correo_Ac"].ToString(), txtCorreo.Text, Session["Contraseña_Ac"].ToString());
             if (estado)
             {
-                Session["Correo"] = txtCorreo.Text;
+                Session["Correo_Ac"] = txtCorreo.Text;
                 lblCorreo.CssClass = "green-text msglbl";
                 lblCorreo.Text = "Correo modificado.";
             }
@@ -41,10 +41,10 @@ namespace Vistas
         {
             lblCorreo.Text = "";
             bool estado = false;
-            estado = nu.ModificarContra(Session["Contraseña"].ToString(), txtContra.Text, Session["Correo"].ToString());
+            estado = nu.ModificarContra(Session["Contraseña_Ac"].ToString(), txtContra.Text, Session["Correo_Ac"].ToString());
             if (estado)
             {
-                Session["Contraseña"] = txtContra.Text;
+                Session["Contraseña_Ac"] = txtContra.Text;
                 lblContra.CssClass = "green-text msglbl";
                 lblContra.Text = "Contraseña modificada.";
             }
@@ -70,12 +70,12 @@ namespace Vistas
         protected void btnConfirm_Click(object sender, EventArgs e)
         {
             int fila;
-            fila = nu.EliminarCliente(Session["Correo"].ToString(), Session["Contraseña"].ToString());
+            fila = nu.EliminarCliente(Session["Correo_Ac"].ToString(), Session["Contraseña_Ac"].ToString());
             if (fila == 1)
             {
-                Session["Correo"] = null;
-                Session["Contraseña"] = null;
-                Server.Transfer("Inicio.aspx");
+                Session["Correo_Ac"] = null;
+                Session["Contraseña_Ac"] = null;
+                Response.Redirect("Inicio.aspx");
             }
             else
             {

@@ -43,8 +43,8 @@
         </asp:ListView>
         <asp:SqlDataSource runat="server" ID="sqldsDatosCliente" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="spVerificarUsuario" SelectCommandType="StoredProcedure">
             <SelectParameters>
-                <asp:SessionParameter SessionField="Correo" DefaultValue="" Name="Correo" Type="String"></asp:SessionParameter>
-                <asp:SessionParameter SessionField="Contrase&#241;a" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
+                <asp:SessionParameter SessionField="Correo_Ac"  Name="Correo" Type="String"></asp:SessionParameter>
+                <asp:SessionParameter SessionField="Contrase&#241;a_Ac" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
             </SelectParameters>
         </asp:SqlDataSource>
         <div class="d-flex align-items-center h3">

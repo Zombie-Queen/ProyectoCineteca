@@ -133,7 +133,7 @@
             </div>
         </footer>
     </form>
-    <asp:Button runat="server" ID="btnConfirmIn" Text="Aceptar" CssClass="btn purple-gradient" OnClick="btnConfirmIn_Click" />
+    
    
 </body>
 </html>

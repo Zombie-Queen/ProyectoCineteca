@@ -16,8 +16,8 @@
     </asp:GridView>
     <asp:SqlDataSource runat="server" ID="sqldsFacturaCliente" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="spVentaCliente" SelectCommandType="StoredProcedure">
         <SelectParameters>
-            <asp:SessionParameter SessionField="Correo" Name="Correo" Type="String"></asp:SessionParameter>
-            <asp:SessionParameter SessionField="Contrase&#241;a" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
+            <asp:SessionParameter SessionField="Correo_Ac" Name="Correo" Type="String"></asp:SessionParameter>
+            <asp:SessionParameter SessionField="Contrase&#241;a_Ac" Name="Contrase&#241;a" Type="String"></asp:SessionParameter>
         </SelectParameters>
     </asp:SqlDataSource>
 </asp:Content>

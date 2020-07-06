@@ -18,11 +18,11 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                if (Session["Correo"] != null && Session["Contraseña"] != null)
+                if (Session["Correo_Ac"] != null && Session["Contraseña_Ac"] != null)
                 {
                     ddm.CssClass = "d-none";
                     logueado.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
-                    lbluser.Text = Session["Nombre"].ToString();
+                    lbluser.Text = "Bienvenido/a " + Session["Nombre"].ToString() + "!";
                     lbluser.CssClass = "nombreuser";
                 }
                 else
@@ -42,12 +42,12 @@ namespace Vistas
             if (dt.Rows.Count > 0)
             {
                 Session["Estado"] = Convert.ToString(dt.Rows[0][1]);
+                Session["Nombre"] = Convert.ToString(dt.Rows[0][2]);
                 if (Session["Estado"].ToString() == "Activo")
                 {
                     lblerror.Text = "";
-                    Session["Correo"] = correo.Text;
-                    Session["Contraseña"] = contraseña.Text;
-                    Session["Nombre"] = "Bienvenido/a " + Convert.ToString(dt.Rows[0][2]) + "!";
+                    Session["Correo_Ac"] = correo.Text;
+                    Session["Contraseña_Ac"] = contraseña.Text;                    
                     if (Convert.ToInt32(dt.Rows[0][7]) == 1)
                     {
                         Response.Redirect("Inicio.aspx");
@@ -59,6 +59,8 @@ namespace Vistas
                 }
                 else if (Session["Estado"].ToString() == "Inactivo")
                 {
+                    Session["Correo_Inac"] = correo.Text;
+                    Session["Contraseña_Inac"] = contraseña.Text;
                     Response.Redirect("UsuarioInactivo.aspx");
                 }
             }
@@ -70,8 +72,8 @@ namespace Vistas
 
         protected void btnCerrar_Click(object sender, EventArgs e)
         {
-            Session["Correo"] = null;
-            Session["Contraseña"] = null;
+            Session["Correo_Ac"] = null;
+            Session["Contraseña_Ac"] = null;
             Server.Transfer("Inicio.aspx");
         }
 
@@ -83,18 +85,6 @@ namespace Vistas
         protected void btnCompras_Click(object sender, EventArgs e)
         {
             Response.Redirect("FacturasCliente.aspx");
-        }
-
-        protected void btnConfirmIn_Click(object sender, EventArgs e)
-        {
-            int fila;
-            fila = nu.ActivarCliente(correo.Text, contraseña.Text);
-            if (fila == 1)
-            {
-                Session["Correo"] = correo.Text;
-                Session["Contraseña"] = contraseña.Text;
-                Response.Redirect("Inicio.aspx");
-            }
         }
     }
 }
