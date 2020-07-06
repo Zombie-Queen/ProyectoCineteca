@@ -19,6 +19,11 @@ namespace Negocios
             return dao.ObtenerTodasLasPeliculas();
         }
 
+        public DataTable getTablaPelis_id(Peliculas peli)
+        {
+            return dao.ObtenerPelicula_id(peli);
+        }
+
         public bool agregarPelicula (Peliculas peli)
         {
             int filas = 0;

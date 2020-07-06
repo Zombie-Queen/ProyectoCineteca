@@ -12,19 +12,21 @@ namespace Entidades
         private String Estado_Articulo;
         private String Nombre_Articulo;
         private String Descripcion_Articulo;
+        private int Stock;
         private decimal Precio;
         private String Imagen_Articulo;
 
 
         public Articulos() { }
 
-        public Articulos(String _ID_Articulo, String _Estado_Articulo, String _Nombre_Articulo, String _Descripcion_Articulo, decimal _Precio, String _Imagen_Articulo)
+        public Articulos(String _ID_Articulo, String _Estado_Articulo, String _Nombre_Articulo, String _Descripcion_Articulo,int _stock, decimal _Precio, String _Imagen_Articulo)
         {
 
             this.ID_Articulo = _ID_Articulo;
             this.Estado_Articulo = _Estado_Articulo;
             this.Nombre_Articulo = _Nombre_Articulo;
             this.Descripcion_Articulo = _Descripcion_Articulo;
+            this.Stock = _stock;
             this.Precio = _Precio;
             this.Imagen_Articulo = _Imagen_Articulo;
 
@@ -50,6 +52,12 @@ namespace Entidades
         {
             get { return Descripcion_Articulo; }
             set { Descripcion_Articulo = value; }
+        }
+
+        public int stock_articulo
+        {
+            get { return Stock; }
+            set { Stock = value; }
         }
 
         public decimal precio

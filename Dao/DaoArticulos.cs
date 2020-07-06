@@ -40,6 +40,9 @@ namespace Dao
             parametros = Comando.Parameters.Add("@descripcion", SqlDbType.VarChar, 50);
             parametros.Value = art.descripcion_articulo;
 
+            parametros = Comando.Parameters.Add("@stock", SqlDbType.Int);
+            parametros.Value = art.stock_articulo;
+
             parametros = Comando.Parameters.Add("@precio", SqlDbType.Decimal);
             parametros.Value = art.precio;
 

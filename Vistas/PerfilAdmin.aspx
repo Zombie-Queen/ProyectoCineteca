@@ -2,10 +2,14 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <link rel="stylesheet" href="css/Alta.css" type="text/css" />
+    
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="Contenido" runat="server">
     <div class="contenido">
-        <asp:ListView runat="server" ID="lvPerfilAdmin" DataSourceID="sqldspAdmin" GroupItemCount="3">
+        <div class="perfil">
+
+            <asp:ListView runat="server" ID="lvPerfilAdmin" DataSourceID="sqldspAdmin" GroupItemCount="3">
             <GroupTemplate>
                 <tr runat="server" id="itemPlaceholderContainer">
                     <td runat="server" id="itemPlaceholder"></td>
@@ -13,18 +17,25 @@
             </GroupTemplate>
             <ItemTemplate>
                 <td runat="server" style="">
-                    <asp:ImageButton runat="server" CssClass=" rounded-circle" ID="imgPerfil" ImageUrl='<%# Eval("URL_fotoPerfil") %>' />
-                    Nombre:
-                    <asp:Label Text='<%# Eval("Nombre") %>' runat="server" ID="NombreLabel" /><br />
-                    Apellido:
-                    <asp:Label Text='<%# Eval("Apellido") %>' runat="server" ID="ApellidoLabel" /><br />
-                    Fecha_Nac:
-                    <asp:Label Text='<%# Eval("Fecha_Nac") %>' runat="server" ID="Fecha_NacLabel" /><br />
-                    Correo:
-                    <asp:Label Text='<%# Eval("Correo") %>' runat="server" ID="CorreoLabel" /><br />
+                    <div class="foto">
+                        <asp:Image runat="server" class="foto-perfil"  ID="imgPerfil" ImageUrl='<%# Eval("URL_fotoPerfil") %>' />
+                    <br />
+                    <asp:Label class="label-perfil" Text='Nombre:' runat="server" ID="nombre_lbl" />
+                    <asp:Label class="label-perfil" Text='<%# Eval("Nombre") %>' runat="server" ID="NombreLabel" /><br />
+                    <asp:Label class="label-perfil" Text='Apellido:' runat="server" ID="apellido_lbl" />
+                    <asp:Label class="label-perfil" Text='<%# Eval("Apellido") %>' runat="server" ID="ApellidoLabel" /><br />
+                    </div>
+                    
+                    <asp:Label class="label-perfil" Text='Fecha de nacimiento:' runat="server" ID="fec_nac_lbl" />
+                    <asp:Label class="label-perfil" Text='<%# Eval("Fecha_Nac") %>' runat="server" ID="Fecha_NacLabel" /><br />
+                    <asp:Label class="label-perfil" Text='Mail:' runat="server" ID="mail_lbl" />
+                    <asp:Label class="label-perfil" Text='<%# Eval("Correo") %>' runat="server" ID="CorreoLabel" /><br />
                 </td>
             </ItemTemplate>
         </asp:ListView>
+
+        </div>
+        
         <asp:SqlDataSource runat="server" ID="sqldspAdmin" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="spTraerAdmin" SelectCommandType="StoredProcedure">
             <SelectParameters>
                 <asp:SessionParameter SessionField="Correo" Name="Correo" Type="String"></asp:SessionParameter>

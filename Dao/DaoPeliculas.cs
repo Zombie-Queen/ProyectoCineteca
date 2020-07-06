@@ -47,6 +47,10 @@ namespace Dao
         {
             return ds.ObtenerTabla("Peliculas", "Select ID_Pelicula[Pelicula],ID_Estado_Pelicula[Estado],Título_Pelicula[Título],Duración_Pelicula[Duración],Clasificación_Pelicula[Clasificación],URL_Portada[Url imagen] From Peliculas");
         }
+        public DataTable ObtenerPelicula_id(Peliculas pel)
+        {
+            return ds.ObtenerTabla("Peliculas", "Select ID_Pelicula[Pelicula],ID_Estado_Pelicula[Estado],Título_Pelicula[Título],Duración_Pelicula[Duración],Clasificación_Pelicula[Clasificación],URL_Portada[Url imagen] From Peliculas WHERE ID_Pelicula='"+pel.id_pelicula+"'");
+        }
 
         public int agregarPeliculas(Peliculas peli)
         {
@@ -94,5 +98,7 @@ namespace Dao
             else
                 return false;
         }
+
+       
     }
 }

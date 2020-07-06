@@ -19,6 +19,7 @@ html {
     padding: 1rem 0;
     width: 130rem;
     height: 60rem;
+    background:grey;
     
 }
 
@@ -272,4 +273,34 @@ h1 {
     color: #FF0202;
     font-size: 1.3rem;
     padding: 1rem;
+}
+
+.perfil {
+    position: relative;
+    display:flex;
+    margin-right:auto;
+    margin-left: auto;
+    width: 45%;
+    background: blue;
+    
+}
+
+.label-perfil{
+
+    
+    font-size:2rem;
+    
+}
+
+.foto-perfil{
+
+    float:left;
+    border-radius:50%;
+    padding:2rem;
+}
+
+.foto{
+    
+    border-right:1px solid #ddd;
+    background:red;
 }
