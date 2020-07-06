@@ -59,7 +59,7 @@ namespace Vistas
                     }
                     else
                     {
-                        Server.Transfer("Inicio_admin.aspx");
+                        Response.Redirect("Inicio_admin.aspx");
                     }
                 }
                 else if (Session["Estado"].ToString() == "Inactivo")
@@ -79,7 +79,7 @@ namespace Vistas
         {
             Session["Correo_Ac"] = null;
             Session["Contraseña_Ac"] = null;
-            Server.Transfer("Inicio.aspx");
+            Response.Redirect("Inicio.aspx");
         }
 
         protected void btnPerfil_Click(object sender, EventArgs e)

@@ -80,6 +80,7 @@ namespace Vistas
         {
             if (e.CommandName == "eventoLvPelis2d")
             {
+                Session["ID_t_Sala"] = 1;
                 Session["ID_Pelicula"] = e.CommandArgument;
                 Response.Redirect("FuncionesPelicula.aspx");
             }
@@ -88,6 +89,7 @@ namespace Vistas
         {
             if (e.CommandName == "eventoLvPelis3d")
             {
+                Session["ID_t_Sala"] = 2;
                 Session["ID_Pelicula"] = e.CommandArgument;
                 Response.Redirect("FuncionesPelicula.aspx");
             }
@@ -96,6 +98,7 @@ namespace Vistas
         {
             if (e.CommandName == "eventoLvPelis4d")
             {
+                Session["ID_t_Sala"] = 3;
                 Session["ID_Pelicula"] = e.CommandArgument;
                 Response.Redirect("FuncionesPelicula.aspx");
             }
@@ -104,6 +107,7 @@ namespace Vistas
         {
             if (e.CommandName == "eventoLvPelisPr")
             {
+                Session["ID_t_Sala"] = 4;
                 Session["ID_Pelicula"] = e.CommandArgument;
                 Response.Redirect("FuncionesPelicula.aspx");
             }

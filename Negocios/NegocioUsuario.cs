@@ -21,7 +21,8 @@ namespace Negocios
             else
                 return false;
         }
-        
+
+
         public bool ModificarCorreo(String correoInicial, String correoFinal, String contraseña)
         {
             int cantfilas = 0;

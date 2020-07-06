@@ -33,7 +33,7 @@ namespace Vistas
             string Fecha = Session["Fecha"].ToString();
             string Hora = Session["Horario"].ToString();
             string Precio = Session["Precio"].ToString();
-            string Correo = Session["Correo"].ToString();
+            string Correo = Session["Correo_Ac"].ToString();
 
             fs.Fecha1 = Fecha;
             fs.Hora_Inicio1 = Hora;

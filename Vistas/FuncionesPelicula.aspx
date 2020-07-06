@@ -8,7 +8,7 @@
     <div>
         <div class="d-flex justify-content-center mt-5">
             <asp:DropDownList CssClass="ddlsc mr-5" runat="server" ID="ddlSucs" AutoPostBack="true" OnSelectedIndexChanged="ddlSucs_SelectedIndexChanged"></asp:DropDownList>
-            <asp:DropDownList CssClass="ddlsc" runat="server" ID="ddlSala" AutoPostBack="true" OnSelectedIndexChanged="ddlSala_SelectedIndexChanged"></asp:DropDownList>
+            <asp:DropDownList CssClass="ddlsc" runat="server" ID="ddlSala"  Visible="false" AutoPostBack="true" OnSelectedIndexChanged="ddlSala_SelectedIndexChanged"></asp:DropDownList>
         </div>
         <br />
         <asp:Label runat="server" ID="lbliniciosesion" CssClass="d-none"><i class="fas fa-exclamation animated zoomIn infinite mr-3"></i>Debe iniciar sesión para realizar la compra.</asp:Label>

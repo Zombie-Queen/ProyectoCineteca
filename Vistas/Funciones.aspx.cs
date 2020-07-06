@@ -43,7 +43,7 @@ namespace Vistas
 
         protected void gvFunciones_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Session["Correo"] != null && Session["Contraseña"] != null)
+            if (Session["Correo_Ac"] != null && Session["Contraseña_Ac"] != null)
             {
                 lbliniciosesion.CssClass = "d-none";
                 GridViewRow row = gvFunciones.SelectedRow;

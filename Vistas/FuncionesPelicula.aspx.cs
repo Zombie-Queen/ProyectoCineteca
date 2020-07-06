@@ -21,8 +21,16 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                cargar_ddl_suc();
-                cargar_ddl_sala();
+                if (Session["ID_t_Sala"] == null)
+                {
+                    ddlSala.Visible = true;                    
+                    cargar_ddl_suc();
+                    cargar_ddl_sala();
+                }
+                else
+                {
+                    cargar_ddl_suc();
+                }
             }
         }
 
@@ -49,12 +57,16 @@ namespace Vistas
             ddlSala.DataTextField = "Descripcion_TipoSala";
             ddlSala.DataValueField = "ID_TipoSala";
             ddlSala.DataBind();
-            Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
+            if (Session["ID_t_Sala"] != null)
+
+                ddlSala.SelectedItem.Value = Session["ID_t_Sala"].ToString();
+            else
+                Session["ID_t_Sala"] = ddlSala.SelectedItem.Value;
         }
 
         protected void gvSuc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (Session["Correo"] != null && Session["Contraseña"] != null)
+            if (Session["Correo_Ac"] != null && Session["Contraseña_Ac"] != null)
             {
                 lbliniciosesion.CssClass = "d-none";
                 GridViewRow row = gvSuc.SelectedRow;

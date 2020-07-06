@@ -4,8 +4,7 @@
     <link href="css/registro.css" rel="stylesheet" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
-    <div class="form w-50">
-        <asp:Label runat="server" ID="lblprueba"></asp:Label>
+    <div class="form-reg w-50">        
         <h2 class="subt">REGISTRARSE</h2>
         <div class="form-row mb-4">
             <div class="col d-flex">
