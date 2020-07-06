@@ -20,6 +20,7 @@ namespace Vistas
 
         protected void btnCambiarCorreo_Click(object sender, EventArgs e)
         {
+            txtCorreo.Text = "";
             lblContra.Text = "";
             bool estado = false;
             estado = nu.ModificarCorreo(Session["Correo_Ac"].ToString(), txtCorreo.Text, Session["Contraseña_Ac"].ToString());
@@ -39,9 +40,9 @@ namespace Vistas
 
         protected void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
+            lblCorreo.Text = "";
             if (Convert.ToBoolean(Session["CambiarContra"]) == true)
             {
-                lblCorreo.Text = "";
                 bool estado = false;
                 estado = nu.ModificarContra(Session["Contraseña_Ac"].ToString(), txtContra.Text, Session["Correo_Ac"].ToString());
                 if (estado)
