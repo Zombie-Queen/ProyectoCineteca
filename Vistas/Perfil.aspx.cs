@@ -39,31 +39,42 @@ namespace Vistas
 
         protected void btnCambiarContraseña_Click(object sender, EventArgs e)
         {
-            lblCorreo.Text = "";
-            bool estado = false;
-            estado = nu.ModificarContra(Session["Contraseña_Ac"].ToString(), txtContra.Text, Session["Correo_Ac"].ToString());
-            if (estado)
+            if (Convert.ToBoolean(Session["CambiarContra"]) == true)
             {
-                Session["Contraseña_Ac"] = txtContra.Text;
-                lblContra.CssClass = "green-text msglbl";
-                lblContra.Text = "Contraseña modificada.";
+                lblCorreo.Text = "";
+                bool estado = false;
+                estado = nu.ModificarContra(Session["Contraseña_Ac"].ToString(), txtContra.Text, Session["Correo_Ac"].ToString());
+                if (estado)
+                {
+                    Session["Contraseña_Ac"] = txtContra.Text;
+                    lblContra.CssClass = "green-text msglbl";
+                    lblContra.Text = "Contraseña modificada.";
+                }
+                else
+                {
+                    Response.Redirect("Perfil.aspx");
+                    lblContra.CssClass = "red-text msglbl";
+                    lblContra.Text = "La contraseña no pudo ser modificada.";
+                }
             }
             else
             {
                 lblContra.CssClass = "red-text msglbl";
-                lblContra.Text = "La contraseña no pudo ser modificada.";
+                lblContra.Text = "La contraseña no debe pasar los 30 caracteres.";
             }
         }
 
         protected void CuvContra_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if (args.Value.Length >= 8 && args.Value.Length <= 20)
+            if (args.Value.Length <= 30)
             {
                 args.IsValid = true;
+                Session["CambiarContra"] = true;
             }
             else
             {
                 args.IsValid = false;
+                Session["CambiarContra"] = false;
             }
         }
 

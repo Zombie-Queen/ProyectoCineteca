@@ -25,7 +25,7 @@
             <asp:TextBox placeholder="Contraseña" runat="server" ID="contra" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="rfContraseñareg" ControlToValidate="contra" ValidationGroup="reg" CssClass="red-text msgerror" Text="*"></asp:RequiredFieldValidator>
         </div>
-        <asp:CustomValidator runat="server" ID="cvContra" ControlToValidate="contra" Text="La contraseña debe tener entre 8 y 20 caracteres." CssClass="red-text" ValidationGroup="reg" OnServerValidate="cvContra_ServerValidate"></asp:CustomValidator>
+        <asp:CustomValidator runat="server" ID="cvContra" ControlToValidate="contra" Text="La contraseña no debe pasar los 30 caracteres." CssClass="red-text" ValidationGroup="reg" OnServerValidate="cvContra_ServerValidate"></asp:CustomValidator>
         <div class="d-flex">
             <asp:TextBox placeholder="Repita Contraseña" runat="server" ID="contrarepeat" TextMode="Password" CssClass="form-control mr-2"></asp:TextBox>
             <asp:RequiredFieldValidator runat="server" ID="rfcontrasiguales" CssClass="red-text msgerror" ControlToValidate="contrarepeat" Text="*" ValidationGroup="reg"></asp:RequiredFieldValidator>

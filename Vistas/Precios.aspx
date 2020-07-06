@@ -5,7 +5,7 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
     <div class="contenedor">
-        <h2>PRECIOS DE SALAS</h2>
+        <h2 class="mb-5">PRECIOS DE SALAS</h2>
         <p>
             Encontrá aquí los precios de las entradas para tu película de boletería y venta web por tipo de sala 2D, 3D, PREMIUM o 4D.
             <br />

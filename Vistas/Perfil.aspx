@@ -99,7 +99,7 @@
                         <asp:TextBox runat="server" ID="txtContra" CssClass="form-control p-4" TextMode="Password"></asp:TextBox>
                         <label for="txtContra">Nueva Contraseña</label>
                         <asp:RequiredFieldValidator runat="server" ID="rfContra" CssClass="red-text msgerror" ControlToValidate="txtContra" Text="La contraseña no puede estar vacía." ValidationGroup="contra"></asp:RequiredFieldValidator>
-                        <asp:CustomValidator runat="server" ID="CuvContra" ControlToValidate="txtContra" Text="La contraseña debe tener entre 8 y 20 caracteres." CssClass="red-text" ValidationGroup="contra" OnServerValidate="CuvContra_ServerValidate"></asp:CustomValidator>
+                        <asp:CustomValidator runat="server" ID="CuvContra" ControlToValidate="txtContra" CssClass="red-text" ValidationGroup="contra" OnServerValidate="CuvContra_ServerValidate"></asp:CustomValidator>
                     </div>
                     <div class="md-form mb-5">
                         <asp:TextBox runat="server" ID="txtContrarepeat" CssClass="form-control p-4" TextMode="Password"></asp:TextBox>

@@ -25,39 +25,45 @@ namespace Vistas
             int estado;
             Usuario cli = new Usuario();
             NegocioUsuario nc = new NegocioUsuario();
-            cli.nombre = ((TextBox)nombre.FindControl("nombre")).Text;
-            cli.apellido = ((TextBox)ape.FindControl("ape")).Text;
-            cli.dni = ((TextBox)dni.FindControl("dni")).Text;
-            cli.contraseña = ((TextBox)contra.FindControl("contra")).Text;
-            cli.fecha = Convert.ToDateTime(fecha.Text);
-            cli.mail = ((TextBox)email.FindControl("email")).Text;
-            estado = nc.AgregarCliente(cli);
-            if (estado == 1)
+            if (Convert.ToBoolean(Session["Valido"]) == true)
             {
-                lblReg.CssClass = "green-text msglbl";
-                lblReg.Text = "Usuario registrado.";
-            }
-            else if (estado == 0)
-            {
-                lblReg.CssClass = "red-text msglbl";
-                lblReg.Text = "Este usuario ya está registrado.";                              
-                nombre.Text = "";
-                ape.Text = "";
-                dni.Text = "";
-                email.Text = "";
-                fecha.Text = "";
+                cli.nombre = ((TextBox)nombre.FindControl("nombre")).Text;
+                cli.apellido = ((TextBox)ape.FindControl("ape")).Text;
+                cli.dni = ((TextBox)dni.FindControl("dni")).Text;
+                cli.contraseña = ((TextBox)contra.FindControl("contra")).Text;
+                cli.fecha = Convert.ToDateTime(fecha.Text);
+                cli.mail = ((TextBox)email.FindControl("email")).Text;
+                estado = nc.AgregarCliente(cli);
+                if (estado == 1)
+                {
+                    lblReg.CssClass = "green-text msglbl";
+                    lblReg.Text = "Usuario registrado.";
+                }
+                else if (estado == 0)
+                {
+                    lblReg.CssClass = "red-text msglbl";
+                    lblReg.Text = "Este usuario ya está registrado.";
+                    nombre.Text = "";
+                    ape.Text = "";
+                    dni.Text = "";
+                    email.Text = "";
+                    fecha.Text = "";
+                }
+                Session["Valido"] = null;
             }
         }
 
         protected void cvContra_ServerValidate(object source, ServerValidateEventArgs args)
         {
-            if(args.Value.Length < 8 || args.Value.Length > 20)
+            if (args.Value.Length > 30)
             {
                 args.IsValid = false;
+                Session["Valido"] = false;
             }
             else
             {
                 args.IsValid = true;
+                Session["Valido"] = true;
             }
         }
     }
