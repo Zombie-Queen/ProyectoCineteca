@@ -21,6 +21,9 @@ namespace Vistas
             {
                 cargar_ddl_suc();
                 cargar_ddl_func();
+                Session["ID_Sucursal"] = null;
+                Session["ID_Pelicula"] = null;
+                Session["ID_t_Sala"] = null;
 
             }
         }

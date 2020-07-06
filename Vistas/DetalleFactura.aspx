@@ -4,7 +4,9 @@
     <link rel="stylesheet" href="css/funciones.css" type="text/css" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
-    <h2>ASIENTOS</h2>
+    <br />
+    <a href="FacturasCliente.aspx" class="h3 white-text text-light">Volver a Compras</a>
+    <h2>DETALLE DE COMPRA</h2>
     <asp:GridView runat="server" ID="gvDetalleFactura" CssClass="grid" AutoGenerateColumns="False" DataKeyNames="ID Venta,ID Detalle" DataSourceID="sqldsDetalleFactura">
         <Columns>
             <asp:BoundField HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" DataField="ID Detalle" HeaderText="ID Detalle" ReadOnly="True" SortExpression="ID Detalle"></asp:BoundField>

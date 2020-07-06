@@ -166,11 +166,10 @@
     <br />
     <asp:SqlDataSource ID="SqlDataSourceAsientosDisponibles" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_AsientosDisponible" SelectCommandType="StoredProcedure">
         <SelectParameters>
-            <asp:SessionParameter DefaultValue="" Name="ID_Funcion" SessionField="ID_Funcion" Type="String" />
-            <asp:SessionParameter DefaultValue="" Name="ID_Sucursal" SessionField="ID_Sucursal" Type="String" />
-            <asp:SessionParameter DefaultValue="" Name="ID_Sala" SessionField="ID_Sala" Type="String" />
-            <asp:SessionParameter SessionField="Horario" Name="Horario" Type="String"></asp:SessionParameter>
-            <asp:SessionParameter DbType="Date" DefaultValue="" Name="Fecha" SessionField="Fecha" />
+            <asp:SessionParameter Name="ID_Pelicula" SessionField="ID_Pelicula" Type="String" />
+            <asp:SessionParameter Name="ID_Sucursal" SessionField="ID_Sucursal" Type="String" />
+            <asp:SessionParameter Name="Horario" SessionField="Horario" Type="String" />
+            <asp:SessionParameter SessionField="Fecha" Name="Fecha" DbType="Date" />
         </SelectParameters>
     </asp:SqlDataSource>
     <asp:SqlDataSource ID="SqlDataSourceAsientosReservados" runat="server" ConnectionString="<%$ ConnectionStrings:CinetecaConnectionString %>" SelectCommand="SP_AsientosReservado" SelectCommandType="StoredProcedure"></asp:SqlDataSource>

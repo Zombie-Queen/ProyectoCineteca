@@ -32,7 +32,16 @@ namespace Dao
             parametros = Comando.Parameters.Add("@Fecha", SqlDbType.Date);
             parametros.Value = cli.fecha;
         }
-        
+
+        private void armarParametrosAct_DesacCliente(SqlCommand Comando, Usuario cli)
+        {
+            SqlParameter parametros = new SqlParameter();
+            parametros = Comando.Parameters.Add("@Contraseña", SqlDbType.Char, 30);
+            parametros.Value = cli.contraseña;
+            parametros = Comando.Parameters.Add("@Correo", SqlDbType.VarChar, 30);
+            parametros.Value = cli.mail;
+        }
+
         public int ModificarCorreo(String correoInicial, String correoFinal, String contraseña)
         {
             consulta = "UPDATE USUARIOS SET CORREO = '" + correoFinal + "' WHERE CORREO = '" + correoInicial + "' AND CONTRASEÑA = '" + contraseña + "'"; 
@@ -50,6 +59,20 @@ namespace Dao
             comando = new SqlCommand();
             armarParametrosAgregarCliente(comando, cli);
             return acc.sp_Ejecutar(comando, "spAgregarUsuario");
+        }
+
+        public int EliminarCliente(Usuario cli)
+        {
+            comando = new SqlCommand();
+            armarParametrosAct_DesacCliente(comando, cli);
+            return acc.sp_Ejecutar(comando, "sp_bajaCliente");
+        }
+
+        public int ActivarCliente(Usuario cli)
+        {
+            comando = new SqlCommand();
+            armarParametrosAct_DesacCliente(comando, cli);
+            return acc.sp_Ejecutar(comando, "sp_altaCliente");
         }
 
         public bool existeUsuario(String dni)

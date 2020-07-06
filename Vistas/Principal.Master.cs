@@ -13,7 +13,7 @@ namespace Vistas
 {
     public partial class Principal : System.Web.UI.MasterPage
     {
-
+        NegocioUsuario nu = new NegocioUsuario();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -30,6 +30,7 @@ namespace Vistas
                     logueado.CssClass = "d-none";
                     ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
                 }
+
             }
 
         }
@@ -40,17 +41,25 @@ namespace Vistas
             DataTable dt = nc.getRegistroUsuario(correo.Text, contraseña.Text);
             if (dt.Rows.Count > 0)
             {
-                lblerror.Text = "";
-                Session["Correo"] = correo.Text;
-                Session["Contraseña"] = contraseña.Text;
-                Session["Nombre"] = "Bienvenido/a " + Convert.ToString(dt.Rows[0][2]) + "!";
-                if (Convert.ToInt32(dt.Rows[0][7]) == 1)
+                Session["Estado"] = Convert.ToString(dt.Rows[0][1]);
+                if (Session["Estado"].ToString() == "Activo")
                 {
-                    Response.Redirect("Inicio.aspx");   
+                    lblerror.Text = "";
+                    Session["Correo"] = correo.Text;
+                    Session["Contraseña"] = contraseña.Text;
+                    Session["Nombre"] = "Bienvenido/a " + Convert.ToString(dt.Rows[0][2]) + "!";
+                    if (Convert.ToInt32(dt.Rows[0][7]) == 1)
+                    {
+                        Response.Redirect("Inicio.aspx");
+                    }
+                    else
+                    {
+                        Server.Transfer("Inicio_admin.aspx");
+                    }
                 }
-                else
+                else if (Session["Estado"].ToString() == "Inactivo")
                 {
-                    Server.Transfer("Inicio_admin.aspx");
+                    Response.Redirect("UsuarioInactivo.aspx");
                 }
             }
             else
@@ -74,6 +83,18 @@ namespace Vistas
         protected void btnCompras_Click(object sender, EventArgs e)
         {
             Response.Redirect("FacturasCliente.aspx");
+        }
+
+        protected void btnConfirmIn_Click(object sender, EventArgs e)
+        {
+            int fila;
+            fila = nu.ActivarCliente(correo.Text, contraseña.Text);
+            if (fila == 1)
+            {
+                Session["Correo"] = correo.Text;
+                Session["Contraseña"] = contraseña.Text;
+                Response.Redirect("Inicio.aspx");
+            }
         }
     }
 }

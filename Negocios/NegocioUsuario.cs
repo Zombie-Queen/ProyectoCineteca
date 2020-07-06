@@ -59,6 +59,26 @@ namespace Negocios
             return cantFilas;
         }
 
+        public int EliminarCliente(String Correo, String contraseña)
+        {
+            int cantFilas = 0;
+            cli1 = new Usuario();
+            cli1.contraseña = contraseña;
+            cli1.mail = Correo;
+            cantFilas = dao.EliminarCliente(cli1);
+            return cantFilas;
+        }
+
+        public int ActivarCliente(String Correo, String contraseña)
+        {
+            int cantFilas = 0;
+            cli1 = new Usuario();
+            cli1.contraseña = contraseña;
+            cli1.mail = Correo;
+            cantFilas = dao.ActivarCliente(cli1);
+            return cantFilas;
+        }
+
         public DataTable getRegistroUsuario(String correo, String contraseña)
         {
             return dao.getUsuario(correo, contraseña);

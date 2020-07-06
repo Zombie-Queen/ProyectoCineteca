@@ -15,6 +15,9 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
+                Session["ID_Sucursal"] = null;
+                Session["ID_Pelicula"] = null;
+                Session["ID_t_Sala"] = null;
             }
         }
         protected void btnregistro_Click(object sender, EventArgs e)
@@ -31,7 +34,6 @@ namespace Vistas
             estado = nc.AgregarCliente(cli);
             if (estado == 1)
             {
-                //panel1.CssClass = "show";
                 lblReg.CssClass = "green-text msglbl";
                 lblReg.Text = "Usuario registrado.";
             }

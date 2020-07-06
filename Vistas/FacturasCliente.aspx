@@ -11,7 +11,7 @@
             <asp:BoundField DataField="Fecha" HeaderText="Fecha" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" SortExpression="Fecha" DataFormatString="{0:d}"></asp:BoundField>
             <asp:BoundField DataField="ID_Promocion_Venta" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" HeaderText="Promoción" SortExpression="ID_Promocion_Venta"></asp:BoundField>
             <asp:BoundField DataField="Total" HeaderText="Total" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" SortExpression="Total"></asp:BoundField>
-
+            <asp:BoundField DataField="Estado_Venta" HeaderStyle-CssClass="header-gv" ItemStyle-CssClass="item-gv" HeaderText="Estado" SortExpression="Estado_Venta"></asp:BoundField>
         </Columns>
     </asp:GridView>
     <asp:SqlDataSource runat="server" ID="sqldsFacturaCliente" ConnectionString='<%$ ConnectionStrings:CinetecaConnectionString %>' SelectCommand="spVentaCliente" SelectCommandType="StoredProcedure">

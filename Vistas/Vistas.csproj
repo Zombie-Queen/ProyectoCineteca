@@ -71,6 +71,7 @@
     <Content Include="articulos_alta.aspx" />
     <Content Include="baja_detalle_ventas.aspx" />
     <Content Include="baja_detalle_ventasArts.aspx" />
+    <Content Include="css\FinalizarVenta.css" />
     <Content Include="DetalleFactura.aspx" />
     <Content Include="FacturasCliente.aspx" />
     <Content Include="css\administrador.css" />
@@ -160,6 +161,7 @@
     <Content Include="Sucursales.aspx" />
     <Content Include="Sucursaltom.aspx" />
     <Content Include="Sucursalunicenter.aspx" />
+    <Content Include="UsuarioInactivo.aspx" />
     <Content Include="ventas_DetalleDeVenta.aspx" />
     <Content Include="ventas_listado.aspx" />
     <Content Include="ventas_BajaVentas.aspx" />
@@ -355,6 +357,13 @@
     </Compile>
     <Compile Include="Sucursalunicenter.aspx.designer.cs">
       <DependentUpon>Sucursalunicenter.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UsuarioInactivo.aspx.cs">
+      <DependentUpon>UsuarioInactivo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UsuarioInactivo.aspx.designer.cs">
+      <DependentUpon>UsuarioInactivo.aspx</DependentUpon>
     </Compile>
     <Compile Include="ventas_DetalleDeVenta.aspx.cs">
       <DependentUpon>ventas_DetalleDeVenta.aspx</DependentUpon>

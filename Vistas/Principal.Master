@@ -66,7 +66,7 @@
                         <!-- VALIDA SI INGRESA ALGO -->
                         <asp:RequiredFieldValidator runat="server" ID="rfContraseña" CssClass="red-text" ControlToValidate="contraseña" ValidationGroup="login" Text="Ingrese contraseña"></asp:RequiredFieldValidator>
                     </div>
-                    <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" ValidationGroup="login" OnClick="btnIniciar_Click" /><br />
+                    <asp:Button runat="server" CssClass="btn btn-primary purple-gradient" Text="Iniciar Sesión" ID="btnIniciar" data-toggle="modal" data-target="#modalCuenta" ValidationGroup="login" OnClick="btnIniciar_Click" /><br />
                     <asp:Label ID="lblerror" CssClass="red-text" runat="server"></asp:Label>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="Registro.aspx">Registrarse</a>
@@ -77,7 +77,7 @@
                     <asp:Button runat="server" ID="btnCompras" CssClass="dropdown-item" Text="Compras" OnClick="btnCompras_Click" />
                     <asp:Button runat="server" ID="btnCerrar" CssClass="dropdown-item" Text="Cerrar Sesión" OnClick="btnCerrar_Click" />
                 </asp:Panel>
-            </div>           
+            </div>
             <script>
                 $('#User').on("click", function () {
                     $('#ddm').toggle()
@@ -107,7 +107,7 @@
                     <nav class="n-footer">
                         <ul>
                             <li><a href="#">CINETECA PREMIUM</a></li>
-                            <li><a href="#">PROMOCIONES</a></li>
+                            <li><a href="Promociones.aspx">PROMOCIONES</a></li>
                         </ul>
                     </nav>
                 </div>
@@ -133,5 +133,7 @@
             </div>
         </footer>
     </form>
+    <asp:Button runat="server" ID="btnConfirmIn" Text="Aceptar" CssClass="btn purple-gradient" OnClick="btnConfirmIn_Click" />
+   
 </body>
 </html>

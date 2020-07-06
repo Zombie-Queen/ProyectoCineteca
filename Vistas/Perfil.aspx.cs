@@ -66,5 +66,21 @@ namespace Vistas
                 args.IsValid = false;
             }
         }
+
+        protected void btnConfirm_Click(object sender, EventArgs e)
+        {
+            int fila;
+            fila = nu.EliminarCliente(Session["Correo"].ToString(), Session["Contraseña"].ToString());
+            if (fila == 1)
+            {
+                Session["Correo"] = null;
+                Session["Contraseña"] = null;
+                Server.Transfer("Inicio.aspx");
+            }
+            else
+            {
+                Response.Redirect("Perfil.aspx");
+            }
+        }
     }
 }

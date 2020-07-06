@@ -430,7 +430,7 @@ namespace Dao
             SqlParametros.Value = fsa.ID_Sala_FSA1;
             SqlParametros = comando.Parameters.Add("@ID_Asiento", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Asiento_FSA1;
-            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.Date);
             SqlParametros.Value = fsa.Fecha_FuncionxSalaAsiento1;
             SqlParametros = comando.Parameters.Add("@Precio", SqlDbType.Decimal);
             SqlParametros.Value = precio;

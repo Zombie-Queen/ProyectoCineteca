@@ -67,9 +67,9 @@ namespace Dao
             SqlParametros.Value = fsa.ID_Sucursal_FSA1;
             SqlParametros = comando.Parameters.Add("@ID_Asiento", SqlDbType.Char);
             SqlParametros.Value = fsa.ID_Asiento_FSA1;
-            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.Time);
             SqlParametros.Value = fs.Hora_Inicio1;
-            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.Date);
             SqlParametros.Value = fsa.Fecha_FuncionxSalaAsiento1;
         }
 
@@ -81,9 +81,9 @@ namespace Dao
             SqlParametros.Value = fs.ID_Pelicula1;
             SqlParametros = comando.Parameters.Add("@ID_Sucursal", SqlDbType.Char);
             SqlParametros.Value = fs.ID_Sucursal1;
-            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@Horario", SqlDbType.Time);
             SqlParametros.Value = fs.Hora_Inicio1;
-            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.VarChar);
+            SqlParametros = comando.Parameters.Add("@Fecha", SqlDbType.Date);
             SqlParametros.Value = fs.Fecha1;
         }
 

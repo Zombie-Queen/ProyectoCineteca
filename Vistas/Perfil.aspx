@@ -55,6 +55,10 @@
             <button type="button" class="btn btn-lg w-25 purple-gradient h3 msglbl" data-toggle="modal" data-target="#modalContra">Cambiar Contraseña</button>
             <asp:Label runat="server" ID="lblContra"></asp:Label>
         </div>
+        <div class="d-flex align-items-center h3">
+            <button type="button" class="btn btn-lg w-25 purple-gradient h3 msglbl" data-toggle="modal" data-target="#modalCuenta">Eliminar Cuenta</button>
+            <asp:Label runat="server" ID="lblEliminar"></asp:Label>
+        </div>
     </div>
     <div class="modal fade" id="modalCorreo" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
         aria-hidden="true">
@@ -104,9 +108,43 @@
                     </div>
                 </div>
                 <div class="modal-footer d-flex justify-content-center">
-                    <asp:Button runat="server" ID="btnCambiarContraseña" Text="Confirmar" CssClass="btn purple-gradient" ValidationGroup="contra"  OnClick="btnCambiarContraseña_Click" />
+                    <asp:Button runat="server" ID="btnCambiarContraseña" Text="Confirmar" CssClass="btn purple-gradient" ValidationGroup="contra" OnClick="btnCambiarContraseña_Click" />
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modalCuenta" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-notify modal-danger" role="document">
+            <!--Content-->
+            <div class="modal-content">
+                <!--Header-->
+                <div class="modal-header">
+                    <p class="heading lead">Modal Danger</p>
+
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true" class="white-text">&times;</span>
+                    </button>
+                </div>
+
+                <!--Body-->
+                <div class="modal-body">
+                    <div class="text-center">
+                        <i class="fas fa-question fa-4x mb-3 animated swing infinite"></i>
+                        <p>
+                            ¿Está seguro? La cuenta se inhabilitará hasta que vuelva a iniciar sesión.
+                        </p>
+                    </div>
+                </div>
+
+                <!--Footer-->
+                <div class="modal-footer justify-content-center">
+                    <asp:Button runat="server" ID="btnConfirm" Text="Aceptar" CssClass="btn purple-gradient" OnClick="btnConfirm_Click" />
+                    <a type="button" class="btn purple-gradient" data-dismiss="modal">Cancelar</a>
+                    
+                </div>
+            </div>
+            <!--/.Content-->
         </div>
     </div>
 </asp:Content>
