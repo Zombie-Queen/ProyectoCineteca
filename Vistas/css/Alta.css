@@ -19,7 +19,7 @@ html {
     padding: 1rem 0;
     width: 130rem;
     height: 60rem;
-    background:grey;
+    
     
 }
 
@@ -41,10 +41,11 @@ html {
    
 }
 
-.registro h4{
-    font-size:2rem;
-    margin-bottom:.5rem;
-    
+
+
+.registro h4 {
+    font-size: 2rem;
+    margin-bottom: .5rem;
 }
 
 .controles {
@@ -277,12 +278,15 @@ h1 {
 
 .perfil {
     position: relative;
-    display:flex;
-    margin-right:auto;
+    display: flex;
+    margin-right: auto;
     margin-left: auto;
     width: 45%;
-    background: blue;
-    
+    background: #FFFFFF;
+    box-shadow: 7px 13px 37px #000;
+    background: #24303c;
+    border-radius: 4px;
+    color: Beige;
 }
 
 .label-perfil{
@@ -292,15 +296,22 @@ h1 {
     
 }
 
+.datos-perfil {
+    
+    margin:auto;
+
+}
 .foto-perfil{
 
     float:left;
     border-radius:50%;
-    padding:2rem;
+    box-shadow: 0 0 0 8px rgba(0,0,0,.06);
+    margin:2rem 3rem;
+    transition:.2s;
 }
 
 .foto{
     
     border-right:1px solid #ddd;
-    background:red;
+    
 }
