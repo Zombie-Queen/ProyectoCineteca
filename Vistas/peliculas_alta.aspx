@@ -9,32 +9,32 @@
         <section class="registro">
             <h4>Agregar película</h4>
             <asp:TextBox Class="controles" runat="server" name="id" placeholder="ID"  ID="txt_id_peli"></asp:TextBox>
-            <asp:CustomValidator ID="cv_id_peli" runat="server" Text="Máximo 4 caracteres" ControlToValidate="txt_id_peli" Class="validator-rojo" OnServerValidate="CustomValidator1_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
-            <asp:RequiredFieldValidator ID="req_id" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_id_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="cv_id_peli" runat="server" Text="Máximo 4 caracteres" ControlToValidate="txt_id_peli" Class="validator-rojo" OnServerValidate="CustomValidator11_ServerValidate" ValidationGroup="Agreg"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_id" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_id_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>
 
             <asp:TextBox Class="controles" runat="server" name="estado" placeholder="Estado"  ID="txt_estado_peli"></asp:TextBox>
-            <asp:CustomValidator ID="cv_estado_peli" runat="server" Text="Máximo 20 caracteres" ControlToValidate="txt_estado_peli" Class="validator-rojo" OnServerValidate="CustomValidator2_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
-            <asp:RequiredFieldValidator ID="req_estado" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_estado_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="cv_estado_peli" runat="server" Text="Máximo 20 caracteres" ControlToValidate="txt_estado_peli" Class="validator-rojo" OnServerValidate="CustomValidator12_ServerValidate" ValidationGroup="Agreg"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_estado" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_estado_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>
             
             <asp:TextBox Class="controles" runat="server" name="titulo" placeholder="Título"  ID="txt_titulo_peli"></asp:TextBox>
-            <asp:CustomValidator ID="cv_titulo" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_titulo_peli" Class="validator-rojo" OnServerValidate="CustomValidator3_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
-            <asp:RequiredFieldValidator ID="req_titulo" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_titulo_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="cv_titulo" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_titulo_peli" Class="validator-rojo" OnServerValidate="CustomValidator13_ServerValidate" ValidationGroup="Agreg"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_titulo" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_titulo_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>
             
             
             <asp:TextBox Class="controles" runat="server" name="duracion" placeholder="Duración"  ID="txt_duracion_peli"></asp:TextBox>
-            <asp:RangeValidator ID="rg_durac_peli" runat="server" Text="Expresión invalida" ControlToValidate="txt_duracion_peli" Class="validator-rojo" ValidationGroup="Agregar1" MaximumValue="300" MinimumValue="0" Type="Integer" ></asp:RangeValidator>
-            <asp:RequiredFieldValidator ID="req_durac" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_duracion_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>    
+            <asp:RangeValidator ID="rg_durac_peli" runat="server" Text="Expresión invalida" ControlToValidate="txt_duracion_peli" Class="validator-rojo" ValidationGroup="Agreg" MaximumValue="300" MinimumValue="0" Type="Integer" ></asp:RangeValidator>
+            <asp:RequiredFieldValidator ID="req_durac" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_duracion_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>    
             
             <asp:TextBox Class="controles" runat="server" name="clasif" placeholder="Clasificación"  ID="txt_clasif_peli"></asp:TextBox>
-            <asp:CustomValidator ID="cv_clasif" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_clasif_peli" Class="validator-rojo" OnServerValidate="CustomValidator4_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
-            <asp:RequiredFieldValidator ID="req_clasif" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_clasif_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="cv_clasif" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_clasif_peli" Class="validator-rojo" OnServerValidate="CustomValidator14_ServerValidate" ValidationGroup="Agreg"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_clasif" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_clasif_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>
             
             
             <asp:TextBox Class="controles" runat="server" name="url" placeholder="imagenes/peliculas/titulo.jpg" ID="txt_url_peli"></asp:TextBox>
-            <asp:CustomValidator ID="cv_url" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_url_peli" Class="validator-rojo" OnServerValidate="CustomValidator5_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
-            <asp:RequiredFieldValidator ID="req_url" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_url_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
+            <asp:CustomValidator ID="cv_url" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_url_peli" Class="validator-rojo" OnServerValidate="CustomValidator15_ServerValidate" ValidationGroup="Agreg"></asp:CustomValidator>
+            <asp:RequiredFieldValidator ID="req_url" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_url_peli" Class="valid-rojo" ValidationGroup="Agreg"></asp:RequiredFieldValidator>
             
-            <asp:Button  ID="btnAgregar" runat="server" Text="Agregar" ValidationGroup="Agregar1" Class="botons" OnClick="btnAgregar_Click" />
+            <asp:Button  ID="btnAgregar" runat="server" Text="Agregar" ValidationGroup="Agreg" Class="botons" OnClick="btnAgregar_Click" />
         </section>
         <div class="filtro-p">
             <h1>Buscar</h1> 
@@ -54,12 +54,14 @@
                             </ItemTemplate>
                             <EditItemTemplate>
                                 <asp:Label ID="lbl_id_pelicula" runat="server" Text='<%# Bind("[Pelicula]") %>'></asp:Label>
+                                
                             </EditItemTemplate>
                             
                         </asp:TemplateField>
                         <asp:TemplateField HeaderText="Estado">
                             <EditItemTemplate>
                                 <asp:TextBox class="editarMe" ID="txt_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:TextBox>
+                                
                             </EditItemTemplate>
                             <ItemTemplate>
                                 <asp:Label ID="lbl_estado_peli" runat="server" Text='<%# Bind("[Estado]") %>'></asp:Label>
@@ -103,10 +105,8 @@
                         </asp:TemplateField>
                     </Columns>
             </asp:GridView>
-
-            
             </div>
-   
+       
     </div>
         
 </asp:Content>

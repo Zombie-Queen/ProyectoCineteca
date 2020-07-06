@@ -10,6 +10,7 @@ using System.Data.SqlClient;
 using Entidades;
 using System.Windows.Forms;
 using System.Linq.Expressions;
+using System.Configuration;
 
 namespace Vistas
 {
@@ -26,7 +27,7 @@ namespace Vistas
                 Session["dev_seleccionados"] = null;
                 CargarGrid();
             }
-            vaciar_campos();
+            
         }
 
 
@@ -88,7 +89,7 @@ namespace Vistas
             pelicula.clasificacion = txt_clasif_peli.Text;
             pelicula.url_imagen = txt_url_peli.Text;
 
-            if(cv_id_peli.IsValid==true && cv_estado_peli.IsValid==true && cv_titulo.IsValid==true && cv_clasif.IsValid==true && cv_url.IsValid==true)
+            if((cv_id_peli.IsValid==true || Session["id_peli"]==null) && (cv_estado_peli.IsValid==true|| Session["estado"]==null) && (cv_titulo.IsValid==true || Session["titulo"]==null) && (cv_clasif.IsValid==true|| Session["clasif"]==null) && (cv_url.IsValid==true|| Session["url"]==null))
             {
                 try
                 {
@@ -143,7 +144,8 @@ namespace Vistas
 
         protected void grdPelis_RowUpdating(object sender, GridViewUpdateEventArgs e)
          {
-            
+
+             bool modificar = true;
              //Buscar los datos del edititemplate
              String s_id_pelicula = ((System.Web.UI.WebControls.Label)grdPelis.Rows[e.RowIndex].FindControl("lbl_id_pelicula")).Text;
              String s_estado = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_estado_peli")).Text;
@@ -151,19 +153,48 @@ namespace Vistas
              String s_duracion = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_duracion")).Text;
              String s_clasif = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_clasificacion")).Text;
              String s_url = ((System.Web.UI.WebControls.TextBox)grdPelis.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
+            
+            if (s_id_pelicula == "" || s_estado == "" || s_titulo == "" || s_duracion == "" || s_clasif == "" || s_url == "") modificar = false;
+            if(modificar==true)
+            {
+                if (s_id_pelicula.Length > 4) modificar = false;
+                if (s_estado.Length > 20) modificar = false;
+                if (s_titulo.Length > 50) modificar = false;
+                try
+                {
+                    pelicula.duracion = Convert.ToInt32(s_duracion);
+                    if (pelicula.duracion < 0 && pelicula.duracion > 500) modificar = false;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("No se pudo modificar película.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+                if (s_clasif.Length > 50) modificar = false;
+                if (s_url.Length > 50) modificar = false;
 
+            }
+            
             pelicula.id_pelicula = s_id_pelicula;
             pelicula.estado = s_estado;
             pelicula.titulo = s_titulo;
-             pelicula.duracion = Convert.ToInt32(s_duracion);
             pelicula.clasificacion = s_clasif;
             pelicula.url_imagen = s_url;
 
 
-            np.modificarPelicula(pelicula);// se envia el objeto con los nuevos valores y se actualiza en la BD
+            if(modificar==true)
+            {
+                np.modificarPelicula(pelicula);// se envia el objeto con los nuevos valores y se actualiza en la BD
+                grdPelis.EditIndex = -1;
+                CargarGrid(); // se vuelve a cargar la grilla actualizada
+                MessageBox.Show("Película modificado con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar la película.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
 
-             grdPelis.EditIndex = -1;
-             CargarGrid(); // se vuelve a cargar la grilla actualizada 
+              
         }
 
         protected void grdPelis_RowDeleting(object sender, GridViewDeleteEventArgs e)
@@ -203,44 +234,49 @@ namespace Vistas
 
         }
 
-        protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator11_ServerValidate(object source, ServerValidateEventArgs args)
         {
             
             if (args.Value.Length > 4)
             {
                 args.IsValid = false;
-                cv_id_peli.IsValid = false;
+                Session["id_peli"] = false;
+                
             }
             
         }
 
-        protected void CustomValidator2_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator12_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Length > 20)
             {
                 args.IsValid = false;
+                Session["estado"] = false;
             }
         }
 
-        protected void CustomValidator3_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator13_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Length > 50)
             {
                 args.IsValid = false;
+                Session["titulo"] = false;
             }
         }
-        protected void CustomValidator4_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator14_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Length > 50)
             {
                 args.IsValid = false;
+                Session["clasif"] = false;
             }
         }
-        protected void CustomValidator5_ServerValidate(object source, ServerValidateEventArgs args)
+        protected void CustomValidator15_ServerValidate(object source, ServerValidateEventArgs args)
         {
             if (args.Value.Length > 50)
             {
                 args.IsValid = false;
+                Session["url"] = false;
             }
         }
     }

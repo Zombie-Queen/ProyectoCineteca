@@ -254,7 +254,8 @@ h1 {
     color: #FF0202;
     font-size: 1.3rem;
     float:right;
-    
+    top: 0px;
+    left: 0px;
 }
 
 .valid-rojo {

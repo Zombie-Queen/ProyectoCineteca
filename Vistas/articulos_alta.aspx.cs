@@ -151,6 +151,7 @@ namespace Vistas
         protected void grdArticulos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
 
+            bool modificar = true;
             //Buscar los datos del edititemplate
             String s_id_articulo = ((System.Web.UI.WebControls.Label)grdArticulos.Rows[e.RowIndex].FindControl("lbl_id_articulo")).Text;
             String s_estado = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_estado_art")).Text;
@@ -159,18 +160,28 @@ namespace Vistas
             String s_precio = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_precio")).Text;
             String s_url = ((System.Web.UI.WebControls.TextBox)grdArticulos.Rows[e.RowIndex].FindControl("txt_imagen")).Text;
 
+            if (s_id_articulo == "" || s_estado == "" || s_nombre == "" || s_descripcion == "" || s_precio == "" || s_url == "") modificar = false;
+            
             art.id_articulo = s_id_articulo;
             art.estado_articulo = s_estado;
             art.nombre_articulo = s_nombre;
             art.descripcion_articulo = s_descripcion;
             art.precio = Convert.ToDecimal(s_precio);
             art.imagen_articulo = s_url;
+            /*validar tamaño de strings*/
 
-
-            na.modificarArticulo(art);// se envia el objeto con los nuevos valores y se actualiza en la BD
-
-            grdArticulos.EditIndex = -1;
-            CargarGrid(); // se vuelve a cargar la grilla actualizada 
+            if(modificar==true)
+            {
+                na.modificarArticulo(art);// se envia el objeto con los nuevos valores y se actualiza en la BD
+                grdArticulos.EditIndex = -1;
+                CargarGrid(); // se vuelve a cargar la grilla actualizada
+                MessageBox.Show("Artículo modificado con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                MessageBox.Show("No se pudo modificar el artículo.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+             
         }
 
         protected void grdArticulos_RowDeleting(object sender, GridViewDeleteEventArgs e)
