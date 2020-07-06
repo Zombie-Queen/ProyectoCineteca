@@ -19,8 +19,7 @@ namespace Vistas
         }
 
         protected void btnCambiarCorreo_Click(object sender, EventArgs e)
-        {
-            txtCorreo.Text = "";
+        { 
             lblContra.Text = "";
             bool estado = false;
             estado = nu.ModificarCorreo(Session["Correo_Ac"].ToString(), txtCorreo.Text, Session["Contraseña_Ac"].ToString());
