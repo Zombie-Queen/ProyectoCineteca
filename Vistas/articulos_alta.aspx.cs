@@ -29,7 +29,7 @@ namespace Vistas
                 
                 CargarGrid();
             }
-            vaciarCampos();
+            
         }
         public void CargarGrid()
         {
@@ -91,14 +91,24 @@ namespace Vistas
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            
-                art.id_articulo = txt_id_articulo.Text;
-                art.estado_articulo = txt_estado_articulo.Text;
-                art.nombre_articulo = txt_nombre_articulo.Text;
-                art.descripcion_articulo = txt_descripcion_art.Text;
+
+            bool flag = false;
+            art.id_articulo = txt_id_articulo.Text;
+            art.estado_articulo = txt_estado_articulo.Text;
+            art.nombre_articulo = txt_nombre_articulo.Text;
+            art.descripcion_articulo = txt_descripcion_art.Text;
+            try 
+            {
                 art.precio = Convert.ToDecimal(txt_precio_art.Text);
-                art.imagen_articulo = txt_url_articulo.Text;
-            if(cv_id_art.IsValid==true&& cv_estado_art.IsValid == true && cv_nombre_art.IsValid == true && cv_desc_art.IsValid == true && cv_url_art.IsValid == true)
+            }
+            catch (Exception exc) 
+            {
+                flag = true;
+                MessageBox.Show("Ingrese valores decimales con coma", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            if (txt_precio_art.Text.Contains(".")) { flag = true; }
+            art.imagen_articulo = txt_url_articulo.Text;
+            if (cv_id_art.IsValid==true&& cv_estado_art.IsValid == true && cv_nombre_art.IsValid == true && cv_desc_art.IsValid == true && cv_url_art.IsValid == true && flag==false)
             {
 
                 try
@@ -114,6 +124,7 @@ namespace Vistas
                         {
                             MessageBox.Show("El artículo se agrego " + txt_nombre_articulo.Text + " con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             vaciarCampos();
+                            CargarGrid();
 
                         }
                         else
@@ -130,8 +141,10 @@ namespace Vistas
                     MessageBox.Show("Error al agregar artículo " + txt_nombre_articulo.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
-            
-
+            else
+            {
+                MessageBox.Show("Error al agregar artículo.","Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             
 
         }
@@ -172,7 +185,7 @@ namespace Vistas
                 {
                     if (na.eliminarArticulo(art))
                     {
-                        MessageBox.Show("El artículo "+nombreArt+" elimino con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        MessageBox.Show("El artículo "+nombreArt+" se eliminó con éxito.", "Genial", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         grdArticulos.PageIndex = 0; /* va a la pagina 1 */
                         CargarGrid();// se carga de nuevo la grilla sin el registro ya eliminado
                     }
@@ -209,6 +222,7 @@ namespace Vistas
             txt_descripcion_art.Text = "";
             txt_precio_art.Text = "";
             txt_url_articulo.Text="";
+            txt_stock.Text = "";
 
         }
 

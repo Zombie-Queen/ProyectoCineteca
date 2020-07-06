@@ -87,10 +87,12 @@ namespace Vistas
             if (txt_duracion_peli.Text != "") { pelicula.duracion = Convert.ToInt32(txt_duracion_peli.Text); }
             pelicula.clasificacion = txt_clasif_peli.Text;
             pelicula.url_imagen = txt_url_peli.Text;
-            if(cv_id_peli.IsValid==true&& cv_estado_peli.IsValid==true&& cv_titulo.IsValid==true&& cv_clasif.IsValid==true&& cv_url.IsValid==true)
+
+            if(cv_id_peli.IsValid==true && cv_estado_peli.IsValid==true && cv_titulo.IsValid==true && cv_clasif.IsValid==true && cv_url.IsValid==true)
             {
                 try
                 {
+                    
                     if (np.existePelicula(pelicula))
                     {
                         MessageBox.Show("La película " + txt_id_peli.Text + " ya existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -117,6 +119,10 @@ namespace Vistas
                     MessageBox.Show("Error al agregar película " + txt_titulo_peli.Text + ".", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
 
+            }
+            else 
+            {
+                MessageBox.Show("Error al agregar película.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             
 
@@ -199,9 +205,11 @@ namespace Vistas
 
         protected void CustomValidator1_ServerValidate(object source, ServerValidateEventArgs args)
         {
+            
             if (args.Value.Length > 4)
             {
                 args.IsValid = false;
+                cv_id_peli.IsValid = false;
             }
             
         }

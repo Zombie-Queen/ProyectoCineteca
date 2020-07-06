@@ -25,10 +25,9 @@
             <asp:RangeValidator ID="rg_durac_peli" runat="server" Text="Expresión invalida" ControlToValidate="txt_duracion_peli" Class="validator-rojo" ValidationGroup="Agregar1" MaximumValue="300" MinimumValue="0" Type="Integer" ></asp:RangeValidator>
             <asp:RequiredFieldValidator ID="req_durac" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_duracion_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>    
             
-            <asp:TextBox Class="controles" runat="server" name="clasif" placeholder="Calsificación"  ID="txt_clasif_peli"></asp:TextBox>
+            <asp:TextBox Class="controles" runat="server" name="clasif" placeholder="Clasificación"  ID="txt_clasif_peli"></asp:TextBox>
             <asp:CustomValidator ID="cv_clasif" runat="server" Text="Máximo 50 caracteres" ControlToValidate="txt_clasif_peli" Class="validator-rojo" OnServerValidate="CustomValidator4_ServerValidate" ValidationGroup="Agregar1"></asp:CustomValidator>
             <asp:RequiredFieldValidator ID="req_clasif" runat="server" Text="*Campo obligatorio" ControlToValidate="txt_clasif_peli" Class="valid-rojo" ValidationGroup="Agregar1"></asp:RequiredFieldValidator>
-            
             
             
             <asp:TextBox Class="controles" runat="server" name="url" placeholder="imagenes/peliculas/titulo.jpg" ID="txt_url_peli"></asp:TextBox>
