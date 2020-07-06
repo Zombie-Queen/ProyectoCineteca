@@ -27,6 +27,11 @@ namespace Vistas
                 }
                 else
                 {
+                    if(Session["Inactivo"] != null && Session["Inactivo"].ToString() == "Eliminado")
+                    {
+                        lbluser.Text = "Usuario eliminado.";
+                        lbluser.CssClass = "nombreuser";
+                    }
                     logueado.CssClass = "d-none";
                     ddm.CssClass = "dropdown-menu dropdown-menu-lg-right mr-5 pl-2 pr-2 text-md-center";
                 }

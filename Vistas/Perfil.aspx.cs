@@ -75,6 +75,7 @@ namespace Vistas
             {
                 Session["Correo_Ac"] = null;
                 Session["Contraseña_Ac"] = null;
+                Session["Inactivo"] = "Eliminado";
                 Response.Redirect("Inicio.aspx");
             }
             else
